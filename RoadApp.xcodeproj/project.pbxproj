@@ -16,6 +16,12 @@
 		BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */; };
 		BCC4054F1DD0A00F00E313F7 /* RoadAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */; };
 		BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */; };
+		BCC405691DD0A06400E313F7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405681DD0A06400E313F7 /* LoginController.m */; };
+		BCC405711DD0A16200E313F7 /* FrameWork in Resources */ = {isa = PBXBuildFile; fileRef = BCC405701DD0A16200E313F7 /* FrameWork */; };
+		BCC405781DD0A48C00E313F7 /* AFNetworking.h in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405771DD0A48C00E313F7 /* AFNetworking.h */; };
+		BCC4057A1DD0A4B300E313F7 /* SVProgressHUD.h in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */; };
+		BCC4057C1DD0A50800E313F7 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = BCC4057B1DD0A50800E313F7 /* JSON */; };
+		BCC405831DD0AD1800E313F7 /* Utilities in Resources */ = {isa = PBXBuildFile; fileRef = BCC405821DD0AD1800E313F7 /* Utilities */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,13 @@
 		BCC405551DD0A00F00E313F7 /* RoadAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadAppUITests.m; sourceTree = "<group>"; };
 		BCC4055B1DD0A00F00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC405671DD0A06400E313F7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		BCC405681DD0A06400E313F7 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
+		BCC405701DD0A16200E313F7 /* FrameWork */ = {isa = PBXFileReference; lastKnownFileType = folder; path = FrameWork; sourceTree = "<group>"; };
+		BCC405771DD0A48C00E313F7 /* AFNetworking.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = RoadApp/FrameWork/AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
+		BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = RoadApp/FrameWork/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
+		BCC4057B1DD0A50800E313F7 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
+		BCC405821DD0AD1800E313F7 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utilities; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +73,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC405781DD0A48C00E313F7 /* AFNetworking.h in Frameworks */,
+				BCC4057A1DD0A4B300E313F7 /* SVProgressHUD.h in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +98,8 @@
 		BCC405251DD0A00E00E313F7 = {
 			isa = PBXGroup;
 			children = (
+				BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */,
+				BCC405771DD0A48C00E313F7 /* AFNetworking.h */,
 				BCC405301DD0A00E00E313F7 /* RoadApp */,
 				BCC4054D1DD0A00F00E313F7 /* RoadAppTests */,
 				BCC405581DD0A00F00E313F7 /* RoadAppUITests */,
@@ -103,6 +120,11 @@
 		BCC405301DD0A00E00E313F7 /* RoadApp */ = {
 			isa = PBXGroup;
 			children = (
+				BCC405821DD0AD1800E313F7 /* Utilities */,
+				BCC4057B1DD0A50800E313F7 /* JSON */,
+				BCC405701DD0A16200E313F7 /* FrameWork */,
+				BCC405671DD0A06400E313F7 /* LoginController.h */,
+				BCC405681DD0A06400E313F7 /* LoginController.m */,
 				BCC405341DD0A00E00E313F7 /* AppDelegate.h */,
 				BCC405351DD0A00E00E313F7 /* AppDelegate.m */,
 				BCC405371DD0A00E00E313F7 /* ViewController.h */,
@@ -249,9 +271,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC4057C1DD0A50800E313F7 /* JSON in Resources */,
+				BCC405831DD0AD1800E313F7 /* Utilities in Resources */,
 				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
 				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
 				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
+				BCC405711DD0A16200E313F7 /* FrameWork in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,6 +301,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
@@ -421,7 +447,13 @@
 		BCC4055F1DD0A00F00E313F7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RoadApp/Framework",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
@@ -432,7 +464,13 @@
 		BCC405601DD0A00F00E313F7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RoadApp/Framework",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
@@ -505,6 +543,7 @@
 				BCC405601DD0A00F00E313F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCC405611DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppTests" */ = {
 			isa = XCConfigurationList;
@@ -513,6 +552,7 @@
 				BCC405631DD0A00F00E313F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BCC405641DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +561,7 @@
 				BCC405661DD0A00F00E313F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

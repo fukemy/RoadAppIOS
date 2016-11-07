@@ -1,0 +1,41 @@
+//
+//  LoginController.m
+//  RoadProject
+//
+//  Created by admin2 on 11/7/16.
+//  Copyright © 2016 admin2. All rights reserved.
+//
+
+#import "LoginController.h"
+
+@interface LoginController ()
+
+@end
+
+@implementation LoginController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    UITapGestureRecognizer *tapBackground = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissBg)];
+    tapBackground.numberOfTapsRequired = 1;
+    [_loginControllerBg addGestureRecognizer:tapBackground];
+    
+    _loginViewInput.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    _loginViewInput.layer.borderWidth = 1.0;
+    _loginViewInput.layer.cornerRadius = 5.0;
+    _loginViewInput.layer.masksToBounds = true;
+    
+}
+
+-(void) dismissBg{
+    [self dismissViewControllerAnimated:self completion:nil];
+    [self.view endEditing:YES];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+
+@end

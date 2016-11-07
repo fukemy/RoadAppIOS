@@ -1,0 +1,541 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BCC405331DD0A00E00E313F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405321DD0A00E00E313F7 /* main.m */; };
+		BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405351DD0A00E00E313F7 /* AppDelegate.m */; };
+		BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405381DD0A00E00E313F7 /* ViewController.m */; };
+		BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC4053A1DD0A00E00E313F7 /* Main.storyboard */; };
+		BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCC4053D1DD0A00E00E313F7 /* RoadApp.xcdatamodeld */; };
+		BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC405401DD0A00E00E313F7 /* Assets.xcassets */; };
+		BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */; };
+		BCC4054F1DD0A00F00E313F7 /* RoadAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */; };
+		BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BCC4054B1DD0A00F00E313F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC405261DD0A00E00E313F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC4052D1DD0A00E00E313F7;
+			remoteInfo = RoadApp;
+		};
+		BCC405561DD0A00F00E313F7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BCC405261DD0A00E00E313F7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BCC4052D1DD0A00E00E313F7;
+			remoteInfo = RoadApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BCC4052E1DD0A00E00E313F7 /* RoadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC405321DD0A00E00E313F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BCC405341DD0A00E00E313F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BCC405351DD0A00E00E313F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BCC405371DD0A00E00E313F7 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		BCC405381DD0A00E00E313F7 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		BCC4053B1DD0A00E00E313F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BCC4053E1DD0A00E00E313F7 /* RoadApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoadApp.xcdatamodel; sourceTree = "<group>"; };
+		BCC405401DD0A00E00E313F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BCC405431DD0A00E00E313F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BCC405451DD0A00E00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC4054A1DD0A00F00E313F7 /* RoadAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadAppTests.m; sourceTree = "<group>"; };
+		BCC405501DD0A00F00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BCC405551DD0A00F00E313F7 /* RoadAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadAppUITests.m; sourceTree = "<group>"; };
+		BCC4055B1DD0A00F00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BCC4052B1DD0A00E00E313F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405471DD0A00F00E313F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405521DD0A00F00E313F7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BCC405251DD0A00E00E313F7 = {
+			isa = PBXGroup;
+			children = (
+				BCC405301DD0A00E00E313F7 /* RoadApp */,
+				BCC4054D1DD0A00F00E313F7 /* RoadAppTests */,
+				BCC405581DD0A00F00E313F7 /* RoadAppUITests */,
+				BCC4052F1DD0A00E00E313F7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BCC4052F1DD0A00E00E313F7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BCC4052E1DD0A00E00E313F7 /* RoadApp.app */,
+				BCC4054A1DD0A00F00E313F7 /* RoadAppTests.xctest */,
+				BCC405551DD0A00F00E313F7 /* RoadAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BCC405301DD0A00E00E313F7 /* RoadApp */ = {
+			isa = PBXGroup;
+			children = (
+				BCC405341DD0A00E00E313F7 /* AppDelegate.h */,
+				BCC405351DD0A00E00E313F7 /* AppDelegate.m */,
+				BCC405371DD0A00E00E313F7 /* ViewController.h */,
+				BCC405381DD0A00E00E313F7 /* ViewController.m */,
+				BCC4053A1DD0A00E00E313F7 /* Main.storyboard */,
+				BCC405401DD0A00E00E313F7 /* Assets.xcassets */,
+				BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */,
+				BCC405451DD0A00E00E313F7 /* Info.plist */,
+				BCC4053D1DD0A00E00E313F7 /* RoadApp.xcdatamodeld */,
+				BCC405311DD0A00E00E313F7 /* Supporting Files */,
+			);
+			path = RoadApp;
+			sourceTree = "<group>";
+		};
+		BCC405311DD0A00E00E313F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BCC405321DD0A00E00E313F7 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BCC4054D1DD0A00F00E313F7 /* RoadAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */,
+				BCC405501DD0A00F00E313F7 /* Info.plist */,
+			);
+			path = RoadAppTests;
+			sourceTree = "<group>";
+		};
+		BCC405581DD0A00F00E313F7 /* RoadAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */,
+				BCC4055B1DD0A00F00E313F7 /* Info.plist */,
+			);
+			path = RoadAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BCC4052D1DD0A00E00E313F7 /* RoadApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC4055E1DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadApp" */;
+			buildPhases = (
+				BCC4052A1DD0A00E00E313F7 /* Sources */,
+				BCC4052B1DD0A00E00E313F7 /* Frameworks */,
+				BCC4052C1DD0A00E00E313F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RoadApp;
+			productName = RoadApp;
+			productReference = BCC4052E1DD0A00E00E313F7 /* RoadApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BCC405491DD0A00F00E313F7 /* RoadAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC405611DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppTests" */;
+			buildPhases = (
+				BCC405461DD0A00F00E313F7 /* Sources */,
+				BCC405471DD0A00F00E313F7 /* Frameworks */,
+				BCC405481DD0A00F00E313F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCC4054C1DD0A00F00E313F7 /* PBXTargetDependency */,
+			);
+			name = RoadAppTests;
+			productName = RoadAppTests;
+			productReference = BCC4054A1DD0A00F00E313F7 /* RoadAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BCC405541DD0A00F00E313F7 /* RoadAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BCC405641DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppUITests" */;
+			buildPhases = (
+				BCC405511DD0A00F00E313F7 /* Sources */,
+				BCC405521DD0A00F00E313F7 /* Frameworks */,
+				BCC405531DD0A00F00E313F7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BCC405571DD0A00F00E313F7 /* PBXTargetDependency */,
+			);
+			name = RoadAppUITests;
+			productName = RoadAppUITests;
+			productReference = BCC405551DD0A00F00E313F7 /* RoadAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BCC405261DD0A00E00E313F7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = admin2;
+				TargetAttributes = {
+					BCC4052D1DD0A00E00E313F7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F25MJ69527;
+					};
+					BCC405491DD0A00F00E313F7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F25MJ69527;
+						TestTargetID = BCC4052D1DD0A00E00E313F7;
+					};
+					BCC405541DD0A00F00E313F7 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = F25MJ69527;
+						TestTargetID = BCC4052D1DD0A00E00E313F7;
+					};
+				};
+			};
+			buildConfigurationList = BCC405291DD0A00E00E313F7 /* Build configuration list for PBXProject "RoadApp" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BCC405251DD0A00E00E313F7;
+			productRefGroup = BCC4052F1DD0A00E00E313F7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BCC4052D1DD0A00E00E313F7 /* RoadApp */,
+				BCC405491DD0A00F00E313F7 /* RoadAppTests */,
+				BCC405541DD0A00F00E313F7 /* RoadAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BCC4052C1DD0A00E00E313F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
+				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
+				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405481DD0A00F00E313F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405531DD0A00F00E313F7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BCC4052A1DD0A00E00E313F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
+				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
+				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
+				BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405461DD0A00F00E313F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC4054F1DD0A00F00E313F7 /* RoadAppTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BCC405511DD0A00F00E313F7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BCC4054C1DD0A00F00E313F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCC4052D1DD0A00E00E313F7 /* RoadApp */;
+			targetProxy = BCC4054B1DD0A00F00E313F7 /* PBXContainerItemProxy */;
+		};
+		BCC405571DD0A00F00E313F7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BCC4052D1DD0A00E00E313F7 /* RoadApp */;
+			targetProxy = BCC405561DD0A00F00E313F7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BCC4053A1DD0A00E00E313F7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC4053B1DD0A00E00E313F7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BCC405431DD0A00E00E313F7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BCC4055C1DD0A00F00E313F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BCC4055D1DD0A00F00E313F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCC4055F1DD0A00F00E313F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RoadApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BCC405601DD0A00F00E313F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RoadApp/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BCC405621DD0A00F00E313F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RoadAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoadApp.app/RoadApp";
+			};
+			name = Debug;
+		};
+		BCC405631DD0A00F00E313F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RoadAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RoadApp.app/RoadApp";
+			};
+			name = Release;
+		};
+		BCC405651DD0A00F00E313F7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RoadAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RoadApp;
+			};
+			name = Debug;
+		};
+		BCC405661DD0A00F00E313F7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RoadAppUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RoadApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BCC405291DD0A00E00E313F7 /* Build configuration list for PBXProject "RoadApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC4055C1DD0A00F00E313F7 /* Debug */,
+				BCC4055D1DD0A00F00E313F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BCC4055E1DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC4055F1DD0A00F00E313F7 /* Debug */,
+				BCC405601DD0A00F00E313F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BCC405611DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC405621DD0A00F00E313F7 /* Debug */,
+				BCC405631DD0A00F00E313F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BCC405641DD0A00F00E313F7 /* Build configuration list for PBXNativeTarget "RoadAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC405651DD0A00F00E313F7 /* Debug */,
+				BCC405661DD0A00F00E313F7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BCC4053D1DD0A00E00E313F7 /* RoadApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BCC4053E1DD0A00E00E313F7 /* RoadApp.xcdatamodel */,
+			);
+			currentVersion = BCC4053E1DD0A00E00E313F7 /* RoadApp.xcdatamodel */;
+			path = RoadApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BCC405261DD0A00E00E313F7 /* Project object */;
+}

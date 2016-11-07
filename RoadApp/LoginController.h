@@ -14,5 +14,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *tfUsername;
 @property (strong, nonatomic) IBOutlet UITextField *tfPassword;
 @property (strong, nonatomic) IBOutlet UIView *loginViewInput;
+- (IBAction)login:(id)sender;
 
 @end

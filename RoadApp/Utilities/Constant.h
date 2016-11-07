@@ -18,7 +18,7 @@
 //================================//
 #define APP_NAME @"MyPlate"
 #define GOOGLE_PLUS_CLIENT_ID @"1058137937069-kf3gskfr0j6daqn5521qvg3r0pij1dog.apps.googleusercontent.com"
-#define kBaseURL @"https://118.70.199.111/RecipeWS/"  //Live URL
+#define kBaseURL @"http://khaosatdiachat.com:8887/api/"  //Live URL
 
 #define kNoInternetConnection  @"Please check your internet connection."
 #define kServerUnavailableMessage @"Well this is embarrassing. There was an error processing your request. Please try again later."
@@ -51,6 +51,7 @@
 #define LOGGED_IN @"Logged_in"
 #define OK_BUTTON @"OK"
 #define FILE_IMAGE_EXTENSION @"png"
+#define USER_TOKEN "user_token"
 
 
 #pragma mark - table name 
@@ -404,6 +405,7 @@
 #define kWelcomeMessageFromAuthor @"Hi, I am George McNulty, the creator of MyPlate. Yep, I am a real person. I work in technology but have a passion for food, particularly the social aspects of sharing recipes, ideas and tips with my friends and family. I created MyPlate to fill the surprising gap of recipe-only apps, recognizing our need to connect with food and people. Please get started today connecting and don't forget to let me know how we can make it even better."
 #define kWelcomeMessageIntroduce @"You are currently in browsing mode. To access all the content and begin connecting with friends and family, Log in with your account ot Join Now to get started."
 
+#define BASED_LOGIN_URL @"users/login/dungdv/123456"
 //congdt1 - begin
 #define kSTEP_NUMBER @"kSTEP_NUMBER"
 //congdt1 - end

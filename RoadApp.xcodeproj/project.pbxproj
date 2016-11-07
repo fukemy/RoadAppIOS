@@ -18,10 +18,25 @@
 		BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */; };
 		BCC405691DD0A06400E313F7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405681DD0A06400E313F7 /* LoginController.m */; };
 		BCC405711DD0A16200E313F7 /* FrameWork in Resources */ = {isa = PBXBuildFile; fileRef = BCC405701DD0A16200E313F7 /* FrameWork */; };
-		BCC405781DD0A48C00E313F7 /* AFNetworking.h in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405771DD0A48C00E313F7 /* AFNetworking.h */; };
-		BCC4057A1DD0A4B300E313F7 /* SVProgressHUD.h in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */; };
 		BCC4057C1DD0A50800E313F7 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = BCC4057B1DD0A50800E313F7 /* JSON */; };
 		BCC405831DD0AD1800E313F7 /* Utilities in Resources */ = {isa = PBXBuildFile; fileRef = BCC405821DD0AD1800E313F7 /* Utilities */; };
+		BCC405D01DD0BA7300E313F7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405CF1DD0BA7300E313F7 /* QuartzCore.framework */; };
+		BCC405D21DD0BA9B00E313F7 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCC405D11DD0BA9B00E313F7 /* CoreData.framework */; };
+		BCC405D41DD0BB2900E313F7 /* JSONParser.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405D31DD0BB2900E313F7 /* JSONParser.m */; };
+		BCC405D51DD0BB4E00E313F7 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4058B1DD0B97800E313F7 /* AFHTTPRequestOperation.m */; };
+		BCC405D61DD0BB4E00E313F7 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4058D1DD0B97800E313F7 /* AFHTTPRequestOperationManager.m */; };
+		BCC405D71DD0BB4E00E313F7 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4058F1DD0B97800E313F7 /* AFHTTPSessionManager.m */; };
+		BCC405D81DD0BB4E00E313F7 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405911DD0B97800E313F7 /* AFNetworkReachabilityManager.m */; };
+		BCC405D91DD0BB4E00E313F7 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405931DD0B97800E313F7 /* AFSecurityPolicy.m */; };
+		BCC405DA1DD0BB4E00E313F7 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405951DD0B97800E313F7 /* AFURLConnectionOperation.m */; };
+		BCC405DB1DD0BB4E00E313F7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405971DD0B97800E313F7 /* AFURLRequestSerialization.m */; };
+		BCC405DC1DD0BB4E00E313F7 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405991DD0B97800E313F7 /* AFURLResponseSerialization.m */; };
+		BCC405DD1DD0BB4E00E313F7 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4059B1DD0B97800E313F7 /* AFURLSessionManager.m */; };
+		BCC405DE1DD0BB4E00E313F7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4059D1DD0B97800E313F7 /* Reachability.m */; };
+		BCC405DF1DD0BB4E00E313F7 /* JsonParserWithAF.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405881DD0B94900E313F7 /* JsonParserWithAF.m */; };
+		BCC405EC1DD0C0B700E313F7 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405E11DD0BCF200E313F7 /* SVIndefiniteAnimatedView.m */; };
+		BCC405ED1DD0C0B700E313F7 /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405E21DD0BCF200E313F7 /* SVProgressHUD.m */; };
+		BCC405EF1DD0C57C00E313F7 /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCC405E71DD0BD5A00E313F7 /* SVProgressHUD.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +81,38 @@
 		BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = RoadApp/FrameWork/SVProgressHUD/SVProgressHUD.h; sourceTree = "<group>"; };
 		BCC4057B1DD0A50800E313F7 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
 		BCC405821DD0AD1800E313F7 /* Utilities */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Utilities; sourceTree = "<group>"; };
+		BCC405861DD0B78700E313F7 /* JSONParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = RoadApp/JSON/JSONParser.m; sourceTree = "<group>"; };
+		BCC405881DD0B94900E313F7 /* JsonParserWithAF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JsonParserWithAF.m; path = RoadApp/JSON/JsonParserWithAF.m; sourceTree = "<group>"; };
+		BCC4058A1DD0B97800E313F7 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperation.h; path = RoadApp/FrameWork/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
+		BCC4058B1DD0B97800E313F7 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperation.m; path = RoadApp/FrameWork/AFNetworking/AFHTTPRequestOperation.m; sourceTree = "<group>"; };
+		BCC4058C1DD0B97800E313F7 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = RoadApp/FrameWork/AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		BCC4058D1DD0B97800E313F7 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFHTTPRequestOperationManager.m; path = RoadApp/FrameWork/AFNetworking/AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
+		BCC4058E1DD0B97800E313F7 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFHTTPSessionManager.h; path = RoadApp/FrameWork/AFNetworking/AFHTTPSessionManager.h; sourceTree = "<group>"; };
+		BCC4058F1DD0B97800E313F7 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = RoadApp/FrameWork/AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
+		BCC405901DD0B97800E313F7 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFNetworkReachabilityManager.h; path = RoadApp/FrameWork/AFNetworking/AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
+		BCC405911DD0B97800E313F7 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = RoadApp/FrameWork/AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
+		BCC405921DD0B97800E313F7 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = RoadApp/FrameWork/AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
+		BCC405931DD0B97800E313F7 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = RoadApp/FrameWork/AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		BCC405941DD0B97800E313F7 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFURLConnectionOperation.h; path = RoadApp/FrameWork/AFNetworking/AFURLConnectionOperation.h; sourceTree = "<group>"; };
+		BCC405951DD0B97800E313F7 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFURLConnectionOperation.m; path = RoadApp/FrameWork/AFNetworking/AFURLConnectionOperation.m; sourceTree = "<group>"; };
+		BCC405961DD0B97800E313F7 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFURLRequestSerialization.h; path = RoadApp/FrameWork/AFNetworking/AFURLRequestSerialization.h; sourceTree = "<group>"; };
+		BCC405971DD0B97800E313F7 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = RoadApp/FrameWork/AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
+		BCC405981DD0B97800E313F7 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFURLResponseSerialization.h; path = RoadApp/FrameWork/AFNetworking/AFURLResponseSerialization.h; sourceTree = "<group>"; };
+		BCC405991DD0B97800E313F7 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFURLResponseSerialization.m; path = RoadApp/FrameWork/AFNetworking/AFURLResponseSerialization.m; sourceTree = "<group>"; };
+		BCC4059A1DD0B97800E313F7 /* AFURLSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AFURLSessionManager.h; path = RoadApp/FrameWork/AFNetworking/AFURLSessionManager.h; sourceTree = "<group>"; };
+		BCC4059B1DD0B97800E313F7 /* AFURLSessionManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AFURLSessionManager.m; path = RoadApp/FrameWork/AFNetworking/AFURLSessionManager.m; sourceTree = "<group>"; };
+		BCC4059C1DD0B97800E313F7 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = RoadApp/FrameWork/AFNetworking/Reachability.h; sourceTree = "<group>"; };
+		BCC4059D1DD0B97800E313F7 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = RoadApp/FrameWork/AFNetworking/Reachability.m; sourceTree = "<group>"; };
+		BCC405B41DD0B99700E313F7 /* JSONParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JSONParser.h; path = RoadApp/JSON/JSONParser.h; sourceTree = "<group>"; };
+		BCC405B51DD0B99700E313F7 /* JsonParserWithAF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JsonParserWithAF.h; path = RoadApp/JSON/JsonParserWithAF.h; sourceTree = "<group>"; };
+		BCC405CF1DD0BA7300E313F7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		BCC405D11DD0BA9B00E313F7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		BCC405D31DD0BB2900E313F7 /* JSONParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JSONParser.m; path = RoadApp/JSON/JSONParser.m; sourceTree = "<group>"; };
+		BCC405E11DD0BCF200E313F7 /* SVIndefiniteAnimatedView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVIndefiniteAnimatedView.m; path = RoadApp/FrameWork/SVProgressHUD/SVIndefiniteAnimatedView.m; sourceTree = "<group>"; };
+		BCC405E21DD0BCF200E313F7 /* SVProgressHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = SVProgressHUD.m; path = RoadApp/FrameWork/SVProgressHUD/SVProgressHUD.m; sourceTree = "<group>"; };
+		BCC405E51DD0BD5A00E313F7 /* SVIndefiniteAnimatedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SVIndefiniteAnimatedView.h; path = RoadApp/FrameWork/SVProgressHUD/SVIndefiniteAnimatedView.h; sourceTree = "<group>"; };
+		BCC405E61DD0BD5A00E313F7 /* SVProgressHUD-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "SVProgressHUD-Prefix.pch"; path = "RoadApp/FrameWork/SVProgressHUD/SVProgressHUD-Prefix.pch"; sourceTree = "<group>"; };
+		BCC405E71DD0BD5A00E313F7 /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = RoadApp/FrameWork/SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +120,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCC405781DD0A48C00E313F7 /* AFNetworking.h in Frameworks */,
-				BCC4057A1DD0A4B300E313F7 /* SVProgressHUD.h in Frameworks */,
+				BCC405D21DD0BA9B00E313F7 /* CoreData.framework in Frameworks */,
+				BCC405D01DD0BA7300E313F7 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +145,38 @@
 		BCC405251DD0A00E00E313F7 = {
 			isa = PBXGroup;
 			children = (
+				BCC405E51DD0BD5A00E313F7 /* SVIndefiniteAnimatedView.h */,
+				BCC405E61DD0BD5A00E313F7 /* SVProgressHUD-Prefix.pch */,
+				BCC405E71DD0BD5A00E313F7 /* SVProgressHUD.bundle */,
+				BCC405E11DD0BCF200E313F7 /* SVIndefiniteAnimatedView.m */,
+				BCC405E21DD0BCF200E313F7 /* SVProgressHUD.m */,
+				BCC405D31DD0BB2900E313F7 /* JSONParser.m */,
+				BCC405D11DD0BA9B00E313F7 /* CoreData.framework */,
+				BCC405CF1DD0BA7300E313F7 /* QuartzCore.framework */,
+				BCC405B41DD0B99700E313F7 /* JSONParser.h */,
+				BCC405B51DD0B99700E313F7 /* JsonParserWithAF.h */,
+				BCC4058A1DD0B97800E313F7 /* AFHTTPRequestOperation.h */,
+				BCC4058B1DD0B97800E313F7 /* AFHTTPRequestOperation.m */,
+				BCC4058C1DD0B97800E313F7 /* AFHTTPRequestOperationManager.h */,
+				BCC4058D1DD0B97800E313F7 /* AFHTTPRequestOperationManager.m */,
+				BCC4058E1DD0B97800E313F7 /* AFHTTPSessionManager.h */,
+				BCC4058F1DD0B97800E313F7 /* AFHTTPSessionManager.m */,
+				BCC405901DD0B97800E313F7 /* AFNetworkReachabilityManager.h */,
+				BCC405911DD0B97800E313F7 /* AFNetworkReachabilityManager.m */,
+				BCC405921DD0B97800E313F7 /* AFSecurityPolicy.h */,
+				BCC405931DD0B97800E313F7 /* AFSecurityPolicy.m */,
+				BCC405941DD0B97800E313F7 /* AFURLConnectionOperation.h */,
+				BCC405951DD0B97800E313F7 /* AFURLConnectionOperation.m */,
+				BCC405961DD0B97800E313F7 /* AFURLRequestSerialization.h */,
+				BCC405971DD0B97800E313F7 /* AFURLRequestSerialization.m */,
+				BCC405981DD0B97800E313F7 /* AFURLResponseSerialization.h */,
+				BCC405991DD0B97800E313F7 /* AFURLResponseSerialization.m */,
+				BCC4059A1DD0B97800E313F7 /* AFURLSessionManager.h */,
+				BCC4059B1DD0B97800E313F7 /* AFURLSessionManager.m */,
+				BCC4059C1DD0B97800E313F7 /* Reachability.h */,
+				BCC4059D1DD0B97800E313F7 /* Reachability.m */,
+				BCC405881DD0B94900E313F7 /* JsonParserWithAF.m */,
+				BCC405861DD0B78700E313F7 /* JSONParser.m */,
 				BCC405791DD0A4B300E313F7 /* SVProgressHUD.h */,
 				BCC405771DD0A48C00E313F7 /* AFNetworking.h */,
 				BCC405301DD0A00E00E313F7 /* RoadApp */,
@@ -271,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC405EF1DD0C57C00E313F7 /* SVProgressHUD.bundle in Resources */,
 				BCC4057C1DD0A50800E313F7 /* JSON in Resources */,
 				BCC405831DD0AD1800E313F7 /* Utilities in Resources */,
 				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
@@ -301,6 +381,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCC405EC1DD0C0B700E313F7 /* SVIndefiniteAnimatedView.m in Sources */,
+				BCC405ED1DD0C0B700E313F7 /* SVProgressHUD.m in Sources */,
+				BCC405D51DD0BB4E00E313F7 /* AFHTTPRequestOperation.m in Sources */,
+				BCC405D61DD0BB4E00E313F7 /* AFHTTPRequestOperationManager.m in Sources */,
+				BCC405D71DD0BB4E00E313F7 /* AFHTTPSessionManager.m in Sources */,
+				BCC405D81DD0BB4E00E313F7 /* AFNetworkReachabilityManager.m in Sources */,
+				BCC405D91DD0BB4E00E313F7 /* AFSecurityPolicy.m in Sources */,
+				BCC405DA1DD0BB4E00E313F7 /* AFURLConnectionOperation.m in Sources */,
+				BCC405DB1DD0BB4E00E313F7 /* AFURLRequestSerialization.m in Sources */,
+				BCC405DC1DD0BB4E00E313F7 /* AFURLResponseSerialization.m in Sources */,
+				BCC405DD1DD0BB4E00E313F7 /* AFURLSessionManager.m in Sources */,
+				BCC405DE1DD0BB4E00E313F7 /* Reachability.m in Sources */,
+				BCC405DF1DD0BB4E00E313F7 /* JsonParserWithAF.m in Sources */,
+				BCC405D41DD0BB2900E313F7 /* JSONParser.m in Sources */,
 				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
@@ -456,6 +550,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -473,6 +568,7 @@
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-all_load";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

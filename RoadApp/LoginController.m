@@ -7,6 +7,8 @@
 //
 
 #import "LoginController.h"
+#import "JSONParser.h"
+#import "SVProgressHUD.h"
 
 @interface LoginController ()
 
@@ -37,5 +39,18 @@
     [super didReceiveMemoryWarning];
 }
 
+
+- (IBAction)login:(id)sender {
+    NSString *url = @"http://khaosatdiachat.com:8887/api/users/login/dungdv/123456";
+    
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
+         NSLog(@"response: %@", responseObject);
+        [SVProgressHUD dismiss];
+    } failure:^(NSError *error) {
+        NSLog(@"error: %@", [error localizedDescription]);
+        [SVProgressHUD dismiss];
+    }];
+}
 
 @end

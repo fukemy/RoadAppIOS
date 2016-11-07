@@ -74,6 +74,9 @@
                                         <variation key="heightClass=regular-widthClass=regular" misplaced="YES">
                                             <rect key="frame" x="235" y="399" width="345" height="40"/>
                                         </variation>
+                                        <connections>
+                                            <action selector="login:" destination="dUU-Sw-gZP" eventType="touchUpInside" id="1AD-DW-uAx"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HNM-rc-HbG">
                                         <rect key="frame" x="45" y="126" width="115" height="17"/>

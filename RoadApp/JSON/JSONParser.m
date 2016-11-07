@@ -17,15 +17,13 @@
     [policy setAllowInvalidCertificates:YES];
     
     [manager setSecurityPolicy:policy];
-    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+
     [manager GET:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSDictionary *responseParser = [responseObject objectForKey:@"responseVo"];
-        int errorResponse = [[responseParser objectForKey:@"error"] intValue];
-        if (errorResponse ==1) {
-            success(responseObject);
-        }else{
-            failure([NSError errorWithDomain:[responseParser objectForKey:@"message"] code:1100 userInfo:nil]);
-        }
+            NSString *responseData = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            success(responseData);
     } failure:^(NSURLSessionDataTask *task, NSError *error) {
         failure(error);
     }];
@@ -107,25 +105,16 @@
 
 + (void) postJsonParser:(NSString *)path withParameters:(id)params success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-//    AFSecurityPolicy* policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-//    [policy setValidatesDomainName:NO];
-//    [policy setAllowInvalidCertificates:YES];
-//    
-//    [manager setSecurityPolicy:policy];
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     [manager setResponseSerializer:responseSerializer];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
-//    manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-//    [manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-    //[manager.requestSerializer setValue:@"124" forHTTPHeaderField:@"userIdLogin"];
     [manager.requestSerializer setStringEncoding:NSUTF8StringEncoding];
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {
         NSDictionary *responseParser = [responseObject objectForKey:@"responseVo"];
+        
         int errorResponse = [[responseParser objectForKey:@"error"] intValue];
         if (errorResponse == 1) {
             success(responseObject);
@@ -138,16 +127,9 @@
 }
 + (void) postJsonParser:(NSString *)path withParameters:(id)params addSubHeader:(NSString *)userIdLogin success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;{
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    //    AFSecurityPolicy* policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-    //    [policy setValidatesDomainName:NO];
-    //    [policy setAllowInvalidCertificates:YES];
-    //
-    //    [manager setSecurityPolicy:policy];
     manager.requestSerializer = [AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-    //[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    //[manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [manager.requestSerializer setValue:userIdLogin forHTTPHeaderField:@"userIdLogin"];
     
     [manager POST:path parameters:params success:^(NSURLSessionDataTask *task, id responseObject) {

@@ -7,8 +7,8 @@
 //
 
 #import "LoginController.h"
-#import "JSONParser.h"
-#import "SVProgressHUD.h"
+#import "JSON/JSONParser.h"
+#import "SVProgressHUD/SVProgressHUD.h"
 
 @interface LoginController ()
 
@@ -47,6 +47,7 @@
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
          NSLog(@"response: %@", responseObject);
         [SVProgressHUD dismiss];
+        
     } failure:^(NSError *error) {
         NSLog(@"error: %@", [error localizedDescription]);
         [SVProgressHUD dismiss];

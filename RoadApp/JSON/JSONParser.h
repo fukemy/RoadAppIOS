@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AFNetworking.h"
+#import "../AFNetworking/AFNetworking.h"
 @interface JSONParser : NSObject
 
 + (void) getJsonParser:(NSString *)path withParameters:(NSDictionary *)params success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;

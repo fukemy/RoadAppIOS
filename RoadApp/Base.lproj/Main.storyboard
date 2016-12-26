@@ -245,6 +245,9 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segChange:" destination="foc-4D-bDI" eventType="valueChanged" id="O6X-bn-rg9"/>
+                                </connections>
                             </segmentedControl>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SE1-vp-TbD">
                                 <rect key="frame" x="-4" y="108" width="328" height="460"/>
@@ -352,6 +355,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="MdE-R0-VYH">
+                        <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="foc-4D-bDI" kind="relationship" relationship="rootViewController" id="fTu-qM-1r8"/>
                     </connections>

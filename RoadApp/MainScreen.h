@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UIView *viewpager;
 @property (nonatomic, strong) KDViewPager *pager;
 @property (nonatomic, assign) NSUInteger count;
+- (IBAction)segChange:(id)sender;
 
 @end

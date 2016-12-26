@@ -12,7 +12,6 @@
 #import "JSONParser.h"
 #import "Constant.h"
 
-
 @interface ViewController ()
 
 @end
@@ -31,7 +30,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-
     [self presentViewController:loginVC animated:YES completion:nil];
     
 }
@@ -39,5 +37,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 
 @end

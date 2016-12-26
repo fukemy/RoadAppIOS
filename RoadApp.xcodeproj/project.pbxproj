@@ -33,7 +33,6 @@
 		BCF4CC311E10D6CB009DA7DF /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC2D1E10D6CB009DA7DF /* SVProgressHUD.bundle */; };
 		BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC2F1E10D6CB009DA7DF /* SVProgressHUD.m */; };
 		BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC471E10FEB8009DA7DF /* MainScreen.m */; };
-		BCF4CC511E110632009DA7DF /* RoadTestPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC501E110632009DA7DF /* RoadTestPage.m */; };
 		BCF4CC581E1106C6009DA7DF /* RoadTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */; };
 		BCF4CC591E1106C6009DA7DF /* RoadTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */; };
 		BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC901E113245009DA7DF /* KDViewPager.m */; };
@@ -41,6 +40,10 @@
 		BCF4CC9A1E113A79009DA7DF /* ReportPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC981E113A79009DA7DF /* ReportPageController.xib */; };
 		BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC9C1E113AF6009DA7DF /* RoadTestPageController.m */; };
 		BCF4CC9F1E113AF6009DA7DF /* RoadTestPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC9D1E113AF6009DA7DF /* RoadTestPageController.xib */; };
+		BCF4CCA81E114102009DA7DF /* MFSideMenuContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CCA31E114102009DA7DF /* MFSideMenuContainerViewController.m */; };
+		BCF4CCA91E114102009DA7DF /* MFSideMenuShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CCA51E114102009DA7DF /* MFSideMenuShadow.m */; };
+		BCF4CCAA1E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CCA71E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m */; };
+		BCF4CCAE1E11457E009DA7DF /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CCAD1E11457E009DA7DF /* SideMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,8 +117,6 @@
 		BCF4CC381E10D7ED009DA7DF /* Constant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constant.h; sourceTree = "<group>"; };
 		BCF4CC461E10FEB8009DA7DF /* MainScreen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScreen.h; sourceTree = "<group>"; };
 		BCF4CC471E10FEB8009DA7DF /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
-		BCF4CC4F1E110632009DA7DF /* RoadTestPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestPage.h; sourceTree = "<group>"; };
-		BCF4CC501E110632009DA7DF /* RoadTestPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestPage.m; sourceTree = "<group>"; };
 		BCF4CC551E1106C6009DA7DF /* RoadTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestCell.h; sourceTree = "<group>"; };
 		BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestCell.m; sourceTree = "<group>"; };
 		BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoadTestCell.xib; sourceTree = "<group>"; };
@@ -127,6 +128,15 @@
 		BCF4CC9B1E113AF6009DA7DF /* RoadTestPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestPageController.h; sourceTree = "<group>"; };
 		BCF4CC9C1E113AF6009DA7DF /* RoadTestPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestPageController.m; sourceTree = "<group>"; };
 		BCF4CC9D1E113AF6009DA7DF /* RoadTestPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoadTestPageController.xib; sourceTree = "<group>"; };
+		BCF4CCA11E114102009DA7DF /* MFSideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenu.h; sourceTree = "<group>"; };
+		BCF4CCA21E114102009DA7DF /* MFSideMenuContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuContainerViewController.h; sourceTree = "<group>"; };
+		BCF4CCA31E114102009DA7DF /* MFSideMenuContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuContainerViewController.m; sourceTree = "<group>"; };
+		BCF4CCA41E114102009DA7DF /* MFSideMenuShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFSideMenuShadow.h; sourceTree = "<group>"; };
+		BCF4CCA51E114102009DA7DF /* MFSideMenuShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MFSideMenuShadow.m; sourceTree = "<group>"; };
+		BCF4CCA61E114102009DA7DF /* UIViewController+MFSideMenuAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MFSideMenuAdditions.h"; sourceTree = "<group>"; };
+		BCF4CCA71E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+MFSideMenuAdditions.m"; sourceTree = "<group>"; };
+		BCF4CCAC1E11457E009DA7DF /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		BCF4CCAD1E11457E009DA7DF /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,6 +231,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCF4CCA01E1140F9009DA7DF /* MFSlideMenu */,
 				BCF4CC8D1E113228009DA7DF /* KDViewpager */,
 				BCF4CBCE1E10D5C8009DA7DF /* AFNetworking */,
 				BCF4CBCF1E10D5E5009DA7DF /* JSON */,
@@ -303,6 +314,7 @@
 		BCF4CC3D1E10F3AC009DA7DF /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
+				BCF4CCAB1E114562009DA7DF /* SlideMenu */,
 				BCF4CC4E1E11060B009DA7DF /* ReportPage */,
 				BCF4CC4D1E1105F6009DA7DF /* RoadTestPage */,
 				BCF4CC461E10FEB8009DA7DF /* MainScreen.h */,
@@ -347,8 +359,6 @@
 		BCF4CC4D1E1105F6009DA7DF /* RoadTestPage */ = {
 			isa = PBXGroup;
 			children = (
-				BCF4CC4F1E110632009DA7DF /* RoadTestPage.h */,
-				BCF4CC501E110632009DA7DF /* RoadTestPage.m */,
 				BCF4CC551E1106C6009DA7DF /* RoadTestCell.h */,
 				BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */,
 				BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */,
@@ -376,6 +386,29 @@
 				BCF4CC901E113245009DA7DF /* KDViewPager.m */,
 			);
 			name = KDViewpager;
+			sourceTree = "<group>";
+		};
+		BCF4CCA01E1140F9009DA7DF /* MFSlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BCF4CCA11E114102009DA7DF /* MFSideMenu.h */,
+				BCF4CCA21E114102009DA7DF /* MFSideMenuContainerViewController.h */,
+				BCF4CCA31E114102009DA7DF /* MFSideMenuContainerViewController.m */,
+				BCF4CCA41E114102009DA7DF /* MFSideMenuShadow.h */,
+				BCF4CCA51E114102009DA7DF /* MFSideMenuShadow.m */,
+				BCF4CCA61E114102009DA7DF /* UIViewController+MFSideMenuAdditions.h */,
+				BCF4CCA71E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m */,
+			);
+			name = MFSlideMenu;
+			sourceTree = "<group>";
+		};
+		BCF4CCAB1E114562009DA7DF /* SlideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				BCF4CCAC1E11457E009DA7DF /* SideMenuViewController.h */,
+				BCF4CCAD1E11457E009DA7DF /* SideMenuViewController.m */,
+			);
+			name = SlideMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -516,7 +549,6 @@
 			files = (
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
 				BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */,
-				BCF4CC511E110632009DA7DF /* RoadTestPage.m in Sources */,
 				BCF4CC231E10D6B5009DA7DF /* AFNetworkReachabilityManager.m in Sources */,
 				BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */,
 				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
@@ -527,6 +559,9 @@
 				BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
 				BCF4CC281E10D6B5009DA7DF /* AFURLSessionManager.m in Sources */,
+				BCF4CCAE1E11457E009DA7DF /* SideMenuViewController.m in Sources */,
+				BCF4CCAA1E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m in Sources */,
+				BCF4CCA81E114102009DA7DF /* MFSideMenuContainerViewController.m in Sources */,
 				BCF4CC291E10D6B5009DA7DF /* Reachability.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,
@@ -535,6 +570,7 @@
 				BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */,
 				BCF4CBEA1E10D661009DA7DF /* JSONParser.m in Sources */,
 				BCF4CC271E10D6B5009DA7DF /* AFURLResponseSerialization.m in Sources */,
+				BCF4CCA91E114102009DA7DF /* MFSideMenuShadow.m in Sources */,
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
 				BCF4CBEB1E10D661009DA7DF /* JsonParserWithAF.m in Sources */,

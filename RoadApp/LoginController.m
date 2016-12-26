@@ -69,7 +69,8 @@
     NSLog(@"goToMainScreen");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
-    [self presentViewController:mainScreenVC animated:YES completion:nil];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:mainScreenVC];
+    [self presentViewController:navCon animated:YES completion:nil];
 }
 
 @end

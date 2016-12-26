@@ -9,6 +9,9 @@
 #import "LoginController.h"
 #import "JSONParser.h"
 #import "SVProgressHUD.h"
+#import "Constant.h"
+#import "MainScreen.h"
+
 @interface LoginController ()
 
 @end
@@ -30,8 +33,8 @@
 }
 
 -(void) dismissBg{
-    [self dismissViewControllerAnimated:self completion:nil];
-    [self.view endEditing:YES];
+    //[self dismissViewControllerAnimated:self completion:nil];
+    //[self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,24 +43,33 @@
 
 
 - (IBAction)login:(id)sender {
-    NSString *url = @"http://khaosatdiachat.com:8887/api/users/login/dungdv/123456";
+//    NSString *url = [NSString stringWithFormat:@"%@%@",BASE_URL, GET_TOKEN_URL];
+//    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+//    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
+//        NSLog(@"response: %@", responseObject);
+//        @try{
+//            int a = [@"f" intValue];
+//        }@catch(NSException *e){
+//            NSLog(@"catch exception: %@", e);
+//        }@finally{
+//            NSLog(@"finally");
+//            [SVProgressHUD dismiss];
+//            [self goToMainScreen];
+//        }
+//        
+//    } failure:^(NSError *error) {
+//        NSLog(@"error: %@", [error localizedDescription]);
+//        [SVProgressHUD dismiss];
+//    }];
     
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-         NSLog(@"response: %@", responseObject);
-        @try{
-            int a = [@"f" intValue];
-        }@catch(NSException *e){
-            NSLog(@"catch exception: %@", e);
-        }@finally{
-            NSLog(@"finally");
-        }
-        [SVProgressHUD dismiss];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"error: %@", [error localizedDescription]);
-        [SVProgressHUD dismiss];
-    }];
+    [self goToMainScreen];
+}
+
+- (void) goToMainScreen{
+    NSLog(@"goToMainScreen");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
+    [self presentViewController:mainScreenVC animated:YES completion:nil];
 }
 
 @end

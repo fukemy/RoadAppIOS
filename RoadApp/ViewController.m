@@ -10,8 +10,8 @@
 #import "LoginController.h"
 #import "SVProgressHUD.h"
 #import "JSONParser.h"
+#import "Constant.h"
 
-//#import "FrameWork/AFNetworking/AFNetworking.h"
 
 @interface ViewController ()
 
@@ -21,24 +21,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     
-    [NSThread sleepForTimeInterval:.9];
+    [NSThread sleepForTimeInterval:1.0f];
     [_loading setHidden:YES];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+
     [self presentViewController:loginVC animated:YES completion:nil];
     
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

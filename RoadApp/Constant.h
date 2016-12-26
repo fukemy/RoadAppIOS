@@ -9,7 +9,20 @@
 #ifndef Constant_h
 #define Constant_h
 
-#pragma URL
-#define LOGIN_URL @"http://khaosatdiachat.com:8887/api/users/login/dungdv/123456"
+//URL
 
+#define BASE_URL @"http://khaosatdiachat.com:8887/api/"
+
+#define LOGIN_URL @"users/login/dungdv/123456"
+#define GET_TOKEN_URL @"users/login/dungdv/123456"
+#define GET_ALL_ROAD_URL @"roads/getall/dungdv/"
+#define GET_ALL_ITEM_URL @"items/getall/dungdv/"
+#define UPLOAD_VIRABLE_URL @"viberatedatas/uploaddata/dungdv/"
+#define UPLOAD_POSITION_URL @"userposition/uploaddata/dungdv/"
+#define UPLOAD_IMAGE_URL @"datas/UploadImage/dungdv/"
+
+#define GET_TOKEN_FAIL @"get token fail"
+
+
+#define USER_TOKEN @"user token"
 #endif /* Constant_h */

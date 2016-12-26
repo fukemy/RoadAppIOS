@@ -25,6 +25,7 @@
 
 
 #define USER_TOKEN @"user token"
+#define USER_LOGGED @"user logged"
 #define MAIN_SCREEN_VN @"Màn hình chính"
 
 

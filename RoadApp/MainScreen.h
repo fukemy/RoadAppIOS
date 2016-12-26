@@ -17,5 +17,6 @@
 @property (nonatomic, assign) NSUInteger count;
 - (IBAction)segChange:(id)sender;
 - (IBAction)leftSideMenuButtonPressed:(id)sender;
+- (IBAction)rightBarClick:(id)sender;
 
 @end

@@ -11,6 +11,7 @@
 #import "SVProgressHUD.h"
 #import "JSONParser.h"
 #import "Constant.h"
+#import "MainScreen.h"
 
 @interface ViewController ()
 
@@ -26,12 +27,32 @@
     [super viewDidAppear:animated];
     
     [NSThread sleepForTimeInterval:1.0f];
+    
     [_loading setHidden:YES];
+    int isLogged = [[[NSUserDefaults standardUserDefaults] valueForKey:USER_LOGGED] intValue];
+    if(isLogged && isLogged == 1){
+        [self goToMainScreen];
+    }else{
+        [self showLogin];
+    }
+    
+    
+}
+
+- (void) showLogin{
+    NSLog(@"showLogin");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     [self presentViewController:loginVC animated:YES completion:nil];
-    
+}
+
+- (void) goToMainScreen{
+    NSLog(@"goToMainScreen");
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
+    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:mainScreenVC];
+    [self presentViewController:navCon animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {

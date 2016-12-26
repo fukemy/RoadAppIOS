@@ -18,7 +18,9 @@
 #import "Constant.h"
 #import "Utilities.h"
 
-@interface MainScreen ()
+@interface MainScreen (){
+    RoadTestPageController *roadTestVC;
+}
 
 @end
 
@@ -44,7 +46,6 @@
 - (IBAction)segChange:(id)sender {
     [_pager setCurrentPage:_segment.selectedSegmentIndex animated:YES];
 }
-
 
 /*
  * init slide menu
@@ -76,6 +77,10 @@
     }];
 }
 
+- (IBAction)rightBarClick:(id)sender {
+    [roadTestVC changeDisplayItemMode];
+}
+
 
 /*
  * init view pager
@@ -96,7 +101,7 @@
 
 - (RoadTestPageController*) getRoadTestPage{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    RoadTestPageController *roadTestVC = [storyboard instantiateViewControllerWithIdentifier:@"RoadTestPageController"];
+    roadTestVC = [storyboard instantiateViewControllerWithIdentifier:@"RoadTestPageController"];
     return roadTestVC;
 }
 

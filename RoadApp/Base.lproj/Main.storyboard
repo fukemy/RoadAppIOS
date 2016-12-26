@@ -271,7 +271,11 @@
                                 <action selector="leftSideMenuButtonPressed:" destination="foc-4D-bDI" id="0bF-VW-U9G"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nb6-Mw-vd2"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nb6-Mw-vd2">
+                            <connections>
+                                <action selector="rightBarClick:" destination="foc-4D-bDI" id="49l-kN-oCr"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="segment" destination="IR9-G4-HaP" id="WUx-9U-2Ef"/>

@@ -10,4 +10,7 @@
 
 @interface RoadTestPageController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvItem;
+@property (nonatomic, assign) BOOL isList;
+
+- (void) changeDisplayItemMode;
 @end

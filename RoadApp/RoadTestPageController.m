@@ -12,7 +12,7 @@
 #import "Utilities.h"
 
 @interface RoadTestPageController (){
-    int heightSize;
+    int widthSize, heightSize;
 }
 
 @end
@@ -21,7 +21,14 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    widthSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
     heightSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
+}
+
+- (void) changeDisplayItemMode{
+    _isList = !_isList;
+    widthSize = _isList ? [UIScreen mainScreen].bounds.size.width - 10 * 2  : ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
+    [_cvItem reloadData];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -43,7 +50,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(heightSize, heightSize);
+    return CGSizeMake(widthSize, heightSize);
 }
 
 @end

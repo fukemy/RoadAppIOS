@@ -13,6 +13,8 @@
 #import "SideMenuViewController.h"
 #import "MFSideMenuContainerViewController.h"
 #import "AppDelegate.h"
+#import "RoadTestPageController.h"
+#import "ReportPageController.h"
 
 @interface MainScreen ()
 
@@ -36,6 +38,8 @@
 - (IBAction)segChange:(id)sender {
     [_pager setCurrentPage:_segment.selectedSegmentIndex animated:YES];
 }
+
+
 
 /*
  * init slide menu
@@ -92,12 +96,24 @@
     [_pager setCurrentPage:0];
 }
 
+- (RoadTestPageController*) getRoadTestPage{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RoadTestPageController *roadTestVC = [storyboard instantiateViewControllerWithIdentifier:@"RoadTestPageController"];
+    return roadTestVC;
+}
+
+- (ReportPageController*) getReportPage{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ReportPageController *reportVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportPageController"];
+    return reportVC;
+}
+
 -(UIViewController *)kdViewPager:(KDViewPager *)viewPager controllerAtIndex:(NSUInteger)index cachedController:(UIViewController *)cachedController {
     if (cachedController == nil) {
         if(index == 0){
-            cachedController = [[RoadTestPageController alloc] initWithData:nil];
+            cachedController = [self getRoadTestPage];
         }else{
-            cachedController = [[ReportPageController alloc] init];
+            cachedController = [self getReportPage];
         }
     }
     return cachedController;

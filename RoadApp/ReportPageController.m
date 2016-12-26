@@ -14,17 +14,8 @@
 
 @implementation ReportPageController
 
--(instancetype)init{
-    self = [super init];
-    if (self) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ReportPageController" owner:self options:nil];
-        UIView *view = (UIView *)[nib objectAtIndex:0];
-        view.frame = self.view.bounds;
-        view.backgroundColor = [UIColor clearColor];
-    }
-    return self;
+- (void)viewDidLoad{
+    [super viewDidLoad];
 }
 
 /*

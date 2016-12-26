@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoadTestPageController : UIViewController
--(instancetype)initWithData:(NSArray*)data;
+@interface RoadTestPageController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *cvItem;
 @end

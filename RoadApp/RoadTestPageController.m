@@ -7,6 +7,7 @@
 //
 
 #import "RoadTestPageController.h"
+#import "RoadTestCell.h"
 
 @interface RoadTestPageController ()
 
@@ -14,26 +15,27 @@
 
 @implementation RoadTestPageController
 
--(instancetype)initWithData:(NSArray*)data{
-    self = [super init];
-    if (self) {
-        self.edgesForExtendedLayout = UIRectEdgeNone;
-        
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"RoadTestPageController" owner:self options:nil];
-        UIView *view = (UIView *)[nib objectAtIndex:0];
-        view.frame = self.view.bounds;
-        view.backgroundColor = [UIColor clearColor];
-    }
-    return self;
+- (void)viewDidLoad{
+    [super viewDidLoad];
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
 }
-*/
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    RoadTestCell *cell = (RoadTestCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"RoadTestCell" forIndexPath:indexPath];
+    cell.layer.cornerRadius =  5.0f;
+    cell.layer.masksToBounds = YES;
+    
+    cell.tfTitle.text = @"test";
+    return cell;
+}
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return 18;
+}
+
 
 @end

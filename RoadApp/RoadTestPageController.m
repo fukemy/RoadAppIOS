@@ -8,8 +8,12 @@
 
 #import "RoadTestPageController.h"
 #import "RoadTestCell.h"
+#import "Constant.h"
+#import "Utilities.h"
 
-@interface RoadTestPageController ()
+@interface RoadTestPageController (){
+    int heightSize;
+}
 
 @end
 
@@ -17,6 +21,7 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    heightSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -27,7 +32,7 @@
     RoadTestCell *cell = (RoadTestCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"RoadTestCell" forIndexPath:indexPath];
     cell.layer.cornerRadius =  5.0f;
     cell.layer.masksToBounds = YES;
-    
+    cell.backgroundColor = [Utilities colorFromHexString:GRAY_COLOR];
     cell.tfTitle.text = @"test";
     return cell;
 }
@@ -37,5 +42,8 @@
     return 18;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(heightSize, heightSize);
+}
 
 @end

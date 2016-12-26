@@ -25,4 +25,11 @@
 
 
 #define USER_TOKEN @"user token"
+#define MAIN_SCREEN_VN @"Màn hình chính"
+
+
+//COLOR
+#define MAIN_COLOR @"#d2a809"
+#define GRAY_COLOR @"#818285"
+
 #endif /* Constant_h */

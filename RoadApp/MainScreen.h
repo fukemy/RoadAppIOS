@@ -16,5 +16,6 @@
 @property (nonatomic, strong) KDViewPager *pager;
 @property (nonatomic, assign) NSUInteger count;
 - (IBAction)segChange:(id)sender;
+- (IBAction)leftSideMenuButtonPressed:(id)sender;
 
 @end

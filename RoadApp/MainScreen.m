@@ -15,6 +15,8 @@
 #import "AppDelegate.h"
 #import "RoadTestPageController.h"
 #import "ReportPageController.h"
+#import "Constant.h"
+#import "Utilities.h"
 
 @interface MainScreen ()
 
@@ -25,7 +27,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = @"test";
+    self.title = MAIN_SCREEN_VN;
+    
+    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
+//    self.navigationController.navigationBar.tintColor = [UIColor clearColor];
+    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
     
     [self setupSlideMenu];
     [self setupMenuBarButtonItems];
@@ -38,7 +44,6 @@
 - (IBAction)segChange:(id)sender {
     [_pager setCurrentPage:_segment.selectedSegmentIndex animated:YES];
 }
-
 
 
 /*
@@ -59,20 +64,13 @@
 - (void)setupMenuBarButtonItems {
     if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&
        ![[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
-        self.navigationItem.leftBarButtonItem = nil;
-    } else {
-        self.navigationItem.leftBarButtonItem = [self leftMenuBarButtonItem];
+        self.navigationItem.leftBarButtonItems = nil;
+    } else {;
+        self.navigationItem.leftBarButtonItems = @[self.navigationItem.leftBarButtonItem];
     }
 }
 
-- (UIBarButtonItem *)leftMenuBarButtonItem {
-    return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"more.png"] style:UIBarButtonItemStylePlain
-            target:self
-            action:@selector(leftSideMenuButtonPressed:)];
-}
-
-- (void)leftSideMenuButtonPressed:(id)sender {
+- (void)leftSideMenuButtonPressed:(id)sender{
     [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
         [self setupMenuBarButtonItems];
     }];
@@ -125,6 +123,15 @@
 
 #pragma mark - delegate
 -(void)kdViewpager:(KDViewPager *)viewPager didSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{
+    if(_segment.selectedSegmentIndex == 0){
+        [self.navigationItem.rightBarButtonItem setEnabled:YES];
+        [self.navigationItem.rightBarButtonItem setTintColor:nil];
+        //        self.navigationItem.rightBarButtonItem.width = 0.01f;
+    }else{
+        [self.navigationItem.rightBarButtonItem setEnabled:NO];
+        [self.navigationItem.rightBarButtonItem setTintColor:[UIColor clearColor]];
+        //        self.navigationItem.rightBarButtonItem.width = 0;
+    }
 }
 
 -(void)kdViewpager:(KDViewPager *)viewPager willSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{

@@ -240,7 +240,7 @@
                                 <rect key="frame" x="-4" y="100" width="328" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="IR9-G4-HaP">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IR9-G4-HaP">
                                 <rect key="frame" x="8" y="68" width="304" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="dV7-cn-uQC"/>
@@ -265,7 +265,14 @@
                             <constraint firstItem="5To-L7-pxC" firstAttribute="top" secondItem="SE1-vp-TbD" secondAttribute="bottom" id="ycm-VA-7fj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="tjE-a6-i1V"/>
+                    <navigationItem key="navigationItem" id="tjE-a6-i1V">
+                        <barButtonItem key="leftBarButtonItem" systemItem="reply" id="MjJ-bY-iF8">
+                            <connections>
+                                <action selector="leftSideMenuButtonPressed:" destination="foc-4D-bDI" id="0bF-VW-U9G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Nb6-Mw-vd2"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="segment" destination="IR9-G4-HaP" id="WUx-9U-2Ef"/>
                         <outlet property="viewpager" destination="SE1-vp-TbD" id="dGu-0q-ytK"/>
@@ -306,47 +313,48 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-gg-rbg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-gg-rbg">
+                                <rect key="frame" x="10" y="10" width="300" height="558"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R57-23-bA7">
-                                    <size key="itemSize" width="100" height="100"/>
+                                    <size key="itemSize" width="90" height="91"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RoadTestCell" id="aat-rj-Vfz" customClass="RoadTestCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="90" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ID4-BN-Uyb">
-                                                    <rect key="frame" x="0.0" y="79" width="100" height="21"/>
+                                                    <rect key="frame" x="0.0" y="70" width="90" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="luX-kI-5rg">
-                                                    <rect key="frame" x="17" y="8" width="66" height="63"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="66" id="GSq-UU-AxI"/>
-                                                        <constraint firstAttribute="height" constant="63" id="b5l-Ii-9ii"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="12" y="8" width="66" height="63"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstItem="ID4-BN-Uyb" firstAttribute="top" secondItem="aat-rj-Vfz" secondAttribute="topMargin" constant="62" id="9Fd-2W-vsM"/>
                                             <constraint firstAttribute="bottomMargin" secondItem="ID4-BN-Uyb" secondAttribute="bottom" constant="-8" id="FVi-AZ-5jE"/>
+                                            <constraint firstItem="ID4-BN-Uyb" firstAttribute="leading" secondItem="aat-rj-Vfz" secondAttribute="leadingMargin" constant="-8" id="LOC-aP-M22"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="ID4-BN-Uyb" secondAttribute="bottom" constant="-8" id="PkC-ZJ-6AB"/>
                                             <constraint firstAttribute="trailingMargin" secondItem="ID4-BN-Uyb" secondAttribute="trailing" constant="-8" id="QZn-6n-2aZ"/>
-                                            <constraint firstItem="ID4-BN-Uyb" firstAttribute="top" secondItem="luX-kI-5rg" secondAttribute="bottom" constant="8" id="QeV-lb-J7b"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="luX-kI-5rg" secondAttribute="trailing" constant="9" id="Ws5-pB-0iF"/>
-                                            <constraint firstItem="luX-kI-5rg" firstAttribute="leading" secondItem="aat-rj-Vfz" secondAttribute="leadingMargin" constant="9" id="ifF-Ji-25j"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="luX-kI-5rg" secondAttribute="trailing" constant="4" id="Riq-T1-kjr"/>
+                                            <constraint firstItem="luX-kI-5rg" firstAttribute="top" secondItem="aat-rj-Vfz" secondAttribute="topMargin" id="Wf0-40-HPc"/>
+                                            <constraint firstItem="luX-kI-5rg" firstAttribute="leading" secondItem="aat-rj-Vfz" secondAttribute="leadingMargin" constant="4" id="YBO-PX-HQL"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="luX-kI-5rg" secondAttribute="bottom" constant="12" id="jl9-3h-sw5"/>
                                             <constraint firstItem="ID4-BN-Uyb" firstAttribute="leading" secondItem="aat-rj-Vfz" secondAttribute="leadingMargin" constant="-8" id="lSo-44-b8L"/>
-                                            <constraint firstItem="luX-kI-5rg" firstAttribute="top" secondItem="aat-rj-Vfz" secondAttribute="topMargin" id="qKZ-nV-dvl"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ID4-BN-Uyb" secondAttribute="trailing" constant="-8" id="yHg-Sv-aMc"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="imgItem" destination="luX-kI-5rg" id="7kZ-ym-haT"/>
@@ -361,10 +369,10 @@
                             </collectionView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="YZI-gg-rbg" secondAttribute="trailing" id="DNl-rA-vRE"/>
+                            <constraint firstAttribute="trailing" secondItem="YZI-gg-rbg" secondAttribute="trailing" constant="10" id="DNl-rA-vRE"/>
                             <constraint firstItem="YZI-gg-rbg" firstAttribute="bottom" secondItem="hen-eW-HhX" secondAttribute="top" id="H8L-7E-QA2"/>
-                            <constraint firstItem="YZI-gg-rbg" firstAttribute="leading" secondItem="ZFZ-Cg-3g8" secondAttribute="leading" id="V5t-N1-GKd"/>
-                            <constraint firstItem="YZI-gg-rbg" firstAttribute="top" secondItem="ZFZ-Cg-3g8" secondAttribute="top" id="smh-4X-7DD"/>
+                            <constraint firstItem="YZI-gg-rbg" firstAttribute="leading" secondItem="ZFZ-Cg-3g8" secondAttribute="leading" constant="10" id="V5t-N1-GKd"/>
+                            <constraint firstItem="YZI-gg-rbg" firstAttribute="top" secondItem="ZFZ-Cg-3g8" secondAttribute="top" constant="10" id="smh-4X-7DD"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Tuần đường" id="2ZO-Mq-1D7"/>
@@ -379,7 +387,7 @@
         <!--Navigation Controller-->
         <scene sceneID="mVm-Bi-uCE">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FA6-5Y-PAg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" hidesBarsOnSwipe="YES" hidesBarsOnTap="YES" hidesBarsWhenKeyboardAppears="YES" hidesBarsWhenVerticallyCompact="YES" id="FA6-5Y-PAg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2wO-EV-pMj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

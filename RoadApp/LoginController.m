@@ -7,8 +7,8 @@
 //
 
 #import "LoginController.h"
-#import "Frameworks/JSON/JSONParser.h"
-#import "Frameworks/SVProgressHUD/SVProgressHUD.h"
+#import "JSONParser.h"
+#import "SVProgressHUD.h"
 @interface LoginController ()
 
 @end

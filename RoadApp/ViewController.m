@@ -8,8 +8,8 @@
 
 #import "ViewController.h"
 #import "LoginController.h"
-#import "Frameworks/SVProgressHUD/SVProgressHUD.h"
-#import "Frameworks/JSON/JSONParser.h"
+#import "SVProgressHUD.h"
+#import "JSONParser.h"
 
 //#import "FrameWork/AFNetworking/AFNetworking.h"
 

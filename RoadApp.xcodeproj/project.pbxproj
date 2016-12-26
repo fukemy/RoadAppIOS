@@ -34,9 +34,13 @@
 		BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC2F1E10D6CB009DA7DF /* SVProgressHUD.m */; };
 		BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC471E10FEB8009DA7DF /* MainScreen.m */; };
 		BCF4CC511E110632009DA7DF /* RoadTestPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC501E110632009DA7DF /* RoadTestPage.m */; };
-		BCF4CC541E110644009DA7DF /* ReportPage.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC531E110644009DA7DF /* ReportPage.m */; };
 		BCF4CC581E1106C6009DA7DF /* RoadTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */; };
 		BCF4CC591E1106C6009DA7DF /* RoadTestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */; };
+		BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC901E113245009DA7DF /* KDViewPager.m */; };
+		BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC971E113A79009DA7DF /* ReportPageController.m */; };
+		BCF4CC9A1E113A79009DA7DF /* ReportPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC981E113A79009DA7DF /* ReportPageController.xib */; };
+		BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CC9C1E113AF6009DA7DF /* RoadTestPageController.m */; };
+		BCF4CC9F1E113AF6009DA7DF /* RoadTestPageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CC9D1E113AF6009DA7DF /* RoadTestPageController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,11 +116,17 @@
 		BCF4CC471E10FEB8009DA7DF /* MainScreen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScreen.m; sourceTree = "<group>"; };
 		BCF4CC4F1E110632009DA7DF /* RoadTestPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestPage.h; sourceTree = "<group>"; };
 		BCF4CC501E110632009DA7DF /* RoadTestPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestPage.m; sourceTree = "<group>"; };
-		BCF4CC521E110644009DA7DF /* ReportPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPage.h; sourceTree = "<group>"; };
-		BCF4CC531E110644009DA7DF /* ReportPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPage.m; sourceTree = "<group>"; };
 		BCF4CC551E1106C6009DA7DF /* RoadTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestCell.h; sourceTree = "<group>"; };
 		BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestCell.m; sourceTree = "<group>"; };
 		BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoadTestCell.xib; sourceTree = "<group>"; };
+		BCF4CC8F1E113245009DA7DF /* KDViewPager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KDViewPager.h; sourceTree = "<group>"; };
+		BCF4CC901E113245009DA7DF /* KDViewPager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KDViewPager.m; sourceTree = "<group>"; };
+		BCF4CC961E113A79009DA7DF /* ReportPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportPageController.h; sourceTree = "<group>"; };
+		BCF4CC971E113A79009DA7DF /* ReportPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportPageController.m; sourceTree = "<group>"; };
+		BCF4CC981E113A79009DA7DF /* ReportPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportPageController.xib; sourceTree = "<group>"; };
+		BCF4CC9B1E113AF6009DA7DF /* RoadTestPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadTestPageController.h; sourceTree = "<group>"; };
+		BCF4CC9C1E113AF6009DA7DF /* RoadTestPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadTestPageController.m; sourceTree = "<group>"; };
+		BCF4CC9D1E113AF6009DA7DF /* RoadTestPageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoadTestPageController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +221,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCF4CC8D1E113228009DA7DF /* KDViewpager */,
 				BCF4CBCE1E10D5C8009DA7DF /* AFNetworking */,
 				BCF4CBCF1E10D5E5009DA7DF /* JSON */,
 				BCF4CBD01E10D5FD009DA7DF /* SVProgressHUD */,
@@ -341,6 +352,9 @@
 				BCF4CC551E1106C6009DA7DF /* RoadTestCell.h */,
 				BCF4CC561E1106C6009DA7DF /* RoadTestCell.m */,
 				BCF4CC571E1106C6009DA7DF /* RoadTestCell.xib */,
+				BCF4CC9B1E113AF6009DA7DF /* RoadTestPageController.h */,
+				BCF4CC9C1E113AF6009DA7DF /* RoadTestPageController.m */,
+				BCF4CC9D1E113AF6009DA7DF /* RoadTestPageController.xib */,
 			);
 			name = RoadTestPage;
 			sourceTree = "<group>";
@@ -348,10 +362,20 @@
 		BCF4CC4E1E11060B009DA7DF /* ReportPage */ = {
 			isa = PBXGroup;
 			children = (
-				BCF4CC521E110644009DA7DF /* ReportPage.h */,
-				BCF4CC531E110644009DA7DF /* ReportPage.m */,
+				BCF4CC961E113A79009DA7DF /* ReportPageController.h */,
+				BCF4CC971E113A79009DA7DF /* ReportPageController.m */,
+				BCF4CC981E113A79009DA7DF /* ReportPageController.xib */,
 			);
 			name = ReportPage;
+			sourceTree = "<group>";
+		};
+		BCF4CC8D1E113228009DA7DF /* KDViewpager */ = {
+			isa = PBXGroup;
+			children = (
+				BCF4CC8F1E113245009DA7DF /* KDViewPager.h */,
+				BCF4CC901E113245009DA7DF /* KDViewPager.m */,
+			);
+			name = KDViewpager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -461,8 +485,10 @@
 			files = (
 				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
 				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
+				BCF4CC9F1E113AF6009DA7DF /* RoadTestPageController.xib in Resources */,
 				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
 				BCF4CC311E10D6CB009DA7DF /* SVProgressHUD.bundle in Resources */,
+				BCF4CC9A1E113A79009DA7DF /* ReportPageController.xib in Resources */,
 				BCF4CC591E1106C6009DA7DF /* RoadTestCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,8 +515,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
+				BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */,
 				BCF4CC511E110632009DA7DF /* RoadTestPage.m in Sources */,
 				BCF4CC231E10D6B5009DA7DF /* AFNetworkReachabilityManager.m in Sources */,
+				BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */,
 				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
 				BCF4CC251E10D6B5009DA7DF /* AFURLConnectionOperation.m in Sources */,
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
@@ -504,12 +532,12 @@
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,
 				BCF4CC211E10D6B5009DA7DF /* AFHTTPRequestOperationManager.m in Sources */,
 				BCF4CC581E1106C6009DA7DF /* RoadTestCell.m in Sources */,
+				BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */,
 				BCF4CBEA1E10D661009DA7DF /* JSONParser.m in Sources */,
 				BCF4CC271E10D6B5009DA7DF /* AFURLResponseSerialization.m in Sources */,
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
 				BCF4CBEB1E10D661009DA7DF /* JsonParserWithAF.m in Sources */,
-				BCF4CC541E110644009DA7DF /* ReportPage.m in Sources */,
 				BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

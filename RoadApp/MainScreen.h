@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KDViewPager.h"
 
-@interface MainScreen : UITabBarController
-@property (strong, nonatomic) IBOutlet UITabBarController *tabbarVC;
+@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate>
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *segment;
+@property (strong, nonatomic) IBOutlet UIView *viewpager;
+@property (nonatomic, strong) KDViewPager *pager;
+@property (nonatomic, assign) NSUInteger count;
 
 @end

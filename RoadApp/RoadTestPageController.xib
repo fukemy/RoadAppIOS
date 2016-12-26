@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10117"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RoadTestPageController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" restorationIdentifier="RoadTestPageController" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ent-sL-0pp">
+                    <rect key="frame" x="137" y="236" width="240" height="128"/>
+                    <color key="backgroundColor" red="0.93333333330000001" green="0.69411764710000001" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.92156862750000001" green="0.36862745099999999" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ent-sL-0pp" secondAttribute="trailing" constant="223" id="0th-OZ-oPs"/>
+                <constraint firstItem="Ent-sL-0pp" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="LLA-t7-s49"/>
+                <constraint firstItem="Ent-sL-0pp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="137" id="VTH-Uj-Zw8"/>
+                <constraint firstItem="Ent-sL-0pp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="236" id="lef-u0-ETT"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

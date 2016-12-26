@@ -1,5 +1,5 @@
 //
-//  RoadTestPage.h
+//  RoadTestPageController.h
 //  RoadApp
 //
 //  Created by admin2 on 12/26/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoadTestPage : UIViewController <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface RoadTestPageController : UIViewController
 -(instancetype)initWithData:(NSArray*)data;
 @end

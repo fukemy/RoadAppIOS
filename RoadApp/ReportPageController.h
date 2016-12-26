@@ -1,5 +1,5 @@
 //
-//  ReportPage.h
+//  ReportPageController.h
 //  RoadApp
 //
 //  Created by admin2 on 12/26/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReportPage : UIViewController
-
+@interface ReportPageController : UIViewController
+-(instancetype)init;
 @end

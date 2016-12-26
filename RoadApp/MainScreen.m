@@ -7,6 +7,8 @@
 //
 
 #import "MainScreen.h"
+#import "RoadTestPageController.h"
+#import "ReportPageController.h"
 
 @interface MainScreen ()
 
@@ -16,22 +18,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    [self setupPager];
+    [self reloadViewPager];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) setupPager{
+    _count = 0;
+    _pager = [[KDViewPager alloc] initWithController:self inView:_viewpager];
+    _pager.datasource = self;
+    _pager.delegate = self;
+    
+}
+- (void) reloadViewPager{
+    _count = 2;
+    [_pager reload];
+    [_pager setCurrentPage:0];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(UIViewController *)kdViewPager:(KDViewPager *)viewPager controllerAtIndex:(NSUInteger)index cachedController:(UIViewController *)cachedController {
+    if (cachedController == nil) {
+        if(index == 0){
+            cachedController = [[RoadTestPageController alloc] initWithData:nil];
+        }else{
+            cachedController = [[ReportPageController alloc] init];
+        }
+    }
+    return cachedController;
 }
-*/
+
+-(NSUInteger)numberOfPages:(KDViewPager *)viewPager {
+    return _count;
+}
+
+#pragma mark - delegate
+-(void)kdViewpager:(KDViewPager *)viewPager didSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{
+}
+
+-(void)kdViewpager:(KDViewPager *)viewPager willSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{
+}
 
 @end

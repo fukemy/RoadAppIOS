@@ -7,9 +7,8 @@
 //
 
 #import "LoginController.h"
-#import "JSON/JSONParser.h"
-#import "SVProgressHUD/SVProgressHUD.h"
-
+#import "Frameworks/JSON/JSONParser.h"
+#import "Frameworks/SVProgressHUD/SVProgressHUD.h"
 @interface LoginController ()
 
 @end
@@ -46,6 +45,13 @@
     [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
          NSLog(@"response: %@", responseObject);
+        @try{
+            int a = [@"f" intValue];
+        }@catch(NSException *e){
+            NSLog(@"catch exception: %@", e);
+        }@finally{
+            NSLog(@"finally");
+        }
         [SVProgressHUD dismiss];
         
     } failure:^(NSError *error) {

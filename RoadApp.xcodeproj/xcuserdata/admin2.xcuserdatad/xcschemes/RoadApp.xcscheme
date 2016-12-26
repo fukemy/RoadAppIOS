@@ -20,6 +20,34 @@
                ReferencedContainer = "container:RoadApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BCC405491DD0A00F00E313F7"
+               BuildableName = "RoadAppTests.xctest"
+               BlueprintName = "RoadAppTests"
+               ReferencedContainer = "container:RoadApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "NO"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "BCC405541DD0A00F00E313F7"
+               BuildableName = "RoadAppUITests.xctest"
+               BlueprintName = "RoadAppUITests"
+               ReferencedContainer = "container:RoadApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -28,26 +56,6 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BCC405491DD0A00F00E313F7"
-               BuildableName = "RoadAppTests.xctest"
-               BlueprintName = "RoadAppTests"
-               ReferencedContainer = "container:RoadApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "BCC405541DD0A00F00E313F7"
-               BuildableName = "RoadAppUITests.xctest"
-               BlueprintName = "RoadAppUITests"
-               ReferencedContainer = "container:RoadApp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

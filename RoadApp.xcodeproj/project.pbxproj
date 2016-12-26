@@ -17,9 +17,8 @@
 		BCC4054F1DD0A00F00E313F7 /* RoadAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */; };
 		BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */; };
 		BCC405691DD0A06400E313F7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405681DD0A06400E313F7 /* LoginController.m */; };
-		BCF3AD321DDDC9D100D8EE90 /* SVProgressHUD in Resources */ = {isa = PBXBuildFile; fileRef = BCF3AD311DDDC9D100D8EE90 /* SVProgressHUD */; };
-		BCF3AD341DDDCA4900D8EE90 /* JSON in Resources */ = {isa = PBXBuildFile; fileRef = BCF3AD331DDDCA4900D8EE90 /* JSON */; };
-		BCF3AD361DDDCA7000D8EE90 /* AFNetworking in Resources */ = {isa = PBXBuildFile; fileRef = BCF3AD351DDDCA7000D8EE90 /* AFNetworking */; };
+		BCF4CBA41E10CDCF009DA7DF /* Frameworks in Resources */ = {isa = PBXBuildFile; fileRef = BCF4CBA31E10CDCF009DA7DF /* Frameworks */; };
+		BCF4CBC71E10D482009DA7DF /* Frameworks in Sources */ = {isa = PBXBuildFile; fileRef = BCF4CBA31E10CDCF009DA7DF /* Frameworks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,9 +58,7 @@
 		BCC4055B1DD0A00F00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC405671DD0A06400E313F7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		BCC405681DD0A06400E313F7 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
-		BCF3AD311DDDC9D100D8EE90 /* SVProgressHUD */ = {isa = PBXFileReference; lastKnownFileType = folder; path = SVProgressHUD; sourceTree = "<group>"; };
-		BCF3AD331DDDCA4900D8EE90 /* JSON */ = {isa = PBXFileReference; lastKnownFileType = folder; path = JSON; sourceTree = "<group>"; };
-		BCF3AD351DDDCA7000D8EE90 /* AFNetworking */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AFNetworking; sourceTree = "<group>"; };
+		BCF4CBA31E10CDCF009DA7DF /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Frameworks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,9 +109,7 @@
 		BCC405301DD0A00E00E313F7 /* RoadApp */ = {
 			isa = PBXGroup;
 			children = (
-				BCF3AD351DDDCA7000D8EE90 /* AFNetworking */,
-				BCF3AD331DDDCA4900D8EE90 /* JSON */,
-				BCF3AD311DDDC9D100D8EE90 /* SVProgressHUD */,
+				BCF4CBA31E10CDCF009DA7DF /* Frameworks */,
 				BCC405671DD0A06400E313F7 /* LoginController.h */,
 				BCC405681DD0A06400E313F7 /* LoginController.m */,
 				BCC405341DD0A00E00E313F7 /* AppDelegate.h */,
@@ -262,12 +257,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCF3AD341DDDCA4900D8EE90 /* JSON in Resources */,
-				BCF3AD321DDDC9D100D8EE90 /* SVProgressHUD in Resources */,
 				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
 				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
 				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
-				BCF3AD361DDDCA7000D8EE90 /* AFNetworking in Resources */,
+				BCF4CBA41E10CDCF009DA7DF /* Frameworks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCF4CBC71E10D482009DA7DF /* Frameworks in Sources */,
 				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
@@ -374,6 +368,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -391,6 +386,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -419,6 +415,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -429,6 +426,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "-all_load";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -443,12 +441,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/RoadApp/Framework",
+					"$(PROJECT_DIR)/RoadApp",
 				);
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -463,12 +463,14 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/RoadApp/Framework",
+					"$(PROJECT_DIR)/RoadApp",
 				);
+				GENERATE_MASTER_OBJECT_FILE = YES;
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = RoadApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = "-all_load";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;

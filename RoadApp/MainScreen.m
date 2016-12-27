@@ -10,7 +10,7 @@
 #import "RoadTestPageController.h"
 #import "ReportPageController.h"
 #import "MFSideMenu.h"
-#import "SideMenuViewController.h"
+#import "SlideMenuViewController.h"
 #import "MFSideMenuContainerViewController.h"
 #import "AppDelegate.h"
 #import "RoadTestPageController.h"
@@ -31,35 +31,42 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = MAIN_SCREEN_VN;
     
-    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
-//    self.navigationController.navigationBar.tintColor = [UIColor clearColor];
-    self.navigationController.navigationBar.barStyle = UIBarStyleDefault;
+    [self configToolbar];
     
     [self setupSlideMenu];
-    [self setupMenuBarButtonItems];
-    
     [self setupPager];
+    
     [self reloadViewPager];
 }
 
+- (void) configToolbar{
+    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
+    //    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
+    //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+    self.navigationController.hidesBarsOnSwipe = YES;
+}
 
 - (IBAction)segChange:(id)sender {
     [_pager setCurrentPage:_segment.selectedSegmentIndex animated:YES];
 }
 
+#pragma mark - SlideNavigationController Methods -
+
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return YES;
+}
+
 /*
  * init slide menu
  */
--(void) setupSlideMenu{
-    UIWindow *window = [(AppDelegate *)[[UIApplication sharedApplication] delegate] window];
-    
-    SideMenuViewController *leftMenuViewController = [[SideMenuViewController alloc] init];
-    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-                                                    containerWithCenterViewController:self.navigationController
-                                                    leftMenuViewController:leftMenuViewController
-                                                    rightMenuViewController:nil];
-    window.rootViewController = container;
-    [window makeKeyAndVisible];
+-(void) setupSlideMenu{    
+    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
 }
 
 - (void)setupMenuBarButtonItems {
@@ -90,7 +97,6 @@
     _pager = [[KDViewPager alloc] initWithController:self inView:_viewpager];
     _pager.datasource = self;
     _pager.delegate = self;
-    
 }
 
 - (void) reloadViewPager{
@@ -128,14 +134,12 @@
 
 #pragma mark - delegate
 -(void)kdViewpager:(KDViewPager *)viewPager didSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{
-    if(_segment.selectedSegmentIndex == 0){
+    if(index == 0){
         [self.navigationItem.rightBarButtonItem setEnabled:YES];
         [self.navigationItem.rightBarButtonItem setTintColor:nil];
-        //        self.navigationItem.rightBarButtonItem.width = 0.01f;
     }else{
         [self.navigationItem.rightBarButtonItem setEnabled:NO];
         [self.navigationItem.rightBarButtonItem setTintColor:[UIColor clearColor]];
-        //        self.navigationItem.rightBarButtonItem.width = 0;
     }
 }
 

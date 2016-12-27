@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "KDViewPager.h"
+#import "SlideNavigationController.h"
 
-@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate>
+@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate, SlideNavigationControllerDelegate>
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segment;
 @property (strong, nonatomic) IBOutlet UIView *viewpager;

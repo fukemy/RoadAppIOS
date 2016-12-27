@@ -8,5 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SlideMenuViewController : UITableViewController
+@interface SlideMenuViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) BOOL slideOutAnimationEnabled;
 @end

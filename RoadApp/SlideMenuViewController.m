@@ -8,6 +8,7 @@
 
 #import "SlideMenuViewController.h"
 #import "MFSideMenu.h"
+#import "SlideNavigationController.h"
 
 @interface SlideMenuViewController (){
     NSArray *menuItemList;
@@ -17,45 +18,80 @@
 
 @implementation SlideMenuViewController
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"Section %ld", (long)section];
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self.slideOutAnimationEnabled = YES;
+    
+    return [super initWithCoder:aDecoder];
 }
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    self.tableView.separatorColor = [UIColor lightGrayColor];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 15;
 }
 
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.tableView.frame.size.width, 20)];
+    view.backgroundColor = [UIColor clearColor];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 20;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    }
-    
     cell.textLabel.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
-    
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor blackColor];
     return cell;
 }
 
-#pragma mark -
-#pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"cell text: %@", cell.textLabel.text);
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-//    DemoViewController *demoController = [[DemoViewController alloc] initWithNibName:@"DemoViewController" bundle:nil];
-//    demoController.title = [NSString stringWithFormat:@"Demo #%d-%d", indexPath.section, indexPath.row];
-//    
-//    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
-//    NSArray *controllers = [NSArray arrayWithObject:demoController];
-//    navigationController.viewControllers = controllers;
-    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier:@"MainScreen"];
+    
+//    switch (indexPath.row)
+//    {
+//        case 0:
+//            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"HomeViewController"];
+//            break;
+//            
+//        case 1:
+//            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ProfileViewController"];
+//            break;
+//            
+//        case 2:
+//            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"FriendsViewController"];
+//            break;
+//            
+//        case 3:
+//            [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+//            [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+//            return;
+//            break;
+//    }
+    
+    [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                             withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                     andCompletion:nil];
 }
-
 
 @end

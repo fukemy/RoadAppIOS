@@ -44,10 +44,12 @@
     //    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
     //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     self.navigationController.hidesBarsOnSwipe = NO;
+    
+    self.tabbar.selectedItem = [[self.tabbar items] objectAtIndex:0];
 }
 
-- (IBAction)segChange:(id)sender {
-    [_pager setCurrentPage:_segment.selectedSegmentIndex animated:YES];
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    [_pager setCurrentPage:item.tag animated:YES];
 }
 
 #pragma mark - SlideNavigationController Methods -
@@ -135,6 +137,8 @@
         [self.navigationItem.rightBarButtonItem setEnabled:NO];
         [self.navigationItem.rightBarButtonItem setTintColor:[UIColor clearColor]];
     }
+    
+    self.tabbar.selectedItem = [[self.tabbar items] objectAtIndex:index];
 }
 
 -(void)kdViewpager:(KDViewPager *)viewPager willSelectPage:(NSUInteger)index direction:(UIPageViewControllerNavigationDirection)direction{

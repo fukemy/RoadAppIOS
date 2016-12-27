@@ -12,6 +12,8 @@
 #import "JSONParser.h"
 #import "Constant.h"
 #import "MainScreen.h"
+#import "RoadTestPageController.h"
+#import "ReportPageController.h"
 
 @interface ViewController ()
 
@@ -21,9 +23,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationController.navigationBar.hidden = YES;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBar.hidden = YES;
+}
+//
+//- (RoadTestPageController*) getRoadTestPage{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    roadTestVC = [storyboard instantiateViewControllerWithIdentifier:@"RoadTestPageController"];
+//    return roadTestVC;
+//}
+//
+//- (ReportPageController*) getReportPage{
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    ReportPageController *reportVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportPageController"];
+//    return reportVC;
+//}
+
+- (void) initTabbar{
+//    self.tabBar
+}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     

@@ -10,12 +10,13 @@
 #import "KDViewPager.h"
 #import "SlideNavigationController.h"
 
-@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate, SlideNavigationControllerDelegate>
+@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate, SlideNavigationControllerDelegate, UITabBarDelegate>
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segment;
 @property (strong, nonatomic) IBOutlet UIView *viewpager;
 @property (nonatomic, strong) KDViewPager *pager;
 @property (nonatomic, assign) NSUInteger count;
+@property (weak, nonatomic) IBOutlet UITabBar *tabbar;
 - (IBAction)segChange:(id)sender;
 - (IBAction)leftSideMenuButtonPressed:(id)sender;
 - (IBAction)rightBarClick:(id)sender;

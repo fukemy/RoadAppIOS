@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "SlideMenuViewController.h"
+#import "SlideNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -16,6 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    SlideMenuViewController *leftMenu = (SlideMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"SlideMenuViewController"];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     return YES;
 }
 

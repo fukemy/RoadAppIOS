@@ -59,7 +59,10 @@
 //        [SVProgressHUD dismiss];
 //    }];
     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
-    [_delegate loginSuccess];
+    [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
+        [_delegate loginSuccess];
+        
+    }];
 }
 
 - (void) getAllRoadInfo{

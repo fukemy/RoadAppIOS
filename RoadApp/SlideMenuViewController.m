@@ -35,7 +35,7 @@
 {
     [super viewDidLoad];
     [self.view setUserInteractionEnabled:YES];
-    menuItemList = [[NSArray alloc] initWithObjects:MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, nil];
+    menuItemList = [[NSArray alloc] initWithObjects:@"", MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, nil];
     self.tableView.separatorColor = [UIColor lightGrayColor];
 }
 
@@ -85,6 +85,8 @@
             return [UIImage imageNamed:@"menu_main_screen"];
         case 4:
             return [UIImage imageNamed:@"menu_main_screen"];
+        case 5:
+            return [UIImage imageNamed:@"menu_main_screen"];
         default:
             return nil;
     }
@@ -122,6 +124,10 @@
             break;
             
         case 4:
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
+            break;
+            
+        case 5:
             [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:USER_LOGGED];
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
             [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];

@@ -119,15 +119,15 @@
         case 2:{
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
             
-            [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
-                [unc popViewControllerAnimated:NO];
-                [unc pushViewController:vc animated:YES];
-            }];
+//            [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
+//                [unc popViewControllerAnimated:NO];
+//                [unc pushViewController:vc animated:YES];
+//            }];
             
 //            [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];
-//            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
-//                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
-//                                                                             andCompletion:nil];
+            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
+                                                                             andCompletion:nil];
         }
             break;
             

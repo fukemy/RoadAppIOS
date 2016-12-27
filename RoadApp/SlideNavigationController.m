@@ -223,7 +223,7 @@ static SlideNavigationController *singletonInstance;
 			[self setViewControllers:@[viewController]];
 		}
 		else {
-			[super popToRootViewControllerAnimated:NO];
+			[super popViewControllerAnimated:NO];
 			[super pushViewController:viewController animated:NO];
 		}
 		

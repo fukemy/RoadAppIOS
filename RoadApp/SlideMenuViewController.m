@@ -9,6 +9,8 @@
 #import "SlideMenuViewController.h"
 #import "MFSideMenu.h"
 #import "SlideNavigationController.h"
+#import "MenuTopLayoutTableViewCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface SlideMenuViewController (){
     NSArray *menuItemList;
@@ -51,16 +53,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    cell.textLabel.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.textLabel.textColor = [UIColor blackColor];
-    return cell;
+    if(indexPath.row == 0){
+        MenuTopLayoutTableViewCell *cell = (MenuTopLayoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuTopLayoutTableViewCell"];
+        cell.imvAvatar.layer.cornerRadius = cell.imvAvatar.frame.size.height / 2;
+        cell.imvAvatar.layer.masksToBounds = YES;
+        [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://www.google.com/imgres?imgurl=https%3A%2F%2Fi.stack.imgur.com%2Fs3syS.jpg&imgrefurl=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F28631985%2Fhow-to-hide-navigation-bar-and-tab-bar-while-scrolling-table-view-in-ios&docid=Wq7a4CTyWnb_yM&tbnid=tQWOEsVeA2L8KM%3A&vet=1&w=768&h=1024&client=safari&bih=894&biw=1280&q=ios%20navigationbar%20hide%20when%20scroll%20collectionview&ved=0ahUKEwjg74nGkJTRAhXIKpQKHVzpDf0QMwgoKA0wDQ&iact=mrc&uact=8"] placeholderImage:nil completed:nil];
+        
+        cell.tfName.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
+        cell.backgroundColor = [UIColor greenColor];
+        return cell;
+        
+    }else{
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell.textLabel.text = [NSString stringWithFormat:@"Item %ld", (long)indexPath.row];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.textLabel.textColor = [UIColor blackColor];
+        return cell;
+        
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(indexPath.row == 0)
+        return;
+    
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     NSLog(@"cell text: %@", cell.textLabel.text);
     

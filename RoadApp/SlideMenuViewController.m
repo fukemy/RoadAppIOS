@@ -14,6 +14,7 @@
 #import "Constant.h"
 #import "MenuItem.h"
 #import "ReportScreenViewController.h"
+#import "AppDelegate.h"
 
 @interface SlideMenuViewController (){
     NSArray *menuItemList;
@@ -100,24 +101,34 @@
     if(indexPath.row == 0)
         return;
     
-    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"cell text: %@", cell.textLabel.text);
+    MenuItem *cell = (MenuItem *)[tableView cellForRowAtIndexPath:indexPath];
+    NSLog(@"cell text: %@", cell.tfMenuName.text);
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     UIViewController *vc;
-    
+    UINavigationController *unc = (UINavigationController *)self.view.window.rootViewController;
+    NSMutableArray *viewControllers = [NSMutableArray arrayWithArray:[unc viewControllers]];
+    NSLog(@"fap : %ld", (long) viewControllers.count);
     switch (indexPath.row)
     {
         case 1:
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-            [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+            [[SlideNavigationController sharedInstance] closeMenuWithCompletion:nil];
             return;
             break;
             
-        case 2:
+        case 2:{
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
-            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
-                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
-                                                                             andCompletion:nil];
+            
+            [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
+                [viewControllers replaceObjectAtIndex:(viewControllers.count - 1) withObject:vc];
+                [unc setViewControllers:viewControllers animated:YES];
+            }];
+            
+//            [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];
+//            [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
+//                                                                     withSlideOutAnimation:self.slideOutAnimationEnabled
+//                                                                             andCompletion:nil];
+        }
             break;
             
         case 3:

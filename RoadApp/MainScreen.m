@@ -40,6 +40,7 @@
 }
 
 - (void) configToolbar{
+    self.navigationController.navigationBar.hidden = NO;
     self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
     //    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
     //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;

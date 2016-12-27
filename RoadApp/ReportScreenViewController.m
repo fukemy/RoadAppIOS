@@ -7,6 +7,8 @@
 //
 
 #import "ReportScreenViewController.h"
+#import "SlideMenuViewController.h"
+#import "SlideNavigationController.h"
 
 @interface ReportScreenViewController ()
 
@@ -17,21 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setupSlideMenu];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void) setupSlideMenu{
+    
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    
+    SlideMenuViewController *leftMenu = (SlideMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"SlideMenuViewController"];
+    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
+    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
+    
+    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

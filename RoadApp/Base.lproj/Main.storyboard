@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W92-Hh-Kqs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1230" y="107"/>
+            <point key="canvasLocation" x="784" y="107"/>
         </scene>
         <!--Báo cáo-->
         <scene sceneID="OYO-Tx-Irc">
@@ -303,7 +303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1lr-Jg-ySi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2185" y="107"/>
+            <point key="canvasLocation" x="1789" y="107"/>
         </scene>
         <!--Slide Menu View Controller-->
         <scene sceneID="qgd-Fw-sZv">
@@ -415,7 +415,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gGA-IQ-1if" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2641" y="107"/>
+            <point key="canvasLocation" x="2377" y="107"/>
         </scene>
         <!--Tuần đường-->
         <scene sceneID="S3i-GR-QHc">
@@ -498,7 +498,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BIH-ao-ttu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722" y="107"/>
+            <point key="canvasLocation" x="1230" y="107"/>
         </scene>
         <!--Report Screen View Controller-->
         <scene sceneID="Z1N-ib-7tT">
@@ -513,10 +513,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="kup-7Z-oyP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4Q-fF-VCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="271" y="794"/>
+            <point key="canvasLocation" x="784" y="782"/>
         </scene>
         <!--Slide Navigation Controller-->
         <scene sceneID="YXI-J8-Fyw">
@@ -553,7 +554,25 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRQ-kQ-voy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="698" y="107"/>
+            <point key="canvasLocation" x="246" y="107"/>
+        </scene>
+        <!--Slide Navigation Controller-->
+        <scene sceneID="gLY-Fa-dZH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tw8-Ui-0MX" customClass="SlideNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zok-lN-2ma">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vdW-EQ-QBW" kind="relationship" relationship="rootViewController" id="vVA-NY-QA8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kqd-yD-HcR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="252" y="782"/>
         </scene>
     </scenes>
     <resources>

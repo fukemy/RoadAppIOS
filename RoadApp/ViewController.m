@@ -35,8 +35,10 @@
     }else{
         [self showLogin];
     }
-    
-    
+}
+
+-(void)loginSuccess{
+    [self goToMainScreen];
 }
 
 - (void) showLogin{
@@ -44,6 +46,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+    loginVC.delegate = self;
     [self presentViewController:loginVC animated:YES completion:nil];
 }
 
@@ -51,8 +54,7 @@
     NSLog(@"goToMainScreen");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
-    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:mainScreenVC];
-    [self presentViewController:navCon animated:YES completion:nil];
+    [self.navigationController pushViewController:mainScreenVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

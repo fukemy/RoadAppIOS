@@ -59,7 +59,7 @@
 //        [SVProgressHUD dismiss];
 //    }];
     [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
-    [self goToMainScreen];
+    [_delegate loginSuccess];
 }
 
 - (void) getAllRoadInfo{
@@ -82,20 +82,12 @@
         
         [SVProgressHUD dismiss];
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
-        [self goToMainScreen];
+        [_delegate loginSuccess];
         
     } failure:^(NSError *error) {
         NSLog(@"error: %@", [error localizedDescription]);
         [SVProgressHUD dismiss];
     }];
-}
-
-- (void) goToMainScreen{
-    NSLog(@"goToMainScreen");
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
-    UINavigationController *navCon = [[UINavigationController alloc] initWithRootViewController:mainScreenVC];
-    [self presentViewController:navCon animated:YES completion:nil];
 }
 
 @end

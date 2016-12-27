@@ -120,8 +120,8 @@
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
             
             [[SlideNavigationController sharedInstance] closeMenuWithCompletion:^{
-                [viewControllers replaceObjectAtIndex:(viewControllers.count - 1) withObject:vc];
-                [unc setViewControllers:viewControllers animated:YES];
+                [unc popViewControllerAnimated:NO];
+                [unc pushViewController:vc animated:YES];
             }];
             
 //            [[SlideNavigationController sharedInstance] popAllAndSwitchToViewController:vc withSlideOutAnimation:YES andCompletion:nil];

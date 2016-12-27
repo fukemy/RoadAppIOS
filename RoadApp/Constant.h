@@ -28,6 +28,12 @@
 #define USER_LOGGED @"user logged"
 #define MAIN_SCREEN_VN @"Màn hình chính"
 
+//MENU
+#define MENU_MAIN_SCREEN @"Màn hình chính"
+#define MENU_REPORT @"Màn hình chính"
+#define MENU_ICI_CHECKING @"Màn hình chính"
+#define MENU_VIDEO @"Màn hình chính"
+
 
 //COLOR
 #define MAIN_COLOR @"#d2a809"

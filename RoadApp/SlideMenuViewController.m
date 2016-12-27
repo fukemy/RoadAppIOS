@@ -48,7 +48,7 @@
         MenuTopLayoutTableViewCell *cell = (MenuTopLayoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuTopLayoutTableViewCell"];
         cell.imvAvatar.layer.cornerRadius = cell.imvAvatar.frame.size.height / 2;
         cell.imvAvatar.layer.masksToBounds = YES;
-        [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://i.stack.imgur.com/KC3mu.png"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://i.stack.imgur.com/KC3mu.png"] placeholderImage:[UIImage imageNamed:@"male_avtar"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if(!error){
                 cell.imvAvatar.image = image;
             }else{

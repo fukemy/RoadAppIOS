@@ -556,8 +556,8 @@
 			isa = PBXGroup;
 			children = (
 				BCF4CC381E10D7ED009DA7DF /* Constant.h */,
-				1FAB5CBE1E11943700999597 /* Utilities.h */,
 				1FAB5CBF1E11943700999597 /* Utilities.m */,
+				1FAB5CBE1E11943700999597 /* Utilities.h */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";

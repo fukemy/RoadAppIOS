@@ -12,6 +12,14 @@
 		1F61D8F21E12D841009BCF74 /* DataItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F11E12D841009BCF74 /* DataItemModel.m */; };
 		1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F41E12D879009BCF74 /* VirableDataModel.m */; };
 		1F61D8F81E12D88D009BCF74 /* UserPositionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */; };
+		1F61D8FE1E12F2E8009BCF74 /* TLYShyNavBarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8FC1E12F2E8009BCF74 /* TLYShyNavBarManager.m */; };
+		1F61D9081E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9011E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m */; };
+		1F61D9091E12F317009BCF74 /* TLYDelegateProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9031E12F317009BCF74 /* TLYDelegateProxy.m */; };
+		1F61D90A1E12F317009BCF74 /* UIScrollView+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9051E12F317009BCF74 /* UIScrollView+Helpers.m */; };
+		1F61D90B1E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9071E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m */; };
+		1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */; };
+		1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */; };
+		1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
 		BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48011E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m */; };
 		BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48031E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m */; };
@@ -103,6 +111,26 @@
 		1F61D8F41E12D879009BCF74 /* VirableDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirableDataModel.m; sourceTree = "<group>"; };
 		1F61D8F61E12D88D009BCF74 /* UserPositionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPositionDataModel.h; sourceTree = "<group>"; };
 		1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPositionDataModel.m; sourceTree = "<group>"; };
+		1F61D8FA1E12F2E8009BCF74 /* TLYShyNavBarFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyNavBarFade.h; sourceTree = "<group>"; };
+		1F61D8FB1E12F2E8009BCF74 /* TLYShyNavBarManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyNavBarManager.h; sourceTree = "<group>"; };
+		1F61D8FC1E12F2E8009BCF74 /* TLYShyNavBarManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyNavBarManager.m; sourceTree = "<group>"; };
+		1F61D8FD1E12F2E8009BCF74 /* TLYShyNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyNavBar.h; sourceTree = "<group>"; };
+		1F61D9001E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+TLYSwizzlingHelpers.h"; sourceTree = "<group>"; };
+		1F61D9011E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+TLYSwizzlingHelpers.m"; sourceTree = "<group>"; };
+		1F61D9021E12F317009BCF74 /* TLYDelegateProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYDelegateProxy.h; sourceTree = "<group>"; };
+		1F61D9031E12F317009BCF74 /* TLYDelegateProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYDelegateProxy.m; sourceTree = "<group>"; };
+		1F61D9041E12F317009BCF74 /* UIScrollView+Helpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+Helpers.h"; sourceTree = "<group>"; };
+		1F61D9051E12F317009BCF74 /* UIScrollView+Helpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+Helpers.m"; sourceTree = "<group>"; };
+		1F61D9061E12F317009BCF74 /* UIViewController+BetterLayoutGuides.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+BetterLayoutGuides.h"; sourceTree = "<group>"; };
+		1F61D9071E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+BetterLayoutGuides.m"; sourceTree = "<group>"; };
+		1F61D90D1E12F32B009BCF74 /* TLYShyChild.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyChild.h; sourceTree = "<group>"; };
+		1F61D90E1E12F32B009BCF74 /* TLYShyParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyParent.h; sourceTree = "<group>"; };
+		1F61D90F1E12F32B009BCF74 /* TLYShyScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyScrollViewController.h; sourceTree = "<group>"; };
+		1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyScrollViewController.m; sourceTree = "<group>"; };
+		1F61D9111E12F32B009BCF74 /* TLYShyStatusBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyStatusBarController.h; sourceTree = "<group>"; };
+		1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyStatusBarController.m; sourceTree = "<group>"; };
+		1F61D9131E12F32B009BCF74 /* TLYShyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyViewController.h; sourceTree = "<group>"; };
+		1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
 		1FAB5CBE1E11943700999597 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		1FAB5CBF1E11943700999597 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		BCAC48001E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
@@ -271,6 +299,49 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */ = {
+			isa = PBXGroup;
+			children = (
+				1F61D90C1E12F31D009BCF74 /* ShyControllers */,
+				1F61D8FF1E12F30A009BCF74 /* Categories */,
+				1F61D8FA1E12F2E8009BCF74 /* TLYShyNavBarFade.h */,
+				1F61D8FB1E12F2E8009BCF74 /* TLYShyNavBarManager.h */,
+				1F61D8FC1E12F2E8009BCF74 /* TLYShyNavBarManager.m */,
+				1F61D8FD1E12F2E8009BCF74 /* TLYShyNavBar.h */,
+			);
+			name = TLYShyNavBar;
+			sourceTree = "<group>";
+		};
+		1F61D8FF1E12F30A009BCF74 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				1F61D9001E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.h */,
+				1F61D9011E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m */,
+				1F61D9021E12F317009BCF74 /* TLYDelegateProxy.h */,
+				1F61D9031E12F317009BCF74 /* TLYDelegateProxy.m */,
+				1F61D9041E12F317009BCF74 /* UIScrollView+Helpers.h */,
+				1F61D9051E12F317009BCF74 /* UIScrollView+Helpers.m */,
+				1F61D9061E12F317009BCF74 /* UIViewController+BetterLayoutGuides.h */,
+				1F61D9071E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
+		1F61D90C1E12F31D009BCF74 /* ShyControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1F61D90D1E12F32B009BCF74 /* TLYShyChild.h */,
+				1F61D90E1E12F32B009BCF74 /* TLYShyParent.h */,
+				1F61D90F1E12F32B009BCF74 /* TLYShyScrollViewController.h */,
+				1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */,
+				1F61D9111E12F32B009BCF74 /* TLYShyStatusBarController.h */,
+				1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */,
+				1F61D9131E12F32B009BCF74 /* TLYShyViewController.h */,
+				1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */,
+			);
+			name = ShyControllers;
+			sourceTree = "<group>";
+		};
 		BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +488,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */,
 				BCAC481B1E12747900E3D01C /* ImageCache */,
 				BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */,
 				BCF4CCA01E1140F9009DA7DF /* MFSlideMenu */,
@@ -739,9 +811,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCAC483F1E12748700E3D01C /* SDWebImageDecoder.m in Sources */,
+				1F61D90A1E12F317009BCF74 /* UIScrollView+Helpers.m in Sources */,
 				BCAC48421E12748700E3D01C /* SDWebImageManager.m in Sources */,
 				BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				1FAB5CC01E11943700999597 /* Utilities.m in Sources */,
+				1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */,
 				1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */,
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
 				BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
@@ -755,6 +829,7 @@
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
 				1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */,
 				BCF4CC221E10D6B5009DA7DF /* AFHTTPSessionManager.m in Sources */,
+				1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */,
 				BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */,
 				BCF4CC261E10D6B5009DA7DF /* AFURLRequestSerialization.m in Sources */,
 				BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */,
@@ -768,6 +843,7 @@
 				BCF4CC291E10D6B5009DA7DF /* Reachability.m in Sources */,
 				BCAC48411E12748700E3D01C /* SDWebImageDownloaderOperation.m in Sources */,
 				BCAC48471E12748700E3D01C /* UIImageView+HighlightedWebCache.m in Sources */,
+				1F61D8FE1E12F2E8009BCF74 /* TLYShyNavBarManager.m in Sources */,
 				BCAC480E1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,
@@ -778,16 +854,20 @@
 				BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */,
 				BCAC48491E12748700E3D01C /* UIView+WebCacheOperation.m in Sources */,
 				BCF4CBEA1E10D661009DA7DF /* JSONParser.m in Sources */,
+				1F61D9081E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				BCF4CC271E10D6B5009DA7DF /* AFURLResponseSerialization.m in Sources */,
 				BCAC480F1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BCF4CCA91E114102009DA7DF /* MFSideMenuShadow.m in Sources */,
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCAC48431E12748700E3D01C /* SDWebImagePrefetcher.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
+				1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */,
+				1F61D90B1E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m in Sources */,
 				1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */,
 				1F61D8F81E12D88D009BCF74 /* UserPositionDataModel.m in Sources */,
 				BCAC48441E12748700E3D01C /* UIImage+GIF.m in Sources */,
 				BCAC483C1E12748700E3D01C /* NSData+ImageContentType.m in Sources */,
+				1F61D9091E12F317009BCF74 /* TLYDelegateProxy.m in Sources */,
 				BCF4CBEB1E10D661009DA7DF /* JsonParserWithAF.m in Sources */,
 				BCAC481A1E12720400E3D01C /* MenuTopLayoutTableViewCell.m in Sources */,
 				BCAC480D1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,

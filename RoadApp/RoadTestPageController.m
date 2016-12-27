@@ -11,6 +11,7 @@
 #import "Constant.h"
 #import "Utilities.h"
 #import "DataItemModel.h"
+#import "TLYShyNavBarManager.h"
 
 @interface RoadTestPageController (){
     int widthSize, heightSize;
@@ -25,7 +26,7 @@
     [super viewDidLoad];
     widthSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
     heightSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
-    
+    self.shyNavBarManager.scrollView = self.cvItem;
     [self initData];
 }
 

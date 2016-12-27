@@ -46,18 +46,20 @@
 
 - (IBAction)login:(id)sender {
     NSString *url = [NSString stringWithFormat:@"%@%@",BASE_URL, GET_TOKEN_URL];
-    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-        NSLog(@"login response: %@", responseObject);
-        
-        token = [[NSString stringWithFormat:@"%@",responseObject] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-        [[NSUserDefaults standardUserDefaults] setValue:token forKey:USER_TOKEN];
-        [self getAllRoadInfo];
-        
-    } failure:^(NSError *error) {
-        NSLog(@"error: %@", [error localizedDescription]);
-        [SVProgressHUD dismiss];
-    }];
+//    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+//    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
+//        NSLog(@"login response: %@", responseObject);
+//        
+//        token = [[NSString stringWithFormat:@"%@",responseObject] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+//        [[NSUserDefaults standardUserDefaults] setValue:token forKey:USER_TOKEN];
+//        [self getAllRoadInfo];
+//        
+//    } failure:^(NSError *error) {
+//        NSLog(@"error: %@", [error localizedDescription]);
+//        [SVProgressHUD dismiss];
+//    }];
+    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
+    [self goToMainScreen];
 }
 
 - (void) getAllRoadInfo{

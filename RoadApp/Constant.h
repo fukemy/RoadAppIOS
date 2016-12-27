@@ -30,9 +30,10 @@
 
 //MENU
 #define MENU_MAIN_SCREEN @"Màn hình chính"
-#define MENU_REPORT @"Màn hình chính"
-#define MENU_ICI_CHECKING @"Màn hình chính"
-#define MENU_VIDEO @"Màn hình chính"
+#define MENU_REPORT @"Thống kê"
+#define MENU_ICI_CHECKING @"Đo độ bằng phẳng IRI"
+#define MENU_VIDEO @"Xem camera"
+#define MENU_MAP @"Xem bản đồ"
 
 
 //COLOR

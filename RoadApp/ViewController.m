@@ -48,15 +48,16 @@
     LoginController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginController"];
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     loginVC.delegate = self;
-    [self presentViewController:loginVC animated:YES completion:nil];
+    [self.navigationController presentViewController:loginVC animated:YES completion:nil];
+//    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 - (void) goToMainScreen{
     NSLog(@"goToMainScreen");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
-    [self.navigationController pushViewController:mainScreenVC animated:YES];
+    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];    [self.navigationController pushViewController:mainScreenVC animated:YES];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

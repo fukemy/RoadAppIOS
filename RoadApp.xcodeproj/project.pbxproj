@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */; };
+		1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8EE1E12D802009BCF74 /* RoadInformationModel.m */; };
+		1F61D8F21E12D841009BCF74 /* DataItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F11E12D841009BCF74 /* DataItemModel.m */; };
+		1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F41E12D879009BCF74 /* VirableDataModel.m */; };
+		1F61D8F81E12D88D009BCF74 /* UserPositionDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
 		BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48011E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m */; };
 		BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48031E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m */; };
@@ -88,6 +93,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F61D8EA1E12D6A5009BCF74 /* DataTypeItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTypeItemModel.h; sourceTree = "<group>"; };
+		1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTypeItemModel.m; sourceTree = "<group>"; };
+		1F61D8ED1E12D802009BCF74 /* RoadInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadInformationModel.h; sourceTree = "<group>"; };
+		1F61D8EE1E12D802009BCF74 /* RoadInformationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoadInformationModel.m; sourceTree = "<group>"; };
+		1F61D8F01E12D841009BCF74 /* DataItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataItemModel.h; sourceTree = "<group>"; };
+		1F61D8F11E12D841009BCF74 /* DataItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataItemModel.m; sourceTree = "<group>"; };
+		1F61D8F31E12D879009BCF74 /* VirableDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirableDataModel.h; sourceTree = "<group>"; };
+		1F61D8F41E12D879009BCF74 /* VirableDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VirableDataModel.m; sourceTree = "<group>"; };
+		1F61D8F61E12D88D009BCF74 /* UserPositionDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPositionDataModel.h; sourceTree = "<group>"; };
+		1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPositionDataModel.m; sourceTree = "<group>"; };
 		1FAB5CBE1E11943700999597 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		1FAB5CBF1E11943700999597 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		BCAC48001E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
@@ -239,6 +254,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F61D8E91E12D653009BCF74 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1F61D8EA1E12D6A5009BCF74 /* DataTypeItemModel.h */,
+				1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */,
+				1F61D8ED1E12D802009BCF74 /* RoadInformationModel.h */,
+				1F61D8EE1E12D802009BCF74 /* RoadInformationModel.m */,
+				1F61D8F01E12D841009BCF74 /* DataItemModel.h */,
+				1F61D8F11E12D841009BCF74 /* DataItemModel.m */,
+				1F61D8F31E12D879009BCF74 /* VirableDataModel.h */,
+				1F61D8F41E12D879009BCF74 /* VirableDataModel.m */,
+				1F61D8F61E12D88D009BCF74 /* UserPositionDataModel.h */,
+				1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -339,6 +371,7 @@
 		BCC405301DD0A00E00E313F7 /* RoadApp */ = {
 			isa = PBXGroup;
 			children = (
+				1F61D8E91E12D653009BCF74 /* Models */,
 				BCAC484D1E128E6100E3D01C /* Report */,
 				BCF4CC4C1E1105E9009DA7DF /* CustomCell */,
 				BCF4CC4B1E1105DF009DA7DF /* CustomView */,
@@ -709,6 +742,7 @@
 				BCAC48421E12748700E3D01C /* SDWebImageManager.m in Sources */,
 				BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				1FAB5CC01E11943700999597 /* Utilities.m in Sources */,
+				1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */,
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
 				BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */,
@@ -719,6 +753,7 @@
 				BCF4CC251E10D6B5009DA7DF /* AFURLConnectionOperation.m in Sources */,
 				BCAC483D1E12748700E3D01C /* SDImageCache.m in Sources */,
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
+				1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */,
 				BCF4CC221E10D6B5009DA7DF /* AFHTTPSessionManager.m in Sources */,
 				BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */,
 				BCF4CC261E10D6B5009DA7DF /* AFURLRequestSerialization.m in Sources */,
@@ -749,12 +784,15 @@
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCAC48431E12748700E3D01C /* SDWebImagePrefetcher.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
+				1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */,
+				1F61D8F81E12D88D009BCF74 /* UserPositionDataModel.m in Sources */,
 				BCAC48441E12748700E3D01C /* UIImage+GIF.m in Sources */,
 				BCAC483C1E12748700E3D01C /* NSData+ImageContentType.m in Sources */,
 				BCF4CBEB1E10D661009DA7DF /* JsonParserWithAF.m in Sources */,
 				BCAC481A1E12720400E3D01C /* MenuTopLayoutTableViewCell.m in Sources */,
 				BCAC480D1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */,
 				BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */,
+				1F61D8F21E12D841009BCF74 /* DataItemModel.m in Sources */,
 				BCAC48451E12748700E3D01C /* UIImage+MultiFormat.m in Sources */,
 				BCAC48401E12748700E3D01C /* SDWebImageDownloader.m in Sources */,
 				BCAC48121E12633100E3D01C /* SlideNavigationController.m in Sources */,

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SlideNavigationController.h"
 
-@interface ReportScreenViewController : UIViewController
+@interface ReportScreenViewController : UIViewController<SlideNavigationControllerDelegate>
 
 @end

@@ -11,6 +11,9 @@
 #import "SVProgressHUD.h"
 #import "Constant.h"
 #import "MainScreen.h"
+#import "RoadInformationModel.h"
+#import "Utilities.h"
+#import "DataItemModel.h"
 
 @interface LoginController (){
     NSString* token;
@@ -46,30 +49,32 @@
 
 - (IBAction)login:(id)sender {
     NSString *url = [NSString stringWithFormat:@"%@%@",BASE_URL, GET_TOKEN_URL];
-//    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
-//    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-//        NSLog(@"login response: %@", responseObject);
-//        
-//        token = [[NSString stringWithFormat:@"%@",responseObject] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
-//        [[NSUserDefaults standardUserDefaults] setValue:token forKey:USER_TOKEN];
-//        [self getAllRoadInfo];
-//        
-//    } failure:^(NSError *error) {
-//        NSLog(@"error: %@", [error localizedDescription]);
-//        [SVProgressHUD dismiss];
-//    }];
-    [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
-    [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
-        [_delegate loginSuccess];
+    [SVProgressHUD showWithStatus:@"Loading..." maskType:SVProgressHUDMaskTypeBlack];
+    [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
+        NSLog(@"login response: %@", responseObject);
         
+        token = [[NSString stringWithFormat:@"%@",responseObject] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+        [[NSUserDefaults standardUserDefaults] setValue:token forKey:USER_TOKEN];
+        [self getAllRoadInfo];
+        
+    } failure:^(NSError *error) {
+        NSLog(@"error: %@", [error localizedDescription]);
+        [SVProgressHUD dismiss];
     }];
 }
 
 - (void) getAllRoadInfo{
     NSString *url = [NSString stringWithFormat:@"%@%@/%@",BASE_URL, GET_ALL_ROAD_URL, token];
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-        NSLog(@"getAllRoadInfo: %@", responseObject);
+        NSString *dataJson = (NSString *)responseObject;
+//        dataJson = [dataJson stringByReplacingOccurrencesOfString:@":" withString:@"-"];
+        dataJson = [dataJson stringByReplacingOccurrencesOfString:@"[" withString:@""];
+        dataJson = [dataJson stringByReplacingOccurrencesOfString:@"]" withString:@""];
+//        NSLog(@"getAllRoadInfo: %@", dataJson);
         
+        RoadInformationModel *road = [[RoadInformationModel alloc] initWithJSONString:dataJson];
+        [[NSUserDefaults standardUserDefaults] setObject:dataJson forKey:ROAD_DATA];
+//        NSLog(@"road data: %@", road);
         [self getAllItem];
         
     } failure:^(NSError *error) {
@@ -81,11 +86,16 @@
 - (void) getAllItem{
     NSString *url = [NSString stringWithFormat:@"%@%@/%@",BASE_URL, GET_ALL_ITEM_URL, token];
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-        NSLog(@"getAllItem: %@", responseObject);
-        
         [SVProgressHUD dismiss];
+        
+        NSString *dataJson = [[NSString alloc] initWithFormat:@"%@", responseObject];
+//        NSLog(@"getAllItem: %@", dataJson);
+        
+        [[NSUserDefaults standardUserDefaults] setObject:dataJson forKey:ITEM_DATA_LIST];
         [[NSUserDefaults standardUserDefaults] setObject:@1 forKey:USER_LOGGED];
-        [_delegate loginSuccess];
+        [[self presentingViewController] dismissViewControllerAnimated:YES completion:^{
+            [_delegate loginSuccess];
+        }];
         
     } failure:^(NSError *error) {
         NSLog(@"error: %@", [error localizedDescription]);

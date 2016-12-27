@@ -18,4 +18,16 @@
     [scanner scanHexInt:&rgbValue];
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
+
++ (NSString *)removeString:(NSString *)str byCharacter:(NSString *)character{
+    // get all char of string
+    if([str length] > 0){
+        for (int i = 0; i < [str length]; i++) {
+            str = [str stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@"%C", [str characterAtIndex:i]] withString:@""];
+        }
+    }
+    
+    return str;
+}
+    
 @end

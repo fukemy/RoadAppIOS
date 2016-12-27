@@ -9,6 +9,7 @@
 #import "ReportScreenViewController.h"
 #import "SlideMenuViewController.h"
 #import "SlideNavigationController.h"
+#import "AppDelegate.h"
 
 @interface ReportScreenViewController ()
 
@@ -19,18 +20,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setupSlideMenu];
 }
 
--(void) setupSlideMenu{
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    
-    SlideMenuViewController *leftMenu = (SlideMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"SlideMenuViewController"];
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-    
-    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
+- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
+{
+    return YES;
+}
+
+- (BOOL)slideNavigationControllerShouldDisplayRightMenu
+{
+    return NO;
 }
 
 @end

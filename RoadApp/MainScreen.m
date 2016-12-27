@@ -33,7 +33,6 @@
     
     [self configToolbar];
     
-    [self setupSlideMenu];
     [self setupPager];
     
     [self reloadViewPager];
@@ -60,22 +59,9 @@
 
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
-    return YES;
+    return NO;
 }
 
-/*
- * init slide menu
- */
--(void) setupSlideMenu{
-    
-    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    
-    SlideMenuViewController *leftMenu = (SlideMenuViewController*)[mainStoryboard instantiateViewControllerWithIdentifier: @"SlideMenuViewController"];
-    [SlideNavigationController sharedInstance].leftMenu = leftMenu;
-    [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
-    
-    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
-}
 
 - (void)setupMenuBarButtonItems {
     if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&

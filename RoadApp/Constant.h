@@ -40,4 +40,8 @@
 #define MAIN_COLOR @"#d2a809"
 #define GRAY_COLOR @"#818285"
 
+//DATA
+#define ROAD_DATA @"road data"
+#define ITEM_DATA_LIST @"item data list"
+
 #endif /* Constant_h */

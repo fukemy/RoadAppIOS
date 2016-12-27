@@ -10,9 +10,11 @@
 #import "RoadTestCell.h"
 #import "Constant.h"
 #import "Utilities.h"
+#import "DataItemModel.h"
 
 @interface RoadTestPageController (){
     int widthSize, heightSize;
+    NSMutableArray *itemList;
 }
 
 @end
@@ -23,8 +25,21 @@
     [super viewDidLoad];
     widthSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
     heightSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
+    
+    [self initData];
 }
 
+- (void) initData{
+    NSString *itemDataString = [[NSUserDefaults standardUserDefaults] objectForKey:ITEM_DATA_LIST];
+    
+    NSError *error = nil;
+    itemList = [[NSMutableArray alloc] init];
+    
+    NSData *JSONData = [itemDataString dataUsingEncoding:NSUTF8StringEncoding];
+    itemList = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
+    
+    [_cvItem reloadData];
+}
 - (void) changeDisplayItemMode{
     _isList = !_isList;
     widthSize = _isList ? [UIScreen mainScreen].bounds.size.width - 10 * 2  : ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
@@ -37,16 +52,17 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     RoadTestCell *cell = (RoadTestCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"RoadTestCell" forIndexPath:indexPath];
+    DataItemModel* item = [[DataItemModel alloc] initWithDictionary:[itemList objectAtIndex:indexPath.row]];
     cell.layer.cornerRadius =  5.0f;
     cell.layer.masksToBounds = YES;
     cell.backgroundColor = [Utilities colorFromHexString:GRAY_COLOR];
-    cell.tfTitle.text = @"test";
+    cell.tfTitle.text = item.ItemName;
     return cell;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 18;
+    return itemList.count;
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

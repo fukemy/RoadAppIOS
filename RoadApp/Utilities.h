@@ -11,4 +11,5 @@
 
 @interface Utilities : NSObject
 + (UIColor *)colorFromHexString:(NSString *)hexString;
++ (NSString *)removeString:(NSString *)str byCharacter:(NSString *)character;
 @end

@@ -12,6 +12,7 @@
 #import "Utilities.h"
 #import "DataItemModel.h"
 #import "TLYShyNavBarManager.h"
+#import "InputViewController.h"
 
 @interface RoadTestPageController (){
     int widthSize, heightSize;
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     widthSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
     heightSize = ([UIScreen mainScreen].bounds.size.width - 10 * 5 ) / 3;
-    self.shyNavBarManager.scrollView = self.cvItem;
+//    self.shyNavBarManager.scrollView = self.cvItem;
     [self initData];
 }
 
@@ -73,7 +74,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
 //    
-//    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];
+    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];
 //    [UIView beginAnimations:@"showImage" context:Nil];
 //    CGRect cellFrame = cell.frame;
 //    CGRect imgFram = cell.frame;
@@ -90,7 +91,8 @@
 //    [UIView commitAnimations];
     
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
-    UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
+    InputViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
+    vc.titleView = cell.tfTitle.text;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     self.title = MAIN_SCREEN_VN;
     
     [self configToolbar];
@@ -38,9 +38,12 @@
     [self reloadViewPager];
 }
 
-- (void) configToolbar{
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-//    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
+    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];}
+
+- (void) configToolbar{
     //    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
     //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
     

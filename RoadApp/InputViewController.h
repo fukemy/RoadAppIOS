@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SlideNavigationController.h"
+#import <GoogleMaps/GoogleMaps.h>
 
-@interface InputViewController : UIViewController <SlideNavigationControllerDelegate>
+@interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate>
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) NSString *titleView;
 
 @end

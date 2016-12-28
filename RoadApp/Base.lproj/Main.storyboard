@@ -523,8 +523,38 @@
                     <view key="view" contentMode="scaleToFill" id="gUp-9w-W0D">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct6-sM-5sO">
+                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eN2-TZ-b5o" customClass="GMSMapView">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="7WK-GO-KtV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="top" secondItem="ct6-sM-5sO" secondAttribute="top" id="7jJ-ah-uCF"/>
+                                    <constraint firstAttribute="bottom" secondItem="eN2-TZ-b5o" secondAttribute="bottom" constant="348" id="FlX-Ib-nor"/>
+                                    <constraint firstAttribute="trailing" secondItem="eN2-TZ-b5o" secondAttribute="trailing" id="Pm6-Bi-8ee"/>
+                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="centerX" secondItem="ct6-sM-5sO" secondAttribute="centerX" id="a1l-5c-Fgb"/>
+                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="leading" secondItem="ct6-sM-5sO" secondAttribute="leading" id="t9l-ma-GP3"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ct6-sM-5sO" firstAttribute="leading" secondItem="gUp-9w-W0D" secondAttribute="leading" id="Djr-Ph-Mml"/>
+                            <constraint firstItem="ct6-sM-5sO" firstAttribute="top" secondItem="BGX-7a-cwV" secondAttribute="bottom" id="Ol2-6v-qFK"/>
+                            <constraint firstAttribute="trailing" secondItem="ct6-sM-5sO" secondAttribute="trailing" id="xsD-P2-0ea"/>
+                            <constraint firstItem="ct6-sM-5sO" firstAttribute="bottom" secondItem="82Y-6l-d6l" secondAttribute="top" id="yed-Zv-TOJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="eN2-TZ-b5o" id="CGf-Re-4AD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erm-6c-wlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

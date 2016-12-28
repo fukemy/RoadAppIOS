@@ -515,7 +515,7 @@
         <!--Input View Controller-->
         <scene sceneID="bkL-21-1Q0">
             <objects>
-                <viewController id="e7q-a6-v1m" customClass="InputViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InputViewController" id="e7q-a6-v1m" customClass="InputViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BGX-7a-cwV"/>
                         <viewControllerLayoutGuide type="bottom" id="82Y-6l-d6l"/>

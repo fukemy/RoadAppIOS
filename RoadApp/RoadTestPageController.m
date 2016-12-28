@@ -72,22 +72,26 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+//    
+//    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];
+//    [UIView beginAnimations:@"showImage" context:Nil];
+//    CGRect cellFrame = cell.frame;
+//    CGRect imgFram = cell.frame;
+//    [UIView setAnimationDuration:0.8];
+//    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:cell
+//                             cache:YES];
+//    cellFrame.size = CGSizeMake(200, 200);
+//    cellFrame.origin.y = 10;
+//    cellFrame.origin.x = 45;
+//    cell.frame = cellFrame;
+//    imgFram.size = CGSizeMake(200, 200);
+//    cell.frame = imgFram;
+//    [collectionView bringSubviewToFront:cell];
+//    [UIView commitAnimations];
     
-    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];
-    [UIView beginAnimations:@"showImage" context:Nil];
-    CGRect cellFrame = cell.frame;
-    CGRect imgFram = cell.frame;
-    [UIView setAnimationDuration:0.8];
-    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:cell
-                             cache:YES];
-    cellFrame.size = CGSizeMake(200, 200);
-    cellFrame.origin.y = 10;
-    cellFrame.origin.x = 45;
-    cell.frame = cellFrame;
-    imgFram.size = CGSizeMake(200, 200);
-    cell.frame = imgFram;
-    [collectionView bringSubviewToFront:cell];
-    [UIView commitAnimations];
+    UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    UIViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

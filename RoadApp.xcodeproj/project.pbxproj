@@ -1311,7 +1311,10 @@
 					"$(PROJECT_DIR)/RoadApp",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1343,7 +1346,10 @@
 					"$(PROJECT_DIR)/RoadApp",
 				);
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"$(inherited)",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

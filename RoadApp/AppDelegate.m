@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "SlideMenuViewController.h"
 #import "SlideNavigationController.h"
+@import GoogleMaps;
+#import "Constant.h"
 
 @interface AppDelegate ()
 
@@ -27,21 +29,7 @@
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     ([SlideNavigationController sharedInstance]).enableSwipeGesture = YES;
     ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidClose object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Closed %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidOpen object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Opened %@", menu);
-    }];
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:SlideNavigationControllerDidReveal object:nil queue:nil usingBlock:^(NSNotification *note) {
-        NSString *menu = note.userInfo[@"menu"];
-        NSLog(@"Revealed %@", menu);
-    }];
+    [GMSServices provideAPIKey:GOOGLEMAP_KEY];
     
     
     return YES;

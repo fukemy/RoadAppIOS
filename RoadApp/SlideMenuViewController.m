@@ -15,6 +15,9 @@
 #import "MenuItem.h"
 #import "ReportScreenViewController.h"
 #import "AppDelegate.h"
+#import "MapViewController.h"
+#import "IriCheckingViewController.h"
+#import "VideoViewController.h"
 
 @interface SlideMenuViewController (){
     NSArray *menuItemList;
@@ -35,7 +38,7 @@
 {
     [super viewDidLoad];
     [self.view setUserInteractionEnabled:YES];
-    menuItemList = [[NSArray alloc] initWithObjects:@"", MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, nil];
+    menuItemList = [[NSArray alloc] initWithObjects:@"", MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, MENU_LOGOUT, nil];
     self.tableView.separatorColor = [UIColor lightGrayColor];
 }
 
@@ -116,7 +119,7 @@
             break;
             
         case 2:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"IriCheckingViewController"];
             break;
             
         case 3:
@@ -124,10 +127,14 @@
             break;
             
         case 4:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"MapViewController"];
             break;
             
         case 5:
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"VideoViewController"];
+            break;
+            
+        case 6:
             [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:USER_LOGGED];
             [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
             [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];

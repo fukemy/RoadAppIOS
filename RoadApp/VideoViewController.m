@@ -1,27 +1,24 @@
 //
-//  ReportScreenViewController.m
+//  VideoViewController.m
 //  RoadApp
 //
-//  Created by admin2 on 12/27/16.
+//  Created by devil2010 on 12/28/16.
 //  Copyright © 2016 admin2. All rights reserved.
 //
 
-#import "ReportScreenViewController.h"
-#import "SlideMenuViewController.h"
-#import "SlideNavigationController.h"
-#import "AppDelegate.h"
+#import "VideoViewController.h"
 #import "Constant.h"
 
-@interface ReportScreenViewController ()
+@interface VideoViewController ()
 
 @end
 
-@implementation ReportScreenViewController
+@implementation VideoViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:MENU_REPORT];
+    [self setTitle:MENU_VIDEO];
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu
@@ -33,5 +30,4 @@
 {
     return NO;
 }
-
 @end

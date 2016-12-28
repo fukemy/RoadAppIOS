@@ -34,6 +34,7 @@
 #define MENU_ICI_CHECKING @"Đo độ bằng phẳng IRI"
 #define MENU_VIDEO @"Xem camera"
 #define MENU_MAP @"Xem bản đồ"
+#define MENU_LOGOUT @"Đăng xuất"
 
 
 //COLOR
@@ -43,5 +44,6 @@
 //DATA
 #define ROAD_DATA @"road data"
 #define ITEM_DATA_LIST @"item data list"
+#define GOOGLEMAP_KEY @"AIzaSyCbee2MxY3noVIKenWbHyLOobYplT9xNRo"
 
 #endif /* Constant_h */

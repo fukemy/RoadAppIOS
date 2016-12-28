@@ -1,5 +1,5 @@
 //
-//  VideoViewController.h
+//  IriCheckingViewController.h
 //  RoadApp
 //
 //  Created by devil2010 on 12/28/16.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
 
-@interface VideoViewController : UIViewController <SlideNavigationControllerDelegate>
+@interface IriCheckingViewController : UIViewController <SlideNavigationControllerDelegate>
 
 @end

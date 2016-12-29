@@ -58,7 +58,7 @@
         
         InputViewCell *cell = (InputViewCell *)[tableView dequeueReusableCellWithIdentifier:@"InputViewCell" forIndexPath:indexPath];
         
-        cell.rootVIew.layer.cornerRadius = 5.0f;
+        cell.contentView.layer.cornerRadius = 5.0f;
 //        cell.rootVIew.layer.borderColor = [Utilities colorFromHexString:GRAY_COLOR].CGColor;
 //        cell.rootVIew.layer.borderWidth = 1.0f;
 //        cell.rootVIew.layer.masksToBounds = YES;
@@ -83,29 +83,18 @@
         CGRect frame;
         if(arr == nil || [arr count] == 0){
             cell.viewImage.hidden = YES;
-            frame = cell.viewImage.frame;
-            frame.size.height = 0;
-            cell.viewImage.frame = frame;
     
         }else{
             cell.viewImage.hidden = NO;
-            frame = cell.viewImage.frame;
-            frame.size.height = 72;
-            cell.viewImage.frame = frame;
+            for(int i = 0; i < arr.count; i++){
+                UIImageView *imv = [[UIImageView alloc] initWithFrame:CGRectMake(0 + i * 70, 0, 70, 70)];
+                UIImage *image = [arr objectAtIndex:i];
+                imv.image = image;
+                [cell.viewImage addSubview:imv];
+            }
             
-            UIImage *image = [UIImage imageWithContentsOfFile:[arr objectAtIndex:0]];
-            [cell.viewImage addSubview:image];
+            
         }
-        
-        
-        CGRect frame1 = cell.rootVIew.frame;
-        frame1.size.height = frame1.size.height - (frame.size.height == 0 ? 70 : 0);
-        cell.rootVIew.frame = frame1;
-        
-        CGRect frame2 = cell.inputView.frame;
-        frame2.size.height = frame2.size.height - (frame.size.height == 0 ? 70 : 0);
-        cell.inputView.frame = frame2;
-
         
         return cell;
     }
@@ -123,11 +112,7 @@
         
         NSMutableDictionary *dict = [dataList objectAtIndex:indexPath.row - 1];
         NSMutableArray *arr = [dict objectForKey:@"image"];
-        if(arr == nil || [arr count] == 0){
-            return  225;
-        }else{
-            return 70 + 225;
-        }
+        return  225;
     }
 }
 
@@ -171,6 +156,7 @@
     
     _tbInput.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tbInput.separatorColor = [UIColor clearColor];
+    _tbInput.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)doneButton{
@@ -321,7 +307,7 @@
     
     NSMutableDictionary *dict = [dataList objectAtIndex:currentEdit];
     NSMutableArray *arr = [dict objectForKey:@"image"];
-    [arr addObject:[path relativeString]];
+    [arr addObject:image];
     
     [dict setObject:arr forKey:@"image"];
     

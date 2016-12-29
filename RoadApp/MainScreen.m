@@ -41,12 +41,12 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
-    self.navigationController.navigationBar.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];}
+}
 
 - (void) configToolbar{
     //    self.navigationController.navigationBar.tintColor = [UIColor blueColor];
     //    self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
-    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
     self.tabbar.selectedItem = [[self.tabbar items] objectAtIndex:0];
 }
 

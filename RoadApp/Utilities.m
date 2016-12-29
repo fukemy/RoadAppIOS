@@ -29,5 +29,47 @@
     
     return str;
 }
-    
+
++ (UIImage *)getItemBackground:(int) order{
+    switch (order) {
+        case 0:
+            return [UIImage imageNamed:@"bg_matduong"];
+        case 1:
+            return [UIImage imageNamed:@"bg_nenduong"];
+        case 2:
+            return [UIImage imageNamed:@"bg_daiphancach"];
+        case 3:
+            return [UIImage imageNamed:@"bg_congchuidansinh"];
+        case 4:
+            return [UIImage imageNamed:@"bg_conghopbanthoatnuoc"];
+        case 5:
+            return [UIImage imageNamed:@"bg_congtron"];
+        case 6:
+            return [UIImage imageNamed:@"bg_maidoc"];
+        case 7:
+            return [UIImage imageNamed:@"bg_tuongchan"];
+        case 8:
+            return [UIImage imageNamed:@"bg_hangraobaove"];
+        case 9:
+            return [UIImage imageNamed:@"bg_hethongchieusang"];
+        case 10:
+            return [UIImage imageNamed:@"bg_bienbao"];
+        case 11:
+            return [UIImage imageNamed:@"bg_vachsonduong"];
+        case 12:
+            return [UIImage imageNamed:@"bg_cotkm"];
+        case 13:
+            return [UIImage imageNamed:@"bg_cau"];
+        case 14:
+            return [UIImage imageNamed:@"bg_coctieu"];
+        case 15:
+            return [UIImage imageNamed:@"bg_hogahothu"];
+        case 16:
+            return [UIImage imageNamed:@"bg_ranhdocranhbien"];
+        case 17:
+            return [UIImage imageNamed:@"bg_congdoc"];
+        default:
+            return [UIImage imageNamed:@"bg_nenduong"];
+    }
+}
 @end

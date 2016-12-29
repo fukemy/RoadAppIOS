@@ -54,6 +54,8 @@
 		BCAC48491E12748700E3D01C /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC483A1E12748700E3D01C /* UIView+WebCacheOperation.m */; };
 		BCAC484C1E128BE600E3D01C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC484B1E128BE600E3D01C /* MenuItem.m */; };
 		BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC484F1E128E7800E3D01C /* ReportScreenViewController.m */; };
+		BCAC48571E14DD9A00E3D01C /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48561E14DD9A00E3D01C /* DBManager.m */; };
+		BCAC48591E14DE1600E3D01C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAC48581E14DE1600E3D01C /* libsqlite3.tbd */; };
 		BCC405331DD0A00E00E313F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405321DD0A00E00E313F7 /* main.m */; };
 		BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405351DD0A00E00E313F7 /* AppDelegate.m */; };
 		BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405381DD0A00E00E313F7 /* ViewController.m */; };
@@ -141,19 +143,6 @@
 		1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
 		1F9A0E071E1407A00046F365 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		1F9A0E081E1407A00046F365 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
-		1F9A0E161E140E190046F365 /* GoogleMapsBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsBase.framework; sourceTree = "<group>"; };
-		1F9A0E181E140E470046F365 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
-		1F9A0E191E140E470046F365 /* GoogleMapsCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMapsCore.framework; sourceTree = "<group>"; };
-		1F9A0E241E140FE60046F365 /* libz.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = libz.tbd; sourceTree = "<group>"; };
-		1F9A0E261E140FF80046F365 /* libc++.tbd */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.text-based-dylib-definition"; path = "libc++.tbd"; sourceTree = "<group>"; };
-		1F9A0E281E1410020046F365 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Accelerate.framework; sourceTree = "<group>"; };
-		1F9A0E2A1E14101C0046F365 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreData.framework; sourceTree = "<group>"; };
-		1F9A0E2C1E1410310046F365 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreGraphics.framework; sourceTree = "<group>"; };
-		1F9A0E2D1E1410310046F365 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreLocation.framework; sourceTree = "<group>"; };
-		1F9A0E301E14103E0046F365 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CoreText.framework; sourceTree = "<group>"; };
-		1F9A0E321E14104A0046F365 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GLKit.framework; sourceTree = "<group>"; };
-		1F9A0E341E1410550046F365 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ImageIO.framework; sourceTree = "<group>"; };
-		1F9A0E361E1410620046F365 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenGLES.framework; sourceTree = "<group>"; };
 		1F9A0E381E1413340046F365 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
 		1F9A0E391E1413340046F365 /* InputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewController.m; sourceTree = "<group>"; };
 		1F9A0E3B1E14133D0046F365 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
@@ -221,6 +210,9 @@
 		BCAC484B1E128BE600E3D01C /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		BCAC484E1E128E7800E3D01C /* ReportScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportScreenViewController.h; sourceTree = "<group>"; };
 		BCAC484F1E128E7800E3D01C /* ReportScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportScreenViewController.m; sourceTree = "<group>"; };
+		BCAC48551E14DD9A00E3D01C /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		BCAC48561E14DD9A00E3D01C /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		BCAC48581E14DE1600E3D01C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		BCC4052E1DD0A00E00E313F7 /* RoadApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoadApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC405321DD0A00E00E313F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BCC405341DD0A00E00E313F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -299,6 +291,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCAC48591E14DE1600E3D01C /* libsqlite3.tbd in Frameworks */,
 				4A66653FE4B67DB48C6F8E9F /* libPods-RoadApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,6 +427,7 @@
 		A3E6248D6BBB2BA695DB7B48 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BCAC48581E14DE1600E3D01C /* libsqlite3.tbd */,
 				ED178BA93730CEEB087E67FE /* libPods-RoadApp.a */,
 				8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */,
 				19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */,
@@ -518,6 +512,15 @@
 			name = Report;
 			sourceTree = "<group>";
 		};
+		BCAC48541E14DD8A00E3D01C /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC48551E14DD9A00E3D01C /* DBManager.h */,
+				BCAC48561E14DD9A00E3D01C /* DBManager.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
 		BCC405251DD0A00E00E313F7 = {
 			isa = PBXGroup;
 			children = (
@@ -543,6 +546,7 @@
 		BCC405301DD0A00E00E313F7 /* RoadApp */ = {
 			isa = PBXGroup;
 			children = (
+				BCAC48541E14DD8A00E3D01C /* Database */,
 				1F9A0E121E140B250046F365 /* Input */,
 				1F9A0E0E1E1408180046F365 /* Map */,
 				1F9A0E0A1E1407E90046F365 /* IRIChecking */,
@@ -593,19 +597,6 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1F9A0E361E1410620046F365 /* OpenGLES.framework */,
-				1F9A0E341E1410550046F365 /* ImageIO.framework */,
-				1F9A0E321E14104A0046F365 /* GLKit.framework */,
-				1F9A0E301E14103E0046F365 /* CoreText.framework */,
-				1F9A0E2C1E1410310046F365 /* CoreGraphics.framework */,
-				1F9A0E2D1E1410310046F365 /* CoreLocation.framework */,
-				1F9A0E2A1E14101C0046F365 /* CoreData.framework */,
-				1F9A0E281E1410020046F365 /* Accelerate.framework */,
-				1F9A0E261E140FF80046F365 /* libc++.tbd */,
-				1F9A0E241E140FE60046F365 /* libz.tbd */,
-				1F9A0E181E140E470046F365 /* GoogleMaps.framework */,
-				1F9A0E191E140E470046F365 /* GoogleMapsCore.framework */,
-				1F9A0E161E140E190046F365 /* GoogleMapsBase.framework */,
 				1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */,
 				BCAC481B1E12747900E3D01C /* ImageCache */,
 				BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */,
@@ -975,7 +966,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5AC439322E55AC5771658707 /* [CP] Embed Pods Frameworks */ = {
@@ -1020,7 +1011,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C0B061E50885F3DF7E90B8B2 /* [CP] Embed Pods Frameworks */ = {
@@ -1065,7 +1056,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1090,6 +1081,7 @@
 				BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */,
 				BCC405691DD0A06400E313F7 /* LoginController.m in Sources */,
 				BCF4CC251E10D6B5009DA7DF /* AFURLConnectionOperation.m in Sources */,
+				BCAC48571E14DD9A00E3D01C /* DBManager.m in Sources */,
 				BCAC483D1E12748700E3D01C /* SDImageCache.m in Sources */,
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
 				1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */,

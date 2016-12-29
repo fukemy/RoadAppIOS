@@ -13,6 +13,7 @@
 #import "DataItemModel.h"
 #import "TLYShyNavBarManager.h"
 #import "InputViewController.h"
+#import <CoreImage/CoreImage.h>
 
 @interface RoadTestPageController (){
     int widthSize, heightSize;
@@ -38,8 +39,11 @@
     itemList = [[NSMutableArray alloc] init];
     
     NSData *JSONData = [itemDataString dataUsingEncoding:NSUTF8StringEncoding];
-    itemList = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
-    
+    if(JSONData == nil){
+        itemList = [[NSMutableArray alloc] init];
+    }else{
+        itemList = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
+    }
     [_cvItem reloadData];
 }
 - (void) changeDisplayItemMode{
@@ -57,11 +61,10 @@
     DataItemModel* item = [[DataItemModel alloc] initWithDictionary:[itemList objectAtIndex:indexPath.row]];
     cell.layer.cornerRadius =  5.0f;
     cell.layer.masksToBounds = YES;
-    cell.backgroundColor = [Utilities colorFromHexString:GRAY_COLOR];
     cell.tfTitle.text = item.ItemName;
+    cell.imgItem.image = [Utilities getItemBackground:(int)indexPath.row];
     return cell;
 }
-
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return itemList.count;
@@ -72,24 +75,8 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-//    
-    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];
-//    [UIView beginAnimations:@"showImage" context:Nil];
-//    CGRect cellFrame = cell.frame;
-//    CGRect imgFram = cell.frame;
-//    [UIView setAnimationDuration:0.8];
-//    [UIView setAnimationTransition:UIViewAnimationTransitionNone forView:cell
-//                             cache:YES];
-//    cellFrame.size = CGSizeMake(200, 200);
-//    cellFrame.origin.y = 10;
-//    cellFrame.origin.x = 45;
-//    cell.frame = cellFrame;
-//    imgFram.size = CGSizeMake(200, 200);
-//    cell.frame = imgFram;
-//    [collectionView bringSubviewToFront:cell];
-//    [UIView commitAnimations];
-    
+{    
+    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];    
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     InputViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
     vc.titleView = cell.tfTitle.text;

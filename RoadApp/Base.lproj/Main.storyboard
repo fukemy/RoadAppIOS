@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1bQ-MU-Eil">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1bQ-MU-Eil">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -247,8 +247,8 @@
                                     <constraint firstAttribute="height" constant="49" id="KbM-OU-2qp"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Tuần đường" image="Comment_circle" id="d9t-HZ-jNK"/>
-                                    <tabBarItem tag="1" title="Lập báo cáo" image="Back" id="FOH-pq-dTk"/>
+                                    <tabBarItem title="Tuần đường" id="d9t-HZ-jNK"/>
+                                    <tabBarItem tag="1" title="Lập báo cáo" id="FOH-pq-dTk"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="foc-4D-bDI" id="UW5-Es-Nsy"/>
@@ -421,7 +421,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-gg-rbg">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YZI-gg-rbg">
                                 <rect key="frame" x="10" y="10" width="300" height="558"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="R57-23-bA7">
@@ -438,7 +438,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="90" height="91"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <visualEffectView opaque="NO" alpha="0.5" tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oio-tc-W28">
+                                                <visualEffectView tag="1" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oio-tc-W28">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="91"/>
                                                     <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="b7f-bN-jIE">
                                                         <rect key="frame" x="0.0" y="0.0" width="90" height="91"/>
@@ -538,36 +538,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ct6-sM-5sO">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eN2-TZ-b5o" customClass="GMSMapView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="7WK-GO-KtV"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="top" secondItem="ct6-sM-5sO" secondAttribute="top" id="7jJ-ah-uCF"/>
-                                    <constraint firstAttribute="bottom" secondItem="eN2-TZ-b5o" secondAttribute="bottom" constant="348" id="FlX-Ib-nor"/>
-                                    <constraint firstAttribute="trailing" secondItem="eN2-TZ-b5o" secondAttribute="trailing" id="Pm6-Bi-8ee"/>
-                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="centerX" secondItem="ct6-sM-5sO" secondAttribute="centerX" id="a1l-5c-Fgb"/>
-                                    <constraint firstItem="eN2-TZ-b5o" firstAttribute="leading" secondItem="ct6-sM-5sO" secondAttribute="leading" id="t9l-ma-GP3"/>
-                                </constraints>
-                            </scrollView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v1P-nO-zsk">
+                                <rect key="frame" x="16" y="0.0" width="288" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="4y2-vA-hE7">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4y2-vA-hE7" id="XZK-1g-kaG">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="e7q-a6-v1m" id="Jtj-iA-ZGj"/>
+                                    <outlet property="delegate" destination="e7q-a6-v1m" id="mi4-U0-j9v"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ct6-sM-5sO" firstAttribute="leading" secondItem="gUp-9w-W0D" secondAttribute="leading" id="Djr-Ph-Mml"/>
-                            <constraint firstItem="ct6-sM-5sO" firstAttribute="top" secondItem="BGX-7a-cwV" secondAttribute="bottom" id="Ol2-6v-qFK"/>
-                            <constraint firstAttribute="trailing" secondItem="ct6-sM-5sO" secondAttribute="trailing" id="xsD-P2-0ea"/>
-                            <constraint firstItem="ct6-sM-5sO" firstAttribute="bottom" secondItem="82Y-6l-d6l" secondAttribute="top" id="yed-Zv-TOJ"/>
+                            <constraint firstItem="v1P-nO-zsk" firstAttribute="leading" secondItem="gUp-9w-W0D" secondAttribute="leadingMargin" id="Ye4-dM-Jd9"/>
+                            <constraint firstItem="82Y-6l-d6l" firstAttribute="top" secondItem="v1P-nO-zsk" secondAttribute="bottom" id="gMP-D1-xAb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v1P-nO-zsk" secondAttribute="trailing" id="xN5-DX-0sG"/>
+                            <constraint firstItem="v1P-nO-zsk" firstAttribute="top" secondItem="gUp-9w-W0D" secondAttribute="topMargin" id="yF3-d4-dpJ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mapView" destination="eN2-TZ-b5o" id="CGf-Re-4AD"/>
+                        <outlet property="tbInput" destination="v1P-nO-zsk" id="qc2-Mv-pCC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="erm-6c-wlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -654,8 +653,6 @@
     </scenes>
     <resources>
         <image name="AvatarCircle" width="171" height="168"/>
-        <image name="Back" width="15" height="27"/>
-        <image name="Comment_circle" width="32" height="32"/>
         <image name="Rectangle_icon" width="18" height="18"/>
         <image name="key" width="26" height="26"/>
         <image name="login_bg" width="485" height="300"/>

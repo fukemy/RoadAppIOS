@@ -80,6 +80,7 @@
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     InputViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
     vc.titleView = cell.tfTitle.text;
+    [self.navigationController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

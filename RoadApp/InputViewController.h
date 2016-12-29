@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "InputViewCell.h"
 
-@interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate>
-@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate, UITableViewDataSource, UITableViewDelegate
+    , UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate ,InputCellDelegare, UIImagePickerControllerDelegate
+    , UINavigationControllerDelegate>
 @property (weak, nonatomic) NSString *titleView;
+@property (weak, nonatomic) IBOutlet UITableView *tbInput;
 
 @end

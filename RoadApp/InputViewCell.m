@@ -1,19 +1,16 @@
 //
-//  MenuTopLayoutTableViewCell.m
+//  InputViewCell.m
 //  RoadApp
 //
-//  Created by admin2 on 12/27/16.
+//  Created by devil2010 on 12/29/16.
 //  Copyright © 2016 admin2. All rights reserved.
 //
 
-#import "MenuTopLayoutTableViewCell.h"
-#import "Utilities.h"
-#import "Constant.h"
+#import "InputViewCell.h"
 
-@implementation MenuTopLayoutTableViewCell
+@implementation InputViewCell
 
 - (void)awakeFromNib {
-    [super awakeFromNib];
     // Initialization code
 }
 
@@ -23,4 +20,10 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)addMoreInput:(id)sender {
+    [_delegate addMoreInput];
+}
+- (IBAction)addImage:(id)sender {
+    [_delegate addImage:_indexPath];
+}
 @end

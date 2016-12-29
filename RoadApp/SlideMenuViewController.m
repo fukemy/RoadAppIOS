@@ -17,6 +17,7 @@
 #import "AppDelegate.h"
 #import "MapViewController.h"
 #import "IriCheckingViewController.h"
+#import "Utilities.h"
 #import "VideoViewController.h"
 
 @interface SlideMenuViewController (){
@@ -60,7 +61,7 @@
         }];
         
         cell.tfName.text = [NSString stringWithFormat:@"@@ %ld", (long)indexPath.row];
-        cell.backgroundColor = [UIColor greenColor];
+        cell.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
         [cell setUserInteractionEnabled:NO];
         return cell;
         

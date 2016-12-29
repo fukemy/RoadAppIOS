@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CCB1DE7CA1ECEFEC287DB13 /* libPods-RoadAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */; };
+		1F4B62741E15603E005EE93B /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B62721E15603E005EE93B /* InputViewCell.m */; };
+		1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B62731E15603E005EE93B /* InputViewCell.xib */; };
 		1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */; };
 		1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8EE1E12D802009BCF74 /* RoadInformationModel.m */; };
 		1F61D8F21E12D841009BCF74 /* DataItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8F11E12D841009BCF74 /* DataItemModel.m */; };
@@ -111,6 +113,9 @@
 
 /* Begin PBXFileReference section */
 		19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F4B62711E15603E005EE93B /* InputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewCell.h; sourceTree = "<group>"; };
+		1F4B62721E15603E005EE93B /* InputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewCell.m; sourceTree = "<group>"; };
+		1F4B62731E15603E005EE93B /* InputViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewCell.xib; sourceTree = "<group>"; };
 		1F61D8EA1E12D6A5009BCF74 /* DataTypeItemModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTypeItemModel.h; sourceTree = "<group>"; };
 		1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTypeItemModel.m; sourceTree = "<group>"; };
 		1F61D8ED1E12D802009BCF74 /* RoadInformationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoadInformationModel.h; sourceTree = "<group>"; };
@@ -315,6 +320,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F4B62791E156E51005EE93B /* ComboBox */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ComboBox;
+			sourceTree = "<group>";
+		};
 		1F61D8E91E12D653009BCF74 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -597,6 +609,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F4B62791E156E51005EE93B /* ComboBox */,
 				1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */,
 				BCAC481B1E12747900E3D01C /* ImageCache */,
 				BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */,
@@ -727,6 +740,9 @@
 				BCAC48191E12720400E3D01C /* MenuTopLayoutTableViewCell.m */,
 				BCAC484A1E128BE600E3D01C /* MenuItem.h */,
 				BCAC484B1E128BE600E3D01C /* MenuItem.m */,
+				1F4B62711E15603E005EE93B /* InputViewCell.h */,
+				1F4B62721E15603E005EE93B /* InputViewCell.m */,
+				1F4B62731E15603E005EE93B /* InputViewCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -903,6 +919,7 @@
 				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
 				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
 				BCF4CC311E10D6CB009DA7DF /* SVProgressHUD.bundle in Resources */,
+				1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */,
 				BCAC48171E12694800E3D01C /* menu-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -966,7 +983,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5AC439322E55AC5771658707 /* [CP] Embed Pods Frameworks */ = {
@@ -1011,7 +1028,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C0B061E50885F3DF7E90B8B2 /* [CP] Embed Pods Frameworks */ = {
@@ -1056,7 +1073,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1135,6 +1152,7 @@
 				BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */,
 				1F61D8F21E12D841009BCF74 /* DataItemModel.m in Sources */,
 				BCAC48451E12748700E3D01C /* UIImage+MultiFormat.m in Sources */,
+				1F4B62741E15603E005EE93B /* InputViewCell.m in Sources */,
 				BCAC48401E12748700E3D01C /* SDWebImageDownloader.m in Sources */,
 				BCAC48121E12633100E3D01C /* SlideNavigationController.m in Sources */,
 			);

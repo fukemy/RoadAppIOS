@@ -23,6 +23,7 @@
 		1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */; };
 		1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */; };
 		1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */; };
+		1F6F6EFA1E177EA200C60512 /* InputImageForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6EF81E177EA200C60512 /* InputImageForCell.m */; };
 		1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E081E1407A00046F365 /* VideoViewController.m */; };
 		1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E391E1413340046F365 /* InputViewController.m */; };
 		1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3C1E14133D0046F365 /* MapViewController.m */; };
@@ -64,7 +65,6 @@
 		BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC4053A1DD0A00E00E313F7 /* Main.storyboard */; };
 		BCC4053F1DD0A00E00E313F7 /* RoadApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BCC4053D1DD0A00E00E313F7 /* RoadApp.xcdatamodeld */; };
 		BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BCC405401DD0A00E00E313F7 /* Assets.xcassets */; };
-		BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */; };
 		BCC4054F1DD0A00F00E313F7 /* RoadAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */; };
 		BCC4055A1DD0A00F00E313F7 /* RoadAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405591DD0A00F00E313F7 /* RoadAppUITests.m */; };
 		BCC405691DD0A06400E313F7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405681DD0A06400E313F7 /* LoginController.m */; };
@@ -146,6 +146,8 @@
 		1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyStatusBarController.m; sourceTree = "<group>"; };
 		1F61D9131E12F32B009BCF74 /* TLYShyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyViewController.h; sourceTree = "<group>"; };
 		1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
+		1F6F6EF71E177EA200C60512 /* InputImageForCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageForCell.h; sourceTree = "<group>"; };
+		1F6F6EF81E177EA200C60512 /* InputImageForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageForCell.m; sourceTree = "<group>"; };
 		1F9A0E071E1407A00046F365 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		1F9A0E081E1407A00046F365 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		1F9A0E381E1413340046F365 /* InputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewController.h; sourceTree = "<group>"; };
@@ -227,7 +229,6 @@
 		BCC4053B1DD0A00E00E313F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BCC4053E1DD0A00E00E313F7 /* RoadApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RoadApp.xcdatamodel; sourceTree = "<group>"; };
 		BCC405401DD0A00E00E313F7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		BCC405431DD0A00E00E313F7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCC405451DD0A00E00E313F7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCC4054A1DD0A00F00E313F7 /* RoadAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RoadAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCC4054E1DD0A00F00E313F7 /* RoadAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoadAppTests.m; sourceTree = "<group>"; };
@@ -721,7 +722,6 @@
 			isa = PBXGroup;
 			children = (
 				BCC4053A1DD0A00E00E313F7 /* Main.storyboard */,
-				BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -729,6 +729,8 @@
 		BCF4CC4B1E1105DF009DA7DF /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				1F6F6EF71E177EA200C60512 /* InputImageForCell.h */,
+				1F6F6EF81E177EA200C60512 /* InputImageForCell.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -914,7 +916,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCC405441DD0A00E00E313F7 /* LaunchScreen.storyboard in Resources */,
 				BCAC48161E12694800E3D01C /* menu-button.png in Resources */,
 				BCC405411DD0A00E00E313F7 /* Assets.xcassets in Resources */,
 				BCC4053C1DD0A00E00E313F7 /* Main.storyboard in Resources */,
@@ -1134,6 +1135,7 @@
 				BCF4CBEA1E10D661009DA7DF /* JSONParser.m in Sources */,
 				1F61D9081E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				BCF4CC271E10D6B5009DA7DF /* AFURLResponseSerialization.m in Sources */,
+				1F6F6EFA1E177EA200C60512 /* InputImageForCell.m in Sources */,
 				BCAC480F1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
 				BCF4CCA91E114102009DA7DF /* MFSideMenuShadow.m in Sources */,
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
@@ -1196,14 +1198,6 @@
 				BCC4053B1DD0A00E00E313F7 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		BCC405421DD0A00E00E313F7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BCC405431DD0A00E00E313F7 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

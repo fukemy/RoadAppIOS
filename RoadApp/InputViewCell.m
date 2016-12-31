@@ -14,16 +14,11 @@
     // Initialization code
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 - (IBAction)addMoreInput:(id)sender {
     [_delegate addMoreInput];
 }
 - (IBAction)addImage:(id)sender {
-    [_delegate addImage:_indexPath];
+    [_delegate addImageAt:_indexPath withView:(UIView* )sender];
 }
 @end

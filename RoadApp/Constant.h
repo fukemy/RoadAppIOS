@@ -39,7 +39,7 @@
 
 //COLOR
 #define MAIN_COLOR @"#d2a809"
-#define INPUT_COLOR @"#30d2a809"
+#define INPUT_COLOR @"#FAF5D2"
 #define GRAY_COLOR @"#818285"
 
 //DATA

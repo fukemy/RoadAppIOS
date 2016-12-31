@@ -9,13 +9,15 @@
 #import <UIKit/UIKit.h>
 @protocol InputCellDelegare <NSObject>
 -(void) addMoreInput;
--(void) addImage:(NSIndexPath *)indexPath;
+-(void) addImageAt:(NSIndexPath *)indexPath withView:(UIView *) view;
 @end
-@interface InputViewCell : UITableViewCell
+@interface InputViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UITextField *pkRequiredItem;
 @property (weak, nonatomic) IBOutlet UITextField *pkStatusItem;
 @property (weak, nonatomic) IBOutlet UIView *rootVIew;
 @property (weak, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) IBOutlet UITextField *tfLyTrinh;
+@property (weak, nonatomic) IBOutlet UITextField *tfInfor;
 
 - (IBAction)addMoreInput:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *btnAdd;

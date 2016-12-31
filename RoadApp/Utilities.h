@@ -13,4 +13,6 @@
 + (UIColor *)colorFromHexString:(NSString *)hexString;
 + (NSString *)removeString:(NSString *)str byCharacter:(NSString *)character;
 + (UIImage *)getItemBackground:(int) order;
++ (void)shakeView:(UIView *)view;
++ (NSString *) generateUUID;
 @end

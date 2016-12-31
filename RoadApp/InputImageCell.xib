@@ -23,11 +23,22 @@
                                     <constraint firstAttribute="height" constant="90" id="p1U-P2-5EF"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zu-Hh-g4Z">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zu-Hh-g4Z">
                                 <rect key="frame" x="0.0" y="30" width="90" height="30"/>
-                                <state key="normal" title="Add image"/>
+                                <state key="normal" image="Add_Icon_Ingredient"/>
                                 <connections>
                                     <action selector="addImage:" destination="gTV-IL-0wX" eventType="touchUpInside" id="p4P-1N-EKM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n47-90-KoW">
+                                <rect key="frame" x="63" y="0.0" width="27" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="c3q-rf-Jml"/>
+                                    <constraint firstAttribute="width" constant="27" id="k17-dD-MYQ"/>
+                                </constraints>
+                                <state key="normal" image="delete_shopping_icon"/>
+                                <connections>
+                                    <action selector="deleteImage:" destination="gTV-IL-0wX" eventType="touchUpInside" id="rPa-IP-jCs"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -35,8 +46,10 @@
                         <constraints>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="trailing" secondItem="wdE-4J-NbO" secondAttribute="trailing" id="3Ul-ff-yza"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="leading" secondItem="GTX-cb-PdK" secondAttribute="leading" id="4lt-d6-x7p"/>
+                            <constraint firstAttribute="trailing" secondItem="n47-90-KoW" secondAttribute="trailing" id="LJU-Ei-2ax"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="centerX" secondItem="wdE-4J-NbO" secondAttribute="centerX" id="Rji-Br-Hvo"/>
                             <constraint firstItem="wdE-4J-NbO" firstAttribute="top" secondItem="GTX-cb-PdK" secondAttribute="top" id="Vrd-BQ-7az"/>
+                            <constraint firstItem="n47-90-KoW" firstAttribute="top" secondItem="GTX-cb-PdK" secondAttribute="top" id="j0p-pn-3OL"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="leading" secondItem="wdE-4J-NbO" secondAttribute="leading" id="uAV-Md-lsS"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="centerY" secondItem="wdE-4J-NbO" secondAttribute="centerY" id="zLC-Ax-aGT"/>
                         </constraints>
@@ -55,8 +68,13 @@
             <connections>
                 <outlet property="btnAddImage" destination="4zu-Hh-g4Z" id="7FS-6k-1zg"/>
                 <outlet property="img" destination="wdE-4J-NbO" id="5sw-ue-PpQ"/>
+                <outlet property="imgDelete" destination="n47-90-KoW" id="RWH-BH-T5T"/>
             </connections>
             <point key="canvasLocation" x="267" y="326"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Add_Icon_Ingredient" width="30" height="30"/>
+        <image name="delete_shopping_icon" width="80" height="80"/>
+    </resources>
 </document>

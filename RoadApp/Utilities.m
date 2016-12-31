@@ -72,4 +72,18 @@
             return [UIImage imageNamed:@"bg_nenduong"];
     }
 }
+
++ (void)shakeView:(UIView *)view
+{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation.duration = 0.1;
+    animation.byValue = @(2);
+    animation.autoreverses = YES;
+    animation.repeatCount = INFINITY;
+    [view.layer addAnimation:animation forKey:@"Shake"];
+}
+
++ (NSString *) generateUUID{
+    return [[NSUUID UUID] UUIDString];
+}
 @end

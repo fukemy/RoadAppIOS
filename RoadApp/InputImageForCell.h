@@ -8,10 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "InputImageCell.h"
+@protocol InputImageForCellDelegare <NSObject>
+-(void) doneAddImage:(NSMutableArray *) dataListArr;
+@end
 
 @interface InputImageForCell : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, InputImageDelegare, UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImg;
 @property (nonatomic) NSMutableArray *data;
+@property (weak, nonatomic) IBOutlet UIButton *btBack;
 - (void) initImagePanelWithData:(NSMutableArray *)dataList;
 - (IBAction)dismissView:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *tfIntro;
+@property (weak, nonatomic) IBOutlet UILabel *tfConcept;
+@property (nonatomic,strong) id<InputImageForCellDelegare> delegate;
 @end

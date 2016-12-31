@@ -70,18 +70,18 @@
                                     <constraint firstAttribute="width" constant="28" id="L8u-0m-VaN"/>
                                     <constraint firstAttribute="height" constant="28" id="iTT-75-ZZx"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="image_step"/>
+                                <state key="normal" image="camera_back"/>
                                 <connections>
                                     <action selector="addImage:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="5MH-y7-Wix"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CBT-cq-luo">
-                                <rect key="frame" x="51" y="176" width="28" height="28"/>
+                                <rect key="frame" x="51" y="174" width="28" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="4IV-qP-E0S"/>
-                                    <constraint firstAttribute="height" constant="28" id="MU3-3z-C73"/>
+                                    <constraint firstAttribute="height" constant="32" id="MU3-3z-C73"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="video_step"/>
+                                <state key="normal" title="Button" image="video_icon"/>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="teq-aM-fr6">
                                 <rect key="frame" x="230" y="176" width="28" height="28"/>
@@ -144,8 +144,8 @@
     </objects>
     <resources>
         <image name="Add_Icon_Ingredient" width="30" height="30"/>
+        <image name="camera_back" width="32" height="32"/>
         <image name="downarrow_search" width="32" height="32"/>
-        <image name="image_step" width="66" height="66"/>
-        <image name="video_step" width="66" height="66"/>
+        <image name="video_icon" width="32" height="32"/>
     </resources>
 </document>

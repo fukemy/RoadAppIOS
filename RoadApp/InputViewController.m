@@ -23,6 +23,7 @@
     NSMutableArray *dataList;
     int currentEdit;
     WYPopoverController *popOver;
+    NSMutableArray *imageList;
 }
 
 - (void)viewDidLoad {
@@ -55,6 +56,10 @@
     dataList = [[NSMutableArray alloc] init];
     [dataList addObject:@1];
     [_cvInput reloadData];
+    
+    imageList = [[NSMutableArray alloc] init];
+    NSMutableArray *firstImgArr = [[NSMutableArray alloc] init];
+    [imageList addObject:firstImgArr];
     
 }
 #pragma mark - table
@@ -89,22 +94,22 @@
     else
         [cell.btnAdd setHidden:YES];
     
-    
+    cell.indexPath = indexPath;
     cell.delegate = self;
     return cell;
 
 }
 
-//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-//{
-//    // Add inset to the collection view if there are not enough cells to fill the width.
-//    CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
-//    CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
-//    NSInteger cellCount = [collectionView numberOfItemsInSection:section];
-//    CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing))) * 0.5;
-//    inset = MAX(inset, 0.0);
-//    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
-//}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    // Add inset to the collection view if there are not enough cells to fill the width.
+    CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
+    CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
+    NSInteger cellCount = [collectionView numberOfItemsInSection:section];
+    CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing))) * 0.5;
+    inset = MAX(inset, 0.0);
+    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(self.view.frame.size.width, 230);
@@ -112,14 +117,17 @@
 
 #pragma InputCell delegate
 - (void)addMoreInput{
+    
+    NSMutableArray *moreImageArr = [[NSMutableArray alloc] init];
+    [imageList addObject:moreImageArr];
+    
     [dataList addObject:@1];
     [_cvInput reloadData];
     
-    CGPoint bottomOffset = CGPointMake(0, _cvInput.contentSize.height - _cvInput.bounds.size.height);
-    [_cvInput setContentOffset:bottomOffset animated:YES];
+    [self.view layoutIfNeeded];
+    [_cvInput scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:dataList.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
-//    NSIndexPath *lastIndexPath = [NSIndexPath indexPathForItem:(dataList.count - 1) inSection:0];
-//    [_cvInput scrollToItemAtIndexPath:lastIndexPath atScrollPosition:UICollectionViewScrollPositionBottom animated:YES];
+    
 
 }
 
@@ -127,8 +135,8 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     InputImageForCell *inputImage = [storyboard instantiateViewControllerWithIdentifier:@"InputImageForCell"];
-    popOver = [[WYPopoverController alloc] initWithContentViewController:inputImage];
-    [inputImage setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+//    popOver = [[WYPopoverController alloc] initWithContentViewController:inputImage];
+//    [inputImage setModalPresentationStyle:UIModalPresentationOverCurrentContext];
 //    [popOver presentPopoverFromRect:view.bounds
 //                             inView:view
 //           permittedArrowDirections:WYPopoverArrowDirectionAny
@@ -137,6 +145,9 @@
 //    [popOver presentPopoverAsDialogAnimated:YES options:WYPopoverAnimationOptionFadeWithScale];
 //    [self.navigationController presentViewController:inputImage animated:YES completion:nil];
 //    [self.navigationController pushViewController:inputImage animated:YES];
+    currentEdit = (int)indexPath.row;
+    inputImage.delegate = self;
+    inputImage.data = [imageList objectAtIndex:currentEdit];
     [self presentViewController:inputImage animated:YES completion:nil];
 }
 
@@ -205,10 +216,6 @@
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
     
-//    _tbInput.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
-//    _tbInput.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _tbInput.separatorColor = [UIColor clearColor];
-//    _tbInput.rowHeight = UITableViewAutomaticDimension;
 }
 
 - (void)doneButton{
@@ -346,26 +353,9 @@
     NSLog(@"didFailWithError: %@", error);
 }
 
-#pragma mark - PickerDelegates
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
-{
-    //You can retrieve the actual UIImage
-    UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
-    //Or you can get the image url from AssetsLibrary
-    NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    
-    [picker dismissViewControllerAnimated:YES completion:nil];
-    
-    NSMutableDictionary *dict = [dataList objectAtIndex:currentEdit];
-    NSMutableArray *arr = [dict objectForKey:@"image"];
-    [arr addObject:image];
-    
-    [dict setObject:arr forKey:@"image"];
-    
-    [dataList replaceObjectAtIndex:currentEdit withObject:dict];
-    
-//    [_tbInput reloadData];
+#pragma mark - image delegate
+-(void)doneAddImage:(NSMutableArray *)dataListArr{
+    [imageList replaceObjectAtIndex:currentEdit withObject:dataListArr];
 }
 
 @end

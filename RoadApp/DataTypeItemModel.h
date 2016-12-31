@@ -30,8 +30,17 @@
 @interface DataTypeItemModel : NSObject
 
 @property NSString *DataID;
-@property NSString *personMiddleName;
-@property NSString *personLastname;
+@property NSString *DataType;
+@property NSString *MaDuong;
+@property NSString *TuyenSo;
+@property NSString *MoTaTinhTrang;
+@property NSString *KinhDo;
+@property NSString *ViDo;
+@property NSString *CaoDo;
+@property NSString *LyTrinh;
+@property NSString *NguoiNhap;
+@property NSString *ThoiGianNhap;
+@property NSString *DanhGia;
 
 - (instancetype)initWithJSONString:(NSString *)JSONString;
 @end

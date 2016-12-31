@@ -10,12 +10,18 @@
 
 @protocol InputImageDelegare <NSObject>
 -(void) addMoreImage;
+-(void) onLongPress:(UILongPressGestureRecognizer *)gr;
+-(void) deleteImageAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface InputImageCell : UICollectionViewCell
+@interface InputImageCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *btnAddImage;
 - (IBAction)addImage:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UIButton *imgDelete;
+@property (weak, nonatomic) NSIndexPath *indexPath;
+- (IBAction)deleteImage:(id)sender;
 
 @property (nonatomic,strong) id<InputImageDelegare> delegate;
+- (void) loadImageFromAsset:(NSString *)path;
 @end

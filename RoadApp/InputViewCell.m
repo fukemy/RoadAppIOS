@@ -14,7 +14,6 @@
     // Initialization code
 }
 
-
 - (IBAction)addMoreInput:(id)sender {
     [_delegate addMoreInput];
 }

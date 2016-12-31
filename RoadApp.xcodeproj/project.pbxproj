@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CCB1DE7CA1ECEFEC287DB13 /* libPods-RoadAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */; };
+		1F0766851E181FF500A22F2E /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0766841E181FF500A22F2E /* ImageModel.m */; };
 		1F313AEB1E17A31900A7A25F /* InputImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F313AE91E17A31900A7A25F /* InputImageCell.m */; };
 		1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F313AEA1E17A31900A7A25F /* InputImageCell.xib */; };
 		1F4B62741E15603E005EE93B /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B62721E15603E005EE93B /* InputViewCell.m */; };
@@ -115,6 +116,8 @@
 
 /* Begin PBXFileReference section */
 		19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0766831E181FF500A22F2E /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
+		1F0766841E181FF500A22F2E /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
 		1F313AE81E17A31900A7A25F /* InputImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageCell.h; sourceTree = "<group>"; };
 		1F313AE91E17A31900A7A25F /* InputImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageCell.m; sourceTree = "<group>"; };
 		1F313AEA1E17A31900A7A25F /* InputImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputImageCell.xib; sourceTree = "<group>"; };
@@ -346,6 +349,8 @@
 				1F61D8F41E12D879009BCF74 /* VirableDataModel.m */,
 				1F61D8F61E12D88D009BCF74 /* UserPositionDataModel.h */,
 				1F61D8F71E12D88D009BCF74 /* UserPositionDataModel.m */,
+				1F0766831E181FF500A22F2E /* ImageModel.h */,
+				1F0766841E181FF500A22F2E /* ImageModel.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1123,6 +1128,7 @@
 				1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */,
 				BCAC483E1E12748700E3D01C /* SDWebImageCompat.m in Sources */,
 				1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */,
+				1F0766851E181FF500A22F2E /* ImageModel.m in Sources */,
 				BCF4CCAE1E11457E009DA7DF /* SlideMenuViewController.m in Sources */,
 				BCF4CCAA1E114102009DA7DF /* UIViewController+MFSideMenuAdditions.m in Sources */,
 				1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */,

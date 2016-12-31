@@ -124,21 +124,20 @@
 }
 
 -(void) addImageAt:(NSIndexPath *)indexPath withView:(UIView *) view{
-//    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-//    imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//    imagePickerController.delegate = self;
-//    currentEdit = (int)indexPath.row;
-//    [self presentViewController:imagePickerController animated:YES completion:nil];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     InputImageForCell *inputImage = [storyboard instantiateViewControllerWithIdentifier:@"InputImageForCell"];
-    
     popOver = [[WYPopoverController alloc] initWithContentViewController:inputImage];
-    [popOver presentPopoverFromRect:view.bounds
-                             inView:view
-           permittedArrowDirections:WYPopoverArrowDirectionAny
-                           animated:YES
-                            options:WYPopoverAnimationOptionFadeWithScale];
+    [inputImage setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+//    [popOver presentPopoverFromRect:view.bounds
+//                             inView:view
+//           permittedArrowDirections:WYPopoverArrowDirectionAny
+//                           animated:YES
+//                            options:WYPopoverAnimationOptionFadeWithScale];
+//    [popOver presentPopoverAsDialogAnimated:YES options:WYPopoverAnimationOptionFadeWithScale];
+//    [self.navigationController presentViewController:inputImage animated:YES completion:nil];
+//    [self.navigationController pushViewController:inputImage animated:YES];
+    [self presentViewController:inputImage animated:YES completion:nil];
 }
 
 #pragma mark - keyboardDelegate

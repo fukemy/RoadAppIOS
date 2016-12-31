@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CCB1DE7CA1ECEFEC287DB13 /* libPods-RoadAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */; };
+		1F313AEB1E17A31900A7A25F /* InputImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F313AE91E17A31900A7A25F /* InputImageCell.m */; };
+		1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F313AEA1E17A31900A7A25F /* InputImageCell.xib */; };
 		1F4B62741E15603E005EE93B /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B62721E15603E005EE93B /* InputViewCell.m */; };
 		1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F4B62731E15603E005EE93B /* InputViewCell.xib */; };
 		1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D8EB1E12D6A5009BCF74 /* DataTypeItemModel.m */; };
@@ -113,6 +115,9 @@
 
 /* Begin PBXFileReference section */
 		19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F313AE81E17A31900A7A25F /* InputImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageCell.h; sourceTree = "<group>"; };
+		1F313AE91E17A31900A7A25F /* InputImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageCell.m; sourceTree = "<group>"; };
+		1F313AEA1E17A31900A7A25F /* InputImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputImageCell.xib; sourceTree = "<group>"; };
 		1F4B62711E15603E005EE93B /* InputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputViewCell.h; sourceTree = "<group>"; };
 		1F4B62721E15603E005EE93B /* InputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputViewCell.m; sourceTree = "<group>"; };
 		1F4B62731E15603E005EE93B /* InputViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputViewCell.xib; sourceTree = "<group>"; };
@@ -745,6 +750,9 @@
 				1F4B62711E15603E005EE93B /* InputViewCell.h */,
 				1F4B62721E15603E005EE93B /* InputViewCell.m */,
 				1F4B62731E15603E005EE93B /* InputViewCell.xib */,
+				1F313AE81E17A31900A7A25F /* InputImageCell.h */,
+				1F313AE91E17A31900A7A25F /* InputImageCell.m */,
+				1F313AEA1E17A31900A7A25F /* InputImageCell.xib */,
 			);
 			name = CustomCell;
 			sourceTree = "<group>";
@@ -922,6 +930,7 @@
 				BCF4CC311E10D6CB009DA7DF /* SVProgressHUD.bundle in Resources */,
 				1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */,
 				BCAC48171E12694800E3D01C /* menu-button@2x.png in Resources */,
+				1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1132,6 +1141,7 @@
 				BCAC484C1E128BE600E3D01C /* MenuItem.m in Sources */,
 				BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */,
 				BCAC48491E12748700E3D01C /* UIView+WebCacheOperation.m in Sources */,
+				1F313AEB1E17A31900A7A25F /* InputImageCell.m in Sources */,
 				BCF4CBEA1E10D661009DA7DF /* JSONParser.m in Sources */,
 				1F61D9081E12F317009BCF74 /* NSObject+TLYSwizzlingHelpers.m in Sources */,
 				BCF4CC271E10D6B5009DA7DF /* AFURLResponseSerialization.m in Sources */,

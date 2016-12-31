@@ -10,12 +10,12 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "InputViewCell.h"
 
-@interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate
-    , UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate ,InputCellDelegare, UIImagePickerControllerDelegate
+@interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate ,InputCellDelegare
     , UINavigationControllerDelegate>
 @property (weak, nonatomic) NSString *titleView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvInput;
 @property (weak, nonatomic) IBOutlet UILabel *lbLocation;
+
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "InputImageCell.h"
 
-@interface InputImageForCell : UIViewController
-
+@interface InputImageForCell : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, InputImageDelegare, UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *cvImg;
+@property (nonatomic) NSMutableArray *data;
+- (void) initImagePanelWithData:(NSMutableArray *)dataList;
+- (IBAction)dismissView:(id)sender;
 @end

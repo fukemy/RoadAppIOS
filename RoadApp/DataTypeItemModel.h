@@ -30,13 +30,13 @@
 @interface DataTypeItemModel : NSObject
 
 @property NSString *DataID;
-@property NSString *DataType;
-@property NSString *MaDuong;
-@property NSString *TuyenSo;
+@property int DataType;
+@property int MaDuong;
+@property int TuyenSo;
 @property NSString *MoTaTinhTrang;
-@property NSString *KinhDo;
-@property NSString *ViDo;
-@property NSString *CaoDo;
+@property float KinhDo;
+@property float ViDo;
+@property float CaoDo;
 @property NSString *LyTrinh;
 @property NSString *NguoiNhap;
 @property NSString *ThoiGianNhap;

@@ -12,11 +12,12 @@
 #import "InputImageForCell.h"
 
 @interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate ,InputCellDelegare
-    , UINavigationControllerDelegate, InputImageForCellDelegare>
+    , UINavigationControllerDelegate, InputImageForCellDelegare, UIScrollViewDelegate>
 @property (weak, nonatomic) NSString *titleView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvInput;
 @property (weak, nonatomic) IBOutlet UILabel *lbLocation;
+- (IBAction)saveData:(id)sender;
 
 
 @end

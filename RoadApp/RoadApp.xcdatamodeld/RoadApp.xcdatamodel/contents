@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15D21" minimumToolsVersion="Automatic">
-    <entity name="Entity" syncable="YES"/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="DataTypeItemDb" representedClassName="DataTypeItemDb" syncable="YES">
+        <attribute name="caodo" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="danhgia" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="dataid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="datatype" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="kinhdo" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lytrinh" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="maduong" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="motatinhtrang" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nguoinhap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thoigiannhap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tuyenso" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="vido" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+    </entity>
+    <entity name="ImageDb" representedClassName="ImageDb" syncable="YES">
+        <attribute name="dataid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagedatabyte" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagename" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Entity" positionX="-63" positionY="-18" width="128" height="45"/>
+        <element name="DataTypeItemDb" positionX="-63" positionY="-18" width="128" height="225"/>
+        <element name="ImageDb" positionX="-63" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

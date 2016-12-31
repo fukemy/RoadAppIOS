@@ -80,7 +80,7 @@
         [_cvImg reloadData];
     }else{
         //push delegate here
-        [_delegate doneAddImage:_data];
+        [_delegate doneAddImage:_data withUUID:_UUID];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
@@ -99,10 +99,12 @@
         cell.indexPath = nil;
         [cell.img setHidden:YES];
         [cell.imgDelete setHidden:YES];
-        if(!isActiveDelete)
+        
+        if([_data count] < 4 && !isActiveDelete)
             [cell.btnAddImage setHidden:NO];
         else
             [cell.btnAddImage setHidden:YES];
+        
     }else{
         cell.indexPath = indexPath;
         [cell.img setHidden:NO];
@@ -114,11 +116,11 @@
             [Utilities shakeView:cell];
         }
         
-        if([_data count] > 0){
+        if([_data count] > 0 && [_data objectAtIndex:indexPath.row] != [NSNull null]){
             if([[_data objectAtIndex:indexPath.row] objectForKey:@"image"]){
                 cell.img.image = [[_data objectAtIndex:indexPath.row] objectForKey:@"image"];
             }else{
-                [cell loadImageFromAsset:[_data objectAtIndex:indexPath.row]];
+                [cell loadImageFromAsset:[[_data objectAtIndex:indexPath.row] objectForKey:@"path"]];
             }
         }
     }

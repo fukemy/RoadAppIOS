@@ -12,6 +12,10 @@
 #import "Constant.h"
 #import "InputImageForCell.h"
 #import "WYPopoverController.h"
+#import "DataTypeItemModel.h"
+#import "DataTypeItemDb.h"
+#import "ImageModel.h"
+#import "ImageDb.h"
 
 @implementation InputViewController{
     bool firstLocationUpdate;
@@ -54,12 +58,18 @@
     currentEdit = 0;
     
     dataList = [[NSMutableArray alloc] init];
-    [dataList addObject:@1];
+    DataTypeItemModel *firstDataTypeItem = [[DataTypeItemModel alloc] init];
+    firstDataTypeItem.DataID = [Utilities generateUUID];
+    [dataList addObject:firstDataTypeItem];
     [_cvInput reloadData];
     
     imageList = [[NSMutableArray alloc] init];
     NSMutableArray *firstImgArr = [[NSMutableArray alloc] init];
-    [imageList addObject:firstImgArr];
+    NSMutableDictionary *imgDict = [[NSMutableDictionary alloc] init];
+    [imgDict setValue:firstDataTypeItem.DataID  forKey:@"UUID"];
+    [imgDict setValue:firstImgArr forKey:@"imageData"];
+
+    [imageList addObject:imgDict];
     
 }
 #pragma mark - table
@@ -73,7 +83,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     InputViewCell *cell = (InputViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"InputViewCell" forIndexPath:indexPath];
     
-    
     cell.rootVIew.layer.cornerRadius = 12.0f;
     [cell.rootVIew setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     
@@ -85,10 +94,12 @@
     cell.pkStatusItem.inputAccessoryView = accessoryView;
     cell.pkStatusItem.delegate = self;
     
+    cell.tfInfor.tag = 0;
+    cell.tfLyTrinh.tag = 1;
+    [cell.tfInfor addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [cell.tfLyTrinh addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
     
-    cell.tfInfor.delegate = self;
-    cell.tfLyTrinh.delegate = self;
-    
+
     if(indexPath.row == dataList.count - 1)
         [cell.btnAdd setHidden:NO];
     else
@@ -100,35 +111,44 @@
 
 }
 
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    // Add inset to the collection view if there are not enough cells to fill the width.
-    CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
-    CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
-    NSInteger cellCount = [collectionView numberOfItemsInSection:section];
-    CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing))) * 0.5;
-    inset = MAX(inset, 0.0);
-    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
-}
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+//{
+//    // Add inset to the collection view if there are not enough cells to fill the width.
+//    CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
+//    CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
+//    NSInteger cellCount = [collectionView numberOfItemsInSection:section];
+//    CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing))) * 0.5;
+//    inset = MAX(inset, 0.0);
+//    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
+//}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(self.view.frame.size.width, 230);
 }
 
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
+    float currentPage = _cvInput.contentOffset.x / _cvInput.frame.size.width;
+    currentEdit = ceil(currentPage);
+    NSLog(@"Values:%d",currentEdit);
+}
+
 #pragma InputCell delegate
 - (void)addMoreInput{
-    
-    NSMutableArray *moreImageArr = [[NSMutableArray alloc] init];
-    [imageList addObject:moreImageArr];
-    
-    [dataList addObject:@1];
+    DataTypeItemModel *moreDataTypeItem = [[DataTypeItemModel alloc] init];
+    moreDataTypeItem.DataID = [Utilities generateUUID];
+    [dataList addObject:moreDataTypeItem];
     [_cvInput reloadData];
+    
+    NSMutableArray *firstImgArr = [[NSMutableArray alloc] init];
+    NSMutableDictionary *imgDict = [[NSMutableDictionary alloc] init];
+    [imgDict setValue:moreDataTypeItem.DataID  forKey:@"UUID"];
+    [imgDict setValue:firstImgArr forKey:@"imageData"];
+    [imageList addObject:imgDict];
     
     [self.view layoutIfNeeded];
     [_cvInput scrollToItemAtIndexPath:[NSIndexPath indexPathForRow:dataList.count - 1 inSection:0] atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     
-    
-
+    currentEdit ++;
 }
 
 -(void) addImageAt:(NSIndexPath *)indexPath withView:(UIView *) view{
@@ -147,8 +167,23 @@
 //    [self.navigationController pushViewController:inputImage animated:YES];
     currentEdit = (int)indexPath.row;
     inputImage.delegate = self;
-    inputImage.data = [imageList objectAtIndex:currentEdit];
+    inputImage.UUID = [[imageList objectAtIndex:currentEdit] objectForKey:@"UUID"];
+    inputImage.data = [[imageList objectAtIndex:currentEdit] objectForKey:@"imageData"];
     [self presentViewController:inputImage animated:YES completion:nil];
+}
+#pragma mark - textfield delegate
+
+- (void)textDidChange:(UITextField *)sender {
+    NSString *targetText = sender.text;
+    DataTypeItemModel *model = [dataList objectAtIndex:currentEdit];
+    if(sender.tag == 1){
+        model.LyTrinh = targetText;
+    }else if(sender.tag == 0){
+        model.MoTaTinhTrang = targetText;
+    }
+    
+    [dataList replaceObjectAtIndex:currentEdit withObject:model];
+    NSLog(@"text : %@", targetText);
 }
 
 #pragma mark - keyboardDelegate
@@ -354,8 +389,45 @@
 }
 
 #pragma mark - image delegate
--(void)doneAddImage:(NSMutableArray *)dataListArr{
-    [imageList replaceObjectAtIndex:currentEdit withObject:dataListArr];
+-(void)doneAddImage:(NSMutableArray *)dataListArr withUUID:(NSString *)UUID{
+    NSMutableDictionary *imgDict = [[NSMutableDictionary alloc] init];
+    [imgDict setObject:UUID forKey:@"UUID"];
+    [imgDict setObject:dataListArr forKey:@"imageData"];
+    [imageList replaceObjectAtIndex:currentEdit withObject:imgDict];
+    //
 }
 
+- (IBAction)saveData:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
+                                                                   message:@"Click OK to finish, dismiss to cancel action."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              for(NSMutableDictionary *imgDict in imageList){
+                                                                  NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
+                                                                  for(NSMutableDictionary *dict in arrImg){
+                                                                      ImageModel *imageModel = [[ImageModel alloc] init];
+                                                                      imageModel.DataID = [imgDict objectForKey:@"UUID"];
+                                                                      imageModel.ImageName = [dict objectForKey:@"path"];
+                                                                      imageModel.ImageDataByte = @"";
+                                                                      [ImageDb saveImageModel:imageModel];
+                                                                  }
+                                                              }
+                                                              
+                                                              for(DataTypeItemModel *model in dataList){
+                                                                  [DataTypeItemDb saveDataTypeItem:model];
+                                                              }
+                                                              
+                                                              [self.navigationController popViewControllerAnimated:YES];
+                                                          }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                          }];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 @end

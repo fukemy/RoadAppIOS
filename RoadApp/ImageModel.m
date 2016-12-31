@@ -40,4 +40,12 @@
     }
     return self;
 }
+
+- (instancetype)initWithDictionary:(ImageModel *)dict
+{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
 @end

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		1CCB1DE7CA1ECEFEC287DB13 /* libPods-RoadAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */; };
 		1F0766851E181FF500A22F2E /* ImageModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0766841E181FF500A22F2E /* ImageModel.m */; };
+		1F07668E1E1822B500A22F2E /* ImageDb+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0766871E1822B500A22F2E /* ImageDb+CoreDataProperties.m */; };
+		1F07668F1E1822B500A22F2E /* ImageDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0766891E1822B500A22F2E /* ImageDb.m */; };
+		1F0766901E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F07668B1E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m */; };
+		1F0766911E1822B500A22F2E /* DataTypeItemDb.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F07668D1E1822B500A22F2E /* DataTypeItemDb.m */; };
 		1F313AEB1E17A31900A7A25F /* InputImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F313AE91E17A31900A7A25F /* InputImageCell.m */; };
 		1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F313AEA1E17A31900A7A25F /* InputImageCell.xib */; };
 		1F4B62741E15603E005EE93B /* InputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F4B62721E15603E005EE93B /* InputViewCell.m */; };
@@ -118,6 +122,14 @@
 		19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F0766831E181FF500A22F2E /* ImageModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageModel.h; sourceTree = "<group>"; };
 		1F0766841E181FF500A22F2E /* ImageModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageModel.m; sourceTree = "<group>"; };
+		1F0766861E1822B500A22F2E /* ImageDb+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ImageDb+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1F0766871E1822B500A22F2E /* ImageDb+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ImageDb+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1F0766881E1822B500A22F2E /* ImageDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDb.h; sourceTree = "<group>"; };
+		1F0766891E1822B500A22F2E /* ImageDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDb.m; sourceTree = "<group>"; };
+		1F07668A1E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataTypeItemDb+CoreDataProperties.h"; sourceTree = "<group>"; };
+		1F07668B1E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataTypeItemDb+CoreDataProperties.m"; sourceTree = "<group>"; };
+		1F07668C1E1822B500A22F2E /* DataTypeItemDb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataTypeItemDb.h; sourceTree = "<group>"; };
+		1F07668D1E1822B500A22F2E /* DataTypeItemDb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataTypeItemDb.m; sourceTree = "<group>"; };
 		1F313AE81E17A31900A7A25F /* InputImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageCell.h; sourceTree = "<group>"; };
 		1F313AE91E17A31900A7A25F /* InputImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageCell.m; sourceTree = "<group>"; };
 		1F313AEA1E17A31900A7A25F /* InputImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InputImageCell.xib; sourceTree = "<group>"; };
@@ -538,6 +550,14 @@
 		BCAC48541E14DD8A00E3D01C /* Database */ = {
 			isa = PBXGroup;
 			children = (
+				1F0766861E1822B500A22F2E /* ImageDb+CoreDataProperties.h */,
+				1F0766871E1822B500A22F2E /* ImageDb+CoreDataProperties.m */,
+				1F0766881E1822B500A22F2E /* ImageDb.h */,
+				1F0766891E1822B500A22F2E /* ImageDb.m */,
+				1F07668A1E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.h */,
+				1F07668B1E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m */,
+				1F07668C1E1822B500A22F2E /* DataTypeItemDb.h */,
+				1F07668D1E1822B500A22F2E /* DataTypeItemDb.m */,
 				BCAC48551E14DD9A00E3D01C /* DBManager.h */,
 				BCAC48561E14DD9A00E3D01C /* DBManager.m */,
 			);
@@ -1105,6 +1125,7 @@
 				1FAB5CC01E11943700999597 /* Utilities.m in Sources */,
 				1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */,
 				1F61D8EC1E12D6A5009BCF74 /* DataTypeItemModel.m in Sources */,
+				1F07668F1E1822B500A22F2E /* ImageDb.m in Sources */,
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
 				BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */,
@@ -1123,6 +1144,7 @@
 				BCF4CC261E10D6B5009DA7DF /* AFURLRequestSerialization.m in Sources */,
 				BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
+				1F0766901E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m in Sources */,
 				BCF4CC281E10D6B5009DA7DF /* AFURLSessionManager.m in Sources */,
 				BCAC48461E12748700E3D01C /* UIImage+WebP.m in Sources */,
 				1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */,
@@ -1141,9 +1163,11 @@
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,
+				1F07668E1E1822B500A22F2E /* ImageDb+CoreDataProperties.m in Sources */,
 				BCF4CC211E10D6B5009DA7DF /* AFHTTPRequestOperationManager.m in Sources */,
 				BCF4CC581E1106C6009DA7DF /* RoadTestCell.m in Sources */,
 				BCAC48481E12748700E3D01C /* UIImageView+WebCache.m in Sources */,
+				1F0766911E1822B500A22F2E /* DataTypeItemDb.m in Sources */,
 				BCAC484C1E128BE600E3D01C /* MenuItem.m in Sources */,
 				BCF4CC991E113A79009DA7DF /* ReportPageController.m in Sources */,
 				BCAC48491E12748700E3D01C /* UIView+WebCacheOperation.m in Sources */,

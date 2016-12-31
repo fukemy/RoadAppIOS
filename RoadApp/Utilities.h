@@ -15,4 +15,6 @@
 + (UIImage *)getItemBackground:(int) order;
 + (void)shakeView:(UIView *)view;
 + (NSString *) generateUUID;
++ (NSManagedObjectContext *)getmanagedObjectContext;
++ (NSString *) timeStamp;
 @end

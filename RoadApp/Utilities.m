@@ -86,4 +86,8 @@
 + (NSString *) generateUUID{
     return [[NSUUID UUID] UUIDString];
 }
+
++ (NSString *) timeStamp {
+    return [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
+}
 @end

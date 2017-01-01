@@ -33,6 +33,7 @@
 @property int DataType;
 @property NSString *DataTypeName;
 @property int MaDuong;
+@property NSString *TenDuong;
 @property int TuyenSo;
 @property NSString *MoTaTinhTrang;
 @property float KinhDo;

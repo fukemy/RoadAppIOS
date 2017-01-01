@@ -11,6 +11,7 @@
         <attribute name="maduong" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="motatinhtrang" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="nguoinhap" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tenduong" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thoigiannhap" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="tuyenso" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="vido" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
@@ -21,7 +22,7 @@
         <attribute name="imagename" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="DataTypeItemDb" positionX="-63" positionY="-18" width="128" height="240"/>
+        <element name="DataTypeItemDb" positionX="-63" positionY="-18" width="128" height="255"/>
         <element name="ImageDb" positionX="-63" positionY="-9" width="128" height="90"/>
     </elements>
 </model>

@@ -479,7 +479,7 @@ static int const REPORT_CONTENT_TAG = 3;
                                                                       DataTypeItemModel *model = [dataList objectAtIndex:i];
                                                                       if(![self checkValidateInput:model atIndex:i])
                                                                           return;
-                                                                      model.DanhGia = model.MoTaTinhTrang;
+                                                                      model.DanhGia = REPORT;
                                                                       model.MaDuong = -1;
                                                                       model.TuyenSo = -1;
                                                                       model.DataType = -1;
@@ -518,7 +518,7 @@ static int const REPORT_CONTENT_TAG = 3;
 }
 
 - (void) doneSaveData{
-    [self initData];
+//    [self initData];
     MainScreen *mainScreen = (MainScreen* )[[self parentViewController] parentViewController];
     [mainScreen switchToFirstPage];
 }

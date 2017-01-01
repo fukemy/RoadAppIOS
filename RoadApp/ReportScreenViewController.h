@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+#import "ReportScreenViewCell.h"
 
-@interface ReportScreenViewController : UIViewController<SlideNavigationControllerDelegate>
+@interface ReportScreenViewController : UIViewController<SlideNavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
+@property (weak, nonatomic) IBOutlet UICollectionView *cvData;
 
 @end

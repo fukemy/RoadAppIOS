@@ -35,6 +35,7 @@
 #define MENU_VIDEO @"Xem camera"
 #define MENU_MAP @"Xem bản đồ"
 #define MENU_LOGOUT @"Đăng xuất"
+#define REPORT @"Báo cáo"
 
 
 //COLOR

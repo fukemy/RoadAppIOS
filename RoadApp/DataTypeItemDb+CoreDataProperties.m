@@ -23,6 +23,7 @@
 @dynamic motatinhtrang;
 @dynamic tuyenso;
 @dynamic maduong;
+@dynamic tenduong;
 @dynamic datatype;
 @dynamic datatypename;
 @dynamic thoigiannhap;

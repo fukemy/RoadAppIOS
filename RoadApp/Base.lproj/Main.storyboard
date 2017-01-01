@@ -723,10 +723,45 @@
                     <view key="view" contentMode="scaleToFill" id="UEF-Kt-JgZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5kw-AM-8QR">
+                                <rect key="frame" x="10" y="10" width="300" height="568"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IHH-TQ-E9S">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0vJ-SI-cT1">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vdW-EQ-QBW" id="Jsd-jk-nEW"/>
+                                    <outlet property="delegate" destination="vdW-EQ-QBW" id="xZB-6h-TNy"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5kw-AM-8QR" firstAttribute="top" secondItem="UEF-Kt-JgZ" secondAttribute="top" constant="10" id="MGA-8H-3z9"/>
+                            <constraint firstAttribute="trailing" secondItem="5kw-AM-8QR" secondAttribute="trailing" constant="10" id="MMi-l0-GMH"/>
+                            <constraint firstItem="5kw-AM-8QR" firstAttribute="leading" secondItem="UEF-Kt-JgZ" secondAttribute="leading" constant="10" id="b1h-PQ-zGe"/>
+                            <constraint firstItem="5kw-AM-8QR" firstAttribute="bottom" secondItem="O6U-O6-fwS" secondAttribute="top" constant="10" id="ubB-gm-gj2"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="kup-7Z-oyP"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="cvData" destination="5kw-AM-8QR" id="3wV-uw-Ubs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4Q-fF-VCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

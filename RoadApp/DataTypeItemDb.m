@@ -24,6 +24,7 @@
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.DataType] forKey:@"datatype"];
     [transaction setValue:dataTypeItemModel.DataTypeName forKey:@"datatypename"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.MaDuong] forKey:@"maduong"];
+    [transaction setValue:dataTypeItemModel.TenDuong forKey:@"tenduong"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.TuyenSo] forKey:@"tuyenso"];
     [transaction setValue:dataTypeItemModel.MoTaTinhTrang forKey:@"motatinhtrang"];
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.KinhDo]  forKey:@"kinhdo"];

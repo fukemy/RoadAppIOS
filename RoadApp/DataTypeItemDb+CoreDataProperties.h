@@ -25,6 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSString *motatinhtrang;
 @property (nullable, nonatomic, retain) NSNumber *tuyenso;
 @property (nullable, nonatomic, retain) NSNumber *maduong;
+@property (nullable, nonatomic, retain) NSString *tenduong;
 @property (nullable, nonatomic, retain) NSNumber *datatype;
 @property (nullable, nonatomic, retain) NSString *datatypename;
 @property (nullable, nonatomic, retain) NSString *thoigiannhap;

@@ -21,4 +21,7 @@
 - (IBAction)addMoreitem:(id)sender {
     [_delegate addMoreInput];
 }
+- (IBAction)setLocation:(id)sender {
+    [_delegate getLocation];
+}
 @end

@@ -12,11 +12,15 @@
 #import "DataTypeItemModel.h"
 #import "ImageModel.h"
 #import "InputImageForCell.h"
+#import "ImageDb.h"
+#import "DataTypeItemDb.h"
+#import "SVProgressHUD.h"
+#import "MainScreen.h"
+#import "KDViewPager.h"
 
 static int const REPORT_TYPE_TAG = 1;
 static int const REPORT_LYTRINH_TAG = 2;
-static int const REPORT_CONTENT_PLACEHOLDER_TAG = 3;
-static int const REPORT_CONTENT_TAG = 4;
+static int const REPORT_CONTENT_TAG = 3;
 
 @interface ReportPageController (){
     NSArray *reportTypeList;
@@ -25,6 +29,7 @@ static int const REPORT_CONTENT_TAG = 4;
     UITextField *focusedTextfield;
     NSMutableArray *dataList, *imageList;
     int currentEdit;
+    CLLocationManager *locationManager;
 }
 
 @end
@@ -35,22 +40,22 @@ static int const REPORT_CONTENT_TAG = 4;
     [super viewDidLoad];
     [self initLayout];
     [self initData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self registerForKeyboardNotifications];
-    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self deregisterFromKeyboardNotifications];
     [super viewWillDisappear:animated];
-    
 }
 
 #pragma mark - layoutanddata
 - (void) initData{
+    locationManager = [[CLLocationManager alloc] init];
     currentEdit = 0;
     reportTypeList = [[NSArray alloc] initWithObjects:REPORT_ACCIDENT, REPORT_PROBLEM, REPORT_LAST_DAY, nil];
     
@@ -68,10 +73,14 @@ static int const REPORT_CONTENT_TAG = 4;
     [imgDict setValue:firstImgArr forKey:@"imageData"];
     
     [imageList addObject:imgDict];
+    [_cvReport reloadData];
 
 }
 
 - (void) initLayout{
+    [self setAutomaticallyAdjustsScrollViewInsets:NO];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditing)]];
+    
     pickerView = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 180)];
     [pickerView setDataSource:self];
     [pickerView setDelegate:self];
@@ -91,6 +100,15 @@ static int const REPORT_CONTENT_TAG = 4;
         [accessoryView setItems:@[doneButton, cancelButton]];
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
+    
+    _btSave.layer.cornerRadius = 23;
+    _btSave.layer.masksToBounds = YES;
+    [_btSave setBackgroundColor:[UIColor redColor]];
+    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+}
+
+- (void) endEditing{
+    [self.view endEditing:YES];
 }
 
 #pragma mark - keyboardDelegate
@@ -122,22 +140,12 @@ static int const REPORT_CONTENT_TAG = 4;
 
 - (void)keyboardDidShow:(NSNotification *)notification
 {
-//    if (self.view.frame.origin.y >= 0) {
-//        
-//        [UIView animateWithDuration:0.5 animations:^{
-//            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y - 224, self.view.frame.size.width, self.view.frame.size.height);
-//        }];
-//    }
+    UICollectionViewCell *cell = [_cvReport cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentEdit inSection:0]];
+    [_cvReport setContentOffset:CGPointMake(cell.center.x - _cvReport.frame.size.width * 0.5, cell.frame.origin.y) animated:YES];
 }
 
 - (void)keyboardDidHide:(NSNotification *)notification
 {
-    if (self.view.frame.origin.y < 0) {
-        [UIView animateWithDuration:0.5 animations:^{
-            self.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y + 224, self.view.frame.size.width, self.view.frame.size.height);
-        }];
-        
-    }
 }
 
 #pragma mark - picker delegate
@@ -180,11 +188,27 @@ static int const REPORT_CONTENT_TAG = 4;
     return 1;
 }
 
+//- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+//{
+//    // Add inset to the collection view if there are not enough cells to fill the width.
+//    CGFloat cellSpacing = ((UICollectionViewFlowLayout *) collectionViewLayout).minimumLineSpacing;
+//    CGFloat cellWidth = ((UICollectionViewFlowLayout *) collectionViewLayout).itemSize.width;
+//    NSInteger cellCount = [collectionView numberOfItemsInSection:section];
+//    CGFloat inset = (collectionView.bounds.size.width - (cellCount * (cellWidth + cellSpacing))) * 0.5;
+//    inset = MAX(inset, 0.0);
+//    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
+//}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ReportForInputViewCell *cell = (ReportForInputViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"ReportForInputViewCell" forIndexPath:indexPath];
 
     cell.layer.cornerRadius = 8.0f;
-    cell.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.tfNumOfImage.layer.cornerRadius = 10;
+    cell.tfNumOfImage.layer.masksToBounds = YES;
+    cell.tfNumOfVideo.layer.cornerRadius = 10;
+    cell.tfNumOfVideo.layer.masksToBounds = YES;
+    
+    cell.backgroundColor = [Utilities colorFromHexString:LIGHT_GRAY_COLOR];
     
     cell.pkReportType.inputView = pickerView;
     cell.pkReportType.inputAccessoryView = accessoryView;
@@ -193,6 +217,7 @@ static int const REPORT_CONTENT_TAG = 4;
         cell.tvContent.layer.borderWidth = 0.5f;
         cell.tvContent.layer.borderColor = [UIColor lightGrayColor].CGColor;
     }
+    
     cell.pkReportType.tag = REPORT_TYPE_TAG;
     cell.pkReportType.delegate = self;
     cell.tvContent.delegate = self;
@@ -200,21 +225,37 @@ static int const REPORT_CONTENT_TAG = 4;
     cell.tfLyTrinh.tag = REPORT_LYTRINH_TAG;
     cell.tvContent.tag = REPORT_CONTENT_TAG;
     [cell.tfLyTrinh addTarget:self action:@selector(textDidChange:) forControlEvents:UIControlEventEditingChanged];
+    [cell.tfLyTrinh addTarget:self action:@selector(textFieldDidBeginEditing:) forControlEvents:UIControlEventEditingDidBegin];
     
     DataTypeItemModel* itemModel = [dataList objectAtIndex:indexPath.row];
     cell.tfLyTrinh.text = itemModel.LyTrinh ? itemModel.LyTrinh : @"";
     cell.tvContent.text = itemModel.MoTaTinhTrang ? itemModel.MoTaTinhTrang : @"";
     cell.pkReportType.text = itemModel.DataTypeName ? itemModel.DataTypeName : @"";
+    
     if(itemModel.MoTaTinhTrang)
         [cell.tfPlaceholder setHidden:YES];
     else
         [cell.tfPlaceholder setHidden:NO];
+    
+    if(!itemModel.KinhDo || !itemModel.ViDo)
+        [cell.imgLocationStatus setImage:[UIImage imageNamed:@"warning"]];
+    else
+        [cell.imgLocationStatus setImage:[UIImage imageNamed:@"check_mark"]];
     
     if(indexPath.row == dataList.count - 1){
         [cell.btAddMoreItem setHidden:NO];
     }else{
         [cell.btAddMoreItem setHidden:YES];
     }
+    
+    NSMutableArray *imgList = [[imageList objectAtIndex:indexPath.row] objectForKey:@"imageData"];
+    if(imgList && imgList.count > 0){
+        [cell.tfNumOfImage setHidden:NO];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", (int)[imgList count]]];
+    }else{
+        [cell.tfNumOfImage setHidden:YES];
+    }
+    [cell.tfNumOfVideo setHidden:YES];
     
     cell.indexPath = indexPath;
     cell.delegate = self;
@@ -240,10 +281,21 @@ static int const REPORT_CONTENT_TAG = 4;
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     focusedTextfield = textField;
     if(focusedTextfield) {
+        UICollectionViewCell *cell = (UICollectionViewCell*)focusedTextfield.superview.superview;
+        NSIndexPath *indexPath = [_cvReport indexPathForCell:cell];
+
         if(focusedTextfield.tag == REPORT_TYPE_TAG){
             [pickerView selectRow:0 inComponent:0 animated:NO];
+            currentEdit = (int)indexPath.row;
+        }else if(focusedTextfield.tag == REPORT_LYTRINH_TAG){
+            if ([focusedTextfield.superview.superview isKindOfClass:[UICollectionViewCell class]])
+            {
+                NSLog(@"textFieldDidBeginEditing: %d", (int)indexPath.row);
+                currentEdit = (int)indexPath.row;
+            }
         }
     }
+    
 }
 -(void)textViewDidChange:(UITextView *)textView{
     NSString *targetText = textView.text;
@@ -269,9 +321,71 @@ static int const REPORT_CONTENT_TAG = 4;
     }
     [dataList replaceObjectAtIndex:currentEdit withObject:model];
 }
+
+-(void)textViewDidBeginEditing:(UITextView *)textView{
+    UICollectionViewCell *cell = (UICollectionViewCell*)textView.superview.superview;
+    NSIndexPath *indexPath = [_cvReport indexPathForCell:cell];
+    
+    NSLog(@"textViewDidBeginEditing: %d", (int)indexPath.row);
+    currentEdit = (int)indexPath.row;
+}
+
+-(void)textFieldDidEndEditing:(UITextField *)textField{
+    [textField resignFirstResponder];
+}
+
+-(void)textViewDidEndEditing:(UITextView *)textView{
+    [textView resignFirstResponder];
+}
+
+#pragma mark - CLLocationManagerDelegate
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    [SVProgressHUD dismiss];
+    NSLog(@"didFailWithError: %@", error);
+    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                         message:@"Failed to Get Your Location"
+                                                         delegate:nil
+                                            cancelButtonTitle:@"OK"
+                                            otherButtonTitles:nil];
+    [errorAlert show];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
+{
+    [SVProgressHUD dismiss];
+    NSLog(@"didUpdateToLocation: %@", newLocation);
+    CLLocation *currentLocation = newLocation;
+    
+    if (currentLocation != nil) {
+        locationManager.delegate = nil;
+        [locationManager stopUpdatingLocation];
+        NSLog(@"location : %.8f - %.8f",currentLocation.coordinate.latitude, currentLocation.coordinate.longitude);
+        for(int i = 0; i < dataList.count; i++){
+            DataTypeItemModel *itemModel = [dataList objectAtIndex:i];
+            itemModel.KinhDo = currentLocation.coordinate.latitude;
+            itemModel.ViDo = currentLocation.coordinate.latitude;
+            
+            NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:i inSection:0];
+            ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
+            if(cell){
+                [cell.imgLocationStatus setImage:[UIImage imageNamed:@"check_mark"]];
+            }
+        }
+    }
+}
+
 #pragma mark - cell delegate
+-(void)getLocation{
+    [SVProgressHUD showWithStatus:@"Updating location" maskType:SVProgressHUDMaskTypeGradient];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+    
+    [locationManager startUpdatingLocation];
+}
+
 -(void)addMoreInput{
-    currentEdit = dataList.count - 1;
     if(![self checkValidateInput:[dataList lastObject] atIndex:((int) dataList.count - 1)])
         return;
     
@@ -295,16 +409,6 @@ static int const REPORT_CONTENT_TAG = 4;
 -(void)addImageAt:(NSIndexPath *)indexPath withView:(UIView *)view{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     InputImageForCell *inputImage = [storyboard instantiateViewControllerWithIdentifier:@"InputImageForCell"];
-    //    popOver = [[WYPopoverController alloc] initWithContentViewController:inputImage];
-    //    [inputImage setModalPresentationStyle:UIModalPresentationOverCurrentContext];
-    //    [popOver presentPopoverFromRect:view.bounds
-    //                             inView:view
-    //           permittedArrowDirections:WYPopoverArrowDirectionAny
-    //                           animated:YES
-    //                            options:WYPopoverAnimationOptionFadeWithScale];
-    //    [popOver presentPopoverAsDialogAnimated:YES options:WYPopoverAnimationOptionFadeWithScale];
-    //    [self.navigationController presentViewController:inputImage animated:YES completion:nil];
-    //    [self.navigationController pushViewController:inputImage animated:YES];
     currentEdit = (int)indexPath.row;
     inputImage.delegate = self;
     inputImage.UUID = [[imageList objectAtIndex:currentEdit] objectForKey:@"UUID"];
@@ -317,6 +421,19 @@ static int const REPORT_CONTENT_TAG = 4;
     [imgDict setObject:UUID forKey:@"UUID"];
     [imgDict setObject:dataListArr forKey:@"imageData"];
     [imageList replaceObjectAtIndex:currentEdit withObject:imgDict];
+    
+    NSMutableArray *imgList = [[imageList objectAtIndex:currentEdit] objectForKey:@"imageData"];
+    ReportForInputViewCell *cell = (ReportForInputViewCell *) [_cvReport cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentEdit inSection:0]];
+    if(imgList && imgList.count > 0){
+        cell.tfNumOfImage.layer.cornerRadius = 10;
+        cell.tfNumOfImage.layer.masksToBounds = YES;
+        [cell.tfNumOfImage setHidden:NO];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", (int) imgList.count]];
+        [Utilities showViewWithScaleAnim:cell.tfNumOfImage];
+    }else{
+        [Utilities hideViewWithScaleAnim:cell.tfNumOfImage];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", 0]];
+    }
 }
 
 - (BOOL) checkValidateInput:(DataTypeItemModel *)itemModel atIndex:(int) index{
@@ -337,7 +454,72 @@ static int const REPORT_CONTENT_TAG = 4;
         [Utilities shakeView:cell.tvContent withInfinity:NO];
         return NO;
     }
+    
+    if(!itemModel.KinhDo || !itemModel.ViDo){
+        [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!"];
+        NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
+        ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
+        [_cvReport scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
+        [Utilities shakeView:cell.imgLocationStatus withInfinity:NO];
+        return NO;
+    }
     return YES;
 }
 
+- (IBAction)saveData:(id)sender {
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
+                                                                   message:@"Click OK to finish, dismiss to cancel action."
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {
+                                                              
+                                                              
+                                                                  for(int i = 0; i < dataList.count; i++){
+                                                                      DataTypeItemModel *model = [dataList objectAtIndex:i];
+                                                                      if(![self checkValidateInput:model atIndex:i])
+                                                                          return;
+                                                                      model.DanhGia = model.MoTaTinhTrang;
+                                                                      model.MaDuong = -1;
+                                                                      model.TuyenSo = -1;
+                                                                      model.DataType = -1;
+                                                                      for(NSMutableDictionary *imgDict in imageList){
+                                                                          NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
+                                                                          for(NSMutableDictionary *dict in arrImg){
+                                                                              if([[imgDict objectForKey:@"UUID"] isEqualToString:model.DataID]){
+                                                                                  ImageModel *imageModel = [[ImageModel alloc] init];
+                                                                                  imageModel.DataID = [imgDict objectForKey:@"UUID"];
+                                                                                  imageModel.ImageName = [dict objectForKey:@"path"];
+                                                                                  imageModel.ImageDataByte = @"";
+                                                                                  [ImageDb saveImageModel:imageModel];
+                                                                              }
+                                                                          }
+                                                                      }
+                                                                      
+                                                                      [DataTypeItemDb saveDataTypeItem:model];
+                                                                      
+                                                                      //chua check xem  co insert ca 2 thanh cong hay ko
+                                                                      [self doneSaveData];
+                                                                  }
+                                                              
+                                                              
+                                                              
+                                                              
+                                                              [self.navigationController popViewControllerAnimated:YES];
+                                                          }];
+    
+    UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
+                                                         handler:^(UIAlertAction * action) {
+                                                         }];
+    
+    [alert addAction:defaultAction];
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+- (void) doneSaveData{
+    [self initData];
+    MainScreen *mainScreen = (MainScreen* )[[self parentViewController] parentViewController];
+    [mainScreen switchToFirstPage];
+}
 @end

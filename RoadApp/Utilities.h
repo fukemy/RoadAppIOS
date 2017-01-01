@@ -21,4 +21,7 @@
 + (void) toString:(NSObject *)object;
 + (void) showSimpleAlert:(NSString *)message;
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
++ (void)enableDismissKeyboardByClickInView:(UIViewController*)controller;
++ (void) showViewWithScaleAnim:(UIView *)view;
++ (void) hideViewWithScaleAnim:(UIView *)view;
 @end

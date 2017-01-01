@@ -11,7 +11,7 @@
 -(void) loginSuccess;
 @end
 
-@interface LoginController : UIViewController
+@interface LoginController : UIViewController <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *loginControllerBg;
 @property (strong, nonatomic) IBOutlet UIButton *btnLogin;
 @property (strong, nonatomic) IBOutlet UITextField *tfUsername;

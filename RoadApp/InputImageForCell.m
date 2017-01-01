@@ -47,7 +47,6 @@
     isActiveDelete = YES;
     [_btBack.titleLabel setText:@"Cancel"];
     [_btBack setTitle:@"Cancel" forState:UIControlStateNormal];
-    [_btBack layoutIfNeeded];
     [_cvImg reloadData];
 }
 
@@ -59,6 +58,7 @@
         if([_data count] == 0){
             isActiveDelete = NO;
             _btBack.titleLabel.text = @"Back";
+            [_btBack setTitle:@"Back" forState:UIControlStateNormal];
         }
         [self checkBackButton];
         [_cvImg reloadData];
@@ -72,6 +72,7 @@
 
 - (IBAction)dismissView:(id)sender {
     if([_btBack.titleLabel.text isEqualToString:@"Back"]){
+        [_delegate doneAddImage:_data withUUID:_UUID];
         [self dismissViewControllerAnimated:YES completion:nil];
     }else if([_btBack.titleLabel.text isEqualToString:@"Cancel"]){
         isActiveDelete = NO;

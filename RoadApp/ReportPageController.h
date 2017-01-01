@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "ReportForInputViewCell.h"
 #import "InputImageForCell.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare>
+@interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvReport;
+@property (weak, nonatomic) IBOutlet UIButton *btSave;
+- (IBAction)saveData:(id)sender;
 @end

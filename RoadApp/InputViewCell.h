@@ -25,5 +25,7 @@
 
 @property (nonatomic,strong) id<InputCellDelegare> delegate;
 - (IBAction)addImage:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *tfNumOfImage;
+@property (weak, nonatomic) IBOutlet UILabel *tfNumOfVideo;
 
 @end

@@ -94,6 +94,28 @@
                                     <action selector="addMoreInput:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="i9C-hx-CRg"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pJx-tL-NbK">
+                                <rect key="frame" x="22" y="168" width="21" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.076970202579999994" blue="0.011911886930000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="YT1-mM-8my"/>
+                                    <constraint firstAttribute="height" constant="21" id="upW-t8-7Ob"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIJ-TO-6kB">
+                                <rect key="frame" x="64" y="168" width="21" height="21"/>
+                                <color key="backgroundColor" red="1" green="0.076970202579999994" blue="0.011911886930000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="21" id="Opb-kq-l7X"/>
+                                    <constraint firstAttribute="height" constant="21" id="sxs-ET-6Pp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.25820678520000001" green="0.80466777150000002" blue="0.1182845943" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -109,15 +131,19 @@
                             <constraint firstItem="teq-aM-fr6" firstAttribute="centerY" secondItem="CBT-cq-luo" secondAttribute="centerY" id="F0f-rE-Z1i"/>
                             <constraint firstItem="Xgb-hs-DqD" firstAttribute="top" secondItem="jgm-WI-OZk" secondAttribute="bottom" constant="19" id="FDr-TR-8TF"/>
                             <constraint firstItem="jgm-WI-OZk" firstAttribute="leading" secondItem="Xgb-hs-DqD" secondAttribute="leading" id="Ij8-tR-G79"/>
+                            <constraint firstItem="nIJ-TO-6kB" firstAttribute="centerY" secondItem="pJx-tL-NbK" secondAttribute="centerY" id="KzT-Zt-BWw"/>
+                            <constraint firstItem="nIJ-TO-6kB" firstAttribute="leading" secondItem="pJx-tL-NbK" secondAttribute="trailing" constant="21" id="Rd5-cJ-shs"/>
                             <constraint firstAttribute="trailing" secondItem="G4K-Ui-1Gw" secondAttribute="trailing" constant="5" id="S77-xh-0TS"/>
                             <constraint firstItem="hwH-md-QEW" firstAttribute="leading" secondItem="Nxd-1L-a7g" secondAttribute="leading" id="UaV-lC-mtZ"/>
                             <constraint firstAttribute="trailing" secondItem="teq-aM-fr6" secondAttribute="trailing" constant="6" id="aV9-Nu-s3f"/>
                             <constraint firstItem="jgm-WI-OZk" firstAttribute="top" secondItem="Nxd-1L-a7g" secondAttribute="bottom" constant="10" id="ajw-8F-4MH"/>
                             <constraint firstItem="jgm-WI-OZk" firstAttribute="leading" secondItem="Nxd-1L-a7g" secondAttribute="leading" id="egW-YW-eqV"/>
+                            <constraint firstItem="pJx-tL-NbK" firstAttribute="top" secondItem="jgm-WI-OZk" secondAttribute="bottom" constant="11" id="gMS-1d-yzF"/>
                             <constraint firstAttribute="trailing" secondItem="5A2-BA-nNs" secondAttribute="trailing" constant="5" id="lCq-x3-udx"/>
                             <constraint firstItem="CBT-cq-luo" firstAttribute="centerY" secondItem="Xgb-hs-DqD" secondAttribute="centerY" id="ltC-9h-IqZ"/>
                             <constraint firstItem="Nxd-1L-a7g" firstAttribute="trailing" secondItem="jgm-WI-OZk" secondAttribute="trailing" id="pL4-MQ-vmf"/>
                             <constraint firstAttribute="trailing" secondItem="evg-DH-i53" secondAttribute="trailing" constant="5" id="rIb-VL-Awm"/>
+                            <constraint firstItem="pJx-tL-NbK" firstAttribute="leading" secondItem="dNJ-Ri-2Hj" secondAttribute="leading" constant="22" id="sCF-LN-iXc"/>
                             <constraint firstItem="hwH-md-QEW" firstAttribute="leading" secondItem="5A2-BA-nNs" secondAttribute="leading" id="twF-Rl-e1j"/>
                             <constraint firstItem="G4K-Ui-1Gw" firstAttribute="centerY" secondItem="hwH-md-QEW" secondAttribute="centerY" id="ySb-zU-UNW"/>
                         </constraints>
@@ -136,6 +162,8 @@
                 <outlet property="rootVIew" destination="dNJ-Ri-2Hj" id="HIf-lp-kdt"/>
                 <outlet property="tfInfor" destination="jgm-WI-OZk" id="ofK-sZ-NqX"/>
                 <outlet property="tfLyTrinh" destination="Nxd-1L-a7g" id="5Ea-1O-QFe"/>
+                <outlet property="tfNumOfImage" destination="pJx-tL-NbK" id="03o-xf-I3N"/>
+                <outlet property="tfNumOfVideo" destination="nIJ-TO-6kB" id="7fk-SJ-Z9B"/>
             </connections>
             <point key="canvasLocation" x="342" y="232"/>
         </tableViewCell>

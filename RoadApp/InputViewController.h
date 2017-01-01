@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbLocation;
 @property (assign,nonatomic) CGPoint scrollviewContentOffsetChange;
 - (IBAction)saveData:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *btSave;
 
 //extern NSInteger const CATEGORY_TEXTFIELD_PICKER_TAG;
 //extern NSInteger const STATUS_TEXTFIELD_PICKER_TAG;

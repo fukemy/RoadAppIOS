@@ -11,6 +11,7 @@
 @protocol ReportForInputViewCellDelegare <NSObject>
 -(void) addMoreInput;
 -(void) addImageAt:(NSIndexPath *)indexPath withView:(UIView *) view;
+-(void) getLocation;
 @end
 
 @interface ReportForInputViewCell : UICollectionViewCell
@@ -24,5 +25,9 @@
 - (IBAction)addMoreitem:(id)sender;
 @property (nonatomic,strong) id<ReportForInputViewCellDelegare> delegate;
 @property (weak, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) IBOutlet UILabel *tfNumOfImage;
+@property (weak, nonatomic) IBOutlet UILabel *tfNumOfVideo;
+- (IBAction)setLocation:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *imgLocationStatus;
 
 @end

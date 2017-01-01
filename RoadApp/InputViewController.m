@@ -97,7 +97,12 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     InputViewCell *cell = (InputViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"InputViewCell" forIndexPath:indexPath];
     
     cell.rootVIew.layer.cornerRadius = 12.0f;
-    [cell.rootVIew setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
+    cell.tfNumOfImage.layer.cornerRadius = 10;
+    cell.tfNumOfImage.layer.masksToBounds = YES;
+    cell.tfNumOfVideo.layer.cornerRadius = 10;
+    cell.tfNumOfVideo.layer.masksToBounds = YES;
+    
+    [cell.rootVIew setBackgroundColor:[Utilities colorFromHexString:LIGHT_GRAY_COLOR]];
     
     cell.pkRequiredItem.inputView = pickerCategory;
     cell.pkRequiredItem.inputAccessoryView = accessoryView;
@@ -127,6 +132,15 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     cell.tfInfor.text = itemModel.MoTaTinhTrang ? itemModel.MoTaTinhTrang : @"";
     cell.tfLyTrinh.text = itemModel.LyTrinh ? itemModel.LyTrinh : @"";
     
+    NSMutableArray *imgList = [[imageList objectAtIndex:indexPath.row] objectForKey:@"imageData"];
+    if(imgList && imgList.count > 0){
+        [cell.tfNumOfImage setHidden:NO];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", [imgList count]]];
+    }else{
+        [cell.tfNumOfImage setHidden:YES];
+    }
+    [cell.tfNumOfVideo setHidden:YES];
+    
     cell.indexPath = indexPath;
     cell.delegate = self;
     return cell;
@@ -143,6 +157,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 //    inset = MAX(inset, 0.0);
 //    return UIEdgeInsetsMake(0.0, inset, 0.0, 0.0);
 //}
+
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     return CGSizeMake(self.view.frame.size.width, 230);
@@ -231,6 +246,9 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 
 
 #pragma mark - keyboardDelegate
+- (void) dismissKeyboard{
+    [self.view endEditing:YES];
+}
 - (void)registerForKeyboardNotifications {
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -279,6 +297,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 
 #pragma mark -  picker
 - (void) initPickerAndTable{
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)]];
     pickerCategory = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 320, 180)];
     [pickerCategory setDataSource:self];
     [pickerCategory setDelegate:self];
@@ -306,6 +325,10 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
     self.automaticallyAdjustsScrollViewInsets = NO;
+    _btSave.layer.cornerRadius = 23;
+    _btSave.layer.masksToBounds = YES;
+    [_btSave setBackgroundColor:[UIColor redColor]];
+    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
 }
 
 - (void)doneButton:(id)sender{
@@ -480,6 +503,19 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     [imgDict setObject:UUID forKey:@"UUID"];
     [imgDict setObject:dataListArr forKey:@"imageData"];
     [imageList replaceObjectAtIndex:currentEdit withObject:imgDict];
+    
+    NSMutableArray *imgList = [[imageList objectAtIndex:currentEdit] objectForKey:@"imageData"];
+    InputViewCell *cell = (InputViewCell *) [_cvInput cellForItemAtIndexPath:[NSIndexPath indexPathForRow:currentEdit inSection:0]];
+    if(imgList && imgList.count > 0){
+        cell.tfNumOfImage.layer.cornerRadius = 10;
+        cell.tfNumOfImage.layer.masksToBounds = YES;
+        [cell.tfNumOfImage setHidden:NO];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", [imgList count]]];
+        [Utilities showViewWithScaleAnim:cell.tfNumOfImage];
+    }else{
+        [Utilities hideViewWithScaleAnim:cell.tfNumOfImage];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", 0]];
+    }
 }
 
 - (IBAction)saveData:(id)sender {

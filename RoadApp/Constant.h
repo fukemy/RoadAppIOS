@@ -41,6 +41,7 @@
 #define MAIN_COLOR @"#d2a809"
 #define INPUT_COLOR @"#FAF5D2"
 #define GRAY_COLOR @"#818285"
+#define LIGHT_GRAY_COLOR @"#E1EAED"
 
 //DATA
 #define ROAD_DATA @"road data"

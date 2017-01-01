@@ -42,4 +42,19 @@
         NSLog(@"Save Failed! %@ %@", error, [error localizedDescription]);
     }
 }
+
++(NSMutableArray *)getAllDataTypeItem{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context =  appDelegate.managedObjectContext;
+    NSFetchRequest *request = [[NSFetchRequest alloc]initWithEntityName:@"DataTypeItemDb"];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:request error:&error];
+    if (error != nil) {
+        return [[NSMutableArray alloc] init];
+    }
+    else {
+        return [[NSMutableArray alloc] initWithArray:results];
+    }
+
+}
 @end

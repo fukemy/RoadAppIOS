@@ -23,40 +23,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBar.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = YES;
 }
-//
-//- (RoadTestPageController*) getRoadTestPage{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    roadTestVC = [storyboard instantiateViewControllerWithIdentifier:@"RoadTestPageController"];
-//    return roadTestVC;
-//}
-//
-//- (ReportPageController*) getReportPage{
-//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//    ReportPageController *reportVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportPageController"];
-//    return reportVC;
-//}
 
-- (void) initTabbar{
-//    self.tabBar
-}
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    
-    [NSThread sleepForTimeInterval:1.0f];
-    
-    [_loading setHidden:YES];
-    int isLogged = [[[NSUserDefaults standardUserDefaults] valueForKey:USER_LOGGED] intValue];
-    if(isLogged && isLogged == 1){
-        [self goToMainScreen];
-    }else{
-        [self showLogin];
-    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC),
+                   dispatch_get_main_queue(), ^{
+                       int isLogged = [[[NSUserDefaults standardUserDefaults] valueForKey:USER_LOGGED] intValue];
+                       if(isLogged && isLogged == 1){
+                           [self goToMainScreen];
+                       }else{
+                           [self showLogin];
+                       }
+                   });
 }
 
 -(void)loginSuccess{
@@ -70,18 +55,13 @@
     [loginVC setModalPresentationStyle:UIModalPresentationOverCurrentContext];
     loginVC.delegate = self;
     [self.navigationController presentViewController:loginVC animated:YES completion:nil];
-//    [self presentViewController:loginVC animated:YES completion:nil];
 }
 
 - (void) goToMainScreen{
     NSLog(@"goToMainScreen");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];    [self.navigationController pushViewController:mainScreenVC animated:YES];
-}
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+    MainScreen *mainScreenVC = [storyboard instantiateViewControllerWithIdentifier:@"MainScreen"];
+    [self.navigationController pushViewController:mainScreenVC animated:YES];
 }
 
 

@@ -11,7 +11,6 @@
 #import "ReportPageController.h"
 #import "MFSideMenu.h"
 #import "SlideMenuViewController.h"
-#import "MFSideMenuContainerViewController.h"
 #import "AppDelegate.h"
 #import "RoadTestPageController.h"
 #import "ReportPageController.h"
@@ -41,6 +40,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.navigationController.navigationBar.hidden = NO;
+    SlideNavigationController *bar = (SlideNavigationController *)self.navigationController;
+    bar.navigationBarHidden = NO;
 }
 
 - (void) configToolbar{
@@ -52,6 +53,10 @@
 
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
     [_pager setCurrentPage:item.tag animated:YES];
+}
+
+- (void) switchToFirstPage{
+    [_pager setCurrentPage:0 animated:YES];
 }
 
 #pragma mark - SlideNavigationController Methods -

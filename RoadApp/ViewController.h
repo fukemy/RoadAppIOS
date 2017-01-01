@@ -10,8 +10,5 @@
 #import "LoginController.h"
 
 @interface ViewController : UIViewController <LoginDelegate>
-
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *loading;
-
 @end
 

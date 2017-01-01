@@ -30,6 +30,10 @@
 		1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */; };
 		1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */; };
 		1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */; };
+		1F6ACF761E18941900AE0D54 /* matduong.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ACF751E18941900AE0D54 /* matduong.plist */; };
+		1F6ACF791E1897D300AE0D54 /* ResouceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */; };
+		1F6ACF7D1E18A96800AE0D54 /* ICHObjectPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF7C1E18A96800AE0D54 /* ICHObjectPrinter.m */; };
+		1F6ACF811E18C71D00AE0D54 /* ReportForInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF7F1E18C71D00AE0D54 /* ReportForInputViewCell.m */; };
 		1F6F6EFA1E177EA200C60512 /* InputImageForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6EF81E177EA200C60512 /* InputImageForCell.m */; };
 		1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E081E1407A00046F365 /* VideoViewController.m */; };
 		1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E391E1413340046F365 /* InputViewController.m */; };
@@ -166,6 +170,13 @@
 		1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyStatusBarController.m; sourceTree = "<group>"; };
 		1F61D9131E12F32B009BCF74 /* TLYShyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyViewController.h; sourceTree = "<group>"; };
 		1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
+		1F6ACF751E18941900AE0D54 /* matduong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = matduong.plist; sourceTree = "<group>"; };
+		1F6ACF771E1897D300AE0D54 /* ResouceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResouceUtilities.h; sourceTree = "<group>"; };
+		1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResouceUtilities.m; sourceTree = "<group>"; };
+		1F6ACF7B1E18A96800AE0D54 /* ICHObjectPrinter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICHObjectPrinter.h; sourceTree = "<group>"; };
+		1F6ACF7C1E18A96800AE0D54 /* ICHObjectPrinter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICHObjectPrinter.m; sourceTree = "<group>"; };
+		1F6ACF7E1E18C71D00AE0D54 /* ReportForInputViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportForInputViewCell.h; sourceTree = "<group>"; };
+		1F6ACF7F1E18C71D00AE0D54 /* ReportForInputViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportForInputViewCell.m; sourceTree = "<group>"; };
 		1F6F6EF71E177EA200C60512 /* InputImageForCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageForCell.h; sourceTree = "<group>"; };
 		1F6F6EF81E177EA200C60512 /* InputImageForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageForCell.m; sourceTree = "<group>"; };
 		1F9A0E071E1407A00046F365 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -410,6 +421,15 @@
 			name = ShyControllers;
 			sourceTree = "<group>";
 		};
+		1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */ = {
+			isa = PBXGroup;
+			children = (
+				1F6ACF7B1E18A96800AE0D54 /* ICHObjectPrinter.h */,
+				1F6ACF7C1E18A96800AE0D54 /* ICHObjectPrinter.m */,
+			);
+			name = ICHObjectPrinter;
+			sourceTree = "<group>";
+		};
 		1F9A0E061E1407840046F365 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -640,6 +660,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */,
 				1F4B62791E156E51005EE93B /* ComboBox */,
 				1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */,
 				BCAC481B1E12747900E3D01C /* ImageCache */,
@@ -711,6 +732,8 @@
 				BCF4CC381E10D7ED009DA7DF /* Constant.h */,
 				1FAB5CBF1E11943700999597 /* Utilities.m */,
 				1FAB5CBE1E11943700999597 /* Utilities.h */,
+				1F6ACF771E1897D300AE0D54 /* ResouceUtilities.h */,
+				1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -744,6 +767,7 @@
 				BCC405451DD0A00E00E313F7 /* Info.plist */,
 				BCC4053D1DD0A00E00E313F7 /* RoadApp.xcdatamodeld */,
 				BCC405401DD0A00E00E313F7 /* Assets.xcassets */,
+				1F6ACF751E18941900AE0D54 /* matduong.plist */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -798,6 +822,8 @@
 			children = (
 				BCF4CC961E113A79009DA7DF /* ReportPageController.h */,
 				BCF4CC971E113A79009DA7DF /* ReportPageController.m */,
+				1F6ACF7E1E18C71D00AE0D54 /* ReportForInputViewCell.h */,
+				1F6ACF7F1E18C71D00AE0D54 /* ReportForInputViewCell.m */,
 			);
 			name = ReportPage;
 			sourceTree = "<group>";
@@ -956,6 +982,7 @@
 				1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */,
 				BCAC48171E12694800E3D01C /* menu-button@2x.png in Resources */,
 				1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */,
+				1F6ACF761E18941900AE0D54 /* matduong.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1121,6 +1148,7 @@
 				BCAC483F1E12748700E3D01C /* SDWebImageDecoder.m in Sources */,
 				1F61D90A1E12F317009BCF74 /* UIScrollView+Helpers.m in Sources */,
 				BCAC48421E12748700E3D01C /* SDWebImageManager.m in Sources */,
+				1F6ACF811E18C71D00AE0D54 /* ReportForInputViewCell.m in Sources */,
 				BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */,
 				1FAB5CC01E11943700999597 /* Utilities.m in Sources */,
 				1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */,
@@ -1147,6 +1175,7 @@
 				1F0766901E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m in Sources */,
 				BCF4CC281E10D6B5009DA7DF /* AFURLSessionManager.m in Sources */,
 				BCAC48461E12748700E3D01C /* UIImage+WebP.m in Sources */,
+				1F6ACF7D1E18A96800AE0D54 /* ICHObjectPrinter.m in Sources */,
 				1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */,
 				BCAC483E1E12748700E3D01C /* SDWebImageCompat.m in Sources */,
 				1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */,
@@ -1181,6 +1210,7 @@
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCAC48431E12748700E3D01C /* SDWebImagePrefetcher.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
+				1F6ACF791E1897D300AE0D54 /* ResouceUtilities.m in Sources */,
 				1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */,
 				1F61D90B1E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m in Sources */,
 				1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */,

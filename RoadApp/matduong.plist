@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>status</key>
+	<array>
+		<string>Xấu vừa</string>
+		<string>Xấu</string>
+		<string>Rất xấu</string>
+		<string>Cần thay thế</string>
+		<string>Khác</string>
+	</array>
+	<key>category</key>
+	<array>
+		<string>Lún vệt bánh xe</string>
+		<string>Vết nứt</string>
+		<string>Lún dọc, lún gợn sóng</string>
+		<string>Ổ gà</string>
+		<string>Khả năng kháng trượt</string>
+		<string>Gờ ngang (Độ êm thuận)</string>
+		<string>Bong bật mặt đường</string>
+		<string>Tình huống bất thường</string>
+	</array>
+</dict>
+</plist>

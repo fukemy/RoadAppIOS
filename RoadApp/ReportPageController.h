@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ReportForInputViewCell.h"
+#import "InputImageForCell.h"
 
-@interface ReportPageController : UIViewController
+@interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare>
+@property (weak, nonatomic) IBOutlet UICollectionView *cvReport;
 @end

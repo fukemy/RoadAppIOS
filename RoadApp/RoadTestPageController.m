@@ -62,7 +62,8 @@
     cell.layer.cornerRadius =  5.0f;
     cell.layer.masksToBounds = YES;
     cell.tfTitle.text = item.ItemName;
-    cell.imgItem.image = [Utilities getItemBackground:(int)indexPath.row];
+    cell.imgItem.image = [Utilities imageWithImage:[Utilities getItemBackground:(int)indexPath.row]
+                                      scaledToSize:CGSizeMake(widthSize, heightSize)];
     return cell;
 }
 
@@ -75,11 +76,11 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{    
-    RoadTestCell *cell = (RoadTestCell *) [collectionView cellForItemAtIndexPath:indexPath];    
+{       
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     InputViewController *vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"InputViewController"];
-    vc.titleView = cell.tfTitle.text;
+    DataItemModel* item = [[DataItemModel alloc] initWithDictionary:[itemList objectAtIndex:indexPath.row]];
+    vc.dataItemModel = item;
     [self.navigationController setHidesBottomBarWhenPushed:YES];
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "InputImageCell.h"
+
 @protocol InputImageForCellDelegare <NSObject>
 -(void) doneAddImage:(NSMutableArray *) dataListArr withUUID:(NSString *)UUID;
 @end

@@ -31,6 +31,7 @@
     _tfConcept.lineBreakMode = NSLineBreakByWordWrapping;
     _tfConcept.numberOfLines = 0;
     _tfConcept.adjustsFontSizeToFitWidth = YES;
+    self.view.translatesAutoresizingMaskIntoConstraints = YES;
 }
 
 #pragma mark - image cell delegate
@@ -70,9 +71,9 @@
 }
 
 - (IBAction)dismissView:(id)sender {
-    if([_btBack.titleLabel.text isEqualToString:@"Back"])
+    if([_btBack.titleLabel.text isEqualToString:@"Back"]){
         [self dismissViewControllerAnimated:YES completion:nil];
-    else if([_btBack.titleLabel.text isEqualToString:@"Cancel"]){
+    }else if([_btBack.titleLabel.text isEqualToString:@"Cancel"]){
         isActiveDelete = NO;
         [_btBack.titleLabel setText:@"Back"];
         [_btBack setTitle:@"Back" forState:UIControlStateNormal];
@@ -113,7 +114,7 @@
             [cell.imgDelete setHidden:YES];
         else{
             [cell.imgDelete setHidden:NO];
-            [Utilities shakeView:cell];
+            [Utilities shakeView:cell withInfinity:YES];
         }
         
         if([_data count] > 0 && [_data objectAtIndex:indexPath.row] != [NSNull null]){

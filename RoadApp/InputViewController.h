@@ -10,14 +10,18 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "InputViewCell.h"
 #import "InputImageForCell.h"
+#import "DataItemModel.h"
 
 @interface InputViewController : UIViewController <GMSMapViewDelegate, CLLocationManagerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate ,InputCellDelegare
     , UINavigationControllerDelegate, InputImageForCellDelegare, UIScrollViewDelegate>
-@property (weak, nonatomic) NSString *titleView;
+@property (nonatomic) DataItemModel *dataItemModel;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvInput;
 @property (weak, nonatomic) IBOutlet UILabel *lbLocation;
 - (IBAction)saveData:(id)sender;
 
-
+//extern NSInteger const CATEGORY_TEXTFIELD_PICKER_TAG;
+//extern NSInteger const STATUS_TEXTFIELD_PICKER_TAG;
+//extern NSInteger const INFOR_TEXTFIELD_INPUT_TAG;
+//extern NSInteger const LYTRINH_TEXTFIELD_INPUT_TAG;
 @end

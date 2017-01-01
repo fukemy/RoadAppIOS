@@ -24,6 +24,7 @@
     [transaction setValue:imageModel.ImageName forKey:@"imagename"];
     [transaction setValue:imageModel.ImageDataByte forKey:@"imagedatabyte"];
     
+    NSLog(@"image model: %@", transaction);
     // Save the context
     NSError *error = nil;
     if (![context save:&error]) {

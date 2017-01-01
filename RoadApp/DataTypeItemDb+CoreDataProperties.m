@@ -24,6 +24,7 @@
 @dynamic tuyenso;
 @dynamic maduong;
 @dynamic datatype;
+@dynamic datatypename;
 @dynamic thoigiannhap;
 
 @end

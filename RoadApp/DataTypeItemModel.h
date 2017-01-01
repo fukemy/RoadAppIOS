@@ -31,6 +31,7 @@
 
 @property NSString *DataID;
 @property int DataType;
+@property NSString *DataTypeName;
 @property int MaDuong;
 @property int TuyenSo;
 @property NSString *MoTaTinhTrang;

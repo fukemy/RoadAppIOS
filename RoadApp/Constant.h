@@ -44,7 +44,35 @@
 
 //DATA
 #define ROAD_DATA @"road data"
+#define ROAD_CHOOSEN @"road choosen"
 #define ITEM_DATA_LIST @"item data list"
 #define GOOGLEMAP_KEY @"AIzaSyCbee2MxY3noVIKenWbHyLOobYplT9xNRo"
+
+
+//CATEGORY
+#define CATEGORY_MAT_DUONG @"Mặt Đường"
+#define CATEGORY_NEN_DUONG @"Nền đường"
+#define CATEGORY_DAI_PHAN_CACH @"Dải phân cách"
+#define CATEGORY_CONG_CHUI_DAN_SINH @"Cống chui dân sinh"
+#define CATEGORY_CONG_HOP_BAN_THOAT_NUOC @"Cống hộp bản thoát nước"
+#define CATEGORY_CONG_TRON @"Cống tròn"
+#define CATEGORY_TUONG_CHAN @"Mái dốc"
+#define CATEGORY_MAI_DOC @"Mái dốc"
+#define CATEGORY_HANG_RAO_BAO_VE @"Tường chắn"
+#define CATEGORY_HE_THONG_CHIEU_SANG @"Hàng rào bảo vệ"
+#define CATEGORY_BIEN_BAO @"Hệ thống chiếu sáng"
+#define CATEGORY_VACH_SON_DUONG @"Biển báo"
+#define CATEGORY_COT_KM @"Vạch sơn đường"
+#define CATEGORY_CAU @"Cột Km"
+#define CATEGORY_COC_TIEU @"Cầu"
+#define CATEGORY_HO_GA_HO_THU @"Cọc tiêu"
+#define CATEGORY_RANH_DOC_RANH_BIEN @"Mặt đường"
+#define CATEGORY_CONG_DOC @"Mặt đường"
+
+
+#define REPORT_LAST_DAY @"Báo cáo cuối ngày"
+#define REPORT_ACCIDENT @"Báo cáo tai nạn"
+#define REPORT_PROBLEM @"Báo cáo sự cố"
+
 
 #endif /* Constant_h */

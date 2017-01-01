@@ -20,9 +20,9 @@
     NSManagedObjectContext* context =  appDelegate.managedObjectContext;
     NSManagedObject *transaction = [NSEntityDescription insertNewObjectForEntityForName:@"DataTypeItemDb" inManagedObjectContext:context];
     
-    
     [transaction setValue:dataTypeItemModel.DataID forKey:@"dataid"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.DataType] forKey:@"datatype"];
+    [transaction setValue:dataTypeItemModel.DataTypeName forKey:@"datatypename"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.MaDuong] forKey:@"maduong"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.TuyenSo] forKey:@"tuyenso"];
     [transaction setValue:dataTypeItemModel.MoTaTinhTrang forKey:@"motatinhtrang"];
@@ -30,10 +30,12 @@
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.ViDo] forKey:@"vido"];
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.CaoDo] forKey:@"caodo"];
     [transaction setValue:dataTypeItemModel.LyTrinh forKey:@"lytrinh"];
-    [transaction setValue:dataTypeItemModel.NguoiNhap forKey:@"nguoinhap"];
+    [transaction setValue:@"dungdv" forKey:@"nguoinhap"];
     [transaction setValue:[Utilities timeStamp] forKey:@"thoigiannhap"];
     [transaction setValue:dataTypeItemModel.DanhGia forKey:@"danhgia"];
     
+//    [Utilities toString:dataTypeItemModel];
+    NSLog(@"data to save: %@", transaction);
     // Save the context
     NSError *error = nil;
     if (![context save:&error]) {

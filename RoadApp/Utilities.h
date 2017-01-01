@@ -13,8 +13,12 @@
 + (UIColor *)colorFromHexString:(NSString *)hexString;
 + (NSString *)removeString:(NSString *)str byCharacter:(NSString *)character;
 + (UIImage *)getItemBackground:(int) order;
-+ (void)shakeView:(UIView *)view;
++ (void)shakeView:(UIView *)view withInfinity:(BOOL)isInfinity;
 + (NSString *) generateUUID;
-+ (NSManagedObjectContext *)getmanagedObjectContext;
 + (NSString *) timeStamp;
++ (NSMutableDictionary* ) dataFromPlist:(int )itemID;
++ (int ) getDataTypeByItemId:(int )itemId;
++ (void) toString:(NSObject *)object;
++ (void) showSimpleAlert:(NSString *)message;
++ (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 @end

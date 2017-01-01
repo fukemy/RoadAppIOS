@@ -152,6 +152,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     float currentPage = _cvInput.contentOffset.x / _cvInput.frame.size.width;
     currentEdit = ceil(currentPage);
     NSLog(@"Values:%d",currentEdit);
+    [focusedTextfield resignFirstResponder];
 }
 
 #pragma InputCell delegate
@@ -181,7 +182,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     InputImageForCell *inputImage = [storyboard instantiateViewControllerWithIdentifier:@"InputImageForCell"];
 //    popOver = [[WYPopoverController alloc] initWithContentViewController:inputImage];
-//    [inputImage setModalPresentationStyle:UIModalPresentationOverCurrentContext];
+//    [inputImage setModalPresentationStyle:UIModalPresentationCurrentContext];
 //    [popOver presentPopoverFromRect:view.bounds
 //                             inView:view
 //           permittedArrowDirections:WYPopoverArrowDirectionAny
@@ -206,6 +207,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     }else if(sender.tag == INFOR_TEXTFIELD_INPUT_TAG){
         model.MoTaTinhTrang = targetText;
     }
+    focusedTextfield = sender;
     [dataList replaceObjectAtIndex:currentEdit withObject:model];
 }
 
@@ -535,6 +537,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 
 - (BOOL) checkValidateInput:(DataTypeItemModel *)itemModel atIndex:(int) index{
     if(!itemModel.DataTypeName){
+        currentEdit = index;
         [Utilities showSimpleAlert:@"Mục cần nhập không được bỏ trống."];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         InputViewCell *cell = (InputViewCell *)[_cvInput cellForItemAtIndexPath:currentIndexPath];
@@ -544,6 +547,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     }
     
     if(!itemModel.DanhGia){
+        currentEdit = index;
         [Utilities showSimpleAlert:@"Mục tình trạng không được bỏ trống."];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         InputViewCell *cell = (InputViewCell *)[_cvInput cellForItemAtIndexPath:currentIndexPath];

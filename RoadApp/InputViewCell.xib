@@ -127,7 +127,6 @@
                     <constraint firstItem="dNJ-Ri-2Hj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1PS-rw-pSn"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dNJ-Ri-2Hj" secondAttribute="trailing" id="PHF-Bm-UNK"/>
                     <constraint firstItem="dNJ-Ri-2Hj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="sJ9-j6-sqA"/>
-                    <constraint firstItem="dNJ-Ri-2Hj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="xcu-Bx-n1r"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

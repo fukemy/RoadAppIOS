@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvInput;
 @property (weak, nonatomic) IBOutlet UILabel *lbLocation;
+@property (assign,nonatomic) CGPoint scrollviewContentOffsetChange;
 - (IBAction)saveData:(id)sender;
 
 //extern NSInteger const CATEGORY_TEXTFIELD_PICKER_TAG;

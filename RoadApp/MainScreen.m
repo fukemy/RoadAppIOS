@@ -55,6 +55,10 @@
     [_pager setCurrentPage:item.tag animated:YES];
 }
 
+- (IBAction)chooseRoad:(id)sender {
+    
+}
+
 - (void) switchToFirstPage{
     [_pager setCurrentPage:0 animated:YES];
 }

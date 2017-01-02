@@ -16,6 +16,8 @@
 @property (nonatomic, strong) KDViewPager *pager;
 @property (nonatomic, assign) NSUInteger count;
 @property (weak, nonatomic) IBOutlet UITabBar *tabbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *btChooseRoadName;
+- (IBAction)chooseRoad:(id)sender;
 
 - (void) switchToFirstPage;
 

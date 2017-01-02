@@ -13,8 +13,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbCategory;
 @property (weak, nonatomic) IBOutlet UILabel *lbDataTypeName;
 @property (weak, nonatomic) IBOutlet UILabel *lbTime;
-@property (weak, nonatomic) IBOutlet UIView *viewBtm;
-@property (weak, nonatomic) IBOutlet UIView *totalView;
-@property (weak, nonatomic) IBOutlet UILabel *btmTopView;
+@property (weak, nonatomic) IBOutlet UIView *topview;
+@property (weak, nonatomic) IBOutlet UIView *topViewOverlay;
+@property (weak, nonatomic) IBOutlet UIView *btmView;
+@property (weak, nonatomic) IBOutlet UIView *btmViewOverlay;
 
 @end

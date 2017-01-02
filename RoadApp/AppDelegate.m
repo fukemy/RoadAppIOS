@@ -28,7 +28,7 @@
     [SlideNavigationController sharedInstance].leftMenu = slideMenuController;
     [SlideNavigationController sharedInstance].menuRevealAnimationDuration = .18;
     ([SlideNavigationController sharedInstance]).enableSwipeGesture = YES;
-    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = YES;
+    ((SlideMenuViewController *)[SlideNavigationController sharedInstance].leftMenu).slideOutAnimationEnabled = NO;
     [GMSServices provideAPIKey:GOOGLEMAP_KEY];
     
     

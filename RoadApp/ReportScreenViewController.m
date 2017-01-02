@@ -59,25 +59,30 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(self.view.frame.size.width, 80);
+    return CGSizeMake(self.view.frame.size.width - 20, 120);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ReportScreenViewCell *cell = (ReportScreenViewCell*) [collectionView dequeueReusableCellWithReuseIdentifier:@"ReportScreenViewCell" forIndexPath:indexPath];
     
-    cell.totalView.backgroundColor = [UIColor redColor];
-    cell.totalView.layer.cornerRadius = 10.0f;
-    cell.totalView.layer.masksToBounds = YES;
-    cell.viewBtm.backgroundColor = [Utilities colorFromHexString:LIGHT_GRAY_COLOR];
-    cell.viewBtm.layer.cornerRadius = 10.0f;
-    cell.viewBtm.layer.masksToBounds = YES;
+    cell.topViewOverlay.backgroundColor = [Utilities colorFromHexString:LIGHT_GRAY_COLOR];
+    cell.topview.backgroundColor = [Utilities colorFromHexString:LIGHT_GRAY_COLOR];
+    cell.topview.layer.cornerRadius = 10.0f;
+    cell.btmViewOverlay.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.btmView.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.btmView.layer.cornerRadius = 10.0f;
+    
+    cell.lbTime.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.lbCategory.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.lbDataTypeName.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    cell.lbRoadName.backgroundColor = [Utilities colorFromHexString:LIGHT_GRAY_COLOR];
     
     
     DataTypeItemDb *data = [dataList objectAtIndex:indexPath.row];
-    cell.lbTime.text = data.thoigiannhap;
-    cell.lbCategory.text = data.datatypename;
-    cell.lbRoadName.text = data.tenduong;
-    cell.lbDataTypeName.text = data.danhgia;
+    cell.lbTime.text = data.thoigiannhap ? data.thoigiannhap : @"";
+    cell.lbCategory.text = data.datatypename ? data.datatypename : @"";
+    cell.lbRoadName.text = data.tenduong ? data.tenduong : @"";
+    cell.lbDataTypeName.text = data.danhgia ? data.danhgia : @"";
     
     
     return cell;

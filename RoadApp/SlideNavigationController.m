@@ -672,8 +672,8 @@ static SlideNavigationController *singletonInstance;
 	if ([self shouldDisplayMenu:MenuLeft forViewController:viewController])
 		viewController.navigationItem.leftBarButtonItem = [self barButtonItemForMenu:MenuLeft];
 	
-//	if ([self shouldDisplayMenu:MenuRight forViewController:viewController])
-//		viewController.navigationItem.rightBarButtonItem = [self barButtonItemForMenu:MenuRight];
+	if ([self shouldDisplayMenu:MenuRight forViewController:viewController])
+		viewController.navigationItem.rightBarButtonItem = [self barButtonItemForMenu:MenuRight];
 }
 
 - (CGFloat)slideOffset

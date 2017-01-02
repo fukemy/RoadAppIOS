@@ -343,6 +343,8 @@ static int const REPORT_CONTENT_TAG = 3;
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
 {
     [SVProgressHUD dismiss];
+    locationManager.delegate = nil;
+    [locationManager stopUpdatingLocation];
     NSLog(@"didFailWithError: %@", error);
     UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                          message:@"Failed to Get Your Location"
@@ -483,6 +485,12 @@ static int const REPORT_CONTENT_TAG = 3;
                                                                       model.MaDuong = -1;
                                                                       model.TuyenSo = -1;
                                                                       model.DataType = -1;
+                                                                      
+                                                                      NSData *choosenRoad = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
+                                                                      NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];
+                                                                      RoadInformationModel *roadModel = [[RoadInformationModel alloc] initWithDictionary:dictionary];
+                                                                      model.TenDuong = roadModel.TenDuong;
+                                                                      
                                                                       for(NSMutableDictionary *imgDict in imageList){
                                                                           NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
                                                                           for(NSMutableDictionary *dict in arrImg){

@@ -39,9 +39,22 @@
             // Instead of Loop method you can also use:
             // thanks @sapi for good catch and warning.
 //             [self setValuesForKeysWithDictionary:JSONDictionary];
+        }else{
+            NSLog(@"error parse road model: %@", [error localizedDescription]);
         }
     }
     return self;
 }
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict
+{
+    self = [super init];
+    if (self) {
+        NSLog(@"fap: %@", [dict objectForKey:@"TenDuong"]);
+        [self setValuesForKeysWithDictionary:dict];
+    }
+    return self;
+}
+
 
 @end

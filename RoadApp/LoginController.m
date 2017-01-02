@@ -112,8 +112,6 @@
     NSString *url = [NSString stringWithFormat:@"%@%@/%@",BASE_URL, GET_ALL_ROAD_URL, token];
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
         NSString *dataJson = (NSString *)responseObject;
-        dataJson = [dataJson stringByReplacingOccurrencesOfString:@"[" withString:@""];
-        dataJson = [dataJson stringByReplacingOccurrencesOfString:@"]" withString:@""];
         
         [[NSUserDefaults standardUserDefaults] setObject:dataJson forKey:ROAD_DATA];
         [self getAllItem];

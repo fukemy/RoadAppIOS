@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "KDViewPager.h"
 #import "SlideNavigationController.h"
+#import "ChooseRoad.h"
+#import "RoadInformationModel.h"
 
-@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate, SlideNavigationControllerDelegate, UITabBarDelegate>
+@interface MainScreen : UIViewController<KDViewPagerDatasource, KDViewPagerDelegate, SlideNavigationControllerDelegate, UITabBarDelegate, UIPopoverPresentationControllerDelegate, ChooseRoadDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *viewpager;
 @property (nonatomic, strong) KDViewPager *pager;

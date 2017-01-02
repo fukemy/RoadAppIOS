@@ -9,16 +9,18 @@
 #import "MainScreen.h"
 #import "RoadTestPageController.h"
 #import "ReportPageController.h"
-#import "MFSideMenu.h"
 #import "SlideMenuViewController.h"
 #import "AppDelegate.h"
 #import "RoadTestPageController.h"
 #import "ReportPageController.h"
 #import "Constant.h"
 #import "Utilities.h"
+#import "WYPopoverController.h"
+#import "ChooseRoad.h"
 
 @interface MainScreen (){
     RoadTestPageController *roadTestVC;
+    WYPopoverController* popoverController;
 }
 
 @end
@@ -55,8 +57,59 @@
     [_pager setCurrentPage:item.tag animated:YES];
 }
 
+- (UIModalPresentationStyle) adaptivePresentationStyleForPresentationController: (UIPresentationController * ) controller {
+    return UIModalPresentationNone;
+}
 - (IBAction)chooseRoad:(id)sender {
     
+    NSString *itemDataString = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_DATA];
+    
+    NSError *error = nil;
+    NSMutableArray *dataList = [[NSMutableArray alloc] init];
+    
+    NSData *JSONData = [itemDataString dataUsingEncoding:NSUTF8StringEncoding];
+    [dataList addObject:@"CHOOSE ROAD NAME"];
+    if(JSONData == nil){
+        dataList = [[NSMutableArray alloc] init];
+    }else{
+        NSMutableArray * temp = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
+        for(NSMutableDictionary *dict in temp){
+            [dataList addObject:dict];
+        }
+    }
+    
+    if(dataList.count == 0)
+        return;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChooseRoad *chooseRoadVC = [storyboard instantiateViewControllerWithIdentifier:@"ChooseRoad"];
+    chooseRoadVC.dataList = dataList;
+    chooseRoadVC.delegate = self;
+    UINavigationController *destVC = [[UINavigationController alloc] initWithRootViewController:chooseRoadVC];
+    
+    [destVC setPreferredContentSize:CGSizeMake(250, dataList.count * 50)];
+    [destVC setModalPresentationStyle:UIModalPresentationPopover];
+    
+    
+    UIView *view = [sender valueForKey:@"view"];
+    
+    destVC.popoverPresentationController.delegate = self;
+    destVC.popoverPresentationController.barButtonItem = (UIBarButtonItem *)sender;
+    destVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+    destVC.popoverPresentationController.backgroundColor = [UIColor whiteColor];
+    
+    [destVC setModalPresentationStyle:UIModalPresentationPopover];
+    [self presentViewController:destVC animated:YES completion:nil];
+    
+//    popoverController = [[WYPopoverController alloc] initWithContentViewController:destVC];
+//    [popoverController presentPopoverFromRect:[view bounds]
+//                             inView:view
+//           permittedArrowDirections:WYPopoverArrowDirectionAny
+//                           animated:YES
+//                            options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+-(void)choosenRoadIndex:(NSDictionary *) dict{
 }
 
 - (void) switchToFirstPage{
@@ -73,22 +126,6 @@
 - (BOOL)slideNavigationControllerShouldDisplayRightMenu
 {
     return NO;
-}
-
-
-- (void)setupMenuBarButtonItems {
-    if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&
-       ![[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
-        self.navigationItem.leftBarButtonItems = nil;
-    } else {;
-        self.navigationItem.leftBarButtonItems = @[self.navigationItem.leftBarButtonItem];
-    }
-}
-
-- (void)leftSideMenuButtonPressed:(id)sender{
-    [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
-        [self setupMenuBarButtonItems];
-    }];
 }
 
 - (IBAction)rightBarClick:(id)sender {

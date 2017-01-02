@@ -16,6 +16,7 @@
 #import "DataTypeItemDb.h"
 #import "ImageModel.h"
 #import "ImageDb.h"
+#import "RoadInformationModel.h"
 
 static int const CATEGORY_TEXTFIELD_PICKER_TAG = 1;
 static int const STATUS_TEXTFIELD_PICKER_TAG = 2;
@@ -540,6 +541,11 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
                                                                           model.ViDo = currentLocation.coordinate.longitude;
                                                                       }
                                                                       
+                                                                      NSData *choosenRoad = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
+                                                                      NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];
+                                                                      RoadInformationModel *roadModel = [[RoadInformationModel alloc] initWithDictionary:dictionary];
+                                                                      model.TenDuong = roadModel.TenDuong;
+                                                                      
                                                                       for(NSMutableDictionary *imgDict in imageList){
                                                                           NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
                                                                           for(NSMutableDictionary *dict in arrImg){
@@ -556,7 +562,6 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
                                                                       [DataTypeItemDb saveDataTypeItem:model];
                                                                   }
                                                               }
-                                                              
                                                               
                                                               
                                                               [self.navigationController popViewControllerAnimated:YES];

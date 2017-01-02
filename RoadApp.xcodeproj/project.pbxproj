@@ -36,6 +36,7 @@
 		1F6ACF811E18C71D00AE0D54 /* ReportForInputViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF7F1E18C71D00AE0D54 /* ReportForInputViewCell.m */; };
 		1F6ACF861E196C3300AE0D54 /* ReportScreenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */; };
 		1F6ACF871E196C3300AE0D54 /* ReportScreenViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */; };
+		1F6ACF8E1E19F20300AE0D54 /* ChooseRoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF8C1E19F20300AE0D54 /* ChooseRoad.m */; };
 		1F6F6EFA1E177EA200C60512 /* InputImageForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6EF81E177EA200C60512 /* InputImageForCell.m */; };
 		1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E081E1407A00046F365 /* VideoViewController.m */; };
 		1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E391E1413340046F365 /* InputViewController.m */; };
@@ -182,6 +183,8 @@
 		1F6ACF831E196C3300AE0D54 /* ReportScreenViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportScreenViewCell.h; sourceTree = "<group>"; };
 		1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportScreenViewCell.m; sourceTree = "<group>"; };
 		1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportScreenViewCell.xib; sourceTree = "<group>"; };
+		1F6ACF8B1E19F20300AE0D54 /* ChooseRoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseRoad.h; sourceTree = "<group>"; };
+		1F6ACF8C1E19F20300AE0D54 /* ChooseRoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseRoad.m; sourceTree = "<group>"; };
 		1F6F6EF71E177EA200C60512 /* InputImageForCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageForCell.h; sourceTree = "<group>"; };
 		1F6F6EF81E177EA200C60512 /* InputImageForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageForCell.m; sourceTree = "<group>"; };
 		1F9A0E071E1407A00046F365 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -793,6 +796,8 @@
 			children = (
 				1F6F6EF71E177EA200C60512 /* InputImageForCell.h */,
 				1F6F6EF81E177EA200C60512 /* InputImageForCell.m */,
+				1F6ACF8B1E19F20300AE0D54 /* ChooseRoad.h */,
+				1F6ACF8C1E19F20300AE0D54 /* ChooseRoad.m */,
 			);
 			name = CustomView;
 			sourceTree = "<group>";
@@ -1176,6 +1181,7 @@
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
 				1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */,
 				BCF4CC221E10D6B5009DA7DF /* AFHTTPSessionManager.m in Sources */,
+				1F6ACF8E1E19F20300AE0D54 /* ChooseRoad.m in Sources */,
 				1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */,
 				BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */,
 				BCF4CC261E10D6B5009DA7DF /* AFURLRequestSerialization.m in Sources */,

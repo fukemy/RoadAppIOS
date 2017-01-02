@@ -50,4 +50,5 @@
 @property NSString *LoaiNenDuong;
 
 - (instancetype)initWithJSONString:(NSString *)JSONString;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
 @end

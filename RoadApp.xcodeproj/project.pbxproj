@@ -30,6 +30,9 @@
 		1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9101E12F32B009BCF74 /* TLYShyScrollViewController.m */; };
 		1F61D9161E12F32B009BCF74 /* TLYShyStatusBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */; };
 		1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */; };
+		1F6805B01E1C0BC900710DC1 /* floatTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6805AC1E1C0BC900710DC1 /* floatTableViewCell.m */; };
+		1F6805B11E1C0BC900710DC1 /* floatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6805AD1E1C0BC900710DC1 /* floatTableViewCell.xib */; };
+		1F6805B21E1C0BC900710DC1 /* VCFloatingActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6805AF1E1C0BC900710DC1 /* VCFloatingActionButton.m */; };
 		1F6ACF761E18941900AE0D54 /* matduong.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ACF751E18941900AE0D54 /* matduong.plist */; };
 		1F6ACF791E1897D300AE0D54 /* ResouceUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */; };
 		1F6ACF7D1E18A96800AE0D54 /* ICHObjectPrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF7C1E18A96800AE0D54 /* ICHObjectPrinter.m */; };
@@ -174,6 +177,11 @@
 		1F61D9121E12F32B009BCF74 /* TLYShyStatusBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyStatusBarController.m; sourceTree = "<group>"; };
 		1F61D9131E12F32B009BCF74 /* TLYShyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLYShyViewController.h; sourceTree = "<group>"; };
 		1F61D9141E12F32B009BCF74 /* TLYShyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLYShyViewController.m; sourceTree = "<group>"; };
+		1F6805AB1E1C0BC900710DC1 /* floatTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = floatTableViewCell.h; sourceTree = "<group>"; };
+		1F6805AC1E1C0BC900710DC1 /* floatTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = floatTableViewCell.m; sourceTree = "<group>"; };
+		1F6805AD1E1C0BC900710DC1 /* floatTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = floatTableViewCell.xib; sourceTree = "<group>"; };
+		1F6805AE1E1C0BC900710DC1 /* VCFloatingActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VCFloatingActionButton.h; sourceTree = "<group>"; };
+		1F6805AF1E1C0BC900710DC1 /* VCFloatingActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VCFloatingActionButton.m; sourceTree = "<group>"; };
 		1F6ACF751E18941900AE0D54 /* matduong.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = matduong.plist; sourceTree = "<group>"; };
 		1F6ACF771E1897D300AE0D54 /* ResouceUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResouceUtilities.h; sourceTree = "<group>"; };
 		1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResouceUtilities.m; sourceTree = "<group>"; };
@@ -432,6 +440,18 @@
 			name = ShyControllers;
 			sourceTree = "<group>";
 		};
+		1F6805AA1E1C0BB600710DC1 /* VCFloatingActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				1F6805AB1E1C0BC900710DC1 /* floatTableViewCell.h */,
+				1F6805AC1E1C0BC900710DC1 /* floatTableViewCell.m */,
+				1F6805AD1E1C0BC900710DC1 /* floatTableViewCell.xib */,
+				1F6805AE1E1C0BC900710DC1 /* VCFloatingActionButton.h */,
+				1F6805AF1E1C0BC900710DC1 /* VCFloatingActionButton.m */,
+			);
+			name = VCFloatingActionButton;
+			sourceTree = "<group>";
+		};
 		1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */ = {
 			isa = PBXGroup;
 			children = (
@@ -676,6 +696,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F6805AA1E1C0BB600710DC1 /* VCFloatingActionButton */,
 				1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */,
 				1F4B62791E156E51005EE93B /* ComboBox */,
 				1F61D8F91E12F2C0009BCF74 /* TLYShyNavBar */,
@@ -1001,6 +1022,7 @@
 				1F4B62751E15603E005EE93B /* InputViewCell.xib in Resources */,
 				BCAC48171E12694800E3D01C /* menu-button@2x.png in Resources */,
 				1F313AEC1E17A31900A7A25F /* InputImageCell.xib in Resources */,
+				1F6805B11E1C0BC900710DC1 /* floatTableViewCell.xib in Resources */,
 				1F6ACF761E18941900AE0D54 /* matduong.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1185,6 +1207,7 @@
 				BCAC483D1E12748700E3D01C /* SDImageCache.m in Sources */,
 				BCF4CC201E10D6B5009DA7DF /* AFHTTPRequestOperation.m in Sources */,
 				1F61D8F51E12D879009BCF74 /* VirableDataModel.m in Sources */,
+				1F6805B21E1C0BC900710DC1 /* VCFloatingActionButton.m in Sources */,
 				BCF4CC221E10D6B5009DA7DF /* AFHTTPSessionManager.m in Sources */,
 				1F6ACF8E1E19F20300AE0D54 /* ChooseRoad.m in Sources */,
 				1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */,
@@ -1230,6 +1253,7 @@
 				BCF4CC491E10FEB8009DA7DF /* MainScreen.m in Sources */,
 				BCAC48431E12748700E3D01C /* SDWebImagePrefetcher.m in Sources */,
 				BCC405331DD0A00E00E313F7 /* main.m in Sources */,
+				1F6805B01E1C0BC900710DC1 /* floatTableViewCell.m in Sources */,
 				1F6ACF791E1897D300AE0D54 /* ResouceUtilities.m in Sources */,
 				1F61D9171E12F32B009BCF74 /* TLYShyViewController.m in Sources */,
 				1F61D90B1E12F317009BCF74 /* UIViewController+BetterLayoutGuides.m in Sources */,
@@ -1414,6 +1438,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1449,6 +1474,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dungdv4.RoadApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

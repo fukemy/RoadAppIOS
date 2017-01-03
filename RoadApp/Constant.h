@@ -20,6 +20,7 @@
 #define UPLOAD_VIRABLE_URL @"viberatedatas/uploaddata/dungdv/"
 #define UPLOAD_POSITION_URL @"userposition/uploaddata/dungdv/"
 #define UPLOAD_IMAGE_URL @"datas/UploadImage/dungdv/"
+#define UPLOAD_DATA_TYPE_URL @"datas/savedatalist/dungdv/"
 
 #define GET_TOKEN_FAIL @"get token fail"
 

@@ -34,6 +34,7 @@
     [transaction setValue:@"dungdv" forKey:@"nguoinhap"];
     [transaction setValue:[Utilities timeStamp] forKey:@"thoigiannhap"];
     [transaction setValue:dataTypeItemModel.DanhGia forKey:@"danhgia"];
+    [transaction setValue:@0 forKey:@"isupload"];
     
 //    [Utilities toString:dataTypeItemModel];
     NSLog(@"data to save: %@", transaction);

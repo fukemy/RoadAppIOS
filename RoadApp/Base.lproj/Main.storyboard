@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1bQ-MU-Eil">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="1bQ-MU-Eil">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -1189,6 +1189,15 @@
                                             <outlet property="delegate" destination="U6w-he-Bah" id="Dia-0H-goi"/>
                                         </connections>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Không có ảnh cho mục này" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFC-Un-Rrq">
+                                        <rect key="frame" x="10" y="801" width="300" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Qqe-mT-UoU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dmF-mx-eEp">
                                         <rect key="frame" x="137" y="894" width="46" height="46"/>
                                         <color key="backgroundColor" red="1" green="0.076970202579999994" blue="0.011911886930000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -1236,6 +1245,7 @@
                                     <constraint firstItem="dnT-zQ-pJB" firstAttribute="top" secondItem="4y7-0g-Xqx" secondAttribute="bottom" constant="10" id="K8P-jL-9LO"/>
                                     <constraint firstItem="dmF-mx-eEp" firstAttribute="centerX" secondItem="21l-fN-2ZO" secondAttribute="centerX" id="KMH-tl-Exl"/>
                                     <constraint firstItem="dnT-zQ-pJB" firstAttribute="leading" secondItem="qy8-4Z-fMn" secondAttribute="leading" constant="8" id="Khm-bO-hPN"/>
+                                    <constraint firstItem="sFC-Un-Rrq" firstAttribute="centerY" secondItem="21l-fN-2ZO" secondAttribute="centerY" id="LPN-PR-aO2"/>
                                     <constraint firstItem="5lj-Wn-jES" firstAttribute="top" secondItem="RV3-YV-Esy" secondAttribute="bottom" constant="8" id="LU9-Nn-wtc"/>
                                     <constraint firstAttribute="trailing" secondItem="wh1-wb-cVt" secondAttribute="trailing" constant="8" id="Nnr-dy-lxZ"/>
                                     <constraint firstItem="cj8-0A-EXC" firstAttribute="leading" secondItem="21l-fN-2ZO" secondAttribute="leading" id="RSN-1D-Uvg"/>
@@ -1258,6 +1268,7 @@
                                     <constraint firstItem="asx-6j-PAY" firstAttribute="top" secondItem="Avz-ae-g1H" secondAttribute="bottom" constant="17" id="gFh-DW-PCZ"/>
                                     <constraint firstItem="c4k-qC-0hI" firstAttribute="leading" secondItem="qy8-4Z-fMn" secondAttribute="leading" constant="13" id="gs5-Ya-CEL"/>
                                     <constraint firstItem="cj8-0A-EXC" firstAttribute="trailing" secondItem="21l-fN-2ZO" secondAttribute="trailing" id="h7b-hw-POc"/>
+                                    <constraint firstItem="sFC-Un-Rrq" firstAttribute="centerX" secondItem="21l-fN-2ZO" secondAttribute="centerX" id="ikf-iQ-ga8"/>
                                     <constraint firstItem="tFf-AV-oeL" firstAttribute="leading" secondItem="qy8-4Z-fMn" secondAttribute="leading" constant="8" id="k5O-c1-lMw"/>
                                     <constraint firstAttribute="trailing" secondItem="4y7-0g-Xqx" secondAttribute="trailing" constant="8" id="lGk-wc-QB5"/>
                                     <constraint firstItem="0Fk-xy-HjM" firstAttribute="top" secondItem="wh1-wb-cVt" secondAttribute="bottom" constant="8" id="pqL-Ky-F2P"/>
@@ -1295,6 +1306,7 @@
                         <outlet property="cvImage" destination="21l-fN-2ZO" id="BZz-bC-KQg"/>
                         <outlet property="lbDanhmuc" destination="6F5-M7-EQp" id="uYb-xE-x4M"/>
                         <outlet property="lbHangMuc" destination="UhH-N1-bdc" id="HP6-d8-yfE"/>
+                        <outlet property="lbImage" destination="sFC-Un-Rrq" id="vLa-Iz-d4N"/>
                         <outlet property="lbLyTrinh" destination="c4k-qC-0hI" id="bBe-pO-UwX"/>
                         <outlet property="lbMoTaChiTiet" destination="0Fk-xy-HjM" id="wnd-mS-0mA"/>
                         <outlet property="lbStatus" destination="Avz-ae-g1H" id="X2g-mD-SHh"/>

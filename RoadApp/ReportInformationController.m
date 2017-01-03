@@ -45,13 +45,13 @@
     _btDone.layer.masksToBounds = YES;
     
     _viewTongQuan.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
-    _viewTongQuan.alpha  = 0.3;
+    _viewTongQuan.alpha  = 0.1;
     _viewTongQuan.layer.cornerRadius = 10.0f;
     _viewChiTiest.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
-    _viewChiTiest.alpha  = 0.3;
+    _viewChiTiest.alpha  = 0.1;
     _viewChiTiest.layer.cornerRadius = 10.0f;
     _viewImage.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
-    _viewImage.alpha  = 0.2;
+    _viewImage.alpha  = 0.1;
     _viewImage.layer.cornerRadius = 10.0f;
     
     _mapView.alpha  = 0.6;
@@ -71,24 +71,32 @@
     _lbLyTrinh.text = [NSString stringWithFormat:@"Lý trình: %@", _itemModel.lytrinh];
     _lbTime.text = [NSString stringWithFormat:@"Thời gian: %@", [Utilities dateStringFromTimeStamp:_itemModel.thoigiannhap]];
     _lbViTri.text = [NSString stringWithFormat:@"Vị trí: %@ - %@", _itemModel.kinhdo, _itemModel.vido];
-    _lbStatus.text = @"Chưa cập nhập.";
+    _lbStatus.text =  _itemModel.isupload == 0 ? @"Trạng thái: chưa cập nhập." : @"Trạng thái: Đã upload lên server";
     
     _lbHangMuc.text = [NSString stringWithFormat:@"Danh mục: %@", _itemModel.datatypename];
     _lbTinhTrang.text = [NSString stringWithFormat:@"Tình trang: %@", _itemModel.danhgia];
     _lbMoTaChiTiet.text = [NSString stringWithFormat:@"Mô tả chi tiết: %@", _itemModel.motatinhtrang];
     
     if(_itemModel.kinhdo != 0 && _itemModel.vido != 0){
-//        _mapView.camera = [GMSCameraPosition cameraWithLatitude:[_itemModel.kinhdo doubleValue] longitude:[_itemModel.vido
-//                                                                                                           doubleValue] zoom:14];
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:[_itemModel.kinhdo doubleValue] longitude:[_itemModel.vido
                                                                                                           doubleValue]];
         GMSCameraPosition *newCameraPosition = [GMSCameraPosition cameraWithTarget:loc.coordinate zoom:14];
         [self.mapView animateToCameraPosition:newCameraPosition];
-
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = loc.coordinate;
+        marker.title = @"fap";
+        marker.appearAnimation = kGMSMarkerAnimationPop;
+        marker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
+        marker.map = _mapView;
     }
     
     isFullScreen = false;
     imageList = [ImageDb findImageWithUUID:_itemModel.dataid];
+    if(imageList.count > 0){
+        [_lbImage setHidden:YES];
+    }else{
+        [_lbImage setHidden:NO];
+    }
     NSLog(@"ImageList: %@", imageList);
 }
 

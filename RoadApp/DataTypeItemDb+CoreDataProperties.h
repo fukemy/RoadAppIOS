@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nullable, nonatomic, retain) NSNumber *datatype;
 @property (nullable, nonatomic, retain) NSString *datatypename;
 @property (nullable, nonatomic, retain) NSString *thoigiannhap;
+@property (nullable, nonatomic, retain) NSNumber *isupload;
 
 @end
 

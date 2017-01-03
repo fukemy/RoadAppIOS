@@ -27,5 +27,6 @@
 @dynamic datatype;
 @dynamic datatypename;
 @dynamic thoigiannhap;
+@dynamic isupload;
 
 @end

@@ -16,7 +16,9 @@
 @interface ReportInformationController (){
     NSMutableArray *imageList;
     BOOL isFullScreen;
-    CGRect prevFrame;
+    UIImageView *preImg;
+    CGRect preFrame;
+    UIGestureRecognizer *gesture;
 }
 
 @end
@@ -56,6 +58,8 @@
     
     [_cvImage setClipsToBounds:NO];
     [_cvImage registerNib:[UINib nibWithNibName:@"InputImageCell" bundle:nil] forCellWithReuseIdentifier:@"InputImageCell"];
+    
+    gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleZoom:)];
 }
 
 - (void) initData{
@@ -88,7 +92,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(self.view.frame.size.width / 3 - 20, self.view.frame.size.width / 3 - 20);
+    return CGSizeMake(_cvImage.frame.size.width / 3 - 20, _cvImage.frame.size.width / 3 - 20);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -97,11 +101,10 @@
     ImageDb *img = [imageList objectAtIndex:indexPath.row];
     
     NSURL* aURL = [NSURL URLWithString:img.imagename];
-    
     ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
     [library assetForURL:aURL resultBlock:^(ALAsset *asset)
      {
-         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:0.5 orientation:UIImageOrientationUp];
+         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage] scale:1 orientation:UIImageOrientationUp];
          
          cell.img.image = copyOfOriginalImage;
      }
@@ -109,6 +112,7 @@
      {
          // error handling
          NSLog(@"failure-----: %@", [error localizedDescription]);
+         cell.img.image = nil;
      }];
     
     [cell.btnAddImage setHidden:YES];
@@ -118,36 +122,66 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     InputImageCell *cell = (InputImageCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    [self imgToFullScreen:cell.img];
+    
+    UICollectionViewLayoutAttributes *attributes = [_cvImage layoutAttributesForItemAtIndexPath:indexPath];
+    CGRect cellRect = attributes.frame;
+    CGRect cellFrameInSuperview = [_cvImage convertRect:cellRect toView:[[_cvImage superview] superview]];
+    [self hideAllOtherCell:(int)indexPath.row];
+    [self imgToFullScreen:cell.img withRect:cellFrameInSuperview];
 }
 
 - (void)imageTouched:(UITapGestureRecognizer *) sender{
     
 }
 
--(void)imgToFullScreen:(UIImageView *) image{
-    image.contentMode = UIViewContentModeScaleAspectFit;
-    if (!isFullScreen) {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            //save previous frame
-            prevFrame = image.frame;
-            [image setUserInteractionEnabled:NO];
-            [image setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        }completion:^(BOOL finished){
-            isFullScreen = true;
-            [image setUserInteractionEnabled:YES];
-        }];
-        return;
-    } else {
-        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-            [image setFrame:prevFrame];
-            [image setUserInteractionEnabled:NO];
-        }completion:^(BOOL finished){
-            [image setUserInteractionEnabled:YES];
-            isFullScreen = false;
-        }];
-        return;
+-(void)imgToFullScreen:(UIImageView *) image withRect:(CGRect ) rect{
+    int dx = -rect.origin.x;
+    int dy = -rect.origin.y;
+    
+    preFrame = image.frame;
+    preImg = image;
+    [preImg setUserInteractionEnabled:NO];
+    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+        preImg.frame = CGRectMake(dx, dy, self.view.frame.size.width, self.view.frame.size.height);
+    }completion:^(BOOL finished){
+        [preImg setUserInteractionEnabled:YES];
+        [preImg addGestureRecognizer:gesture];
+    }];
+}
+
+- (void) hideAllOtherCell:(int) current{
+    for(int i = 0; i < imageList.count; i++){
+        if(i != current){
+             InputImageCell *cell = (InputImageCell *)[_cvImage cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+//            [cell.img setHidden:YES];
+            [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+                cell.alpha = 0;
+            }completion:^(BOOL finished){
+            }];
+        }
     }
+}
+
+- (void) enableAllCell{
+    for(int i = 0; i < imageList.count; i++){
+        InputImageCell *cell = (InputImageCell *)[_cvImage cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
+//        [cell.img setHidden:NO];
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            cell.alpha = 1;
+        }completion:^(BOOL finished){
+        }];
+    }
+}
+- (void) toggleZoom:(id) sender{
+    NSLog(@"%@", sender);
+    [preImg setUserInteractionEnabled:NO];
+    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+        preImg.frame = preFrame;
+    }completion:^(BOOL finished){
+        [self enableAllCell];
+        [preImg removeGestureRecognizer:gesture];
+        preImg = nil;
+    }];
 }
 
 - (IBAction)goBack:(id)sender {

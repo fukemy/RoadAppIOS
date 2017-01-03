@@ -11,7 +11,7 @@
 #import "DataTypeItemDb.h"
 #import "ImageDb.h"
 
-@interface ReportInformationController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ReportInformationController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;

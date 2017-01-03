@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -22,6 +22,12 @@
                                     <constraint firstAttribute="width" constant="90" id="Qv7-5q-RGl"/>
                                     <constraint firstAttribute="height" constant="90" id="p1U-P2-5EF"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Qv7-5q-RGl"/>
+                                        <exclude reference="p1U-P2-5EF"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zu-Hh-g4Z">
                                 <rect key="frame" x="0.0" y="30" width="90" height="30"/>
@@ -47,9 +53,12 @@
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="trailing" secondItem="wdE-4J-NbO" secondAttribute="trailing" id="3Ul-ff-yza"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="leading" secondItem="GTX-cb-PdK" secondAttribute="leading" id="4lt-d6-x7p"/>
                             <constraint firstAttribute="trailing" secondItem="n47-90-KoW" secondAttribute="trailing" id="LJU-Ei-2ax"/>
+                            <constraint firstAttribute="trailing" secondItem="wdE-4J-NbO" secondAttribute="trailing" id="PUJ-xC-sQC"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="centerX" secondItem="wdE-4J-NbO" secondAttribute="centerX" id="Rji-Br-Hvo"/>
                             <constraint firstItem="wdE-4J-NbO" firstAttribute="top" secondItem="GTX-cb-PdK" secondAttribute="top" id="Vrd-BQ-7az"/>
+                            <constraint firstAttribute="bottom" secondItem="wdE-4J-NbO" secondAttribute="bottom" id="eaP-bT-AqK"/>
                             <constraint firstItem="n47-90-KoW" firstAttribute="top" secondItem="GTX-cb-PdK" secondAttribute="top" id="j0p-pn-3OL"/>
+                            <constraint firstItem="wdE-4J-NbO" firstAttribute="leading" secondItem="GTX-cb-PdK" secondAttribute="leading" id="tlU-OT-fqP"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="leading" secondItem="wdE-4J-NbO" secondAttribute="leading" id="uAV-Md-lsS"/>
                             <constraint firstItem="4zu-Hh-g4Z" firstAttribute="centerY" secondItem="wdE-4J-NbO" secondAttribute="centerY" id="zLC-Ax-aGT"/>
                         </constraints>

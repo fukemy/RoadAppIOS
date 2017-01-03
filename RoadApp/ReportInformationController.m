@@ -12,6 +12,7 @@
 #import "InputImageCell.h"
 #import "ImageDb.h"
 #import <AssetsLibrary/AssetsLibrary.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface ReportInformationController (){
     NSMutableArray *imageList;
@@ -60,6 +61,9 @@
     [_cvImage registerNib:[UINib nibWithNibName:@"InputImageCell" bundle:nil] forCellWithReuseIdentifier:@"InputImageCell"];
     
     gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(toggleZoom:)];
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissZoom:)]];
+    [_cvImage addGestureRecognizer:gesture];
+    gesture.delegate = self;
 }
 
 - (void) initData{
@@ -73,8 +77,14 @@
     _lbTinhTrang.text = [NSString stringWithFormat:@"Tình trang: %@", _itemModel.danhgia];
     _lbMoTaChiTiet.text = [NSString stringWithFormat:@"Mô tả chi tiết: %@", _itemModel.motatinhtrang];
     
-    if(!_itemModel.kinhdo && !_itemModel.vido){
-//        _mapView.camera = [GMSCameraPosition cameraWithLatitude:_itemModel.kinhdo longitude:_itemModel.vido zoom:14];
+    if(_itemModel.kinhdo != 0 && _itemModel.vido != 0){
+//        _mapView.camera = [GMSCameraPosition cameraWithLatitude:[_itemModel.kinhdo doubleValue] longitude:[_itemModel.vido
+//                                                                                                           doubleValue] zoom:14];
+        CLLocation *loc = [[CLLocation alloc] initWithLatitude:[_itemModel.kinhdo doubleValue] longitude:[_itemModel.vido
+                                                                                                          doubleValue]];
+        GMSCameraPosition *newCameraPosition = [GMSCameraPosition cameraWithTarget:loc.coordinate zoom:14];
+        [self.mapView animateToCameraPosition:newCameraPosition];
+
     }
     
     isFullScreen = false;
@@ -98,6 +108,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     InputImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"InputImageCell" forIndexPath:indexPath];
     [cell setClipsToBounds:NO];
+    
     ImageDb *img = [imageList objectAtIndex:indexPath.row];
     
     NSURL* aURL = [NSURL URLWithString:img.imagename];
@@ -121,13 +132,7 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    InputImageCell *cell = (InputImageCell *)[collectionView cellForItemAtIndexPath:indexPath];
-    
-    UICollectionViewLayoutAttributes *attributes = [_cvImage layoutAttributesForItemAtIndexPath:indexPath];
-    CGRect cellRect = attributes.frame;
-    CGRect cellFrameInSuperview = [_cvImage convertRect:cellRect toView:[[_cvImage superview] superview]];
-    [self hideAllOtherCell:(int)indexPath.row];
-    [self imgToFullScreen:cell.img withRect:cellFrameInSuperview];
+   
 }
 
 - (void)imageTouched:(UITapGestureRecognizer *) sender{
@@ -136,24 +141,39 @@
 
 -(void)imgToFullScreen:(UIImageView *) image withRect:(CGRect ) rect{
     int dx = -rect.origin.x;
-    int dy = -rect.origin.y;
-    
-    preFrame = image.frame;
-    preImg = image;
-    [preImg setUserInteractionEnabled:NO];
-    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-        preImg.frame = CGRectMake(dx, dy, self.view.frame.size.width, self.view.frame.size.height);
-    }completion:^(BOOL finished){
-        [preImg setUserInteractionEnabled:YES];
-        [preImg addGestureRecognizer:gesture];
-    }];
+    int dy = -rect.origin.y + 64;
+    if(!isFullScreen){
+        isFullScreen = YES;
+        preFrame = image.frame;
+        preImg = image;
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            preImg.frame = CGRectMake(dx, dy, self.view.frame.size.width, self.view.frame.size.height);
+        }completion:^(BOOL finished){
+            [_scrollView setScrollEnabled:NO];
+            [_cvImage setScrollEnabled:NO];
+        }];
+    }else{
+        [preImg setUserInteractionEnabled:NO];
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            preImg.frame = preFrame;
+        }completion:^(BOOL finished){
+            isFullScreen = NO;
+            [self enableAllCell];
+            preImg = nil;
+            [_scrollView setScrollEnabled:YES];
+            [_cvImage setScrollEnabled:YES];
+        }];
+    }
+}
+
+- (void) dismissZoom:(id) sender{
+    [self imgToFullScreen:preImg withRect:preFrame];
 }
 
 - (void) hideAllOtherCell:(int) current{
     for(int i = 0; i < imageList.count; i++){
         if(i != current){
              InputImageCell *cell = (InputImageCell *)[_cvImage cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-//            [cell.img setHidden:YES];
             [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
                 cell.alpha = 0;
             }completion:^(BOOL finished){
@@ -165,7 +185,6 @@
 - (void) enableAllCell{
     for(int i = 0; i < imageList.count; i++){
         InputImageCell *cell = (InputImageCell *)[_cvImage cellForItemAtIndexPath:[NSIndexPath indexPathForRow:i inSection:0]];
-//        [cell.img setHidden:NO];
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             cell.alpha = 1;
         }completion:^(BOOL finished){
@@ -174,14 +193,25 @@
 }
 - (void) toggleZoom:(id) sender{
     NSLog(@"%@", sender);
-    [preImg setUserInteractionEnabled:NO];
-    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
-        preImg.frame = preFrame;
-    }completion:^(BOOL finished){
-        [self enableAllCell];
-        [preImg removeGestureRecognizer:gesture];
-        preImg = nil;
-    }];
+    
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        if(!isFullScreen){
+            CGPoint tappedPoint = [gesture locationInView:_cvImage];
+            NSIndexPath *indexPath = [_cvImage indexPathForItemAtPoint:tappedPoint];
+            if(indexPath != nil) {
+                InputImageCell *cell = (InputImageCell *)[_cvImage cellForItemAtIndexPath:indexPath];
+                
+                UICollectionViewLayoutAttributes *attributes = [_cvImage layoutAttributesForItemAtIndexPath:indexPath];
+                CGRect cellRect = attributes.frame;
+                CGRect cellFrameInSuperview = [_cvImage convertRect:cellRect toView:[[_cvImage superview] superview]];
+                [self hideAllOtherCell:(int)indexPath.row];
+                [self imgToFullScreen:cell.img withRect:cellFrameInSuperview];
+            }
+        }else{
+            [self imgToFullScreen:preImg withRect:preFrame];
+        }
+        
+    }
 }
 
 - (IBAction)goBack:(id)sender {

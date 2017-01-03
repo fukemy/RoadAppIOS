@@ -16,10 +16,11 @@
 + (void)shakeView:(UIView *)view withInfinity:(BOOL)isInfinity;
 + (NSString *) generateUUID;
 + (NSString *) timeStamp;
++ (NSString *) dateStringFromTimeStamp:(NSString *)timeStamp;
 + (NSMutableDictionary* ) dataFromPlist:(int )itemID;
 + (int ) getDataTypeByItemId:(int )itemId;
 + (void) toString:(NSObject *)object;
-+ (void) showSimpleAlert:(NSString *)message;
++ (void) showSimpleAlert:(NSString *)message atViewController:(UIViewController *)controller;
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;
 + (void)enableDismissKeyboardByClickInView:(UIViewController*)controller;
 + (void) showViewWithScaleAnim:(UIView *)view;

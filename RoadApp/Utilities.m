@@ -59,6 +59,14 @@
     return [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970] * 1000];
 }
 
++(NSString *)dateStringFromTimeStamp:(NSString *)timeStamp{
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:timeStamp.doubleValue / 1000];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+//    [formatter setTimeZone:[NSTimeZone timeZoneWithName:@"..."]];
+    return [formatter stringFromDate:date];
+}
+
 + (NSMutableDictionary* ) dataFromPlist:(int )itemID
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:[ResouceUtilities plistNameFromCategory:itemID] ofType:@"plist"];
@@ -79,14 +87,15 @@
     }
 }
 
-+ (void) showSimpleAlert:(NSString *)message
++ (void) showSimpleAlert:(NSString *)message atViewController:(UIViewController *)controller
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:message
-                                                    message:nil
-                                                   delegate:nil
-                                          cancelButtonTitle:@"OK"
-                                          otherButtonTitles:nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [controller dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    
+    [controller presentViewController:alert animated:YES completion:nil];
 }
 
 + (UIImage*)imageWithImage:(UIImage*)image scaledToSize:(CGSize)newSize;

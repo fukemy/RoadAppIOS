@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "Constant.h"
 
 @interface MapViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setTitle:[MENU_MAP uppercaseString]];
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

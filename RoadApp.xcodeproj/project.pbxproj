@@ -37,6 +37,7 @@
 		1F6ACF861E196C3300AE0D54 /* ReportScreenViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */; };
 		1F6ACF871E196C3300AE0D54 /* ReportScreenViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */; };
 		1F6ACF8E1E19F20300AE0D54 /* ChooseRoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF8C1E19F20300AE0D54 /* ChooseRoad.m */; };
+		1F6ACF921E1A2C2C00AE0D54 /* ReportInformationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6ACF911E1A2C2C00AE0D54 /* ReportInformationController.m */; };
 		1F6F6EFA1E177EA200C60512 /* InputImageForCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F6F6EF81E177EA200C60512 /* InputImageForCell.m */; };
 		1F9A0E091E1407A00046F365 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E081E1407A00046F365 /* VideoViewController.m */; };
 		1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E391E1413340046F365 /* InputViewController.m */; };
@@ -185,6 +186,8 @@
 		1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReportScreenViewCell.xib; sourceTree = "<group>"; };
 		1F6ACF8B1E19F20300AE0D54 /* ChooseRoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseRoad.h; sourceTree = "<group>"; };
 		1F6ACF8C1E19F20300AE0D54 /* ChooseRoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseRoad.m; sourceTree = "<group>"; };
+		1F6ACF901E1A2C2C00AE0D54 /* ReportInformationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportInformationController.h; sourceTree = "<group>"; };
+		1F6ACF911E1A2C2C00AE0D54 /* ReportInformationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportInformationController.m; sourceTree = "<group>"; };
 		1F6F6EF71E177EA200C60512 /* InputImageForCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputImageForCell.h; sourceTree = "<group>"; };
 		1F6F6EF81E177EA200C60512 /* InputImageForCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputImageForCell.m; sourceTree = "<group>"; };
 		1F9A0E071E1407A00046F365 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -574,6 +577,8 @@
 				1F6ACF831E196C3300AE0D54 /* ReportScreenViewCell.h */,
 				1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */,
 				1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */,
+				1F6ACF901E1A2C2C00AE0D54 /* ReportInformationController.h */,
+				1F6ACF911E1A2C2C00AE0D54 /* ReportInformationController.m */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -1231,6 +1236,7 @@
 				1F61D8EF1E12D802009BCF74 /* RoadInformationModel.m in Sources */,
 				1F61D8F81E12D88D009BCF74 /* UserPositionDataModel.m in Sources */,
 				BCAC48441E12748700E3D01C /* UIImage+GIF.m in Sources */,
+				1F6ACF921E1A2C2C00AE0D54 /* ReportInformationController.m in Sources */,
 				BCAC483C1E12748700E3D01C /* NSData+ImageContentType.m in Sources */,
 				1F61D9091E12F317009BCF74 /* TLYDelegateProxy.m in Sources */,
 				1F6ACF861E196C3300AE0D54 /* ReportScreenViewCell.m in Sources */,

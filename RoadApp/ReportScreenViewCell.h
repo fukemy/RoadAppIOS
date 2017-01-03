@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ReportScreenViewCell : UICollectionViewCell
+@protocol ReportScreenViewCellDelegate <NSObject>
+
+- (void) didSelectItem:(NSIndexPath *)indexPath;
+
+@end
+
+@interface ReportScreenViewCell : UICollectionViewCell <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *lbRoadName;
 @property (weak, nonatomic) IBOutlet UILabel *lbCategory;
 @property (weak, nonatomic) IBOutlet UILabel *lbDataTypeName;
@@ -17,5 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIView *topViewOverlay;
 @property (weak, nonatomic) IBOutlet UIView *btmView;
 @property (weak, nonatomic) IBOutlet UIView *btmViewOverlay;
+@property (nonatomic,strong) id<ReportScreenViewCellDelegate> delegate;
+@property (weak, nonatomic) NSIndexPath *indexPath;
 
 @end

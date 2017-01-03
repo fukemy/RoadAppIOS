@@ -13,6 +13,7 @@
 #import "Constant.h"
 #import "Utilities.h"
 #import "DataTypeItemDb.h"
+#import "ReportInformationController.h"
 
 @interface ReportScreenViewController (){
     NSMutableArray *dataList;
@@ -25,7 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:MENU_REPORT];
+    [self setTitle:[MENU_REPORT uppercaseString]];
     [self initLayout];
     [self initData];
 }
@@ -73,13 +74,24 @@
     cell.btmView.layer.cornerRadius = 10.0f;
 
     DataTypeItemDb *data = [dataList objectAtIndex:indexPath.row];
-    cell.lbTime.text = data.thoigiannhap ? data.thoigiannhap : @"";
+    cell.lbTime.text = data.thoigiannhap ? [Utilities dateStringFromTimeStamp:data.thoigiannhap] : @"";
     cell.lbDataTypeName.text = data.datatypename ? data.datatypename : @"";
-    cell.lbRoadName.text = data.tenduong ? data.tenduong : @"";
+    cell.lbRoadName.text = data.tenduong ? [data.tenduong uppercaseString]: @"";
     cell.lbCategory.text = data.danhgia ? data.danhgia : @"";
     
-    
+    cell.indexPath = indexPath;
+    cell.delegate = self;
     return cell;
 }
+
+-(void)didSelectItem:(NSIndexPath *)indexPath{
+    NSLog(@"Did select: %d", (int) indexPath.row);
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ReportInformationController *inforVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportInformationController"];
+    
+    [self.navigationController pushViewController:inforVC animated:YES];
+//    [self presentViewController:inforVC animated:YES completion:nil];
+}
+
 
 @end

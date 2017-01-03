@@ -12,6 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
+    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickOnView)]];
 }
 
+- (void)clickOnView{
+    [_delegate didSelectItem:_indexPath];
+}
 @end

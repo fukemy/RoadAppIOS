@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setTitle:MENU_VIDEO];
+    [self setTitle:[MENU_VIDEO uppercaseString]];
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

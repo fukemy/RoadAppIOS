@@ -27,7 +27,10 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    self.view.alpha = 0.6f;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
 }
 
 - (void)awakeFromNib{
@@ -78,7 +81,7 @@
     NSMutableDictionary *dict = [_dataList objectAtIndex:indexPath.row];
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:dict];
     [[NSUserDefaults standardUserDefaults] setObject:data forKey:ROAD_CHOOSEN];
-    [self dismissViewControllerAnimated:self completion:nil];
+    [_popOver dismissPopoverAnimated:YES];
 }
 
 // Override to support conditional editing of the table view.

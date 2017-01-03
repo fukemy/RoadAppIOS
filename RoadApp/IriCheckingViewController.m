@@ -7,6 +7,7 @@
 //
 
 #import "IriCheckingViewController.h"
+#import "Constant.h"
 
 @interface IriCheckingViewController ()
 
@@ -17,6 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setTitle:[MENU_ICI_CHECKING uppercaseString]];
 }
 
 - (BOOL)slideNavigationControllerShouldDisplayLeftMenu

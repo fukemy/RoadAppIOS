@@ -440,7 +440,7 @@ static int const REPORT_CONTENT_TAG = 3;
 
 - (BOOL) checkValidateInput:(DataTypeItemModel *)itemModel atIndex:(int) index{
     if(!itemModel.DataTypeName){
-        [Utilities showSimpleAlert:@"Bạn phải chọn mục báo cáo!"];
+        [Utilities showSimpleAlert:@"Bạn phải chọn mục báo cáo!" atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
         [_cvReport scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
@@ -449,7 +449,7 @@ static int const REPORT_CONTENT_TAG = 3;
     }
     
     if(!itemModel.MoTaTinhTrang){
-        [Utilities showSimpleAlert:@"Nội dung báo cáo không được để trống!"];
+        [Utilities showSimpleAlert:@"Nội dung báo cáo không được để trống!" atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
         [_cvReport scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
@@ -458,7 +458,7 @@ static int const REPORT_CONTENT_TAG = 3;
     }
     
     if(!itemModel.KinhDo || !itemModel.ViDo){
-        [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!"];
+        [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!" atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
         [_cvReport scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];

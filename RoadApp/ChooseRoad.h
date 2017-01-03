@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WYPopoverController.h"
+
 @protocol ChooseRoadDelegate <NSObject>
 - (void) choosenRoadIndex:(NSDictionary *) dict;
 @end
 @interface ChooseRoad : UITableViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *cvRoad;
 @property (strong, nonatomic) NSMutableArray *dataList;
+@property (nonatomic) WYPopoverController *popOver;
 
 @property (nonatomic,strong) id<ChooseRoadDelegate> delegate;
 @end

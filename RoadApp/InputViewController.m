@@ -136,7 +136,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     NSMutableArray *imgList = [[imageList objectAtIndex:indexPath.row] objectForKey:@"imageData"];
     if(imgList && imgList.count > 0){
         [cell.tfNumOfImage setHidden:NO];
-        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", [imgList count]]];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", (int)[imgList count]]];
     }else{
         [cell.tfNumOfImage setHidden:YES];
     }
@@ -511,7 +511,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         cell.tfNumOfImage.layer.cornerRadius = 10;
         cell.tfNumOfImage.layer.masksToBounds = YES;
         [cell.tfNumOfImage setHidden:NO];
-        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", [imgList count]]];
+        [cell.tfNumOfImage setText:[NSString stringWithFormat:@"%d", (int)[imgList count]]];
         [Utilities showViewWithScaleAnim:cell.tfNumOfImage];
     }else{
         [Utilities hideViewWithScaleAnim:cell.tfNumOfImage];
@@ -528,7 +528,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
                                                           handler:^(UIAlertAction * action) {
                                                               
                                                               if(!currentLocation){
-                                                                  [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!"];
+                                                                  [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!" atViewController:self];
                                                                   return;
                                                               }else{
                                                                   for(int i = 0; i < dataList.count; i++){
@@ -579,7 +579,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 - (BOOL) checkValidateInput:(DataTypeItemModel *)itemModel atIndex:(int) index{
     if(!itemModel.DataTypeName){
         currentEdit = index;
-        [Utilities showSimpleAlert:@"Mục cần nhập không được bỏ trống."];
+        [Utilities showSimpleAlert:@"Mục cần nhập không được bỏ trống." atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         InputViewCell *cell = (InputViewCell *)[_cvInput cellForItemAtIndexPath:currentIndexPath];
         [_cvInput scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
@@ -589,7 +589,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     
     if(!itemModel.DanhGia){
         currentEdit = index;
-        [Utilities showSimpleAlert:@"Mục tình trạng không được bỏ trống."];
+        [Utilities showSimpleAlert:@"Mục tình trạng không được bỏ trống." atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         InputViewCell *cell = (InputViewCell *)[_cvInput cellForItemAtIndexPath:currentIndexPath];
         [_cvInput scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];

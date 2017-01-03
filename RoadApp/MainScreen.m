@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
-    self.title = MAIN_SCREEN_VN;
+    self.title = [MAIN_SCREEN_VN uppercaseString];
     
     [self configToolbar];
     
@@ -44,6 +44,36 @@
     self.navigationController.navigationBar.hidden = NO;
     SlideNavigationController *bar = (SlideNavigationController *)self.navigationController;
     bar.navigationBarHidden = NO;
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    NSString *roadChoosen = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
+    if(roadChoosen == nil){
+        [self showAlertChooseRoad];
+    }
+}
+
+-(void) showAlertChooseRoad{
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"Warning!" message:@"You need to choose road name before make input! When change location, click right bar button to choose road name again." preferredStyle:UIAlertControllerStyleActionSheet];
+    
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+    
+//    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Delete" style:UIAlertActionStyleDestructive handler:^(UIAlertAction *action) {
+//        
+//        // Distructive button tapped.
+//        [self dismissViewControllerAnimated:YES completion:^{
+//        }];
+//    }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        [self chooseRoad:_btChooseRoadName];
+    }]];
+    [self presentViewController:actionSheet animated:YES completion:nil];
 }
 
 - (void) configToolbar{
@@ -60,6 +90,7 @@
 - (UIModalPresentationStyle) adaptivePresentationStyleForPresentationController: (UIPresentationController * ) controller {
     return UIModalPresentationNone;
 }
+
 - (IBAction)chooseRoad:(id)sender {
     
     NSString *itemDataString = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_DATA];
@@ -81,32 +112,32 @@
     if(dataList.count == 0)
         return;
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ChooseRoad *chooseRoadVC = [storyboard instantiateViewControllerWithIdentifier:@"ChooseRoad"];
-    chooseRoadVC.dataList = dataList;
-    chooseRoadVC.delegate = self;
-    UINavigationController *destVC = [[UINavigationController alloc] initWithRootViewController:chooseRoadVC];
-    
-    [destVC setPreferredContentSize:CGSizeMake(250, dataList.count * 50)];
-    [destVC setModalPresentationStyle:UIModalPresentationPopover];
-    
-    
     UIView *view = [sender valueForKey:@"view"];
     
-    destVC.popoverPresentationController.delegate = self;
-    destVC.popoverPresentationController.barButtonItem = (UIBarButtonItem *)sender;
-    destVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-    destVC.popoverPresentationController.backgroundColor = [UIColor whiteColor];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ChooseRoad *chooseRoadVC = [storyboard instantiateViewControllerWithIdentifier:@"ChooseRoad"];
+    [chooseRoadVC setPreferredContentSize:CGSizeMake(250, dataList.count  <= 5 ?  dataList.count * 50 : 200)];
     
-    [destVC setModalPresentationStyle:UIModalPresentationPopover];
-    [self presentViewController:destVC animated:YES completion:nil];
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:chooseRoadVC];
     
-//    popoverController = [[WYPopoverController alloc] initWithContentViewController:destVC];
-//    [popoverController presentPopoverFromRect:[view bounds]
-//                             inView:view
-//           permittedArrowDirections:WYPopoverArrowDirectionAny
-//                           animated:YES
-//                            options:WYPopoverAnimationOptionFadeWithScale];
+    chooseRoadVC.dataList = dataList;
+    chooseRoadVC.delegate = self;
+    chooseRoadVC.popOver = popoverController;
+//    UINavigationController *destVC = [[UINavigationController alloc] initWithRootViewController:chooseRoadVC];
+//    [destVC setPreferredContentSize:CGSizeMake(250, dataList.count  <= 5 ?  (dataList.count - 1 ) * 50 : 200)];
+//    [destVC setModalPresentationStyle:UIModalPresentationPopover];
+//    destVC.popoverPresentationController.delegate = self;
+//    destVC.popoverPresentationController.barButtonItem = (UIBarButtonItem *)sender;
+//    destVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
+//    destVC.popoverPresentationController.backgroundColor = [UIColor whiteColor];
+    
+//    [destVC setModalPresentationStyle:UIModalPresentationPopover];
+//    [self presentViewController:destVC animated:YES completion:nil];
+    [popoverController presentPopoverFromRect:[view bounds]
+                             inView:view
+           permittedArrowDirections:WYPopoverArrowDirectionAny
+                           animated:YES
+                            options:WYPopoverAnimationOptionFadeWithScale];
 }
 
 -(void)choosenRoadIndex:(NSDictionary *) dict{

@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "DataTypeItemDb.h"
+#import "ImageDb.h"
 
 @interface ReportInformationController : UIViewController
 
@@ -24,4 +26,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbTinhTrang;
 @property (weak, nonatomic) IBOutlet UILabel *lbMoTaChiTiet;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImage;
+
+@property (nonatomic) DataTypeItemDb *itemModel;
 @end

@@ -86,9 +86,11 @@
 
 -(void)didSelectItem:(NSIndexPath *)indexPath{
     NSLog(@"Did select: %d", (int) indexPath.row);
+    
+    DataTypeItemDb *data = [dataList objectAtIndex:indexPath.row];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ReportInformationController *inforVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportInformationController"];
-    
+    inforVC.itemModel = data;
     [self.navigationController pushViewController:inforVC animated:YES];
 //    [self presentViewController:inforVC animated:YES completion:nil];
 }

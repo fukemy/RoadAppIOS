@@ -26,6 +26,10 @@
     _viewTongQuan.layer.cornerRadius = 10.0f;
     _viewChiTiest.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
     _viewChiTiest.layer.cornerRadius = 10.0f;
+    
+    _lbDanhmuc.text = _itemModel.datatypename;
+    _lbLyTrinh.text = _itemModel.lytrinh;
+    _lbTime.text = [Utilities dateStringFromTimeStamp:_itemModel.thoigiannhap];
 }
 
 @end

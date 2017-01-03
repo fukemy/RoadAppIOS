@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 // Insert code here to declare functionality of your managed object subclass
 
 + (void) saveImageModel:(ImageModel *) imageModel;
++ (NSMutableArray *) findImageWithUUID:(NSString *) UUID;
 @end
 
 NS_ASSUME_NONNULL_END

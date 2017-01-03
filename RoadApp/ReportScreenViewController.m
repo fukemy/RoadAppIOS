@@ -91,9 +91,25 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ReportInformationController *inforVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportInformationController"];
     inforVC.itemModel = data;
-    [self.navigationController pushViewController:inforVC animated:YES];
+    
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:inforVC];
+    [self.navigationController presentViewController:navVC animated:YES completion:nil];
 //    [self presentViewController:inforVC animated:YES completion:nil];
 }
 
 
+- (IBAction)showSetting:(id)sender {
+    UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"CHOOSE REPORT TYPE HERE" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Report diary" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }]];
+    
+        [actionSheet addAction:[UIAlertAction actionWithTitle:@"Collection by road items" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        }]];
+    
+    [actionSheet addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        
+    }]];
+    [self presentViewController:actionSheet animated:YES completion:nil];
+}
 @end

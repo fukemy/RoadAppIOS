@@ -31,4 +31,12 @@
         NSLog(@"Save Failed! %@ %@", error, [error localizedDescription]);
     }
 }
+
++ (NSMutableArray *) findImageWithUUID:(NSString *) UUID{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context =  appDelegate.managedObjectContext;
+    
+    NSMutableArray *imgList = [[NSMutableArray alloc] init];
+    return  imgList;
+}
 @end

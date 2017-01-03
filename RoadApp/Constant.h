@@ -36,6 +36,7 @@
 #define MENU_MAP @"Xem bản đồ"
 #define MENU_LOGOUT @"Đăng xuất"
 #define REPORT @"Báo cáo"
+#define THONG_TIN_CHI_TIET @"Thông tin chi tiết"
 
 
 //COLOR

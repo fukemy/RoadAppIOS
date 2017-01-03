@@ -12,5 +12,6 @@
 
 @interface ReportScreenViewController : UIViewController<SlideNavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReportScreenViewCellDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvData;
+- (IBAction)showSetting:(id)sender;
 
 @end

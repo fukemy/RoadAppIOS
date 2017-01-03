@@ -11,7 +11,7 @@
 #import "DataTypeItemDb.h"
 #import "ImageDb.h"
 
-@interface ReportInformationController : UIViewController
+@interface ReportInformationController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbTinhTrang;
 @property (weak, nonatomic) IBOutlet UILabel *lbMoTaChiTiet;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImage;
+@property (weak, nonatomic) IBOutlet UIButton *btDone;
+- (IBAction)goBack:(id)sender;
 
 @property (nonatomic) DataTypeItemDb *itemModel;
 @end

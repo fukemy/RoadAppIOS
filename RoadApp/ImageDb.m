@@ -29,6 +29,7 @@
     NSError *error = nil;
     if (![context save:&error]) {
         NSLog(@"Save Failed! %@ %@", error, [error localizedDescription]);
+        abort();
     }
 }
 
@@ -36,7 +37,18 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSManagedObjectContext* context =  appDelegate.managedObjectContext;
     
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"ImageDb"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"dataid LIKE %@", UUID]];
+    
     NSMutableArray *imgList = [[NSMutableArray alloc] init];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    imgList = [[NSMutableArray alloc] initWithArray:results];
     return  imgList;
 }
 @end

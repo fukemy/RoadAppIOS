@@ -10,9 +10,13 @@
 #import "Utilities.h"
 #import "Constant.h"
 #import "InputImageCell.h"
+#import "ImageDb.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ReportInformationController (){
     NSMutableArray *imageList;
+    BOOL isFullScreen;
+    CGRect prevFrame;
 }
 
 @end
@@ -43,10 +47,14 @@
     _viewChiTiest.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
     _viewChiTiest.alpha  = 0.3;
     _viewChiTiest.layer.cornerRadius = 10.0f;
+    _viewImage.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
+    _viewImage.alpha  = 0.2;
+    _viewImage.layer.cornerRadius = 10.0f;
     
     _mapView.alpha  = 0.6;
     _mapView.layer.cornerRadius = 10.0f;
     
+    [_cvImage setClipsToBounds:NO];
     [_cvImage registerNib:[UINib nibWithNibName:@"InputImageCell" bundle:nil] forCellWithReuseIdentifier:@"InputImageCell"];
 }
 
@@ -65,7 +73,9 @@
 //        _mapView.camera = [GMSCameraPosition cameraWithLatitude:_itemModel.kinhdo longitude:_itemModel.vido zoom:14];
     }
     
-    imageList = [[NSMutableArray alloc] init];
+    isFullScreen = false;
+    imageList = [ImageDb findImageWithUUID:_itemModel.dataid];
+    NSLog(@"ImageList: %@", imageList);
 }
 
 #pragma mark - collectionview
@@ -78,16 +88,66 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    return CGSizeMake(self.view.frame.size.width - 20, self.view.frame.size.width - 20);
+    return CGSizeMake(self.view.frame.size.width / 3 - 20, self.view.frame.size.width / 3 - 20);
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     InputImageCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"InputImageCell" forIndexPath:indexPath];
+    [cell setClipsToBounds:NO];
+    ImageDb *img = [imageList objectAtIndex:indexPath.row];
     
+    NSURL* aURL = [NSURL URLWithString:img.imagename];
+    
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    [library assetForURL:aURL resultBlock:^(ALAsset *asset)
+     {
+         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullScreenImage] scale:0.5 orientation:UIImageOrientationUp];
+         
+         cell.img.image = copyOfOriginalImage;
+     }
+            failureBlock:^(NSError *error)
+     {
+         // error handling
+         NSLog(@"failure-----: %@", [error localizedDescription]);
+     }];
     
     [cell.btnAddImage setHidden:YES];
     [cell.imgDelete setHidden:YES];
     return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    InputImageCell *cell = (InputImageCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    [self imgToFullScreen:cell.img];
+}
+
+- (void)imageTouched:(UITapGestureRecognizer *) sender{
+    
+}
+
+-(void)imgToFullScreen:(UIImageView *) image{
+    image.contentMode = UIViewContentModeScaleAspectFit;
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = image.frame;
+            [image setUserInteractionEnabled:NO];
+            [image setFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+            [image setUserInteractionEnabled:YES];
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [image setFrame:prevFrame];
+            [image setUserInteractionEnabled:NO];
+        }completion:^(BOOL finished){
+            [image setUserInteractionEnabled:YES];
+            isFullScreen = false;
+        }];
+        return;
+    }
 }
 
 - (IBAction)goBack:(id)sender {

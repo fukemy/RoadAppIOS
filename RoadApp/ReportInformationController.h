@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbMoTaChiTiet;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImage;
 @property (weak, nonatomic) IBOutlet UIButton *btDone;
+@property (strong, nonatomic) IBOutlet UIView *viewImage;
 - (IBAction)goBack:(id)sender;
 
 @property (nonatomic) DataTypeItemDb *itemModel;

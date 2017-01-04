@@ -230,7 +230,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="e3Q-Fc-4uT" id="Rde-1Y-W38">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -334,7 +334,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ReportForInputViewCell" id="7N9-Mo-WWG" customClass="ReportForInputViewCell">
-                                        <rect key="frame" x="37.5" y="0.0" width="300" height="316"/>
+                                        <rect key="frame" x="38" y="0.0" width="300" height="316"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="316"/>
@@ -499,7 +499,7 @@
                                     <outlet property="delegate" destination="wnD-Vc-0qi" id="YL0-Ry-7aU"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-KG-xmU">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-KG-xmU" customClass="BFPaperButton">
                                 <rect key="frame" x="164.5" y="613" width="46" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -507,9 +507,6 @@
                                     <constraint firstAttribute="height" constant="46" id="8e7-en-JU4"/>
                                 </constraints>
                                 <state key="normal" title="SAVE"/>
-                                <connections>
-                                    <action selector="saveData:" destination="wnD-Vc-0qi" eventType="touchUpInside" id="mn9-qu-dUt"/>
-                                </connections>
                             </button>
                         </subviews>
                         <constraints>
@@ -832,7 +829,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" reuseIdentifier="InputViewCell" id="Fa0-gK-0oG" customClass="InputViewCell">
-                                        <rect key="frame" x="0.0" y="5.5" width="320" height="219"/>
+                                        <rect key="frame" x="0.0" y="6" width="320" height="219"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="219"/>

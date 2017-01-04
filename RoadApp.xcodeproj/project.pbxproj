@@ -47,6 +47,7 @@
 		1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3C1E14133D0046F365 /* MapViewController.m */; };
 		1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
+		1FB655BD1E1D81C40047226A /* BFPaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB655BC1E1D81C40047226A /* BFPaperButton.m */; };
 		4A66653FE4B67DB48C6F8E9F /* libPods-RoadApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED178BA93730CEEB087E67FE /* libPods-RoadApp.a */; };
 		AF9C4BCD3B00D53D7736ACD4 /* libPods-RoadAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */; };
 		BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC818E041E1D233F00636A03 /* btRippleButtton.m */; };
@@ -209,6 +210,8 @@
 		1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IriCheckingViewController.m; sourceTree = "<group>"; };
 		1FAB5CBE1E11943700999597 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		1FAB5CBF1E11943700999597 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		1FB655BB1E1D81C40047226A /* BFPaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPaperButton.h; sourceTree = "<group>"; };
+		1FB655BC1E1D81C40047226A /* BFPaperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPaperButton.m; sourceTree = "<group>"; };
 		26EC6FA8A1714C7DCAACDD83 /* Pods-RoadAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadAppTests/Pods-RoadAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		307843C4FB4E62C30162267D /* Pods-RoadAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadAppUITests/Pods-RoadAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C21726CF47A1DE39211A992 /* Pods-RoadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadApp/Pods-RoadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -500,6 +503,15 @@
 			name = Input;
 			sourceTree = "<group>";
 		};
+		1FB655BA1E1D81B50047226A /* BFPaperButton */ = {
+			isa = PBXGroup;
+			children = (
+				1FB655BB1E1D81C40047226A /* BFPaperButton.h */,
+				1FB655BC1E1D81C40047226A /* BFPaperButton.m */,
+			);
+			name = BFPaperButton;
+			sourceTree = "<group>";
+		};
 		8ACD981B040E2291EDB41D6A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +720,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FB655BA1E1D81B50047226A /* BFPaperButton */,
 				BC818E021E1D232F00636A03 /* BtRippleAction */,
 				1F6805AA1E1C0BB600710DC1 /* VCFloatingActionButton */,
 				1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */,
@@ -1099,7 +1112,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		5AC439322E55AC5771658707 /* [CP] Embed Pods Frameworks */ = {
@@ -1144,7 +1157,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		C0B061E50885F3DF7E90B8B2 /* [CP] Embed Pods Frameworks */ = {
@@ -1189,7 +1202,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1246,6 +1259,7 @@
 				1F61D8FE1E12F2E8009BCF74 /* TLYShyNavBarManager.m in Sources */,
 				BCAC480E1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorScale.m in Sources */,
 				BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */,
+				1FB655BD1E1D81C40047226A /* BFPaperButton.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,

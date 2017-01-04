@@ -101,10 +101,15 @@ static int const REPORT_CONTENT_TAG = 3;
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
     
-    _btSave.layer.cornerRadius = 23;
-    _btSave.layer.masksToBounds = YES;
     [_btSave setBackgroundColor:[UIColor redColor]];
     [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btSave setIsRaised:YES];
+    _btSave.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
+    _btSave.cornerRadius = _btSave.frame.size.width / 2;
+    _btSave.rippleFromTapLocation = NO;
+    _btSave.rippleBeyondBounds = YES;
+    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.6;
+    [_btSave addTarget:self action:@selector(saveData:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void) endEditing{

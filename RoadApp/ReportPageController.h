@@ -10,9 +10,9 @@
 #import "ReportForInputViewCell.h"
 #import "InputImageForCell.h"
 #import <CoreLocation/CoreLocation.h>
+#import "BFPaperButton.h"
 
 @interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare, CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvReport;
-@property (weak, nonatomic) IBOutlet UIButton *btSave;
-- (IBAction)saveData:(id)sender;
+@property (weak, nonatomic) IBOutlet BFPaperButton *btSave;
 @end

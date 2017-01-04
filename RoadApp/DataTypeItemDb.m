@@ -59,4 +59,42 @@
     }
 
 }
+
++ (NSMutableArray *) findDataTypeWithUUID:(NSString *) UUID{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context =  appDelegate.managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DataTypeItemDb"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"dataid LIKE %@", UUID]];
+    
+    NSMutableArray *imgList = [[NSMutableArray alloc] init];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    if (!results) {
+        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    imgList = [[NSMutableArray alloc] initWithArray:results];
+    return  imgList;
+}
+
++ (void) updateDataTypeWithUUID:(NSString *) UUID{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context =  appDelegate.managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DataTypeItemDb"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"dataid LIKE %@", UUID]];
+    
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    if (results.count > 0) {
+        NSManagedObject* favoritsGrabbed = [results objectAtIndex:0];
+        [favoritsGrabbed setValue:@1 forKey:@"isupload"];
+        [context save:nil];
+        NSLog(@"updated data type with UUID: %@", UUID);
+    }else{
+        NSLog(@"can not find data type with UUID: %@", UUID);
+    }
+}
 @end

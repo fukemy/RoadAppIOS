@@ -179,6 +179,7 @@
             }
         }
     }
+    
     if(dataToUpload.count > 0)
         [self getUserToken];
     else
@@ -190,7 +191,11 @@
     NSString* url = [NSString stringWithFormat:@"%@%@%@", BASE_URL, UPLOAD_DATA_TYPE_URL, TOKEN];
     
     [JSONParser postData:url withParameters:dataTypeList success:^(id responseObject) {
+        
         NSLog(@"reponse upload datatype: %@", responseObject);
+        for(NSMutableDictionary *dict in dataTypeList){
+            [DataTypeItemDb updateDataTypeWithUUID:[dict objectForKey:@"DataID"]];
+        }
         if(imageToUpload.count > 0)
             [self populateImageBeforUpload];
         else
@@ -204,8 +209,8 @@
 
 - (void) populateImageBeforUpload{
     if(imageOrderUpload == imageToUpload.count){
-        imageOrderUpload = 0;
         [SVProgressHUD dismiss];
+        [self initData];
         return;
     }
     ImageDb *img = [imageToUpload objectAtIndex:imageOrderUpload];

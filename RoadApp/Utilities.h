@@ -31,6 +31,7 @@
 + (void)enableDismissKeyboardByClickInView:(UIViewController*)controller;
 + (void) showViewWithScaleAnim:(UIView *)view;
 + (void) hideViewWithScaleAnim:(UIView *)view;
-+(void)getLocationByCoor:(CLLocation *)loc success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void)getLocationByCoor:(CLLocation *)loc success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 + (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
++ (void)getPhotoByPath:(NSString *)path success:(void (^)(UIImage *responseObject))success failure:(void (^)(NSError *error))failure;
 @end

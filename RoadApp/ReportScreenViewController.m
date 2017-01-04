@@ -16,12 +16,12 @@
 #import "ReportInformationController.h"
 #import "SVProgressHUD.h"
 #import "JSONParser.h"
-#import <AssetsLibrary/AssetsLibrary.h>
 #import "ImageDb.h"
 
 @interface ReportScreenViewController (){
     NSMutableArray *dataList, *dataToUpload, *imageToUpload;
     NSString* TOKEN;
+    int imageOrderUpload;
 }
 
 @end
@@ -49,6 +49,7 @@
 }
 
 - (void) initData{
+    imageOrderUpload = 0;
     dataList = [DataTypeItemDb getAllDataTypeItem];
     [_cvData reloadData];
 }
@@ -139,7 +140,7 @@
     NSString *url = [NSString stringWithFormat:@"%@%@",BASE_URL, GET_TOKEN_URL];
     [SVProgressHUD showWithStatus:@"Geting token..." maskType:SVProgressHUDMaskTypeBlack];
     [JSONParser getJsonParser:url withParameters:nil success:^(id responseObject) {
-        NSLog(@"login response: %@", responseObject);
+        NSLog(@"token: %@", responseObject);
         
         TOKEN = [[NSString stringWithFormat:@"%@",responseObject] stringByReplacingOccurrencesOfString:@"\"" withString:@""];
         [[NSUserDefaults standardUserDefaults] setValue:TOKEN forKey:USER_TOKEN];
@@ -154,10 +155,24 @@
 - (void) uploadData{
     dataToUpload = [[NSMutableArray alloc] init];
     imageToUpload = [[NSMutableArray alloc] init];
+    NSMutableDictionary *dict;
     for(DataTypeItemDb *data in dataList){
         if([data.isupload intValue] == 0){
-            [dataToUpload addObject:data];
+            dict = [[NSMutableDictionary alloc] init];
+            [dict setObject:data.dataid forKey:@"DataID"];
+            [dict setObject:data.datatype forKey:@"DataType"];
+            [dict setObject:data.maduong forKey:@"MaDuong"];
+            [dict setObject:data.tuyenso forKey:@"TuyenSo"];
+            [dict setObject:data.motatinhtrang forKey:@"MoTaTinhTrang"];
+            [dict setObject:data.kinhdo forKey:@"KinhDo"];
+            [dict setObject:data.vido forKey:@"ViDo"];
+            [dict setObject:data.caodo forKey:@"CaoDo"];
+            [dict setObject:data.lytrinh forKey:@"LyTrinh"];
+            [dict setObject:data.nguoinhap forKey:@"NguoiNhap"];
+            [dict setObject:data.thoigiannhap forKey:@"ThoiGianNhap"];
+            [dict setObject:data.danhgia forKey:@"DanhGia"];
             
+            [dataToUpload addObject:dict];
             NSMutableArray *imgData = [ImageDb findImageWithUUID:data.dataid];
             if(imgData.count > 0){
                 [imageToUpload addObjectsFromArray:[imgData mutableCopy]];
@@ -173,116 +188,62 @@
 - (void)uploadDataType:(NSMutableArray *)dataTypeList{
     [SVProgressHUD setStatus:@"Uploading item..."];
     NSString* url = [NSString stringWithFormat:@"%@%@%@", BASE_URL, UPLOAD_DATA_TYPE_URL, TOKEN];
-//    
-//    [JSONParser postJsonParser:url withParameters:dataTypeList success:^(id responseObject) {
-//        [SVProgressHUD dismiss];
-//        NSLog(@"reponse: %@", responseObject);
-//    } failure:^(NSError *error) {
-//        [SVProgressHUD dismiss];
-//        NSLog(@"error: %@", [error localizedDescription]);
-//    }];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:url]];
-    [request setHTTPMethod:@"POST"];
     
-    NSString *post = [NSString stringWithFormat:@"%@", dataToUpload];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%ld",(long)[postData length]];
-    
-    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-    [request setHTTPBody:postData];
-    
-    //Add your request object to an AFHTTPRequestOperation
-    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request] ;
-    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSString *response = [operation responseString];
-        NSLog(@"response: %@",response);
+    [JSONParser postData:url withParameters:dataTypeList success:^(id responseObject) {
+        NSLog(@"reponse upload datatype: %@", responseObject);
         if(imageToUpload.count > 0)
-           [self populateImageBeforUpload];
+            [self populateImageBeforUpload];
         else
-           [SVProgressHUD dismiss];
+            [SVProgressHUD dismiss];
         
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+    } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
-        NSLog(@"error: %@", [operation error]);
+        NSLog(@"error upload datatype: %@", [error localizedDescription]);
     }];
-    
-    //call start on your request operation
-    [operation start];
 }
 
 - (void) populateImageBeforUpload{
-    for(ImageDb *img in imageToUpload){
-        [SVProgressHUD setStatus:@"Converting image..."];
-        NSURL* aURL = [NSURL URLWithString:img.imagename];
-        ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-        [library assetForURL:aURL resultBlock:^(ALAsset *asset)
-         {
-             UIImage *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage] scale:1 orientation:UIImageOrientationUp];
-             
-             NSString *imgBase64 = [self encodeToBase64String:copyOfOriginalImage];
-             img.imagedatabyte = imgBase64;
-             [self uploadImage:img];
-         }
-                failureBlock:^(NSError *error)
-         {
-             // error handling
-             NSLog(@"failure-----: %@", [error localizedDescription]);
-             [SVProgressHUD dismiss];
-         }];
-        
+    if(imageOrderUpload == imageToUpload.count){
+        imageOrderUpload = 0;
+        [SVProgressHUD dismiss];
+        return;
     }
-    
+    ImageDb *img = [imageToUpload objectAtIndex:imageOrderUpload];
+    [SVProgressHUD setStatus:[NSString stringWithFormat:@"Converting image %d...", imageOrderUpload]];
+    [Utilities getPhotoByPath:img.imagename success:^(UIImage *image) {
+        
+        NSString *imgBase64 = [self encodeToBase64String:image];
+        [self uploadImage:img withBase64:imgBase64];
+        
+    } failure:^(NSError *error) {
+        [SVProgressHUD dismiss];
+    }];
 }
 
 - (NSString *)encodeToBase64String:(UIImage *)image {
     return [UIImagePNGRepresentation(image) base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
 }
 
-- (void) uploadImage:(ImageDb*) img{
+- (void) uploadImage:(ImageDb*) img withBase64:(NSString *)base64String{
     [SVProgressHUD setStatus:@"Uploading image..."];
     NSString* url = [NSString stringWithFormat:@"%@%@%@", BASE_URL, UPLOAD_IMAGE_URL, TOKEN];
+    
     NSMutableDictionary* param = [[NSMutableDictionary alloc] init];
     [param setObject:img.dataid forKey:@"DataID"];
-    [param setObject:[NSString stringWithFormat:@"%@.jpg", [Utilities generateUUID]] forKey:@"ImageName"];
-    [param setObject:img.imagedatabyte forKey:@"ImageDataByte"];
+    NSString *imgName = [NSString stringWithFormat:@"%@.jpg", [Utilities generateUUID]];
+    [param setObject: [imgName stringByReplacingOccurrencesOfString:@"-" withString:@""] forKey:@"ImageName"];
+    [param setObject:base64String forKey:@"ImageDataByte"];
     
-    [JSONParser postJsonParser:url withParameters:param success:^(id responseObject) {
-        [SVProgressHUD dismiss];
-        NSLog(@"reponse: %@", responseObject);
+    NSMutableArray *arrParam = [[NSMutableArray alloc] init];
+    [arrParam addObject:param];
+    
+    [JSONParser postData:url withParameters:arrParam success:^(id responseObject) {
+        imageOrderUpload++;
+        [self populateImageBeforUpload];
+        NSLog(@"reponse upload image: %@", responseObject);
     } failure:^(NSError *error) {
         [SVProgressHUD dismiss];
-        NSLog(@"error: %@", [error localizedDescription]);
+        NSLog(@"error upload image: %@", [error localizedDescription]);
     }];
-    
-//    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-//    [request setURL:[NSURL URLWithString:url]];
-//    [request setHTTPMethod:@"POST"];
-//    
-//    NSString *post = [NSString stringWithFormat:@"%@", dataToUpload];
-//    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-//    NSString *postLength = [NSString stringWithFormat:@"%ld",(long)[postData length]];
-//    
-//    [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
-//    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
-//    [request setHTTPBody:postData];
-//    
-//    //Add your request object to an AFHTTPRequestOperation
-//    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request] ;
-//    [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
-//        
-//        [SVProgressHUD dismiss];
-//        NSString *response = [operation responseString];
-//        NSLog(@"response: %@",response);
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        [SVProgressHUD dismiss];
-//        NSLog(@"error: %@", [operation error]);
-//    }];
-    
-    //call start on your request operation
-//    [operation start];
 }
 @end

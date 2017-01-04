@@ -212,7 +212,7 @@
     }
 }
 - (void) toggleZoom:(id) sender{
-    NSLog(@"%@", sender);
+//    NSLog(@"%@", sender);
     
     if (gesture.state == UIGestureRecognizerStateEnded) {
         if(!isFullScreen){

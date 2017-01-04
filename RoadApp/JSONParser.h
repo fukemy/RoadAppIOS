@@ -20,4 +20,5 @@
 + (void) getJsonParser:(NSString *)path withParameters:(NSDictionary *)params addUserLogin:(NSString *)userIdLogin andPaging:(NSString*)numpaging success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 + (void) getJsonParser:(NSString *)path withParameters:(id)params withHeaders:(NSArray *)headers success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 
++ (void) postData:(NSString *)path withParameters:(id)params success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 @end

@@ -11,7 +11,7 @@
 #import "ResouceUtilities.h"
 #import "ICHObjectPrinter.h"
 #import <GoogleMaps/GoogleMaps.h>
-
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @implementation Utilities
 
@@ -240,4 +240,18 @@
     } while (fontSize > minFontSize);
 }
 
++ (void)getPhotoByPath:(NSString *)path success:(void (^)(UIImage *responseObject))success failure:(void (^)(NSError *error))failure{
+    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
+    NSURL* aURL = [NSURL URLWithString:path];
+    [library assetForURL:aURL resultBlock:^(ALAsset *asset)
+     {
+         UIImage *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage] scale:1 orientation:UIImageOrientationUp];
+         success(copyOfOriginalImage);
+     }
+            failureBlock:^(NSError *error)
+     {
+         // error handling
+         NSLog(@"failure-----: %@", [error localizedDescription]);
+     }];
+}
 @end

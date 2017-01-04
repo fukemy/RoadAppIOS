@@ -107,12 +107,6 @@
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
     [manager setResponseSerializer:responseSerializer];
-//    
-//    AFSecurityPolicy* policy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
-//    [policy setValidatesDomainName:NO];
-//    [policy setAllowInvalidCertificates:YES];
-//    
-//    [manager setSecurityPolicy:policy];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     
@@ -151,6 +145,35 @@
         failure(error);
     }];
 
+}
+
+/**
+ * FOR ROAD PROJECT
+ **/
+
++ (void) postData:(NSString *)path withParameters:(id)params success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure{
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:path]];
+        [request setHTTPMethod:@"POST"];
+    
+        NSString *post = [NSString stringWithFormat:@"%@", params];
+        NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
+        NSString *postLength = [NSString stringWithFormat:@"%ld",(long)[postData length]];
+    
+        [request setValue:postLength forHTTPHeaderField:@"Content-Length"];
+        [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Current-Type"];
+        [request setHTTPBody:postData];
+    
+        //Add your request object to an AFHTTPRequestOperation
+        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request] ;
+        [operation setCompletionBlockWithSuccess: ^(AFHTTPRequestOperation *operation, id responseObject) {
+            success([[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding]);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            failure(error);
+        }];
+        
+        //call start on your request operation
+        [operation start];
 }
 @end
 

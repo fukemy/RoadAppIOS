@@ -377,7 +377,7 @@ CGFloat const bfPaperButton_tapCircleDiameterDefault = -2.f;
 #pragma mark - IBAction Callback Handlers
 - (void)paperTouchDown:(id)sender
 {
-    //NSLog(@"Touch down handler");
+    NSLog(@"Touch down handler");
     self.letGo = NO;
     [self touchDownAnimations]; // Go Steelers!
 }
@@ -385,7 +385,7 @@ CGFloat const bfPaperButton_tapCircleDiameterDefault = -2.f;
 
 - (void)paperTouchUp:(id)sender
 {
-    //NSLog(@"Touch Up handler");
+    NSLog(@"Touch Up handler");
     self.letGo = YES;
     [self touchUpAnimations];
 }

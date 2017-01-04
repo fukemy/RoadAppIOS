@@ -101,15 +101,22 @@ static int const REPORT_CONTENT_TAG = 3;
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
     
-    [_btSave setBackgroundColor:[UIColor redColor]];
-    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_btSave setIsRaised:YES];
+    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [_btSave addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+    [_btSave setBackgroundColor:[UIColor redColor]];
+    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.3;
     _btSave.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
     _btSave.cornerRadius = _btSave.frame.size.width / 2;
     _btSave.rippleFromTapLocation = NO;
     _btSave.rippleBeyondBounds = YES;
-    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.6;
-    [_btSave addTarget:self action:@selector(saveData:) forControlEvents:UIControlEventTouchUpInside];
+    _btSave.delegate = self;
+}
+
+- (void)didEndAnimationClick{
+    [self saveData:_btSave];
 }
 
 - (void) endEditing{

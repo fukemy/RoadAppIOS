@@ -12,7 +12,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "BFPaperButton.h"
 
-@interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare, CLLocationManagerDelegate>
+@interface ReportPageController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, ReportForInputViewCellDelegare, UITextFieldDelegate, UITextViewDelegate, InputImageForCellDelegare, CLLocationManagerDelegate, BFPagerButtonDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvReport;
 @property (weak, nonatomic) IBOutlet BFPaperButton *btSave;
 @end

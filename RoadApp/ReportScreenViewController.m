@@ -224,7 +224,6 @@
              
              NSString *imgBase64 = [self encodeToBase64String:copyOfOriginalImage];
              img.imagedatabyte = imgBase64;
-             img.imagename = [NSString stringWithFormat:@"%@.jpg", [Utilities generateUUID]];
              [self uploadImage:img];
          }
                 failureBlock:^(NSError *error)
@@ -247,7 +246,7 @@
     NSString* url = [NSString stringWithFormat:@"%@%@%@", BASE_URL, UPLOAD_IMAGE_URL, TOKEN];
     NSMutableDictionary* param = [[NSMutableDictionary alloc] init];
     [param setObject:img.dataid forKey:@"DataID"];
-    [param setObject:img.imagename forKey:@"ImageName"];
+    [param setObject:[NSString stringWithFormat:@"%@.jpg", [Utilities generateUUID]] forKey:@"ImageName"];
     [param setObject:img.imagedatabyte forKey:@"ImageDataByte"];
     
     [JSONParser postJsonParser:url withParameters:param success:^(id responseObject) {

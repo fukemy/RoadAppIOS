@@ -73,5 +73,7 @@
 		<string>googlechromes</string>
 		<string>comgooglemaps</string>
 	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo permission is required</string>
 </dict>
 </plist>

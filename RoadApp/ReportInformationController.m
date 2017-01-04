@@ -71,7 +71,7 @@
     _lbLyTrinh.text = [NSString stringWithFormat:@"Lý trình: %@", _itemModel.lytrinh];
     _lbTime.text = [NSString stringWithFormat:@"Thời gian: %@", [Utilities dateStringFromTimeStamp:_itemModel.thoigiannhap]];
     _lbViTri.text = [NSString stringWithFormat:@"Vị trí: %@ - %@", _itemModel.kinhdo, _itemModel.vido];
-    _lbStatus.text =  _itemModel.isupload == 0 ? @"Trạng thái: chưa cập nhập." : @"Trạng thái: Đã upload lên server";
+    _lbStatus.text =  [_itemModel.isupload intValue] == 0 ? @"Trạng thái: chưa cập nhập." : @"Trạng thái: Đã upload lên server";
     
     _lbHangMuc.text = [NSString stringWithFormat:@"Danh mục: %@", _itemModel.datatypename];
     _lbTinhTrang.text = [NSString stringWithFormat:@"Tình trang: %@", _itemModel.danhgia];

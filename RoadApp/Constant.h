@@ -13,8 +13,8 @@
 
 #define BASE_URL @"http://khaosatdiachat.com:8887/api/"
 
-#define LOGIN_URL @"users/login/dungdv/123456"
-#define GET_TOKEN_URL @"users/login/dungdv/123456"
+#define LOGIN_URL @"users/login/dungdv/12345678"
+#define GET_TOKEN_URL @"users/login/dungdv/12345678"
 #define GET_ALL_ROAD_URL @"roads/getall/dungdv/"
 #define GET_ALL_ITEM_URL @"items/getall/dungdv/"
 #define UPLOAD_VIRABLE_URL @"viberatedatas/uploaddata/dungdv/"

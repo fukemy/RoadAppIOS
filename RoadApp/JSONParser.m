@@ -17,7 +17,7 @@
     [policy setAllowInvalidCertificates:YES];
     
     [manager setSecurityPolicy:policy];
-    
+    [manager.requestSerializer setAuthorizationHeaderFieldWithUsername:@"dungdv" password:@"12345678"];
     manager.requestSerializer=[AFJSONRequestSerializer serializer];
     manager.responseSerializer = [AFHTTPResponseSerializer serializer];
 

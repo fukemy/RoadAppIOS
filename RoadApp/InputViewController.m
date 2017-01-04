@@ -27,8 +27,6 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     bool firstLocationUpdate;
     CLLocationManager *locationManager;
     CLLocation *currentLocation;
-    CLGeocoder *geocoder;
-    CLPlacemark *placemark;
     UIPickerView *pickerCategory, *pickerStatus;
     UIToolbar *accessoryView;
     int currentEdit;
@@ -393,9 +391,6 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     _mapView.settings.myLocationButton = YES;
     _mapView.delegate = self;
     
-    
-    geocoder = [[CLGeocoder alloc] init];
-    
     locationManager = [[CLLocationManager alloc] init];
     locationManager.delegate =  self ;
     if([locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]){
@@ -416,65 +411,13 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         _mapView.camera = [GMSCameraPosition cameraWithTarget:newLocation.coordinate zoom:14];
         [locationManager stopUpdatingLocation];
         
-        [geocoder reverseGeocodeLocation:currentLocation completionHandler:^(NSArray *placemarks, NSError *error) {
-            if (error == nil && [placemarks count] > 0) {
-                placemark = [placemarks lastObject];
-                
-                // strAdd -> take bydefault value nil
-                NSString *strAdd = nil;
-                
-                if ([placemark.subThoroughfare length] != 0)
-                    strAdd = placemark.subThoroughfare;
-                
-                if ([placemark.thoroughfare length] != 0)
-                {
-                    // strAdd -> store value of current location
-                    if ([strAdd length] != 0)
-                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark thoroughfare]];
-                    else
-                    {
-                        // strAdd -> store only this value,which is not null
-                        strAdd = placemark.thoroughfare;
-                    }
-                }
-                
-                if ([placemark.postalCode length] != 0)
-                {
-                    if ([strAdd length] != 0)
-                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark postalCode]];
-                    else
-                        strAdd = placemark.postalCode;
-                }
-                
-                if ([placemark.locality length] != 0)
-                {
-                    if ([strAdd length] != 0)
-                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark locality]];
-                    else
-                        strAdd = placemark.locality;
-                }
-                
-                if ([placemark.administrativeArea length] != 0)
-                {
-                    if ([strAdd length] != 0)
-                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark administrativeArea]];
-                    else
-                        strAdd = placemark.administrativeArea;
-                }
-                
-                if ([placemark.country length] != 0)
-                {
-                    if ([strAdd length] != 0)
-                        strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark country]];
-                    else
-                        strAdd = placemark.country;
-                }
-                _lbLocation.text = strAdd;
-                [_lbLocation sizeToFit];
-            } else {
-                NSLog(@"find location error: %@", error.debugDescription);
-            }
-        } ];
+        [Utilities getLocationByCoor:currentLocation success:^(id responseObject) {
+            _lbLocation.text = responseObject;
+            [Utilities sizeLabel:_lbLocation toRect:_lbLocation.frame];
+            
+        } failure:^(NSError *error) {
+            NSLog(@"find location error: %@", error.debugDescription);
+        }];
     }
 }
 

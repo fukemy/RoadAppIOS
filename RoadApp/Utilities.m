@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "ResouceUtilities.h"
 #import "ICHObjectPrinter.h"
+#import <GoogleMaps/GoogleMaps.h>
+
 
 @implementation Utilities
 
@@ -142,4 +144,100 @@
                          [view setHidden:YES];
                      }];
 }
+
+
++(void)getLocationByCoor:(CLLocation *)loc success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure{
+    CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+    [geocoder reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks, NSError *error) {
+        if (error == nil && [placemarks count] > 0) {
+            CLPlacemark *placemark = [placemarks lastObject];
+            NSString *strAdd = nil;
+            
+            if ([placemark.subThoroughfare length] != 0)
+                strAdd = placemark.subThoroughfare;
+            
+            if ([placemark.thoroughfare length] != 0)
+            {
+                if ([strAdd length] != 0)
+                    strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark thoroughfare]];
+                else
+                {
+                    strAdd = placemark.thoroughfare;
+                }
+            }
+            
+            if ([placemark.postalCode length] != 0)
+            {
+                if ([strAdd length] != 0)
+                    strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark postalCode]];
+                else
+                    strAdd = placemark.postalCode;
+            }
+            
+            if ([placemark.locality length] != 0)
+            {
+                if ([strAdd length] != 0)
+                    strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark locality]];
+                else
+                    strAdd = placemark.locality;
+            }
+            
+            if ([placemark.administrativeArea length] != 0)
+            {
+                if ([strAdd length] != 0)
+                    strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark administrativeArea]];
+                else
+                    strAdd = placemark.administrativeArea;
+            }
+            
+            if ([placemark.country length] != 0)
+            {
+                if ([strAdd length] != 0)
+                    strAdd = [NSString stringWithFormat:@"%@, %@",strAdd,[placemark country]];
+                else
+                    strAdd = placemark.country;
+            }
+            success(strAdd);
+        } else {
+            failure(error);
+            NSLog(@"find location error: %@", error.debugDescription);
+        }
+    }];
+
+}
+
++ (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect {
+    
+    // Set the frame of the label to the targeted rectangle
+    label.frame = labelRect;
+    
+    // Try all font sizes from largest to smallest font size
+    int fontSize = 300;
+    int minFontSize = 5;
+    
+    // Fit label width wize
+    CGSize constraintSize = CGSizeMake(label.frame.size.width, MAXFLOAT);
+    
+    do {
+        // Set current font size
+        label.font = [UIFont fontWithName:label.font.fontName size:fontSize];
+        
+        // Find label size for current font size
+        CGRect textRect = [[label text] boundingRectWithSize:constraintSize
+                                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                                  attributes:@{NSFontAttributeName: label.font}
+                                                     context:nil];
+        
+        CGSize labelSize = textRect.size;
+        
+        // Done, if created label is within target size
+        if( labelSize.height <= label.frame.size.height)
+            break;
+        
+        // Decrease the font size and try again
+        fontSize -= 2;
+        
+    } while (fontSize > minFontSize);
+}
+
 @end

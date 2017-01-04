@@ -49,6 +49,7 @@
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
 		4A66653FE4B67DB48C6F8E9F /* libPods-RoadApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED178BA93730CEEB087E67FE /* libPods-RoadApp.a */; };
 		AF9C4BCD3B00D53D7736ACD4 /* libPods-RoadAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */; };
+		BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC818E041E1D233F00636A03 /* btRippleButtton.m */; };
 		BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48011E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m */; };
 		BCAC480C1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48031E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.m */; };
 		BCAC480D1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlideAndFade.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48051E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlideAndFade.m */; };
@@ -215,6 +216,8 @@
 		8710E54CA89D112DAD8C5EB8 /* Pods-RoadApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadApp/Pods-RoadApp.debug.xcconfig"; sourceTree = "<group>"; };
 		8A97DC58AF2102A635BD826B /* libPods-RoadAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RoadAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		939F2C0512D7473928F5BE6B /* Pods-RoadAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadAppUITests/Pods-RoadAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BC818E031E1D233F00636A03 /* btRippleButtton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = btRippleButtton.h; sourceTree = "<group>"; };
+		BC818E041E1D233F00636A03 /* btRippleButtton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = btRippleButtton.m; sourceTree = "<group>"; };
 		BCAC48001E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorSlide.h; sourceTree = "<group>"; };
 		BCAC48011E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideNavigationContorllerAnimatorSlide.m; sourceTree = "<group>"; };
 		BCAC48021E1262EF00E3D01C /* SlideNavigationContorllerAnimatorFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideNavigationContorllerAnimatorFade.h; sourceTree = "<group>"; };
@@ -521,6 +524,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		BC818E021E1D232F00636A03 /* BtRippleAction */ = {
+			isa = PBXGroup;
+			children = (
+				BC818E031E1D233F00636A03 /* btRippleButtton.h */,
+				BC818E041E1D233F00636A03 /* btRippleButtton.m */,
+			);
+			name = BtRippleAction;
+			sourceTree = "<group>";
+		};
 		BCAC47FF1E1262DB00E3D01C /* SlideMenuViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +708,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BC818E021E1D232F00636A03 /* BtRippleAction */,
 				1F6805AA1E1C0BB600710DC1 /* VCFloatingActionButton */,
 				1F6ACF7A1E18A93900AE0D54 /* ICHObjectPrinter */,
 				1F4B62791E156E51005EE93B /* ComboBox */,
@@ -767,8 +780,8 @@
 			isa = PBXGroup;
 			children = (
 				BCF4CC381E10D7ED009DA7DF /* Constant.h */,
-				1FAB5CBF1E11943700999597 /* Utilities.m */,
 				1FAB5CBE1E11943700999597 /* Utilities.h */,
+				1FAB5CBF1E11943700999597 /* Utilities.m */,
 				1F6ACF771E1897D300AE0D54 /* ResouceUtilities.h */,
 				1F6ACF781E1897D300AE0D54 /* ResouceUtilities.m */,
 			);
@@ -1232,6 +1245,7 @@
 				BCAC48471E12748700E3D01C /* UIImageView+HighlightedWebCache.m in Sources */,
 				1F61D8FE1E12F2E8009BCF74 /* TLYShyNavBarManager.m in Sources */,
 				BCAC480E1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorScale.m in Sources */,
+				BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
 				1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,

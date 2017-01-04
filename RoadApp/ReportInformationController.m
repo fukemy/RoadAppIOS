@@ -36,6 +36,7 @@
 
 - (void) initLayout{
     self.navigationController.navigationBarHidden = NO;
+    self.navigationController.hidesBarsOnSwipe = NO;
     
     UIBarButtonItem *backButon = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                target:self action:@selector(goBack)];
@@ -64,23 +65,25 @@
     [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissZoom:)]];
     [_cvImage addGestureRecognizer:gesture];
     gesture.delegate = self;
+    
 }
 
 - (void) initData{
     _lbDanhmuc.text = [NSString stringWithFormat:@"Tên đường: %@", _itemModel.tenduong];
     _lbLyTrinh.text = [NSString stringWithFormat:@"Lý trình: %@", _itemModel.lytrinh];
     _lbTime.text = [NSString stringWithFormat:@"Thời gian: %@", [Utilities dateStringFromTimeStamp:_itemModel.thoigiannhap]];
-    _lbViTri.text = [NSString stringWithFormat:@"Vị trí: %@ - %@", _itemModel.kinhdo, _itemModel.vido];
+    _lbViTri.text = @"Vị trí: Đang cập nhập...";
     _lbStatus.text =  [_itemModel.isupload intValue] == 0 ? @"Trạng thái: chưa cập nhập." : @"Trạng thái: Đã upload lên server";
     
     _lbHangMuc.text = [NSString stringWithFormat:@"Danh mục: %@", _itemModel.datatypename];
     _lbTinhTrang.text = [NSString stringWithFormat:@"Tình trang: %@", _itemModel.danhgia];
     _lbMoTaChiTiet.text = [NSString stringWithFormat:@"Mô tả chi tiết: %@", _itemModel.motatinhtrang];
+    [_lbMoTaChiTiet setLineBreakMode:NSLineBreakByClipping];
     
     if(_itemModel.kinhdo != 0 && _itemModel.vido != 0){
         CLLocation *loc = [[CLLocation alloc] initWithLatitude:[_itemModel.kinhdo doubleValue] longitude:[_itemModel.vido
                                                                                                           doubleValue]];
-        GMSCameraPosition *newCameraPosition = [GMSCameraPosition cameraWithTarget:loc.coordinate zoom:14];
+        GMSCameraPosition *newCameraPosition = [GMSCameraPosition cameraWithTarget:loc.coordinate zoom:16];
         [self.mapView animateToCameraPosition:newCameraPosition];
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = loc.coordinate;
@@ -88,6 +91,13 @@
         marker.appearAnimation = kGMSMarkerAnimationPop;
         marker.icon = [GMSMarker markerImageWithColor:[UIColor redColor]];
         marker.map = _mapView;
+        
+        [Utilities getLocationByCoor:loc success:^(id responseObject) {
+            _lbViTri.text = responseObject;
+            [Utilities sizeLabel:_lbViTri toRect:_lbViTri.frame];
+        } failure:^(NSError *error) {
+            NSLog(@"find location error: %@", error.debugDescription);
+        }];
     }
     
     isFullScreen = false;
@@ -99,6 +109,7 @@
     }
     NSLog(@"ImageList: %@", imageList);
 }
+
 
 #pragma mark - collectionview
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
@@ -149,7 +160,7 @@
 
 -(void)imgToFullScreen:(UIImageView *) image withRect:(CGRect ) rect{
     int dx = -rect.origin.x;
-    int dy = -rect.origin.y + 64;
+    int dy = -rect.origin.y;
     if(!isFullScreen){
         isFullScreen = YES;
         preFrame = image.frame;
@@ -175,7 +186,8 @@
 }
 
 - (void) dismissZoom:(id) sender{
-    [self imgToFullScreen:preImg withRect:preFrame];
+    if(isFullScreen)
+        [self imgToFullScreen:preImg withRect:preFrame];
 }
 
 - (void) hideAllOtherCell:(int) current{

@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
+#import "btRippleButtton.h"
+#import "SlideNavigationController.h"
+#import "ReportScreenViewCell.h"
+#import "VCFloatingActionButton.h"
+
 
 @interface Utilities : NSObject
 + (UIColor *)colorFromHexString:(NSString *)hexString;
@@ -25,4 +31,6 @@
 + (void)enableDismissKeyboardByClickInView:(UIViewController*)controller;
 + (void) showViewWithScaleAnim:(UIView *)view;
 + (void) hideViewWithScaleAnim:(UIView *)view;
++(void)getLocationByCoor:(CLLocation *)loc success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
++ (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 @end

@@ -41,7 +41,8 @@
 
 
 //COLOR
-#define MAIN_COLOR @"#d2a809"
+//#define MAIN_COLOR @"#d2a809"
+#define MAIN_COLOR @"#EFD336"
 #define INPUT_COLOR @"#FAF5D2"
 #define GRAY_COLOR @"#818285"
 #define LIGHT_GRAY_COLOR @"#E1EAED"

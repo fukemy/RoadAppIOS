@@ -129,21 +129,14 @@
     [cell setClipsToBounds:NO];
     
     ImageDb *img = [imageList objectAtIndex:indexPath.row];
-    
-    NSURL* aURL = [NSURL URLWithString:img.imagename];
-    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-    [library assetForURL:aURL resultBlock:^(ALAsset *asset)
-     {
-         UIImage  *copyOfOriginalImage = [UIImage imageWithCGImage:[[asset defaultRepresentation] fullResolutionImage] scale:1 orientation:UIImageOrientationUp];
-         
-         cell.img.image = copyOfOriginalImage;
-     }
-            failureBlock:^(NSError *error)
-     {
-         // error handling
-         NSLog(@"failure-----: %@", [error localizedDescription]);
-         cell.img.image = nil;
-     }];
+    [Utilities getPhotoByPath:img.imagename success:^(UIImage *image) {
+        
+        cell.img.image = image;
+        
+    } failure:^(NSError *error) {
+        NSLog(@"failure-----: %@", [error localizedDescription]);
+        cell.img.image = nil;
+    }];
     
     [cell.btnAddImage setHidden:YES];
     [cell.imgDelete setHidden:YES];

@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "KDViewPager.h"
+#import "SlideNavigationController.h"
 
-@interface ReportController : UIViewController
+@interface ReportController : UIViewController<SlideNavigationControllerDelegate, KDViewPagerDatasource, KDViewPagerDelegate>
+@property (weak, nonatomic) IBOutlet UIView *viewpager;
+@property (nonatomic, strong) KDViewPager *pager;
+@property (nonatomic, assign) NSUInteger count;
 
 @end

@@ -324,13 +324,32 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         [accessoryView setBackgroundColor:[Utilities colorFromHexString:INPUT_COLOR]];
     }
     self.automaticallyAdjustsScrollViewInsets = NO;
-    _btSave.layer.cornerRadius = 23;
-    _btSave.layer.masksToBounds = YES;
-    [_btSave setBackgroundColor:[UIColor redColor]];
+    
+    [_btSave setIsRaised:YES];
     [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btSave setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [_btSave addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+    [_btSave setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+    _btSave.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
+    _btSave.cornerRadius = _btSave.frame.size.width / 2;
+    _btSave.rippleFromTapLocation = YES;
+    _btSave.rippleBeyondBounds = YES;
+    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.3;
+    _btSave.delegate = self;
+    
+    NSArray *subviews = self.view.subviews;
+    NSArray *viewHierarchy = [@[self.view] arrayByAddingObjectsFromArray:subviews];
+    int i = 0;
+    for (UIView *viewToCheck in viewHierarchy) {
+        for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
+            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
+            gestureRecognizer.delaysTouchesBegan = NO;
+        }
+    }
+    [_cvInput setDelaysContentTouches:NO];
 }
 
-- (void)doneButton:(id)sender{
+-(void)didEndAnimationClick{
     [self.view endEditing:YES];
     DataTypeItemModel *model = [dataList objectAtIndex:currentEdit];
     if(focusedTextfield) {
@@ -352,6 +371,10 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         }
     }
     [dataList replaceObjectAtIndex:currentEdit withObject:model];
+}
+
+- (void)doneButton:(id)sender{
+    
 }
 
 - (void)cancelButton{

@@ -42,9 +42,6 @@
                                                                                target:self action:@selector(goBack)];
     self.navigationController.navigationItem.leftBarButtonItems = @[backButon];
     
-    _btDone.layer.cornerRadius = _btDone.frame.size.width / 2;
-    _btDone.layer.masksToBounds = YES;
-    
     _viewTongQuan.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
     _viewTongQuan.alpha  = 0.1;
     _viewTongQuan.layer.cornerRadius = 10.0f;
@@ -66,6 +63,33 @@
     [_cvImage addGestureRecognizer:gesture];
     gesture.delegate = self;
     
+    [_btDone setIsRaised:YES];
+    [_btDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btDone setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [_btDone addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+    [_btDone setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+    _btDone.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
+    _btDone.cornerRadius = _btDone.frame.size.width / 2;
+    _btDone.rippleFromTapLocation = NO;
+    _btDone.rippleBeyondBounds = YES;
+    _btDone.tapCircleDiameter = MAX(_btDone.frame.size.width, _btDone.frame.size.height) * 1.3;
+    _btDone.delegate = self;
+    
+    NSArray *subviews = self.view.subviews;
+    NSArray *viewHierarchy = [@[self.view] arrayByAddingObjectsFromArray:subviews];
+    int i = 0;
+    for (UIView *viewToCheck in viewHierarchy) {
+        for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
+            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
+            gestureRecognizer.delaysTouchesBegan = NO;
+        }
+    }
+    [_scrollView setDelaysContentTouches:NO];
+    
+}
+
+-(void)didEndAnimationClick{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) initData{
@@ -228,6 +252,6 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

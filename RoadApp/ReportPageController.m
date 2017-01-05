@@ -38,6 +38,8 @@ static int const REPORT_CONTENT_TAG = 3;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
     [self initLayout];
     [self initData];
     
@@ -103,16 +105,17 @@ static int const REPORT_CONTENT_TAG = 3;
     
     [_btSave setIsRaised:YES];
     [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateHighlighted];
+    [_btSave setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
     [_btSave addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
-    [_btSave setBackgroundColor:[UIColor redColor]];
-    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.3;
+    [_btSave setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
     _btSave.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
     _btSave.cornerRadius = _btSave.frame.size.width / 2;
     _btSave.rippleFromTapLocation = NO;
     _btSave.rippleBeyondBounds = YES;
+    _btSave.tapCircleDiameter = MAX(_btSave.frame.size.width, _btSave.frame.size.height) * 1.3;
     _btSave.delegate = self;
+    
+    [_cvReport setDelaysContentTouches:NO];
 }
 
 - (void)didEndAnimationClick{

@@ -113,9 +113,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ReportInformationController *inforVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportInformationController"];
     inforVC.itemModel = data;
-    
-//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:inforVC];
-//    [self.navigationController presentViewController:navVC animated:YES completion:nil];
     [self presentViewController:inforVC animated:YES completion:nil];
 }
 

@@ -47,6 +47,7 @@
 		1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3C1E14133D0046F365 /* MapViewController.m */; };
 		1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */; };
 		1FAA42F61E1E0982007311ED /* ReportStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA42F51E1E0982007311ED /* ReportStatus.m */; };
+		1FAA42FA1E1E0D42007311ED /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA42F91E1E0D42007311ED /* ReportController.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
 		1FB655BD1E1D81C40047226A /* BFPaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB655BC1E1D81C40047226A /* BFPaperButton.m */; };
 		4A66653FE4B67DB48C6F8E9F /* libPods-RoadApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED178BA93730CEEB087E67FE /* libPods-RoadApp.a */; };
@@ -77,7 +78,7 @@
 		BCAC48481E12748700E3D01C /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48381E12748700E3D01C /* UIImageView+WebCache.m */; };
 		BCAC48491E12748700E3D01C /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC483A1E12748700E3D01C /* UIView+WebCacheOperation.m */; };
 		BCAC484C1E128BE600E3D01C /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC484B1E128BE600E3D01C /* MenuItem.m */; };
-		BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC484F1E128E7800E3D01C /* ReportScreenViewController.m */; };
+		BCAC48501E128E7800E3D01C /* ReportDiary.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC484F1E128E7800E3D01C /* ReportDiary.m */; };
 		BCAC48571E14DD9A00E3D01C /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BCAC48561E14DD9A00E3D01C /* DBManager.m */; };
 		BCAC48591E14DE1600E3D01C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAC48581E14DE1600E3D01C /* libsqlite3.tbd */; };
 		BCC405331DD0A00E00E313F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BCC405321DD0A00E00E313F7 /* main.m */; };
@@ -211,6 +212,8 @@
 		1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IriCheckingViewController.m; sourceTree = "<group>"; };
 		1FAA42F41E1E0982007311ED /* ReportStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportStatus.h; sourceTree = "<group>"; };
 		1FAA42F51E1E0982007311ED /* ReportStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportStatus.m; sourceTree = "<group>"; };
+		1FAA42F81E1E0D42007311ED /* ReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportController.h; sourceTree = "<group>"; };
+		1FAA42F91E1E0D42007311ED /* ReportController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportController.m; sourceTree = "<group>"; };
 		1FAB5CBE1E11943700999597 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		1FAB5CBF1E11943700999597 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		1FB655BB1E1D81C40047226A /* BFPaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPaperButton.h; sourceTree = "<group>"; };
@@ -274,8 +277,8 @@
 		BCAC483A1E12748700E3D01C /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		BCAC484A1E128BE600E3D01C /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		BCAC484B1E128BE600E3D01C /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		BCAC484E1E128E7800E3D01C /* ReportScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportScreenViewController.h; sourceTree = "<group>"; };
-		BCAC484F1E128E7800E3D01C /* ReportScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportScreenViewController.m; sourceTree = "<group>"; };
+		BCAC484E1E128E7800E3D01C /* ReportDiary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDiary.h; sourceTree = "<group>"; };
+		BCAC484F1E128E7800E3D01C /* ReportDiary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDiary.m; sourceTree = "<group>"; };
 		BCAC48551E14DD9A00E3D01C /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		BCAC48561E14DD9A00E3D01C /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		BCAC48581E14DE1600E3D01C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -515,6 +518,20 @@
 			name = ReportStatus;
 			sourceTree = "<group>";
 		};
+		1FAA42F71E1E0D21007311ED /* ReportDiary */ = {
+			isa = PBXGroup;
+			children = (
+				BCAC484E1E128E7800E3D01C /* ReportDiary.h */,
+				BCAC484F1E128E7800E3D01C /* ReportDiary.m */,
+				1F6ACF831E196C3300AE0D54 /* ReportScreenViewCell.h */,
+				1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */,
+				1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */,
+				1F6ACF901E1A2C2C00AE0D54 /* ReportInformationController.h */,
+				1F6ACF911E1A2C2C00AE0D54 /* ReportInformationController.m */,
+			);
+			name = ReportDiary;
+			sourceTree = "<group>";
+		};
 		1FB655BA1E1D81B50047226A /* BFPaperButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -628,14 +645,10 @@
 		BCAC484D1E128E6100E3D01C /* Report */ = {
 			isa = PBXGroup;
 			children = (
+				1FAA42F71E1E0D21007311ED /* ReportDiary */,
 				1FAA42F31E1E0972007311ED /* ReportStatus */,
-				BCAC484E1E128E7800E3D01C /* ReportScreenViewController.h */,
-				BCAC484F1E128E7800E3D01C /* ReportScreenViewController.m */,
-				1F6ACF831E196C3300AE0D54 /* ReportScreenViewCell.h */,
-				1F6ACF841E196C3300AE0D54 /* ReportScreenViewCell.m */,
-				1F6ACF851E196C3300AE0D54 /* ReportScreenViewCell.xib */,
-				1F6ACF901E1A2C2C00AE0D54 /* ReportInformationController.h */,
-				1F6ACF911E1A2C2C00AE0D54 /* ReportInformationController.m */,
+				1FAA42F81E1E0D42007311ED /* ReportController.h */,
+				1FAA42F91E1E0D42007311ED /* ReportController.m */,
 			);
 			name = Report;
 			sourceTree = "<group>";
@@ -1250,7 +1263,7 @@
 				BCF4CC221E10D6B5009DA7DF /* AFHTTPSessionManager.m in Sources */,
 				1F6ACF8E1E19F20300AE0D54 /* ChooseRoad.m in Sources */,
 				1F61D9151E12F32B009BCF74 /* TLYShyScrollViewController.m in Sources */,
-				BCAC48501E128E7800E3D01C /* ReportScreenViewController.m in Sources */,
+				BCAC48501E128E7800E3D01C /* ReportDiary.m in Sources */,
 				BCF4CC261E10D6B5009DA7DF /* AFURLRequestSerialization.m in Sources */,
 				BCF4CC321E10D6CB009DA7DF /* SVProgressHUD.m in Sources */,
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
@@ -1275,6 +1288,7 @@
 				BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */,
 				1FB655BD1E1D81C40047226A /* BFPaperButton.m in Sources */,
 				BCC405361DD0A00E00E313F7 /* AppDelegate.m in Sources */,
+				1FAA42FA1E1E0D42007311ED /* ReportController.m in Sources */,
 				1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */,
 				BCF4CC301E10D6CB009DA7DF /* SVIndefiniteAnimatedView.m in Sources */,
 				1F07668E1E1822B500A22F2E /* ImageDb+CoreDataProperties.m in Sources */,

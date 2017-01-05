@@ -11,7 +11,7 @@
 #import "ReportScreenViewCell.h"
 #import "VCFloatingActionButton.h"
 
-@interface ReportScreenViewController : UIViewController<SlideNavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReportScreenViewCellDelegate, floatMenuDelegate, UITabBarDelegate>
+@interface ReportDiary : UIViewController<SlideNavigationControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, ReportScreenViewCellDelegate, floatMenuDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvData;
 - (IBAction)showSetting:(id)sender;
 

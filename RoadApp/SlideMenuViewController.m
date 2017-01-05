@@ -13,7 +13,7 @@
 #import "UIImageView+WebCache.h"
 #import "Constant.h"
 #import "MenuItem.h"
-#import "ReportScreenViewController.h"
+#import "ReportDiary.h"
 #import "AppDelegate.h"
 #import "MapViewController.h"
 #import "IriCheckingViewController.h"
@@ -124,7 +124,7 @@
             break;
             
         case 3:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportScreenViewController"];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportDiary"];
             break;
             
         case 4:

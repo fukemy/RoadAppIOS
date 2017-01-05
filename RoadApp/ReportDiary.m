@@ -6,7 +6,7 @@
 //  Copyright © 2016 admin2. All rights reserved.
 //
 
-#import "ReportScreenViewController.h"
+#import "ReportDiary.h"
 #import "SlideMenuViewController.h"
 #import "SlideNavigationController.h"
 #import "AppDelegate.h"
@@ -18,7 +18,7 @@
 #import "JSONParser.h"
 #import "ImageDb.h"
 
-@interface ReportScreenViewController (){
+@interface ReportDiary (){
     NSMutableArray *dataList, *dataToUpload, *imageToUpload;
     NSString* TOKEN;
     int imageOrderUpload;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation ReportScreenViewController
+@implementation ReportDiary
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -37,7 +37,6 @@
 }
 
 - (void) initLayout{
-    [self.tabBarController.tabBar setHidden:NO];
     [_cvData registerNib:[UINib nibWithNibName:@"ReportScreenViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReportScreenViewCell"];
     
     CGRect floatFrame = CGRectMake([UIScreen mainScreen].bounds.size.width - 44 - 20, [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
@@ -49,9 +48,6 @@
     [self.view addSubview:addButton];
 }
 
--(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
-    
-}
 
 - (void) initData{
     imageOrderUpload = 0;

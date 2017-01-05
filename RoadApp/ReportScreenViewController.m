@@ -37,6 +37,7 @@
 }
 
 - (void) initLayout{
+    [self.tabBarController.tabBar setHidden:NO];
     [_cvData registerNib:[UINib nibWithNibName:@"ReportScreenViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReportScreenViewCell"];
     
     CGRect floatFrame = CGRectMake([UIScreen mainScreen].bounds.size.width - 44 - 20, [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
@@ -46,6 +47,10 @@
     addButton.hideWhileScrolling = YES;
     addButton.delegate = self;
     [self.view addSubview:addButton];
+}
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item{
+    
 }
 
 - (void) initData{

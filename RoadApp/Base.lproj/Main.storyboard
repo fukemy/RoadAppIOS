@@ -65,7 +65,7 @@
                                 <blurEffect style="dark"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fE-5X-p1K">
-                                <rect key="frame" x="47.5" y="183.5" width="280" height="300"/>
+                                <rect key="frame" x="48" y="184" width="280" height="300"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBh-k0-6UN">
                                         <rect key="frame" x="19" y="246" width="242" height="39"/>
@@ -500,7 +500,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zdy-KG-xmU" customClass="BFPaperButton">
-                                <rect key="frame" x="164.5" y="613" width="46" height="46"/>
+                                <rect key="frame" x="165" y="613" width="46" height="46"/>
                                 <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="46" id="3je-Bi-BAW"/>
@@ -727,6 +727,24 @@
             </objects>
             <point key="canvasLocation" x="1230" y="107"/>
         </scene>
+        <!--Report Status-->
+        <scene sceneID="YpS-pz-Ys7">
+            <objects>
+                <viewController storyboardIdentifier="RepotStatus" id="7kq-3Y-bzO" customClass="ReportStatus" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l1l-IT-Rif"/>
+                        <viewControllerLayoutGuide type="bottom" id="gUc-eA-gfu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="92E-Tl-Tgk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKN-Yt-miB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="327" y="898"/>
+        </scene>
         <!--Report Screen View Controller-->
         <scene sceneID="Z1N-ib-7tT">
             <objects>
@@ -763,12 +781,29 @@
                                     <outlet property="delegate" destination="vdW-EQ-QBW" id="xZB-6h-TNy"/>
                                 </connections>
                             </collectionView>
+                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4y7-io-zhX">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Hlz-8I-8P5"/>
+                                </constraints>
+                                <items>
+                                    <tabBarItem systemItem="favorites" id="gpr-8h-r5N"/>
+                                    <tabBarItem systemItem="more" id="9bS-RY-y4v"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="vdW-EQ-QBW" id="nsE-6l-C62"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="4y7-io-zhX" secondAttribute="trailing" id="6A3-KG-3ON"/>
                             <constraint firstItem="5kw-AM-8QR" firstAttribute="top" secondItem="UEF-Kt-JgZ" secondAttribute="top" constant="5" id="MGA-8H-3z9"/>
                             <constraint firstAttribute="trailing" secondItem="5kw-AM-8QR" secondAttribute="trailing" id="MMi-l0-GMH"/>
+                            <constraint firstItem="O6U-O6-fwS" firstAttribute="top" secondItem="4y7-io-zhX" secondAttribute="bottom" id="TNX-zw-dij"/>
                             <constraint firstItem="5kw-AM-8QR" firstAttribute="leading" secondItem="UEF-Kt-JgZ" secondAttribute="leading" id="b1h-PQ-zGe"/>
+                            <constraint firstItem="4y7-io-zhX" firstAttribute="leading" secondItem="UEF-Kt-JgZ" secondAttribute="leading" id="gFV-yt-PVC"/>
                             <constraint firstItem="5kw-AM-8QR" firstAttribute="bottom" secondItem="O6U-O6-fwS" secondAttribute="top" constant="-8" id="ubB-gm-gj2"/>
                         </constraints>
                     </view>
@@ -844,7 +879,7 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XA7-o8-lUd">
-                                <rect key="frame" x="164.5" y="613" width="46" height="46"/>
+                                <rect key="frame" x="165" y="613" width="46" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="K4c-eH-uQd"/>
                                     <constraint firstAttribute="width" constant="46" id="lOt-u2-THo"/>

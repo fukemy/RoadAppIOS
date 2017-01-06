@@ -276,4 +276,14 @@
         return [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
     }
 }
+
++ (void)showToast:(NSString *)message{
+    UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
+                                                    message:message
+                                                   delegate:nil
+                                          cancelButtonTitle:nil
+                                          otherButtonTitles:nil, nil];
+    int duration = 1.0;
+    [toast show];
+}
 @end

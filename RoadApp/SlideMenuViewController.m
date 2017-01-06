@@ -170,7 +170,7 @@
 
 - (IBAction)logOut:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:USER_LOGGED];
-    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-    [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+//    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+//    [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:NO];
 }
 @end

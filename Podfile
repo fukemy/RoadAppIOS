@@ -9,6 +9,7 @@ target 'RoadApp' do
  pod 'WYPopoverController', '~> 0.2.2'
  pod 'GoogleMaps'
  pod 'GooglePlaces'
+ pod 'BEMSimpleLineGraph'
 end
   # Pods for RoadApp
 

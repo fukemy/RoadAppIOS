@@ -13,6 +13,7 @@
 #import "SlideNavigationController.h"
 #import "ReportScreenViewCell.h"
 #import "VCFloatingActionButton.h"
+#import "SVProgressHUD.h"
 
 
 @interface Utilities : NSObject
@@ -36,4 +37,5 @@
 + (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 + (void)getPhotoByPath:(NSString *)path success:(void (^)(UIImage *responseObject))success failure:(void (^)(NSError *error))failure;
 + (NSMutableArray *) getSectionListItem;
++ (void) showToast:(NSString *) message;
 @end

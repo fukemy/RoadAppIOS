@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "SlideNavigationController.h"
+#import <CoreBluetooth/CoreBluetooth.h>
+#import "BEMSimpleLineGraphView.h"
 
-@interface IriCheckingViewController : UIViewController <SlideNavigationControllerDelegate>
-
+@interface IriCheckingViewController : UIViewController <SlideNavigationControllerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
+@property (strong, nonatomic) CBCentralManager *centralManager;
+@property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
+@property (strong, nonatomic) NSMutableData *data;
 @end

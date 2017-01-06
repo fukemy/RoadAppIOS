@@ -124,7 +124,7 @@
             break;
             
         case 3:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportDiary"];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportController"];
             break;
             
         case 4:

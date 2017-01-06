@@ -40,8 +40,15 @@
     for (int i=0; i<[sectionTitleArray count]; i++) {
         [arrayForBool addObject:[NSNumber numberWithBool:NO]];
     }
+    
+    _expandableTableView.delegate = self;
+    _expandableTableView.dataSource = self;
+    
 }
 
+- (void) getSectionList{
+    
+}
 
 #pragma mark -
 #pragma mark TableView DataSource and Delegate Methods

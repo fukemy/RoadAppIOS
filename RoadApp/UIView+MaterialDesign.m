@@ -7,6 +7,8 @@
 //
 
 #import "UIView+MaterialDesign.h"
+#import "Utilities.h"
+#import "Constant.h"
 
 const CGFloat UIViewMaterialDesignTransitionDurationCoeff			= 0.65;
 
@@ -19,7 +21,7 @@ const CGFloat UIViewMaterialDesignTransitionDurationCoeff			= 0.65;
 		UIView *containerView = fromView.superview;
 		CGPoint convertedPoint = [fromView convertPoint:originalPoint fromView:fromView];
 		containerView.layer.masksToBounds = YES;
-		[containerView mdAnimateAtPoint:convertedPoint backgroundColor:toView.backgroundColor duration:duration * UIViewMaterialDesignTransitionDurationCoeff inflating:YES zTopPosition:YES shapeLayer:nil completion:^{
+		[containerView mdAnimateAtPoint:convertedPoint backgroundColor:[Utilities colorFromHexString:MAIN_COLOR] duration:duration * UIViewMaterialDesignTransitionDurationCoeff inflating:YES zTopPosition:YES shapeLayer:nil completion:^{
 			toView.alpha = 0.0;
 			
 			// TODO: transform property could be not identity

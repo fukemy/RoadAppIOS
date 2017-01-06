@@ -11,7 +11,7 @@
 @protocol floatMenuDelegate <NSObject>
 
 @optional
--(void) didSelectMenuOptionAtIndex:(NSInteger)row;
+-(void) didSelectMenuOptionAtIndex:(NSInteger)row point:(CGPoint) point;
 @end
 
 
@@ -20,6 +20,7 @@
 @property NSArray      *imageArray,*labelArray;
 @property UITableView  *menuTable;
 @property UIView       *buttonView;
+@property (nonatomic) int isShow;
 @property id<floatMenuDelegate> delegate;
 
 @property (nonatomic) BOOL hideWhileScrolling;
@@ -38,6 +39,6 @@
 
 -(id)initWithFrame:(CGRect)frame normalImage:(UIImage*)passiveImage andPressedImage:(UIImage*)activeImage withScrollview:(UIScrollView*)scrView;
 //-(void) setupButton;
-
+- (void) reloadInput;
 
 @end

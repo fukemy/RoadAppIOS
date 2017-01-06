@@ -745,8 +745,23 @@
                     <view key="view" contentMode="scaleToFill" id="92E-Tl-Tgk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7pc-mk-1fq">
+                                <rect key="frame" x="0.0" y="69" width="320" height="499"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7pc-mk-1fq" secondAttribute="trailing" id="DZ1-a3-gQa"/>
+                            <constraint firstItem="gUc-eA-gfu" firstAttribute="top" secondItem="7pc-mk-1fq" secondAttribute="bottom" id="fRV-yI-gZA"/>
+                            <constraint firstItem="7pc-mk-1fq" firstAttribute="top" secondItem="92E-Tl-Tgk" secondAttribute="top" constant="69" id="s63-nI-zDF"/>
+                            <constraint firstItem="7pc-mk-1fq" firstAttribute="leading" secondItem="92E-Tl-Tgk" secondAttribute="leading" id="sHz-LI-FYc"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="expandableTableView" destination="7pc-mk-1fq" id="6du-qb-goW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wKN-Yt-miB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -784,7 +799,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5kw-AM-8QR">
-                                <rect key="frame" x="0.0" y="5" width="320" height="563"/>
+                                <rect key="frame" x="0.0" y="69" width="320" height="499"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="IHH-TQ-E9S">
                                     <size key="itemSize" width="50" height="50"/>
@@ -810,7 +825,7 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5kw-AM-8QR" firstAttribute="top" secondItem="UEF-Kt-JgZ" secondAttribute="top" constant="5" id="MGA-8H-3z9"/>
+                            <constraint firstItem="5kw-AM-8QR" firstAttribute="top" secondItem="UEF-Kt-JgZ" secondAttribute="top" constant="69" id="MGA-8H-3z9"/>
                             <constraint firstAttribute="trailing" secondItem="5kw-AM-8QR" secondAttribute="trailing" id="MMi-l0-GMH"/>
                             <constraint firstItem="5kw-AM-8QR" firstAttribute="leading" secondItem="UEF-Kt-JgZ" secondAttribute="leading" id="b1h-PQ-zGe"/>
                             <constraint firstItem="5kw-AM-8QR" firstAttribute="bottom" secondItem="O6U-O6-fwS" secondAttribute="top" id="ubB-gm-gj2"/>

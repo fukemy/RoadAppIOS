@@ -17,6 +17,7 @@
 #import "SVProgressHUD.h"
 #import "JSONParser.h"
 #import "ImageDb.h"
+#import "ReportController.h"
 
 @interface ReportDiary (){
     NSMutableArray *dataList, *dataToUpload, *imageToUpload;
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setTitle:[MENU_REPORT uppercaseString]];
     [self initLayout];
     [self initData];
@@ -38,14 +40,6 @@
 
 - (void) initLayout{
     [_cvData registerNib:[UINib nibWithNibName:@"ReportScreenViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReportScreenViewCell"];
-    
-    CGRect floatFrame = CGRectMake([UIScreen mainScreen].bounds.size.width - 44 - 20, [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
-    VCFloatingActionButton *addButton = [[VCFloatingActionButton alloc]initWithFrame:floatFrame normalImage:[UIImage imageNamed:@"plus"] andPressedImage:[UIImage imageNamed:@"plus"] withScrollview:_cvData];
-    addButton.imageArray = @[@"upload"];
-    addButton.labelArray = @[@"Upload"];
-    addButton.hideWhileScrolling = YES;
-    addButton.delegate = self;
-    [self.view addSubview:addButton];
 }
 
 
@@ -53,23 +47,6 @@
     imageOrderUpload = 0;
     dataList = [DataTypeItemDb getAllDataTypeItem];
     [_cvData reloadData];
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayRightMenu
-{
-    return NO;
-}
-
--(void) didSelectMenuOptionAtIndex:(NSInteger)row
-{
-    NSLog(@"Floating action tapped index %tu",row);
-    if(row == 0)
-       [self uploadData];
 }
 
 #pragma mark - collectionview

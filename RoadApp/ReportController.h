@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "KDViewPager.h"
 #import "SlideNavigationController.h"
+#import "VCFloatingActionButton.h"
 
-@interface ReportController : UIViewController<SlideNavigationControllerDelegate>
-
+@interface ReportController : UIViewController<SlideNavigationControllerDelegate, floatMenuDelegate>
 @end

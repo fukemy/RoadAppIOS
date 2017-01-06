@@ -55,6 +55,8 @@
         MenuTopLayoutTableViewCell *cell = (MenuTopLayoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuTopLayoutTableViewCell"];
         cell.imvAvatar.layer.cornerRadius = 35;
         cell.imvAvatar.layer.masksToBounds = YES;
+        cell.imvAvatar.layer.borderColor = [Utilities colorwithHexString:@"FFFFFF" alpha:0.3f].CGColor;
+        cell.imvAvatar.layer.borderWidth = 2.0f;
         
         [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://i.stack.imgur.com/KC3mu.png"] placeholderImage:[UIImage imageNamed:@"male_avtar"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if(!error){
@@ -64,7 +66,8 @@
             }
         }];
         
-        cell.tfName.text = [NSString stringWithFormat:@"@@ %ld", (long)indexPath.row];
+        cell.tfName.text = @"Đỗ Việt Dũng";
+        cell.tfPosition.text = @"Nhân viên";
         [cell setUserInteractionEnabled:NO];
         return cell;
         

@@ -9,6 +9,8 @@
 #ifndef Constant_h
 #define Constant_h
 
+#define APP_NAME @"Tuần đường"
+
 //URL
 
 #define BASE_URL @"http://khaosatdiachat.com:8887/api/"
@@ -38,6 +40,10 @@
 #define MENU_LOGOUT @"Đăng xuất"
 #define REPORT @"Báo cáo"
 #define THONG_TIN_CHI_TIET @"Thông tin chi tiết"
+
+
+#define VIEW_BY_REPORT_DIARY @"Xem theo nhật ký"
+#define VIEW_BY_REPORT_STATUS @"Xem theo hạng mục"
 
 
 //COLOR

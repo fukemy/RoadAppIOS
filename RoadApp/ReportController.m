@@ -13,6 +13,7 @@
 #import "Constant.h"
 #import "UIView+MaterialDesign.h"
 
+
 @implementation ReportController{
     ReportDiary *diaryVC;
     ReportStatus *statusVC;
@@ -35,7 +36,7 @@
                                    [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
     vcButton = [[VCFloatingActionButton alloc]initWithFrame:floatFrame normalImage:[UIImage imageNamed:@"plus"] andPressedImage:[UIImage imageNamed:@"plus"] withScrollview:nil];
     vcButton.imageArray = @[@"upload", @"status_report_icon"];
-    vcButton.labelArray = @[@"Upload", @"Show by collection"];
+    vcButton.labelArray = @[@"Upload", VIEW_BY_REPORT_STATUS];
     vcButton.hideWhileScrolling = NO;
     vcButton.delegate = self;
     vcButton.isShow = 1;
@@ -85,7 +86,7 @@
     [UIView mdInflateTransitionFromView:diaryVC.view toView:statusVC.view originalPoint:CGPointMake(x, y) duration:0.7 completion:^{
         [self.view bringSubviewToFront:vcButton];
         vcButton.imageArray = @[@"upload", @"diary_report_icon"];
-        vcButton.labelArray = @[@"Upload", @"Show by diary"];
+        vcButton.labelArray = @[@"Upload", VIEW_BY_REPORT_DIARY];
         vcButton.isShow = 0;
         [vcButton reloadInput];
     }];
@@ -95,7 +96,7 @@
     [UIView mdInflateTransitionFromView:statusVC.view toView:diaryVC.view originalPoint:CGPointMake(x, y) duration:0.7 completion:^{
         [self.view bringSubviewToFront:vcButton];
         vcButton.imageArray = @[@"upload", @"status_report_icon"];
-        vcButton.labelArray = @[@"Upload", @"by by diary"];
+        vcButton.labelArray = @[@"Upload", VIEW_BY_REPORT_STATUS];
         vcButton.isShow = 1;
         [vcButton reloadInput];
 

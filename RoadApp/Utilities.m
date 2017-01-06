@@ -100,7 +100,7 @@
 
 + (void) showSimpleAlert:(NSString *)message atViewController:(UIViewController *)controller
 {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:message message:nil preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:APP_NAME message:message preferredStyle:UIAlertControllerStyleAlert];
     
     [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         [controller dismissViewControllerAnimated:YES completion:nil];

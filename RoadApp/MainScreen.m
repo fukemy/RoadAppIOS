@@ -123,16 +123,6 @@
     chooseRoadVC.dataList = dataList;
     chooseRoadVC.delegate = self;
     chooseRoadVC.popOver = popoverController;
-//    UINavigationController *destVC = [[UINavigationController alloc] initWithRootViewController:chooseRoadVC];
-//    [destVC setPreferredContentSize:CGSizeMake(250, dataList.count  <= 5 ?  (dataList.count - 1 ) * 50 : 200)];
-//    [destVC setModalPresentationStyle:UIModalPresentationPopover];
-//    destVC.popoverPresentationController.delegate = self;
-//    destVC.popoverPresentationController.barButtonItem = (UIBarButtonItem *)sender;
-//    destVC.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionUp;
-//    destVC.popoverPresentationController.backgroundColor = [UIColor whiteColor];
-    
-//    [destVC setModalPresentationStyle:UIModalPresentationPopover];
-//    [self presentViewController:destVC animated:YES completion:nil];
     [popoverController presentPopoverFromRect:[view bounds]
                              inView:view
            permittedArrowDirections:WYPopoverArrowDirectionAny
@@ -178,7 +168,6 @@
     int i = 0;
     for (UIView *viewToCheck in viewHierarchy) {
         for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
-            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
             gestureRecognizer.delaysTouchesBegan = NO;
         }
     }

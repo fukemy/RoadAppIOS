@@ -17,6 +17,7 @@
 
 @interface Utilities : NSObject
 + (UIColor *)colorFromHexString:(NSString *)hexString;
++ (UIColor *)colorwithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
 + (NSString *)removeString:(NSString *)str byCharacter:(NSString *)character;
 + (UIImage *)getItemBackground:(int) order;
 + (void)shakeView:(UIView *)view withInfinity:(BOOL)isInfinity;

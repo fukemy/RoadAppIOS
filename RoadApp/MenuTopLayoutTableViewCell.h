@@ -11,5 +11,6 @@
 @interface MenuTopLayoutTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *tfName;
 @property (strong, nonatomic) IBOutlet UIImageView *imvAvatar;
+@property (strong, nonatomic) IBOutlet UILabel *tfPosition;
 
 @end

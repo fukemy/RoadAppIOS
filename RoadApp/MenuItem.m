@@ -7,6 +7,7 @@
 //
 
 #import "MenuItem.h"
+#import "Utilities.h"
 
 @implementation MenuItem
 
@@ -17,8 +18,9 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    
+    UIView * selectedBackgroundView = [[UIView alloc] init];
+    [selectedBackgroundView setBackgroundColor:[Utilities colorwithHexString:@"FFFFFF" alpha:0.05f]];
+    [self setSelectedBackgroundView:selectedBackgroundView];
 }
-
 @end

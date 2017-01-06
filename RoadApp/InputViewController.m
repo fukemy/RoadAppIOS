@@ -344,7 +344,6 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     int i = 0;
     for (UIView *viewToCheck in viewHierarchy) {
         for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
-            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
             gestureRecognizer.delaysTouchesBegan = NO;
         }
     }

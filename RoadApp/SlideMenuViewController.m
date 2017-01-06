@@ -38,10 +38,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view setUserInteractionEnabled:YES];
-    menuItemList = [[NSArray alloc] initWithObjects:@"", MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, MENU_LOGOUT, nil];
+    [self.navigationController setNavigationBarHidden:YES];
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    menuItemList = [[NSArray alloc] initWithObjects:@"", MENU_MAIN_SCREEN, MENU_ICI_CHECKING, MENU_REPORT, MENU_MAP, MENU_VIDEO, nil];
     self.tableView.separatorColor = [UIColor lightGrayColor];
+    
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return menuItemList.count;
@@ -50,12 +53,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.row == 0){
         MenuTopLayoutTableViewCell *cell = (MenuTopLayoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuTopLayoutTableViewCell"];
-        cell.imvAvatar.layer.cornerRadius = cell.imvAvatar.frame.size.height / 2;
+        cell.imvAvatar.layer.cornerRadius = 35;
         cell.imvAvatar.layer.masksToBounds = YES;
-        
-        CGRect avtarFrame = cell.imvAvatar.frame;
-        avtarFrame.origin.x = self.view.frame.size.width / 2 - avtarFrame.size.width / 2;
-        cell.imageView.frame = avtarFrame;
         
         [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://i.stack.imgur.com/KC3mu.png"] placeholderImage:[UIImage imageNamed:@"male_avtar"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if(!error){
@@ -66,7 +65,6 @@
         }];
         
         cell.tfName.text = [NSString stringWithFormat:@"@@ %ld", (long)indexPath.row];
-//        cell.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
         [cell setUserInteractionEnabled:NO];
         return cell;
         
@@ -76,26 +74,43 @@
         cell.imvMenu.image = [self imageForCell:(long)indexPath.row];
         cell.tfMenuName.textColor = [UIColor whiteColor];
         
-        [cell setUserInteractionEnabled:YES];
         return cell;
         
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView didHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Add your Colour.
+    if(indexPath.row == 0)
+        return;
+    MenuItem *cell = (MenuItem *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = [Utilities colorwithHexString:@"FFFFFF" alpha:0.05f];
+}
+
+- (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Reset Colour.
+    if(indexPath.row == 0)
+        return;
+    MenuItem *cell = (MenuItem *)[tableView cellForRowAtIndexPath:indexPath];
+    cell.backgroundColor = [UIColor clearColor];
+}
+
 - (UIImage *) imageForCell:(long) row{
     switch (row) {
-        case 0:
-            return [UIImage imageNamed:@"menu_main_screen"];
         case 1:
-            return [UIImage imageNamed:@"menu_main_screen"];
+            return [UIImage imageNamed:@"MENU_MAIN_SCREEN"];
         case 2:
-            return [UIImage imageNamed:@"menu_main_screen"];
+            return [UIImage imageNamed:@"MENU_ICI_CHECKING"];
         case 3:
-            return [UIImage imageNamed:@"menu_main_screen"];
+            return [UIImage imageNamed:@"MENU_REPORT"];
         case 4:
-            return [UIImage imageNamed:@"menu_main_screen"];
+            return [UIImage imageNamed:@"MENU_MAP"];
         case 5:
-            return [UIImage imageNamed:@"menu_main_screen"];
+            return [UIImage imageNamed:@"MENU_VIDEO"];
         default:
             return nil;
     }
@@ -139,13 +154,6 @@
         case 5:
             vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"VideoViewController"];
             break;
-            
-        case 6:
-            [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:USER_LOGGED];
-            [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
-            [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
-            return;
-            break;
     }
     
     [[SlideNavigationController sharedInstance] popToRootAndSwitchToViewController:vc
@@ -154,4 +162,12 @@
     
 }
 
+- (IBAction)goSeting:(id)sender {
+}
+
+- (IBAction)logOut:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@0 forKey:USER_LOGGED];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
+    [[SlideNavigationController sharedInstance] popToRootViewControllerAnimated:YES];
+}
 @end

@@ -11,4 +11,8 @@
 @interface SlideMenuViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL slideOutAnimationEnabled;
+@property (strong, nonatomic) IBOutlet UIButton *btSetting;
+@property (strong, nonatomic) IBOutlet UIButton *btLogout;
+- (IBAction)goSeting:(id)sender;
+- (IBAction)logOut:(id)sender;
 @end

@@ -254,7 +254,7 @@ CGFloat buttonToScreenHeight;
     if ([keyPath isEqualToString:@"contentOffset"])
     {
         
-        NSLog(@"%f",bgScroller.contentOffset.y);
+//        NSLog(@"%f",bgScroller.contentOffset.y);
        
         CGFloat diff = previousOffset - bgScroller.contentOffset.y;
         
@@ -269,13 +269,13 @@ CGFloat buttonToScreenHeight;
             {
                 [self showMenuDuringScroll:YES];
             }
-            
-            
         }
-
     }
 }
 
+- (void) reloadInput{
+    [self.menuTable reloadData];
+}
 
 #pragma mark -- Tableview methods
 
@@ -351,18 +351,22 @@ CGFloat buttonToScreenHeight;
 //        cell.title.text = [[_menuItemSet allValues]objectAtIndex:indexPath.row];
     
     cell.imgView.image = [UIImage imageNamed:[_imageArray objectAtIndex:indexPath.row]];
-    cell.title.text    = [_labelArray objectAtIndex:indexPath.row];
+    cell.title.text = [_labelArray objectAtIndex:indexPath.row];
     if(indexPath.row == 0)
        [cell.title setTextColor:[Utilities colorFromHexString:MAIN_COLOR]];
     
+    cell.imgView.tag = indexPath.row;
+    cell.imgView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *gesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didSelectCell:)];
+    gesture.numberOfTapsRequired = 1;
+    [cell.imgView addGestureRecognizer:gesture];
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-//    NSLog(@"selected CEll: %tu",indexPath.row);
-    [delegate didSelectMenuOptionAtIndex:indexPath.row];
-    
+- (void)didSelectCell:(UITapGestureRecognizer *)sender{
+    CGPoint point = [sender locationInView:self.bgView];
+    [self handleTap:nil];
+    [delegate didSelectMenuOptionAtIndex:sender.view.tag point:point];
 }
 
 @end

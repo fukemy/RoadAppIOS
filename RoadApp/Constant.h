@@ -52,7 +52,14 @@
 #define ROAD_CHOOSEN @"road choosen"
 #define ITEM_DATA_LIST @"item data list"
 #define GOOGLEMAP_KEY @"AIzaSyCbee2MxY3noVIKenWbHyLOobYplT9xNRo"
+#define INTRO_IMAGE @"Một chỉ mục tuần đường tương ứng sẽ có giới hạn 4 ảnh."
+#define CONCEPT @"Nhấn add image (+) để thêm ảnh bằng cách chụp hoặc chọn từ thư viện, nhấn vào ảnh và giữ để hiển thị xoá, nhấn cancel để huỷ và nhấn Back để kết thúc bước nhập ảnh."
 
+
+#define BACK @"Quay lại"
+#define CANCEL @"Huỷ"
+#define DONE @"Xong"
+#define SAVE @"Lưu"
 
 //CATEGORY
 #define CATEGORY_MAT_DUONG @"Mặt Đường"
@@ -79,5 +86,7 @@
 #define REPORT_ACCIDENT @"Báo cáo tai nạn"
 #define REPORT_PROBLEM @"Báo cáo sự cố"
 
+#pragma mark - other
+#define NO_DATA @"Chưa cập nhập."
 
 #endif /* Constant_h */

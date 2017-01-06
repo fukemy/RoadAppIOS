@@ -14,6 +14,7 @@
 @implementation DataTypeItemDb (CoreDataProperties)
 
 @dynamic dataid;
+@dynamic itemname;
 @dynamic danhgia;
 @dynamic nguoinhap;
 @dynamic lytrinh;

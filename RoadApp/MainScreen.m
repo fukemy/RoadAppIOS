@@ -172,6 +172,16 @@
     _pager = [[KDViewPager alloc] initWithController:self inView:_viewpager];
     _pager.datasource = self;
     _pager.delegate = self;
+    
+    NSArray *subviews = _pager.pagerView.subviews;
+    NSArray *viewHierarchy = [@[_pager.pagerView] arrayByAddingObjectsFromArray:subviews];
+    int i = 0;
+    for (UIView *viewToCheck in viewHierarchy) {
+        for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
+            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
+            gestureRecognizer.delaysTouchesBegan = NO;
+        }
+    }
 }
 
 - (void) reloadViewPager{

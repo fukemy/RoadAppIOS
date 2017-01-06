@@ -52,6 +52,11 @@
         MenuTopLayoutTableViewCell *cell = (MenuTopLayoutTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"MenuTopLayoutTableViewCell"];
         cell.imvAvatar.layer.cornerRadius = cell.imvAvatar.frame.size.height / 2;
         cell.imvAvatar.layer.masksToBounds = YES;
+        
+        CGRect avtarFrame = cell.imvAvatar.frame;
+        avtarFrame.origin.x = self.view.frame.size.width / 2 - avtarFrame.size.width / 2;
+        cell.imageView.frame = avtarFrame;
+        
         [cell.imvAvatar sd_setImageWithURL:[NSURL URLWithString:@"https://i.stack.imgur.com/KC3mu.png"] placeholderImage:[UIImage imageNamed:@"male_avtar"] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
             if(!error){
                 cell.imvAvatar.image = image;
@@ -61,7 +66,7 @@
         }];
         
         cell.tfName.text = [NSString stringWithFormat:@"@@ %ld", (long)indexPath.row];
-        cell.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
+//        cell.backgroundColor = [Utilities colorFromHexString:MAIN_COLOR];
         [cell setUserInteractionEnabled:NO];
         return cell;
         
@@ -69,8 +74,8 @@
         MenuItem *cell = (MenuItem *)[tableView dequeueReusableCellWithIdentifier:@"MenuItem"];
         cell.tfMenuName.text = [menuItemList objectAtIndex:(long)indexPath.row];
         cell.imvMenu.image = [self imageForCell:(long)indexPath.row];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.textLabel.textColor = [UIColor blackColor];
+        cell.tfMenuName.textColor = [UIColor whiteColor];
+        
         [cell setUserInteractionEnabled:YES];
         return cell;
         
@@ -124,7 +129,7 @@
             break;
             
         case 3:
-            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportDiary"];
+            vc = [mainStoryboard instantiateViewControllerWithIdentifier: @"ReportController"];
             break;
             
         case 4:

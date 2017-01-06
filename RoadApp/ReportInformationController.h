@@ -10,8 +10,9 @@
 #import <GoogleMaps/GoogleMaps.h>
 #import "DataTypeItemDb.h"
 #import "ImageDb.h"
+#import "BFPaperButton.h"
 
-@interface ReportInformationController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate>
+@interface ReportInformationController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIGestureRecognizerDelegate, BFPagerButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -26,7 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *lbTinhTrang;
 @property (weak, nonatomic) IBOutlet UILabel *lbMoTaChiTiet;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImage;
-@property (weak, nonatomic) IBOutlet UIButton *btDone;
+@property (weak, nonatomic) IBOutlet BFPaperButton *btDone;
 @property (strong, nonatomic) IBOutlet UIView *viewImage;
 @property (weak, nonatomic) IBOutlet UILabel *lbImage;
 - (IBAction)goBack:(id)sender;

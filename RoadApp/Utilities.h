@@ -34,4 +34,5 @@
 + (void)getLocationByCoor:(CLLocation *)loc success:(void (^)(id responseObject))success failure:(void (^)(NSError *error))failure;
 + (void) sizeLabel: (UILabel *) label toRect: (CGRect) labelRect;
 + (void)getPhotoByPath:(NSString *)path success:(void (^)(UIImage *responseObject))success failure:(void (^)(NSError *error))failure;
++ (NSMutableArray *) getSectionListItem;
 @end

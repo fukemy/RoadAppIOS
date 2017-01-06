@@ -16,7 +16,7 @@
 
 @interface ReportInformationController (){
     NSMutableArray *imageList;
-    BOOL isFullScreen;
+    BOOL isFullScreen, *isImageAnimating;
     UIImageView *preImg;
     CGRect preFrame;
     UIGestureRecognizer *gesture;
@@ -42,9 +42,6 @@
                                                                                target:self action:@selector(goBack)];
     self.navigationController.navigationItem.leftBarButtonItems = @[backButon];
     
-    _btDone.layer.cornerRadius = _btDone.frame.size.width / 2;
-    _btDone.layer.masksToBounds = YES;
-    
     _viewTongQuan.backgroundColor = [Utilities colorFromHexString:INPUT_COLOR];
     _viewTongQuan.alpha  = 0.1;
     _viewTongQuan.layer.cornerRadius = 10.0f;
@@ -66,6 +63,33 @@
     [_cvImage addGestureRecognizer:gesture];
     gesture.delegate = self;
     
+    [_btDone setIsRaised:YES];
+    [_btDone setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btDone setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [_btDone addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+    [_btDone setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+    _btDone.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
+    _btDone.cornerRadius = _btDone.frame.size.width / 2;
+    _btDone.rippleFromTapLocation = NO;
+    _btDone.rippleBeyondBounds = YES;
+    _btDone.tapCircleDiameter = MAX(_btDone.frame.size.width, _btDone.frame.size.height) * 1.3;
+    _btDone.delegate = self;
+    
+    NSArray *subviews = self.view.subviews;
+    NSArray *viewHierarchy = [@[self.view] arrayByAddingObjectsFromArray:subviews];
+    int i = 0;
+    for (UIView *viewToCheck in viewHierarchy) {
+        for (UIGestureRecognizer *gestureRecognizer in viewToCheck.gestureRecognizers) {
+            NSLog(@"%d gestureRecognizer: %@", i++, gestureRecognizer);
+            gestureRecognizer.delaysTouchesBegan = NO;
+        }
+    }
+    [_scrollView setDelaysContentTouches:NO];
+    
+}
+
+-(void)didEndAnimationClick{
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) initData{
@@ -100,7 +124,8 @@
         }];
     }
     
-    isFullScreen = false;
+    isFullScreen = NO;
+    isImageAnimating = NO;
     imageList = [ImageDb findImageWithUUID:_itemModel.dataid];
     if(imageList.count > 0){
         [_lbImage setHidden:YES];
@@ -130,7 +155,6 @@
     
     ImageDb *img = [imageList objectAtIndex:indexPath.row];
     [Utilities getPhotoByPath:img.imagename success:^(UIImage *image) {
-        
         cell.img.image = image;
         
     } failure:^(NSError *error) {
@@ -143,37 +167,36 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   
-}
-
-- (void)imageTouched:(UITapGestureRecognizer *) sender{
-    
-}
 
 -(void)imgToFullScreen:(UIImageView *) image withRect:(CGRect ) rect{
     int dx = -rect.origin.x;
     int dy = -rect.origin.y;
+    if(isImageAnimating)
+        return;
     if(!isFullScreen){
         isFullScreen = YES;
         preFrame = image.frame;
         preImg = image;
+        isImageAnimating = YES;
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             preImg.frame = CGRectMake(dx, dy, self.view.frame.size.width, self.view.frame.size.height);
         }completion:^(BOOL finished){
             [_scrollView setScrollEnabled:NO];
             [_cvImage setScrollEnabled:NO];
+            isImageAnimating = NO;
         }];
     }else{
         [preImg setUserInteractionEnabled:NO];
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             preImg.frame = preFrame;
+            isImageAnimating = YES;
         }completion:^(BOOL finished){
             isFullScreen = NO;
             [self enableAllCell];
             preImg = nil;
             [_scrollView setScrollEnabled:YES];
             [_cvImage setScrollEnabled:YES];
+            isImageAnimating = NO;
         }];
     }
 }
@@ -228,6 +251,6 @@
 }
 
 - (IBAction)goBack:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -12,6 +12,7 @@
 #import "ICHObjectPrinter.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "Constant.h"
 
 @implementation Utilities
 
@@ -253,5 +254,18 @@
          // error handling
          NSLog(@"failure-----: %@", [error localizedDescription]);
      }];
+}
+
++ (NSMutableArray *)getSectionListItem{
+    NSString *itemDataString = [[NSUserDefaults standardUserDefaults] objectForKey:ITEM_DATA_LIST];
+    
+    NSError *error = nil;
+    
+    NSData *JSONData = [itemDataString dataUsingEncoding:NSUTF8StringEncoding];
+    if(JSONData == nil){
+        return [[NSMutableArray alloc] init];
+    }else{
+        return [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:&error];
+    }
 }
 @end

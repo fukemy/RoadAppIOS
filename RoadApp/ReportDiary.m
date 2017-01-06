@@ -17,6 +17,7 @@
 #import "SVProgressHUD.h"
 #import "JSONParser.h"
 #import "ImageDb.h"
+#import "ReportController.h"
 
 @interface ReportDiary (){
     NSMutableArray *dataList, *dataToUpload, *imageToUpload;
@@ -31,6 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     [self setTitle:[MENU_REPORT uppercaseString]];
     [self initLayout];
     [self initData];
@@ -38,14 +40,6 @@
 
 - (void) initLayout{
     [_cvData registerNib:[UINib nibWithNibName:@"ReportScreenViewCell" bundle:nil] forCellWithReuseIdentifier:@"ReportScreenViewCell"];
-    
-    CGRect floatFrame = CGRectMake([UIScreen mainScreen].bounds.size.width - 44 - 20, [UIScreen mainScreen].bounds.size.height - 44 - 20, 44, 44);
-    VCFloatingActionButton *addButton = [[VCFloatingActionButton alloc]initWithFrame:floatFrame normalImage:[UIImage imageNamed:@"plus"] andPressedImage:[UIImage imageNamed:@"plus"] withScrollview:_cvData];
-    addButton.imageArray = @[@"upload"];
-    addButton.labelArray = @[@"Upload"];
-    addButton.hideWhileScrolling = YES;
-    addButton.delegate = self;
-    [self.view addSubview:addButton];
 }
 
 
@@ -53,23 +47,6 @@
     imageOrderUpload = 0;
     dataList = [DataTypeItemDb getAllDataTypeItem];
     [_cvData reloadData];
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayLeftMenu
-{
-    return YES;
-}
-
-- (BOOL)slideNavigationControllerShouldDisplayRightMenu
-{
-    return NO;
-}
-
--(void) didSelectMenuOptionAtIndex:(NSInteger)row
-{
-    NSLog(@"Floating action tapped index %tu",row);
-    if(row == 0)
-       [self uploadData];
 }
 
 #pragma mark - collectionview
@@ -100,6 +77,7 @@
     cell.lbDataTypeName.text = data.datatypename ? data.datatypename : @"";
     cell.lbRoadName.text = data.tenduong ? [data.tenduong uppercaseString]: @"";
     cell.lbCategory.text = data.danhgia ? data.danhgia : @"";
+    cell.dataItemname.text = data.itemname ? [data.itemname uppercaseString]: @"";
     
     cell.indexPath = indexPath;
     cell.delegate = self;
@@ -113,9 +91,6 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ReportInformationController *inforVC = [storyboard instantiateViewControllerWithIdentifier:@"ReportInformationController"];
     inforVC.itemModel = data;
-    
-//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:inforVC];
-//    [self.navigationController presentViewController:navVC animated:YES completion:nil];
     [self presentViewController:inforVC animated:YES completion:nil];
 }
 
@@ -159,6 +134,13 @@
     NSMutableDictionary *dict;
     for(DataTypeItemDb *data in dataList){
         if([data.isupload intValue] == 0){
+            
+            //check null - other problem
+            if(data.motatinhtrang == nil)
+                data.motatinhtrang = NO_DATA;
+            if(data.lytrinh == nil)
+                data.lytrinh = NO_DATA;
+            
             dict = [[NSMutableDictionary alloc] init];
             [dict setObject:data.dataid forKey:@"DataID"];
             [dict setObject:data.datatype forKey:@"DataType"];

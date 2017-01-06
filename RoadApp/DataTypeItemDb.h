@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSMutableArray *) getAllDataTypeItem;
 + (NSMutableArray *) findDataTypeWithUUID:(NSString *) UUID;
 + (void) updateDataTypeWithUUID:(NSString *) UUID;
++ (NSMutableArray *) getDataItemByitemName:(NSString *) dataTypeName;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -10,6 +10,7 @@
 #import "AppDelegate.h"
 #import "DataTypeItemModel.h"
 #import "Utilities.h"
+#import "Constant.h"
 
 @implementation DataTypeItemDb
 
@@ -21,19 +22,20 @@
     NSManagedObject *transaction = [NSEntityDescription insertNewObjectForEntityForName:@"DataTypeItemDb" inManagedObjectContext:context];
     
     [transaction setValue:dataTypeItemModel.DataID forKey:@"dataid"];
+    [transaction setValue:dataTypeItemModel.ItemName forKey:@"itemname"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.DataType] forKey:@"datatype"];
     [transaction setValue:dataTypeItemModel.DataTypeName forKey:@"datatypename"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.MaDuong] forKey:@"maduong"];
     [transaction setValue:dataTypeItemModel.TenDuong forKey:@"tenduong"];
     [transaction setValue:[NSNumber numberWithInt:dataTypeItemModel.TuyenSo] forKey:@"tuyenso"];
-    [transaction setValue:dataTypeItemModel.MoTaTinhTrang forKey:@"motatinhtrang"];
+    [transaction setValue:dataTypeItemModel.MoTaTinhTrang == nil ? NO_DATA : dataTypeItemModel.MoTaTinhTrang forKey:@"motatinhtrang"];
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.KinhDo]  forKey:@"kinhdo"];
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.ViDo] forKey:@"vido"];
     [transaction setValue:[NSNumber numberWithFloat:dataTypeItemModel.CaoDo] forKey:@"caodo"];
-    [transaction setValue:dataTypeItemModel.LyTrinh forKey:@"lytrinh"];
+    [transaction setValue:dataTypeItemModel.LyTrinh == nil ? NO_DATA : dataTypeItemModel.LyTrinh forKey:@"lytrinh"];
     [transaction setValue:@"dungdv" forKey:@"nguoinhap"];
     [transaction setValue:[Utilities timeStamp] forKey:@"thoigiannhap"];
-    [transaction setValue:dataTypeItemModel.DanhGia forKey:@"danhgia"];
+    [transaction setValue:dataTypeItemModel.DanhGia == nil ? NO_DATA : dataTypeItemModel.DanhGia forKey:@"danhgia"];
     [transaction setValue:@0 forKey:@"isupload"];
     
 //    [Utilities toString:dataTypeItemModel];
@@ -67,16 +69,16 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DataTypeItemDb"];
     [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"dataid LIKE %@", UUID]];
     
-    NSMutableArray *imgList = [[NSMutableArray alloc] init];
+    NSMutableArray *dataList = [[NSMutableArray alloc] init];
     NSError *error = nil;
     NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
     if (!results) {
-        NSLog(@"Error fetching Employee objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        NSLog(@"Error fetching objects: %@\n%@", [error localizedDescription], [error userInfo]);
         abort();
     }
     
-    imgList = [[NSMutableArray alloc] initWithArray:results];
-    return  imgList;
+    dataList = [[NSMutableArray alloc] initWithArray:results];
+    return  dataList;
 }
 
 + (void) updateDataTypeWithUUID:(NSString *) UUID{
@@ -96,5 +98,24 @@
     }else{
         NSLog(@"can not find data type with UUID: %@", UUID);
     }
+}
+
++ (NSMutableArray *) getDataItemByitemName:(NSString *) itemName{
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext* context =  appDelegate.managedObjectContext;
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"DataTypeItemDb"];
+    [fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"itemname LIKE %@", itemName]];
+    
+    NSMutableArray *dataList = [[NSMutableArray alloc] init];
+    NSError *error = nil;
+    NSArray *results = [context executeFetchRequest:fetchRequest error:&error];
+    if (!results) {
+        NSLog(@"Error fetching objects: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    dataList = [[NSMutableArray alloc] initWithArray:results];
+    return  dataList;
 }
 @end

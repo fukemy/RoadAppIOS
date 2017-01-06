@@ -25,5 +25,6 @@
 @property (weak, nonatomic) IBOutlet UIView *btmViewOverlay;
 @property (nonatomic,strong) id<ReportScreenViewCellDelegate> delegate;
 @property (weak, nonatomic) NSIndexPath *indexPath;
+@property (weak, nonatomic) IBOutlet UILabel *dataItemname;
 
 @end

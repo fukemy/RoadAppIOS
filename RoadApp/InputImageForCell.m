@@ -11,9 +11,6 @@
 #import "Utilities.h"
 #import "Constant.h"
 
-#define INTRO_IMAGE @"Một chỉ mục tuần đường tương ứng sẽ có giới hạn 4 ảnh."
-#define CONCEPT @"Nhấn add image (+) để thêm ảnh bằng cách chụp hoặc chọn từ thư viện, nhấn vào ảnh và giữ để hiển thị xoá, nhấn cancel để huỷ và nhấn Back để kết thúc bước nhập ảnh."
-
 @implementation InputImageForCell{
     BOOL isActiveDelete;
 }
@@ -31,7 +28,40 @@
     _tfConcept.lineBreakMode = NSLineBreakByWordWrapping;
     _tfConcept.numberOfLines = 0;
     _tfConcept.adjustsFontSizeToFitWidth = YES;
-    self.view.translatesAutoresizingMaskIntoConstraints = YES;
+    
+    [_btBack setIsRaised:YES];
+    [_btBack setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [_btBack setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
+    [_btBack addTarget:self action:NULL forControlEvents:UIControlEventTouchUpInside];
+    [_btBack setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+    [_btBack setTapCircleColor:[Utilities colorFromHexString:MAIN_COLOR]];
+    _btBack.cornerRadius = _btBack.frame.size.width / 2;
+    _btBack.rippleFromTapLocation = NO;
+    _btBack.rippleBeyondBounds = YES;
+    _btBack.tapCircleDiameter = MAX(_btBack.frame.size.width, _btBack.frame.size.height) * 1.3;
+    _btBack.delegate = self;
+    
+}
+
+- (void)didEndAnimationClick{
+    if([_btBack.titleLabel.text isEqualToString:DONE]){
+        [_delegate doneAddImage:_data withUUID:_UUID];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else if([_btBack.titleLabel.text isEqualToString:CANCEL] && _btBack.backgroundColor == [UIColor redColor]){
+        isActiveDelete = NO;
+        [_btBack.titleLabel setText:CANCEL];
+        [_btBack setTitle:CANCEL forState:UIControlStateNormal];
+        [_btBack setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+        _btBack.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
+        [self checkBackButton];
+        [_cvImg reloadData];
+    }
+    else{
+        //push delegate here
+        [_delegate doneAddImage:_data withUUID:_UUID];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 #pragma mark - image cell delegate
@@ -45,8 +75,10 @@
         return;
     
     isActiveDelete = YES;
-    [_btBack.titleLabel setText:@"Cancel"];
-    [_btBack setTitle:@"Cancel" forState:UIControlStateNormal];
+    [_btBack.titleLabel setText:CANCEL];
+    [_btBack setTitle:CANCEL forState:UIControlStateNormal];
+    [_btBack setBackgroundColor:[UIColor redColor]];
+    _btBack.tapCircleColor = [UIColor redColor];
     [_cvImg reloadData];
 }
 
@@ -57,8 +89,10 @@
     } completion:^(BOOL finished) {
         if([_data count] == 0){
             isActiveDelete = NO;
-            _btBack.titleLabel.text = @"Back";
-            [_btBack setTitle:@"Back" forState:UIControlStateNormal];
+            _btBack.titleLabel.text = CANCEL;
+            [_btBack setTitle:CANCEL forState:UIControlStateNormal];
+            [_btBack setBackgroundColor:[Utilities colorFromHexString:MAIN_COLOR]];
+            _btBack.tapCircleColor = [Utilities colorFromHexString:MAIN_COLOR];
         }
         [self checkBackButton];
         [_cvImg reloadData];
@@ -71,20 +105,6 @@
 }
 
 - (IBAction)dismissView:(id)sender {
-    if([_btBack.titleLabel.text isEqualToString:@"Back"]){
-        [_delegate doneAddImage:_data withUUID:_UUID];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }else if([_btBack.titleLabel.text isEqualToString:@"Cancel"]){
-        isActiveDelete = NO;
-        [_btBack.titleLabel setText:@"Back"];
-        [_btBack setTitle:@"Back" forState:UIControlStateNormal];
-        [self checkBackButton];
-        [_cvImg reloadData];
-    }else{
-        //push delegate here
-        [_delegate doneAddImage:_data withUUID:_UUID];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
 }
 
 #pragma mark - table
@@ -121,8 +141,6 @@
         if([_data count] > 0 && [_data objectAtIndex:indexPath.row] != [NSNull null]){
             if([[_data objectAtIndex:indexPath.row] objectForKey:@"image"]){
                 cell.img.image = [[_data objectAtIndex:indexPath.row] objectForKey:@"image"];
-            }else{
-                [cell loadImageFromAsset:[[_data objectAtIndex:indexPath.row] objectForKey:@"path"]];
             }
         }
     }
@@ -138,8 +156,11 @@
 #pragma mark - other
 - (void) checkBackButton{
     if([_data count] > 0 && !isActiveDelete){
-        [_btBack.titleLabel setText:@"Done"];
-        [_btBack setTitle:@"Done" forState:UIControlStateNormal];
+        [_btBack.titleLabel setText:DONE];
+        [_btBack setTitle:DONE forState:UIControlStateNormal];
+        
+        [_btBack setBackgroundColor:[UIColor greenColor]];
+        _btBack.tapCircleColor = [UIColor greenColor];
     }
 }
 

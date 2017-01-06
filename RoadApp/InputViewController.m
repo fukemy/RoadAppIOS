@@ -326,6 +326,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
     }
     self.automaticallyAdjustsScrollViewInsets = NO;
     
+    
     [_btSave setIsRaised:YES];
     [_btSave setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_btSave setTitleColor:[UIColor lightGrayColor] forState:UIControlStateHighlighted];
@@ -512,7 +513,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
                                                                       NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];
                                                                       RoadInformationModel *roadModel = [[RoadInformationModel alloc] initWithDictionary:dictionary];
                                                                       model.TenDuong = roadModel.TenDuong;
-                                                                      
+                                                                      model.ItemName = _dataItemModel.ItemName;
                                                                       for(NSMutableDictionary *imgDict in imageList){
                                                                           NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
                                                                           for(NSMutableDictionary *dict in arrImg){

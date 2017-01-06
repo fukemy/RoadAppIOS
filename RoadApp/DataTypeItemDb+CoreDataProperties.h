@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DataTypeItemDb (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *dataid;
+@property (nullable, nonatomic, retain) NSString *itemname;
 @property (nullable, nonatomic, retain) NSString *danhgia;
 @property (nullable, nonatomic, retain) NSString *nguoinhap;
 @property (nullable, nonatomic, retain) NSString *lytrinh;

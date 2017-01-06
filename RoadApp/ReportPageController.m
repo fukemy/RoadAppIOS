@@ -500,6 +500,7 @@ static int const REPORT_CONTENT_TAG = 3;
                                                                       model.MaDuong = -1;
                                                                       model.TuyenSo = -1;
                                                                       model.DataType = -1;
+                                                                      model.ItemName = REPORT;
                                                                       
                                                                       NSData *choosenRoad = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
                                                                       NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];

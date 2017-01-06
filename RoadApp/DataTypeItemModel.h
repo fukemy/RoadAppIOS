@@ -30,6 +30,7 @@
 @interface DataTypeItemModel : NSObject
 
 @property NSString *DataID;
+@property NSString *ItemName;
 @property int DataType;
 @property NSString *DataTypeName;
 @property int MaDuong;

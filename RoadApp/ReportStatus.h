@@ -11,7 +11,7 @@
 @interface ReportStatus : UIViewController<UITableViewDataSource,UITableViewDelegate>
 {
     NSMutableArray  *arrayForBool;
-    NSArray *sectionTitleArray;
+    NSMutableArray *sectionTitleArray;
 
 }
 @property (weak, nonatomic) IBOutlet UITableView *expandableTableView;

@@ -77,6 +77,7 @@
     cell.lbDataTypeName.text = data.datatypename ? data.datatypename : @"";
     cell.lbRoadName.text = data.tenduong ? [data.tenduong uppercaseString]: @"";
     cell.lbCategory.text = data.danhgia ? data.danhgia : @"";
+    cell.dataItemname.text = data.itemname ? [data.itemname uppercaseString]: @"";
     
     cell.indexPath = indexPath;
     cell.delegate = self;

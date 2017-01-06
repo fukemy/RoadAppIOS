@@ -103,7 +103,7 @@
         else
         {
             DataTypeItemDb* rowItem = [[[sectionTitleArray objectAtIndex:indexPath.section] objectForKey:DATA_OF_SECTION] objectAtIndex:indexPath.row];
-            cell.textLabel.text=[NSString stringWithFormat:@" %d %@", (int)indexPath.row+1, rowItem.datatypename];
+            cell.textLabel.text=[NSString stringWithFormat:@" %d. %@", (int)indexPath.row+1, rowItem.datatypename];
             cell.textLabel.font=[UIFont systemFontOfSize:12.0f];
             cell.backgroundColor=[UIColor whiteColor];
             cell.selectionStyle=UITableViewCellSelectionStyleNone ;

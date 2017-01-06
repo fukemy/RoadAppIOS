@@ -254,7 +254,7 @@ CGFloat buttonToScreenHeight;
     if ([keyPath isEqualToString:@"contentOffset"])
     {
         
-        NSLog(@"%f",bgScroller.contentOffset.y);
+//        NSLog(@"%f",bgScroller.contentOffset.y);
        
         CGFloat diff = previousOffset - bgScroller.contentOffset.y;
         
@@ -269,10 +269,7 @@ CGFloat buttonToScreenHeight;
             {
                 [self showMenuDuringScroll:YES];
             }
-            
-            
         }
-
     }
 }
 

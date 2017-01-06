@@ -16,7 +16,7 @@
 
 @interface ReportInformationController (){
     NSMutableArray *imageList;
-    BOOL isFullScreen;
+    BOOL isFullScreen, *isImageAnimating;
     UIImageView *preImg;
     CGRect preFrame;
     UIGestureRecognizer *gesture;
@@ -124,7 +124,8 @@
         }];
     }
     
-    isFullScreen = false;
+    isFullScreen = NO;
+    isImageAnimating = NO;
     imageList = [ImageDb findImageWithUUID:_itemModel.dataid];
     if(imageList.count > 0){
         [_lbImage setHidden:YES];
@@ -154,7 +155,6 @@
     
     ImageDb *img = [imageList objectAtIndex:indexPath.row];
     [Utilities getPhotoByPath:img.imagename success:^(UIImage *image) {
-        
         cell.img.image = image;
         
     } failure:^(NSError *error) {
@@ -167,37 +167,36 @@
     return cell;
 }
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-   
-}
-
-- (void)imageTouched:(UITapGestureRecognizer *) sender{
-    
-}
 
 -(void)imgToFullScreen:(UIImageView *) image withRect:(CGRect ) rect{
     int dx = -rect.origin.x;
     int dy = -rect.origin.y;
+    if(isImageAnimating)
+        return;
     if(!isFullScreen){
         isFullScreen = YES;
         preFrame = image.frame;
         preImg = image;
+        isImageAnimating = YES;
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             preImg.frame = CGRectMake(dx, dy, self.view.frame.size.width, self.view.frame.size.height);
         }completion:^(BOOL finished){
             [_scrollView setScrollEnabled:NO];
             [_cvImage setScrollEnabled:NO];
+            isImageAnimating = NO;
         }];
     }else{
         [preImg setUserInteractionEnabled:NO];
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             preImg.frame = preFrame;
+            isImageAnimating = YES;
         }completion:^(BOOL finished){
             isFullScreen = NO;
             [self enableAllCell];
             preImg = nil;
             [_scrollView setScrollEnabled:YES];
             [_cvImage setScrollEnabled:YES];
+            isImageAnimating = NO;
         }];
     }
 }

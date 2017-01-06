@@ -156,6 +156,13 @@
     NSMutableDictionary *dict;
     for(DataTypeItemDb *data in dataList){
         if([data.isupload intValue] == 0){
+            
+            //check null - other problem
+            if(data.motatinhtrang == nil)
+                data.motatinhtrang = NO_DATA;
+            if(data.lytrinh == nil)
+                data.lytrinh = NO_DATA;
+            
             dict = [[NSMutableDictionary alloc] init];
             [dict setObject:data.dataid forKey:@"DataID"];
             [dict setObject:data.datatype forKey:@"DataType"];

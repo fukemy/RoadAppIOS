@@ -46,6 +46,7 @@
 		1F9A0E3A1E1413340046F365 /* InputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E391E1413340046F365 /* InputViewController.m */; };
 		1F9A0E3D1E14133D0046F365 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3C1E14133D0046F365 /* MapViewController.m */; };
 		1F9A0E401E14134F0046F365 /* IriCheckingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */; };
+		1FA015B71E1F598000084589 /* UIView+MaterialDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA015B61E1F598000084589 /* UIView+MaterialDesign.m */; };
 		1FAA42F61E1E0982007311ED /* ReportStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA42F51E1E0982007311ED /* ReportStatus.m */; };
 		1FAA42FA1E1E0D42007311ED /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA42F91E1E0D42007311ED /* ReportController.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
@@ -210,6 +211,8 @@
 		1F9A0E3C1E14133D0046F365 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		1F9A0E3E1E14134F0046F365 /* IriCheckingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IriCheckingViewController.h; sourceTree = "<group>"; };
 		1F9A0E3F1E14134F0046F365 /* IriCheckingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IriCheckingViewController.m; sourceTree = "<group>"; };
+		1FA015B51E1F598000084589 /* UIView+MaterialDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MaterialDesign.h"; sourceTree = "<group>"; };
+		1FA015B61E1F598000084589 /* UIView+MaterialDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MaterialDesign.m"; sourceTree = "<group>"; };
 		1FAA42F41E1E0982007311ED /* ReportStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportStatus.h; sourceTree = "<group>"; };
 		1FAA42F51E1E0982007311ED /* ReportStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportStatus.m; sourceTree = "<group>"; };
 		1FAA42F81E1E0D42007311ED /* ReportController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportController.h; sourceTree = "<group>"; };
@@ -509,6 +512,15 @@
 			name = Input;
 			sourceTree = "<group>";
 		};
+		1FA015B41E1F597200084589 /* MDMaterialDesign */ = {
+			isa = PBXGroup;
+			children = (
+				1FA015B51E1F598000084589 /* UIView+MaterialDesign.h */,
+				1FA015B61E1F598000084589 /* UIView+MaterialDesign.m */,
+			);
+			name = MDMaterialDesign;
+			sourceTree = "<group>";
+		};
 		1FAA42F31E1E0972007311ED /* ReportStatus */ = {
 			isa = PBXGroup;
 			children = (
@@ -746,6 +758,7 @@
 		BCF4CBCD1E10D5AB009DA7DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1FA015B41E1F597200084589 /* MDMaterialDesign */,
 				1FB655BA1E1D81B50047226A /* BFPaperButton */,
 				BC818E021E1D232F00636A03 /* BtRippleAction */,
 				1F6805AA1E1C0BB600710DC1 /* VCFloatingActionButton */,
@@ -1269,6 +1282,7 @@
 				BCC405391DD0A00E00E313F7 /* ViewController.m in Sources */,
 				1FAA42F61E1E0982007311ED /* ReportStatus.m in Sources */,
 				1F0766901E1822B500A22F2E /* DataTypeItemDb+CoreDataProperties.m in Sources */,
+				1FA015B71E1F598000084589 /* UIView+MaterialDesign.m in Sources */,
 				BCF4CC281E10D6B5009DA7DF /* AFURLSessionManager.m in Sources */,
 				BCAC48461E12748700E3D01C /* UIImage+WebP.m in Sources */,
 				1F6ACF7D1E18A96800AE0D54 /* ICHObjectPrinter.m in Sources */,

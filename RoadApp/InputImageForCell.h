@@ -8,16 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "InputImageCell.h"
+#import "BFPaperButton.h"
 
 @protocol InputImageForCellDelegare <NSObject>
 -(void) doneAddImage:(NSMutableArray *) dataListArr withUUID:(NSString *)UUID;
 @end
 
-@interface InputImageForCell : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, UIImagePickerControllerDelegate, InputImageDelegare, UIImagePickerControllerDelegate>
+@interface InputImageForCell : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, InputImageDelegare, UIImagePickerControllerDelegate, UINavigationControllerDelegate, BFPagerButtonDelegate>
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImg;
 @property (nonatomic) NSMutableArray *data;
 @property (nonatomic) NSString *UUID;
-@property (weak, nonatomic) IBOutlet UIButton *btBack;
+@property (weak, nonatomic) IBOutlet BFPaperButton *btBack;
 - (void) initImagePanelWithData:(NSMutableArray *)dataList;
 - (IBAction)dismissView:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *tfIntro;

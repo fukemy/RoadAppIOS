@@ -39,6 +39,7 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+
     firstLocationUpdate = NO;
     [self setTitle:_dataItemModel.ItemName];
     [self initGoogleMap];
@@ -350,6 +351,10 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 }
 
 -(void)didEndAnimationClick{
+    [self saveData:_btSave];
+}
+
+- (void)doneButton:(id)sender{
     [self.view endEditing:YES];
     DataTypeItemModel *model = [dataList objectAtIndex:currentEdit];
     if(focusedTextfield) {
@@ -371,10 +376,6 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
         }
     }
     [dataList replaceObjectAtIndex:currentEdit withObject:model];
-}
-
-- (void)doneButton:(id)sender{
-    
 }
 
 - (void)cancelButton{

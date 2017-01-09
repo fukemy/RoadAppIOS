@@ -134,7 +134,7 @@
 }
 
 - (void) switchToFirstPage{
-    [_pager setCurrentPage:0 animated:YES];
+    [_pager setCurrentPage:0 animated:NO];
 }
 
 #pragma mark - SlideNavigationController Methods -

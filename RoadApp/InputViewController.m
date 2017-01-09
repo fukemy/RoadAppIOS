@@ -487,15 +487,15 @@ static int const LYTRINH_TEXTFIELD_INPUT_TAG = 4;
 }
 
 - (IBAction)saveData:(id)sender {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
-                                                                   message:@"Click OK to finish, dismiss to cancel action."
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:APP_NAME
+                                                                   message:ENSURE_ACCEPT_INPUT
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               
                                                               if(!currentLocation){
-                                                                  [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!" atViewController:self];
+                                                                  [Utilities showSimpleAlert:CAN_NOT_FIND_LOCATION atViewController:self];
                                                                   return;
                                                               }else{
                                                                   for(int i = 0; i < dataList.count; i++){

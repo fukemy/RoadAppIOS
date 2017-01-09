@@ -30,6 +30,7 @@ static int const REPORT_CONTENT_TAG = 3;
     NSMutableArray *dataList, *imageList;
     int currentEdit;
     CLLocationManager *locationManager;
+    BOOL isSuccessData;
 }
 
 @end
@@ -361,12 +362,7 @@ static int const REPORT_CONTENT_TAG = 3;
     locationManager.delegate = nil;
     [locationManager stopUpdatingLocation];
     NSLog(@"didFailWithError: %@", error);
-    UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                         message:@"Failed to Get Your Location"
-                                                         delegate:nil
-                                            cancelButtonTitle:@"OK"
-                                            otherButtonTitles:nil];
-    [errorAlert show];
+    [Utilities showSimpleAlert:CAN_NOT_FIND_LOCATION atViewController:self];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation
@@ -473,7 +469,7 @@ static int const REPORT_CONTENT_TAG = 3;
     }
     
     if(!itemModel.KinhDo || !itemModel.ViDo){
-        [Utilities showSimpleAlert:@"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!" atViewController:self];
+        [Utilities showSimpleAlert:CAN_NOT_FIND_LOCATION atViewController:self];
         NSIndexPath *currentIndexPath = [NSIndexPath indexPathForRow:index inSection:0];
         ReportForInputViewCell *cell = (ReportForInputViewCell *)[_cvReport cellForItemAtIndexPath:currentIndexPath];
         [_cvReport scrollToItemAtIndexPath:currentIndexPath atScrollPosition:UICollectionViewScrollPositionCenteredVertically animated:YES];
@@ -484,52 +480,51 @@ static int const REPORT_CONTENT_TAG = 3;
 }
 
 - (IBAction)saveData:(id)sender {
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@"Warning!"
-                                                                   message:@"Click OK to finish, dismiss to cancel action."
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:APP_NAME
+                                                                   message:ENSURE_ACCEPT_INPUT
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
                                                           handler:^(UIAlertAction * action) {
                                                               
-                                                              
-                                                                  for(int i = 0; i < dataList.count; i++){
-                                                                      DataTypeItemModel *model = [dataList objectAtIndex:i];
-                                                                      if(![self checkValidateInput:model atIndex:i])
-                                                                          return;
-                                                                      model.DanhGia = REPORT;
-                                                                      model.MaDuong = -1;
-                                                                      model.TuyenSo = -1;
-                                                                      model.DataType = -1;
-                                                                      model.ItemName = REPORT;
-                                                                      
-                                                                      NSData *choosenRoad = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
-                                                                      NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];
-                                                                      RoadInformationModel *roadModel = [[RoadInformationModel alloc] initWithDictionary:dictionary];
-                                                                      model.TenDuong = roadModel.TenDuong;
-                                                                      
-                                                                      for(NSMutableDictionary *imgDict in imageList){
-                                                                          NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
-                                                                          for(NSMutableDictionary *dict in arrImg){
-                                                                              if([[imgDict objectForKey:@"UUID"] isEqualToString:model.DataID]){
-                                                                                  ImageModel *imageModel = [[ImageModel alloc] init];
-                                                                                  imageModel.DataID = [imgDict objectForKey:@"UUID"];
-                                                                                  imageModel.ImageName = [dict objectForKey:@"path"];
-                                                                                  imageModel.ImageDataByte = @"";
-                                                                                  [ImageDb saveImageModel:imageModel];
-                                                                              }
+                                                              isSuccessData = YES;
+                                                              for(int i = 0; i < dataList.count; i++){
+                                                                  DataTypeItemModel *model = [dataList objectAtIndex:i];
+                                                                  if(![self checkValidateInput:model atIndex:i]){
+                                                                      isSuccessData = NO;
+                                                                      return;
+                                                                  }
+                                                                  model.DanhGia = REPORT;
+                                                                  model.MaDuong = -1;
+                                                                  model.TuyenSo = -1;
+                                                                  model.DataType = -1;
+                                                                  model.ItemName = REPORT;
+                                                                  
+                                                                  NSData *choosenRoad = [[NSUserDefaults standardUserDefaults] objectForKey:ROAD_CHOOSEN];
+                                                                  NSDictionary *dictionary = [NSKeyedUnarchiver unarchiveObjectWithData:choosenRoad];
+                                                                  RoadInformationModel *roadModel = [[RoadInformationModel alloc] initWithDictionary:dictionary];
+                                                                  model.TenDuong = roadModel.TenDuong;
+                                                                  
+                                                                  for(NSMutableDictionary *imgDict in imageList){
+                                                                      NSMutableArray *arrImg = [imgDict objectForKey:@"imageData"];
+                                                                      for(NSMutableDictionary *dict in arrImg){
+                                                                          if([[imgDict objectForKey:@"UUID"] isEqualToString:model.DataID]){
+                                                                              ImageModel *imageModel = [[ImageModel alloc] init];
+                                                                              imageModel.DataID = [imgDict objectForKey:@"UUID"];
+                                                                              imageModel.ImageName = [dict objectForKey:@"path"];
+                                                                              imageModel.ImageDataByte = @"";
+                                                                              [ImageDb saveImageModel:imageModel];
                                                                           }
                                                                       }
-                                                                      
-                                                                      [DataTypeItemDb saveDataTypeItem:model];
-                                                                      
-                                                                      //chua check xem  co insert ca 2 thanh cong hay ko
-                                                                      [self doneSaveData];
                                                                   }
+                                                                  
+                                                                  
+                                                                  [DataTypeItemDb saveDataTypeItem:model];
+                                                              }
                                                               
                                                               
-                                                              
-                                                              
-                                                              [self.navigationController popViewControllerAnimated:YES];
+                                                              if(isSuccessData)
+                                                               [self doneSaveData];
                                                           }];
     
     UIAlertAction* cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault
@@ -542,7 +537,8 @@ static int const REPORT_CONTENT_TAG = 3;
 }
 
 - (void) doneSaveData{
-//    [self initData];
+    isSuccessData = YES;
+    [self initData];
     MainScreen *mainScreen = (MainScreen* )[[self parentViewController] parentViewController];
     [mainScreen switchToFirstPage];
 }

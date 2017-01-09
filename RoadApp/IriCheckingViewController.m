@@ -15,7 +15,10 @@
 
 @interface IriCheckingViewController (){
     BEMSimpleLineGraphView *myGraph;
+    UIView *bgEffectView;
     NSMutableArray *blData;
+    UITextField *tfBlueToothState;
+    UIActivityIndicatorView *indicator;
     int i;
 }
 
@@ -32,16 +35,16 @@
     _data = [[NSMutableData alloc] init];
     blData = [[NSMutableArray alloc] init];
     
-    myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, 84, self.view.frame.size.width, 300)];
-    myGraph.enableBezierCurve = YES;
+    myGraph = [[BEMSimpleLineGraphView alloc] initWithFrame:CGRectMake(0, self.mapView.frame.size.height, self.view.frame.size.width, 300)];
+    myGraph.enableBezierCurve = NO;
     myGraph.dataSource = self;
     myGraph.delegate = self;
     myGraph.labelFont = [UIFont systemFontOfSize:13];
-    myGraph.backgroundColor = [UIColor colorWithRed:190/255.0 green:218/255.0 blue:246/255.0 alpha:1];
+    myGraph.backgroundColor = [UIColor clearColor];
     myGraph.colorTop = [UIColor whiteColor];
-    myGraph.colorBottom = [UIColor colorWithRed:190/255.0 green:218/255.0 blue:246/255.0 alpha:1];
+    myGraph.colorBottom = [UIColor clearColor];
     myGraph.colorLine = [UIColor colorWithRed:124/255.0 green:181/255.0 blue:236/255.0 alpha:1];
-    myGraph.colorPoint = [UIColor colorWithRed:124/255.0 green:181/255.0 blue:236/255.0 alpha:1];
+    myGraph.colorPoint = [UIColor clearColor];
     myGraph.widthLine = 1;
     myGraph.sizePoint = 0;
     myGraph.alwaysDisplayDots = NO;
@@ -49,23 +52,26 @@
     myGraph.colorXaxisLabel = [UIColor lightGrayColor];
     myGraph.colorBackgroundXaxis = [UIColor clearColor];
     myGraph.enableYAxisLabel = YES;
-    myGraph.colorYaxisLabel = [UIColor redColor];
+    myGraph.colorYaxisLabel = [UIColor blackColor];
     myGraph.colorBackgroundYaxis = [UIColor clearColor];
-    myGraph.enableReferenceYAxisLines = YES;
+    myGraph.enableReferenceYAxisLines = NO;
     myGraph.colorReferenceLines = [UIColor lightGrayColor];
     myGraph.enableLeftReferenceAxisFrameLine = NO;
-    myGraph.enablePopUpReport = YES;
-    myGraph.enableReferenceAxisFrame = YES;
+    myGraph.enablePopUpReport = NO;
+    myGraph.enableReferenceAxisFrame = NO;
     myGraph.animationGraphStyle = BEMLineAnimationNone;
     [self.view addSubview:myGraph];
+    [myGraph setHidden:YES];
+    
+    [_indicator startAnimating];
+    
 }
-//- (NSInteger)numberOfGapsBetweenLabelsOnLineGraph:(BEMSimpleLineGraphView *)graph {
-//    return 1;
-//}
-//
-//- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
-//   return [blData objectAtIndex:index];
-//}
+
+
+
+- (NSString *)lineGraph:(BEMSimpleLineGraphView *)graph labelOnXAxisForIndex:(NSInteger)index {
+    return [NSString stringWithFormat:@"%d", (int)index];
+}
 
 - (NSInteger)numberOfPointsInLineGraph:(BEMSimpleLineGraphView *)graph{
     return blData.count;
@@ -164,7 +170,7 @@
 //    [SVProgressHUD dismiss];
     [_centralManager stopScan];
     NSLog(@"Scanning stopped: %@", peripheral.services);
-    
+    [bgEffectView removeFromSuperview];
 //    [Utilities showToast:@"Conected to THEHEGEO"];
     [_data setLength:0];
     
@@ -177,6 +183,7 @@
         [peripheral discoverServices:nil];
     }
 }
+
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverServices:(NSError *)error {
     if (error) {
@@ -201,9 +208,7 @@
     
     i = 0;
     for (CBCharacteristic *characteristic in service.characteristics) {
-//        if ([characteristic.UUID isEqual:[CBUUID UUIDWithString:TRANSFER_CHARACTERISTIC_UUID]]) {
-            [peripheral setNotifyValue:YES forCharacteristic:characteristic];
-//        }
+        [peripheral setNotifyValue:YES forCharacteristic:characteristic];
     }
 }
 
@@ -213,6 +218,8 @@
         return;
     }
     
+    if(myGraph.isHidden == YES)
+        [myGraph setHidden:NO];
     @try{
         i++;
         NSString *stringFromData = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];

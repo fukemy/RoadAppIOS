@@ -60,7 +60,8 @@
 #define GOOGLEMAP_KEY @"AIzaSyCbee2MxY3noVIKenWbHyLOobYplT9xNRo"
 #define INTRO_IMAGE @"Một chỉ mục tuần đường tương ứng sẽ có giới hạn 4 ảnh."
 #define CONCEPT @"Nhấn add image (+) để thêm ảnh bằng cách chụp hoặc chọn từ thư viện, nhấn vào ảnh và giữ để hiển thị xoá, nhấn cancel để huỷ và nhấn Back để kết thúc bước nhập ảnh."
-
+#define CAN_NOT_FIND_LOCATION @"Hệ thống không định vị được vị trí của bạn, thử ấn vào tìm vị trí trên bản đồ trước!"
+#define ENSURE_ACCEPT_INPUT @"Bạn có chắc chắn đã hoàn thiện phần nhập dữ liệu?"
 
 #define BACK @"Quay lại"
 #define CANCEL @"Huỷ"

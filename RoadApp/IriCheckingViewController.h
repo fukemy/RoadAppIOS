@@ -10,9 +10,14 @@
 #import "SlideNavigationController.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "BEMSimpleLineGraphView.h"
+#import <GoogleMaps/GoogleMaps.h>
+
 
 @interface IriCheckingViewController : UIViewController <SlideNavigationControllerDelegate, CBCentralManagerDelegate, CBPeripheralDelegate, BEMSimpleLineGraphDataSource, BEMSimpleLineGraphDelegate>
 @property (strong, nonatomic) CBCentralManager *centralManager;
 @property (strong, nonatomic) CBPeripheral *discoveredPeripheral;
 @property (strong, nonatomic) NSMutableData *data;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
+@property (weak, nonatomic) IBOutlet UILabel *lbIndicator;
 @end

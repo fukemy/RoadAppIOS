@@ -96,4 +96,14 @@
 #pragma mark - other
 #define NO_DATA @"Chưa cập nhập."
 
+
+#pragma mark - YOUTUBE
+#define YOUTUBE_VIDEO_ID @"youtube video id"
+#define YOUTUBE_VIDEO_VIDEO_TITLE @"youtube video title"
+#define YOUTUBE_VIDEO_CHANNEL_TITLE @"youtube video channel title"
+#define YOUTUBE_VIDEO_VIDEO_DESCRIPTION @"youtube video description"
+#define YOUTUBE_VIDEO_THUMBNAIL @"youtube video thumb"
+#define GETTING_YOUTUBE_VIDEO @"Đang tải danh sách video..."
+
+
 #endif /* Constant_h */

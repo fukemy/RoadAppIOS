@@ -51,6 +51,7 @@
 		1FAA42FA1E1E0D42007311ED /* ReportController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAA42F91E1E0D42007311ED /* ReportController.m */; };
 		1FAB5CC01E11943700999597 /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FAB5CBF1E11943700999597 /* Utilities.m */; };
 		1FB655BD1E1D81C40047226A /* BFPaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FB655BC1E1D81C40047226A /* BFPaperButton.m */; };
+		1FEA1DFF1E23E6CB00806DDF /* YoutubeHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FEA1DFE1E23E6CB00806DDF /* YoutubeHelper.m */; };
 		4A66653FE4B67DB48C6F8E9F /* libPods-RoadApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED178BA93730CEEB087E67FE /* libPods-RoadApp.a */; };
 		AF9C4BCD3B00D53D7736ACD4 /* libPods-RoadAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19C9463489FF644195EB455D /* libPods-RoadAppUITests.a */; };
 		BC818E051E1D233F00636A03 /* btRippleButtton.m in Sources */ = {isa = PBXBuildFile; fileRef = BC818E041E1D233F00636A03 /* btRippleButtton.m */; };
@@ -221,6 +222,8 @@
 		1FAB5CBF1E11943700999597 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		1FB655BB1E1D81C40047226A /* BFPaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFPaperButton.h; sourceTree = "<group>"; };
 		1FB655BC1E1D81C40047226A /* BFPaperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BFPaperButton.m; sourceTree = "<group>"; };
+		1FEA1DFD1E23E6CB00806DDF /* YoutubeHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeHelper.h; sourceTree = "<group>"; };
+		1FEA1DFE1E23E6CB00806DDF /* YoutubeHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeHelper.m; sourceTree = "<group>"; };
 		26EC6FA8A1714C7DCAACDD83 /* Pods-RoadAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadAppTests/Pods-RoadAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		307843C4FB4E62C30162267D /* Pods-RoadAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoadAppUITests/Pods-RoadAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6C21726CF47A1DE39211A992 /* Pods-RoadApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoadApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoadApp/Pods-RoadApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -481,6 +484,8 @@
 			children = (
 				1F9A0E071E1407A00046F365 /* VideoViewController.h */,
 				1F9A0E081E1407A00046F365 /* VideoViewController.m */,
+				1FEA1DFD1E23E6CB00806DDF /* YoutubeHelper.h */,
+				1FEA1DFE1E23E6CB00806DDF /* YoutubeHelper.m */,
 			);
 			name = Video;
 			sourceTree = "<group>";
@@ -1263,6 +1268,7 @@
 				BCF4CC241E10D6B5009DA7DF /* AFSecurityPolicy.m in Sources */,
 				BCAC480B1E1262EF00E3D01C /* SlideNavigationContorllerAnimatorSlide.m in Sources */,
 				BCF4CC911E113245009DA7DF /* KDViewPager.m in Sources */,
+				1FEA1DFF1E23E6CB00806DDF /* YoutubeHelper.m in Sources */,
 				BCF4CC231E10D6B5009DA7DF /* AFNetworkReachabilityManager.m in Sources */,
 				BCAC483B1E12748700E3D01C /* MKAnnotationView+WebCache.m in Sources */,
 				BCF4CC9E1E113AF6009DA7DF /* RoadTestPageController.m in Sources */,
